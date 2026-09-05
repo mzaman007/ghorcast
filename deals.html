@@ -13,8 +13,7 @@
     <meta name="description"
           content="Discover special hotel deals, discounts and travel offers on GhorCast.">
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -22,58 +21,40 @@
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header class="header">
 
     <div class="container nav-container">
 
-        <a href="index.html"
-           class="logo">
-
+        <a href="index.html" class="logo">
             <span>Ghor</span><strong>Cast</strong>
-
         </a>
 
 
         <nav class="navigation">
 
-            <a href="hotels.html">
-                Hotels
-            </a>
+            <a href="hotels.html">Hotels</a>
 
-            <a href="deals.html">
-                Deals
-            </a>
+            <a href="deals.html">Deals</a>
 
-            <a href="destinations.html">
-                Destinations
-            </a>
+            <a href="destinations.html">Destinations</a>
 
-            <a href="news.html">
-                News
-            </a>
+            <a href="news.html">News</a>
 
-            <a href="articles.html">
-                Articles
-            </a>
+            <a href="articles.html">Articles</a>
 
-            <a href="products.html">
-                Products
-            </a>
+            <a href="products.html">Products</a>
 
-            <a href="videos.html">
-                Videos
-            </a>
+            <a href="videos.html">Videos</a>
 
         </nav>
 
 
-        <button class="menu-button"
-                id="menuButton">
-
+        <button class="menu-button" id="menuButton">
             ☰
-
         </button>
 
     </div>
@@ -82,47 +63,39 @@
 
 
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero"
-         style="
-         min-height:480px;
-         background-image:
-         linear-gradient(
-         rgba(0,0,0,0.55),
-         rgba(0,0,0,0.55)
-         ),
-         url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85');
-         background-size:cover;
-         background-position:center;
-         ">
-
+    style="
+    min-height:480px;
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85');
+    background-size:cover;
+    background-position:center;
+    ">
 
     <div class="container hero-content">
 
-
         <p class="hero-small-title">
-
             GHORCAST SPECIAL OFFERS
-
         </p>
 
 
         <h1>
-
             Discover Great<br>
-
             <span>Hotel Deals</span>
-
         </h1>
 
 
         <p class="hero-description">
-
-            Find attractive hotel offers and
-            discover comfortable stays at
-            selected destinations.
-
+            Find attractive hotel offers and discover
+            comfortable stays at selected destinations.
         </p>
 
 
@@ -138,14 +111,15 @@
 
         </a>
 
-
     </div>
 
 </section>
 
 
 
-<!-- DEALS -->
+<!-- =========================================================
+     DEALS
+========================================================= -->
 
 <section class="section">
 
@@ -157,16 +131,11 @@
             <div>
 
                 <p class="eyebrow">
-
                     TODAY'S OFFERS
-
                 </p>
 
-
                 <h2>
-
                     Featured Hotel Deals
-
                 </h2>
 
             </div>
@@ -178,11 +147,11 @@
         <div class="card-grid">
 
 
-
-            <!-- DEAL 1 -->
+            <!-- =================================================
+                 DEAL 1
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -190,45 +159,27 @@
                      url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         20% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Dubai, UAE
-
                     </p>
 
-
                     <h3>
-
                         Luxury Grand Hotel
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.8
-
-                        </span>
-
+                        <span>4.8</span>
                     </div>
 
 
@@ -238,16 +189,13 @@
                     margin:12px 0;
                     ">
 
-                        Enjoy a premium stay
-                        with a special GhorCast
-                        promotional offer.
+                        Enjoy a premium stay with a
+                        special GhorCast promotional offer.
 
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -274,26 +222,20 @@
 
                     <div class="card-footer">
 
-
                         <strong>
-
                             Save 20%
-
                         </strong>
 
 
                         <button
-                        onclick="
-                        showDeal(
-                        'Luxury Grand Hotel',
-                        'Dubai, UAE',
-                        '$96/night'
-                        )">
+                            class="deal-button"
+                            data-hotel="Luxury Grand Hotel"
+                            data-location="Dubai, UAE"
+                            data-price="$96/night">
 
                             View Deal
 
                         </button>
-
 
                     </div>
 
@@ -303,10 +245,11 @@
 
 
 
-            <!-- DEAL 2 -->
+            <!-- =================================================
+                 DEAL 2
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -314,45 +257,28 @@
                      url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         15% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Makkah, Saudi Arabia
-
                     </p>
 
 
                     <h3>
-
                         Royal View Hotel
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.7
-
-                        </span>
-
+                        <span>4.7</span>
                     </div>
 
 
@@ -362,16 +288,13 @@
                     margin:12px 0;
                     ">
 
-                        A comfortable hotel
-                        option for visitors
-                        to Makkah.
+                        A comfortable hotel option
+                        for visitors to Makkah.
 
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -398,26 +321,20 @@
 
                     <div class="card-footer">
 
-
                         <strong>
-
                             Save 15%
-
                         </strong>
 
 
                         <button
-                        onclick="
-                        showDeal(
-                        'Royal View Hotel',
-                        'Makkah, Saudi Arabia',
-                        '$80.75/night'
-                        )">
+                            class="deal-button"
+                            data-hotel="Royal View Hotel"
+                            data-location="Makkah, Saudi Arabia"
+                            data-price="$80.75/night">
 
                             View Deal
 
                         </button>
-
 
                     </div>
 
@@ -427,10 +344,11 @@
 
 
 
-            <!-- DEAL 3 -->
+            <!-- =================================================
+                 DEAL 3 - OCEAN PARADISE
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -438,45 +356,28 @@
                      url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         25% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Cox's Bazar, Bangladesh
-
                     </p>
 
 
                     <h3>
-
                         Ocean Paradise Resort
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.6
-
-                        </span>
-
+                        <span>4.6</span>
                     </div>
 
 
@@ -486,16 +387,13 @@
                     margin:12px 0;
                     ">
 
-                        Enjoy a relaxing
-                        beach holiday at
-                        Cox's Bazar.
+                        Enjoy a relaxing beach holiday
+                        at Cox's Bazar.
 
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -522,19 +420,22 @@
 
                     <div class="card-footer">
 
-                     <strong>
-                     Save 25%
-                       </strong>
+                        <strong>
+                            Save 25%
+                        </strong>
 
-                    <button
-                    onclick="showDeal('Ocean Paradise Resort', 'Cox&#39;s Bazar, Bangladesh', '$52.50/night')">
 
-                    
-                        View Deal
+                        <button
+                            class="deal-button"
+                            data-hotel="Ocean Paradise Resort"
+                            data-location="Cox's Bazar, Bangladesh"
+                            data-price="$52.50/night">
 
-                    </button>
+                            View Deal
 
-</div>
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -542,10 +443,11 @@
 
 
 
-            <!-- DEAL 4 -->
+            <!-- =================================================
+                 DEAL 4
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -553,45 +455,28 @@
                      url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         18% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Istanbul, Turkey
-
                     </p>
 
 
                     <h3>
-
                         Istanbul Grand Stay
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.7
-
-                        </span>
-
+                        <span>4.7</span>
                     </div>
 
 
@@ -601,15 +486,13 @@
                     margin:12px 0;
                     ">
 
-                        Discover a comfortable
-                        stay in beautiful Istanbul.
+                        Discover a comfortable stay
+                        in beautiful Istanbul.
 
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -636,26 +519,20 @@
 
                     <div class="card-footer">
 
-
                         <strong>
-
                             Save 18%
-
                         </strong>
 
 
                         <button
-                        onclick="
-                        showDeal(
-                        'Istanbul Grand Stay',
-                        'Istanbul, Turkey',
-                        '$69.70/night'
-                        )">
+                            class="deal-button"
+                            data-hotel="Istanbul Grand Stay"
+                            data-location="Istanbul, Turkey"
+                            data-price="$69.70/night">
 
                             View Deal
 
                         </button>
-
 
                     </div>
 
@@ -665,10 +542,11 @@
 
 
 
-            <!-- DEAL 5 -->
+            <!-- =================================================
+                 DEAL 5
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -676,45 +554,28 @@
                      url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         10% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Abu Dhabi, UAE
-
                     </p>
 
 
                     <h3>
-
                         Abu Dhabi Palace Hotel
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.8
-
-                        </span>
-
+                        <span>4.8</span>
                     </div>
 
 
@@ -724,16 +585,13 @@
                     margin:12px 0;
                     ">
 
-                        Modern hospitality,
-                        premium rooms and
-                        convenient facilities.
+                        Modern hospitality, premium rooms
+                        and convenient facilities.
 
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -760,26 +618,20 @@
 
                     <div class="card-footer">
 
-
                         <strong>
-
                             Save 10%
-
                         </strong>
 
 
                         <button
-                        onclick="
-                        showDeal(
-                        'Abu Dhabi Palace Hotel',
-                        'Abu Dhabi, UAE',
-                        '$99/night'
-                        )">
+                            class="deal-button"
+                            data-hotel="Abu Dhabi Palace Hotel"
+                            data-location="Abu Dhabi, UAE"
+                            data-price="$99/night">
 
                             View Deal
 
                         </button>
-
 
                     </div>
 
@@ -789,10 +641,11 @@
 
 
 
-            <!-- DEAL 6 -->
+            <!-- =================================================
+                 DEAL 6
+            ================================================== -->
 
             <article class="hotel-card">
-
 
                 <div class="card-image"
                      style="
@@ -800,45 +653,28 @@
                      url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80');
                      ">
 
-
                     <span class="card-badge">
-
                         12% OFF
-
                     </span>
-
 
                 </div>
 
 
-
                 <div class="card-content">
 
-
                     <p class="location">
-
                         📍 Madinah, Saudi Arabia
-
                     </p>
 
 
                     <h3>
-
                         Madinah Comfort Hotel
-
                     </h3>
 
 
                     <div class="rating">
-
                         ★★★★★
-
-                        <span>
-
-                            4.8
-
-                        </span>
-
+                        <span>4.8</span>
                     </div>
 
 
@@ -854,9 +690,7 @@
                     </p>
 
 
-                    <div style="
-                    margin:15px 0;
-                    ">
+                    <div style="margin:15px 0;">
 
                         <span style="
                         text-decoration:line-through;
@@ -883,26 +717,20 @@
 
                     <div class="card-footer">
 
-
                         <strong>
-
                             Save 12%
-
                         </strong>
 
 
                         <button
-                        onclick="
-                        showDeal(
-                        'Madinah Comfort Hotel',
-                        'Madinah, Saudi Arabia',
-                        '$79.20/night'
-                        )">
+                            class="deal-button"
+                            data-hotel="Madinah Comfort Hotel"
+                            data-location="Madinah, Saudi Arabia"
+                            data-price="$79.20/night">
 
                             View Deal
 
                         </button>
-
 
                     </div>
 
@@ -919,38 +747,30 @@
 
 
 
-<!-- CTA -->
+<!-- =========================================================
+     CALL TO ACTION
+========================================================= -->
 
 <section class="deals-section">
 
     <div class="container">
 
-
         <div class="deal-content">
 
-
             <p class="eyebrow">
-
                 PLAN YOUR STAY
-
             </p>
 
 
             <h2>
-
                 Find Your Next<br>
-
                 <span>Great Hotel</span>
-
             </h2>
 
 
             <p>
-
-                Explore our hotel collection
-                and discover accommodation
-                for your next journey.
-
+                Explore our hotel collection and discover
+                accommodation for your next journey.
             </p>
 
 
@@ -965,22 +785,17 @@
 
             </a>
 
-
         </div>
-
 
 
         <div class="deal-visual">
 
             <div class="deal-circle">
-
                 HOTEL<br>
                 DEALS
-
             </div>
 
         </div>
-
 
     </div>
 
@@ -988,32 +803,27 @@
 
 
 
-<!-- NEWSLETTER -->
+<!-- =========================================================
+     NEWSLETTER
+========================================================= -->
 
 <section class="newsletter">
 
     <div class="container">
 
-
         <p class="eyebrow">
-
             GHORCAST NEWSLETTER
-
         </p>
 
 
         <h2>
-
             Never miss a great deal.
-
         </h2>
 
 
         <p>
-
             Subscribe for hotel offers,
             travel stories and useful updates.
-
         </p>
 
 
@@ -1027,9 +837,7 @@
 
 
             <button type="submit">
-
                 Subscribe
-
             </button>
 
         </form>
@@ -1040,7 +848,9 @@
 
 
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer class="footer">
 
@@ -1058,10 +868,8 @@
 
 
             <p>
-
                 Hotels, travel, news,
                 stories, products and experiences.
-
             </p>
 
         </div>
@@ -1151,18 +959,14 @@
 
         </div>
 
-
     </div>
-
 
 
     <div class="footer-bottom">
 
         <p>
-
             © 2026 GhorCast.
             All rights reserved.
-
         </p>
 
     </div>
@@ -1171,55 +975,62 @@
 
 
 
-<!-- JAVASCRIPT -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
 
-/* DEAL BUTTON */
+/* =========================================================
+   DEAL BUTTONS
+========================================================= */
 
-function showDeal(
-    hotelName,
-    location,
-    price
-) {
-
-    alert(
-
-        hotelName +
-
-        "\n" +
-
-        location +
-
-        "\n\n" +
-
-        "Special price: " +
-
-        price +
-
-        "\n\n" +
-
-        "Online booking will be connected to GhorCast soon."
-
-    );
-
-}
+const dealButtons =
+    document.querySelectorAll(".deal-button");
 
 
+dealButtons.forEach(function(button) {
 
-/* MOBILE MENU */
+    button.addEventListener("click", function() {
+
+        const hotel =
+            button.getAttribute("data-hotel");
+
+        const location =
+            button.getAttribute("data-location");
+
+        const price =
+            button.getAttribute("data-price");
+
+
+        alert(
+            hotel +
+            "\n" +
+            location +
+            "\n\n" +
+            "Special price: " +
+            price +
+            "\n\n" +
+            "Online booking will be connected to GhorCast soon."
+        );
+
+    });
+
+});
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+    document.getElementById("menuButton");
 
 
 const navigation =
-    document.querySelector(
-        ".navigation"
-    );
+    document.querySelector(".navigation");
 
 
 if (menuButton) {
@@ -1229,17 +1040,14 @@ if (menuButton) {
         function() {
 
             if (
-                navigation.style.display ===
-                "flex"
+                navigation.style.display === "flex"
             ) {
 
-                navigation.style.display =
-                    "";
+                navigation.style.display = "";
 
             } else {
 
-                navigation.style.display =
-                    "flex";
+                navigation.style.display = "flex";
 
                 navigation.style.flexDirection =
                     "column";
@@ -1274,12 +1082,12 @@ if (menuButton) {
 
 
 
-/* NEWSLETTER */
+/* =========================================================
+   NEWSLETTER
+========================================================= */
 
 const newsletterForm =
-    document.querySelector(
-        ".newsletter-form"
-    );
+    document.querySelector(".newsletter-form");
 
 
 if (newsletterForm) {
@@ -1290,9 +1098,11 @@ if (newsletterForm) {
 
             event.preventDefault();
 
+
             alert(
                 "Thank you for subscribing to GhorCast!"
             );
+
 
             newsletterForm.reset();
 
