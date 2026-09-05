@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Articles | GhorCast</title>
+
+    <meta name="description"
+          content="Read travel guides, hotel guides, destination ideas and useful travel tips on GhorCast.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =====================================================
+           GHORCAST ARTICLES PAGE
+           ===================================================== */
+
+        .articles-page {
+            background: #f7f7f7;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .articles-page .page-hero {
+
+            background:
+                linear-gradient(
+                    rgba(23, 33, 43, 0.88),
+                    rgba(23, 33, 43, 0.88)
+                ),
+                url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80")
+                center / cover;
+
+        }
+
+
+        /* ================= ARTICLES SECTION ================= */
+
+        .articles-section {
+
+            padding: 70px 20px;
+
+        }
+
+        .articles-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .articles-search {
+
+            max-width: 850px;
+
+            margin: 0 auto 55px;
+
+            display: flex;
+
+            gap: 12px;
+
+            background: #ffffff;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.10);
+
+        }
+
+        .articles-search input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            border: none;
+
+            outline: none;
+
+            padding: 15px 18px;
+
+            font-size: 16px;
+
+        }
+
+        .articles-search button {
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 0 28px;
+
+            background: #c99a45;
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+        .articles-search button:hover {
+
+            background: #b58634;
+
+        }
+
+
+        /* ================= HEADING ================= */
+
+        .articles-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+        .articles-heading h2 {
+
+            margin: 0 0 12px;
+
+            color: #17212b;
+
+            font-size: 38px;
+
+        }
+
+        .articles-heading p {
+
+            margin: 0;
+
+            color: #777;
+
+            font-size: 17px;
+
+        }
+
+
+        /* ================= GRID ================= */
+
+        .articles-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 30px;
+
+            align-items: stretch;
+
+        }
+
+
+        /* ================= CARD ================= */
+
+        .article-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            height: 100%;
+
+            min-width: 0;
+
+            background: #ffffff;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid #eeeeee;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+        }
+
+        .article-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.14);
+
+        }
+
+
+        /* ================= IMAGE ================= */
+
+        .article-image {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 230px;
+
+            flex-shrink: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-color: #ddd;
+
+        }
+
+
+        /* ================= CATEGORY ================= */
+
+        .article-category {
+
+            position: absolute;
+
+            left: 16px;
+
+            top: 16px;
+
+            z-index: 2;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #c99a45;
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ================= CONTENT ================= */
+
+        .article-content {
+
+            display: flex;
+
+            flex-direction: column;
+
+            flex: 1;
+
+            padding: 25px;
+
+        }
+
+        .article-date {
+
+            margin-bottom: 8px;
+
+            color: #999;
+
+            font-size: 13px;
+
+        }
+
+        .article-content h3 {
+
+            margin: 0 0 12px;
+
+            color: #17212b;
+
+            font-size: 22px;
+
+            line-height: 1.4;
+
+        }
+
+        .article-content p {
+
+            flex: 1;
+
+            margin: 0 0 25px;
+
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .read-article {
+
+            align-self: flex-start;
+
+            padding: 11px 19px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #17212b;
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+        .read-article:hover {
+
+            background: #c99a45;
+
+        }
+
+
+        /* ================= NO RESULTS ================= */
+
+        .no-articles {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 40px;
+
+            color: #777;
+
+        }
+
+
+        /* ================= CTA ================= */
+
+        .articles-cta {
+
+            padding: 70px 20px;
+
+            text-align: center;
+
+            background: #17212b;
+
+            color: #ffffff;
+
+        }
+
+        .articles-cta h2 {
+
+            margin: 0 0 15px;
+
+            font-size: 36px;
+
+        }
+
+        .articles-cta p {
+
+            max-width: 700px;
+
+            margin: 0 auto 28px;
+
+            color: #d9d9d9;
+
+            line-height: 1.7;
+
+        }
+
+        .articles-cta a {
+
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border-radius: 7px;
+
+            background: #c99a45;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+        .articles-cta a:hover {
+
+            background: #b58634;
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 1000px) {
+
+            .articles-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .articles-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .articles-search {
+
+                flex-direction: column;
+
+            }
+
+            .articles-search button {
+
+                padding: 14px;
+
+            }
+
+            .article-image {
+
+                height: 220px;
+
+            }
+
+            .articles-heading h2 {
+
+                font-size: 32px;
+
+            }
+
+            .articles-cta h2 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="articles-page">
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo">
+            GhorCast
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="articles.html" class="active">
+                Articles
+            </a>
+
+            <a href="index.html#products">
+                Products
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-toggle"
+            aria-label="Open menu">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <h1>
+            Travel Articles
+        </h1>
+
+        <p>
+            Discover useful travel guides, destination ideas,
+            hotel tips and inspiration for your next journey.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ARTICLES
+     ===================================================== -->
+
+<section class="articles-section">
+
+    <div class="articles-container">
+
+
+        <!-- SEARCH -->
+
+        <div class="articles-search">
+
+            <input
+                type="text"
+                id="articleSearch"
+                placeholder="Search articles..."
+                aria-label="Search articles"
+            >
+
+            <button onclick="searchArticles()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="articles-heading">
+
+            <h2>
+                Featured Articles
+            </h2>
+
+            <p>
+                Helpful ideas and inspiration for travelers.
+            </p>
+
+        </div>
+
+
+        <div class="articles-grid"
+             id="articlesGrid">
+
+
+            <!-- ARTICLE 1 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        Travel Guide
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        How to Plan the Perfect
+                        International Trip
+                    </h3>
+
+                    <p>
+                        Learn how to choose destinations,
+                        organize your journey and prepare
+                        for a comfortable international trip.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="How to Plan the Perfect International Trip">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ARTICLE 2 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        Hotels
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        How to Choose the Right
+                        Hotel for Your Trip
+                    </h3>
+
+                    <p>
+                        Discover the important things to
+                        consider when selecting a hotel,
+                        including location, facilities and price.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="How to Choose the Right Hotel for Your Trip">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ARTICLE 3 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        Destinations
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Exploring the Best Places
+                        to Visit in Saudi Arabia
+                    </h3>
+
+                    <p>
+                        Explore famous cities, cultural
+                        attractions and memorable travel
+                        experiences across Saudi Arabia.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="Exploring the Best Places to Visit in Saudi Arabia">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ARTICLE 4 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        Bangladesh
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        A Guide to Exploring
+                        Bangladesh
+                    </h3>
+
+                    <p>
+                        Discover beaches, hills, forests,
+                        cities and cultural destinations
+                        across Bangladesh.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="A Guide to Exploring Bangladesh">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ARTICLE 5 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        City Guide
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Things to Know Before
+                        Visiting Dubai
+                    </h3>
+
+                    <p>
+                        Get useful ideas for exploring Dubai,
+                        including attractions, shopping,
+                        hotels and travel experiences.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="Things to Know Before Visiting Dubai">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ARTICLE 6 -->
+
+            <article class="article-card">
+
+                <div
+                    class="article-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="article-category">
+                        Travel Tips
+                    </span>
+
+                </div>
+
+
+                <div class="article-content">
+
+                    <div class="article-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Essential Travel Tips
+                        for First-Time Travelers
+                    </h3>
+
+                    <p>
+                        Simple tips to help first-time
+                        travelers prepare for a smoother
+                        and more enjoyable journey.
+                    </p>
+
+                    <button
+                        class="read-article"
+                        data-article="Essential Travel Tips for First-Time Travelers">
+
+                        Read Article
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div
+            class="no-articles"
+            id="noArticles">
+
+            No articles found.
+            Please try another search.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="articles-cta">
+
+    <div class="container">
+
+        <h2>
+            Find Your Next Destination
+        </h2>
+
+        <p>
+            Explore destinations and find hotels for your
+            next unforgettable journey.
+        </p>
+
+        <a href="destinations.html">
+            Explore Destinations
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+     ===================================================== -->
+
+<section class="newsletter-section">
+
+    <div class="container">
+
+        <h2>
+            Stay Updated
+        </h2>
+
+        <p>
+            Get travel inspiration, useful guides and
+            GhorCast updates.
+        </p>
+
+
+        <form
+            class="newsletter-form"
+            onsubmit="subscribeNewsletter(event)">
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <h3>
+                GhorCast
+            </h3>
+
+            <p>
+                Your growing platform for hotels, travel,
+                news, articles, products and videos.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Content
+            </h4>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                GhorCast
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © <span id="currentYear"></span>
+            GhorCast. All rights reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* ================= MOBILE MENU ================= */
+
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const nav =
+            document.querySelector(".main-nav");
+
+
+        if (menuToggle && nav) {
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    nav.classList.toggle("active");
+
+                }
+            );
+
+        }
+
+
+        /* ================= ARTICLE BUTTONS ================= */
+
+        const buttons =
+            document.querySelectorAll(
+                ".read-article"
+            );
+
+
+        buttons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const title =
+                            this.getAttribute(
+                                "data-article"
+                            );
+
+                        showArticle(title);
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ================= YEAR ================= */
+
+        const year =
+            document.getElementById(
+                "currentYear"
+            );
+
+
+        if (year) {
+
+            year.textContent =
+                new Date().getFullYear();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ARTICLE SEARCH
+   ===================================================== */
+
+function searchArticles() {
+
+    const input =
+        document.getElementById(
+            "articleSearch"
+        );
+
+
+    const search =
+        input.value
+            .toLowerCase()
+            .trim();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".article-card"
+        );
+
+
+    const noArticles =
+        document.getElementById(
+            "noArticles"
+        );
+
+
+    let found = false;
+
+
+    cards.forEach(
+        function (card) {
+
+            const text =
+                card.textContent.toLowerCase();
+
+
+            if (
+                !search ||
+                text.includes(search)
+            ) {
+
+                card.style.display =
+                    "flex";
+
+                found = true;
+
+            } else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    if (noArticles) {
+
+        noArticles.style.display =
+            found
+                ? "none"
+                : "block";
+
+    }
+
+}
+
+
+/* =====================================================
+   ARTICLE DETAILS
+   ===================================================== */
+
+function showArticle(title) {
+
+
+    const descriptions = {
+
+
+        "How to Plan the Perfect International Trip":
+
+            "A useful guide to choosing destinations, preparing your itinerary and organizing an enjoyable international journey.",
+
+
+        "How to Choose the Right Hotel for Your Trip":
+
+            "Learn how location, facilities, reviews and price can help you choose a hotel that matches your travel needs.",
+
+
+        "Exploring the Best Places to Visit in Saudi Arabia":
+
+            "Discover cities, attractions and travel experiences across Saudi Arabia.",
+
+
+        "A Guide to Exploring Bangladesh":
+
+            "Explore the beaches, hills, forests and cultural attractions that make Bangladesh an interesting destination.",
+
+
+        "Things to Know Before Visiting Dubai":
+
+            "Explore useful ideas about attractions, shopping, hotels and experiences in Dubai.",
+
+
+        "Essential Travel Tips for First-Time Travelers":
+
+            "Simple preparation tips for travelers taking their first international or long-distance journey."
+
+    };
+
+
+    alert(
+
+        title +
+        "\\n\\n" +
+        descriptions[title]
+
+    );
+
+}
+
+
+/* =====================================================
+   NEWSLETTER
+   ===================================================== */
+
+function subscribeNewsletter(event) {
+
+    event.preventDefault();
+
+
+    alert(
+        "Thank you for subscribing to GhorCast!"
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
