@@ -2037,3 +2037,215 @@ productCards.forEach(function (card, index) {
     });
 
 });
+// ================= VIDEOS =================
+
+const videoCards =
+    document.querySelectorAll(".video-card");
+
+
+const videoDetails = [
+
+    {
+        title: "Discover Amazing Destinations",
+        channel: "GhorCast Travel",
+        description:
+            "Explore beautiful destinations and get inspiration for your next journey.",
+
+        video:
+            "https://www.youtube.com/embed/ScMzIvxBSi4"
+    },
+
+
+    {
+        title: "Hotel Experience & Review",
+        channel: "GhorCast Hotels",
+        description:
+            "Discover hotel experiences, facilities and useful tips for choosing accommodation.",
+
+        video:
+            "https://www.youtube.com/embed/aqz-KE-bpKQ"
+    }
+
+];
+
+
+// ================= OPEN VIDEO =================
+
+function openVideo(video) {
+
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.88)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box = document.createElement("div");
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "850px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.overflow = "hidden";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.5)";
+
+
+    box.innerHTML = `
+
+        <!-- CLOSE BUTTON -->
+
+        <button id="closeVideo"
+        style="
+            position:absolute;
+            right:15px;
+            top:15px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#ffffff;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+            z-index:5;
+            box-shadow:0 3px 12px rgba(0,0,0,0.3);
+        ">
+            ×
+        </button>
+
+
+        <!-- VIDEO -->
+
+        <div style="
+            width:100%;
+            aspect-ratio:16/9;
+            background:#000000;
+        ">
+
+            <iframe
+                src="${video.video}"
+                title="${video.title}"
+                style="
+                    width:100%;
+                    height:100%;
+                    border:0;
+                "
+                allow="accelerometer; autoplay; clipboard-write;
+                       encrypted-media; gyroscope; picture-in-picture;
+                       web-share"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+
+        <!-- VIDEO INFORMATION -->
+
+        <div style="
+            padding:30px;
+        ">
+
+            <p style="
+                color:#b38a3c;
+                font-weight:bold;
+                letter-spacing:1.5px;
+                font-size:13px;
+                margin:0 0 8px;
+            ">
+                GHORCAST VIDEO
+            </p>
+
+
+            <h2 style="
+                color:#17212b;
+                font-size:28px;
+                margin:0 0 8px;
+            ">
+                ${video.title}
+            </h2>
+
+
+            <p style="
+                color:#777;
+                font-size:14px;
+                margin:0 0 15px;
+            ">
+                🎬 ${video.channel}
+            </p>
+
+
+            <p style="
+                color:#555;
+                line-height:1.7;
+                margin:0;
+            ">
+                ${video.description}
+            </p>
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // ================= CLOSE =================
+
+    box.querySelector("#closeVideo").onclick =
+        function () {
+
+            modal.remove();
+
+        };
+
+
+    // ================= CLOSE OUTSIDE =================
+
+    modal.onclick = function (event) {
+
+        if (event.target === modal) {
+
+            modal.remove();
+
+        }
+
+    };
+
+}
+
+
+// ================= VIDEO BUTTONS =================
+
+videoCards.forEach(function (card, index) {
+
+    card.style.cursor = "pointer";
+
+
+    card.addEventListener("click", function () {
+
+        if (videoDetails[index]) {
+
+            openVideo(
+                videoDetails[index]
+            );
+
+        }
+
+    });
+
+});
