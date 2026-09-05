@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>News | GhorCast</title>
+
+    <meta name="description"
+          content="Read the latest travel, hotel, tourism and destination news on GhorCast.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           GHORCAST NEWS PAGE
+           ===================================================== */
+
+        .news-page {
+            background: #f7f7f7;
+        }
+
+        .news-page .page-hero {
+            background:
+                linear-gradient(
+                    rgba(23, 33, 43, 0.88),
+                    rgba(23, 33, 43, 0.88)
+                ),
+                url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80")
+                center / cover;
+        }
+
+        .news-section {
+            padding: 70px 20px;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .news-heading h2 {
+            margin: 0 0 12px;
+            color: #17212b;
+            font-size: 38px;
+        }
+
+        .news-heading p {
+            margin: 0;
+            color: #777;
+            font-size: 17px;
+        }
+
+        /* Search */
+
+        .news-search {
+            max-width: 850px;
+            margin: 0 auto 55px;
+
+            display: flex;
+            gap: 12px;
+
+            background: #ffffff;
+            padding: 10px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .news-search input {
+            flex: 1;
+
+            min-width: 0;
+
+            border: none;
+            outline: none;
+
+            padding: 15px 18px;
+
+            font-size: 16px;
+        }
+
+        .news-search button {
+            border: none;
+            border-radius: 7px;
+
+            padding: 0 28px;
+
+            background: #c99a45;
+            color: #ffffff;
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .news-search button:hover {
+            background: #b58634;
+        }
+
+        /* News grid */
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+        /* News card */
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+
+            height: 100%;
+            min-width: 0;
+
+            background: #ffffff;
+
+            border-radius: 14px;
+            overflow: hidden;
+
+            border: 1px solid #eeeeee;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.14);
+        }
+
+        .news-image {
+            position: relative;
+
+            width: 100%;
+            height: 230px;
+
+            flex-shrink: 0;
+
+            background-size: cover;
+            background-position: center;
+
+            background-color: #ddd;
+        }
+
+        .news-category {
+            position: absolute;
+
+            left: 16px;
+            top: 16px;
+
+            z-index: 2;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #c99a45;
+            color: #ffffff;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .news-content {
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+
+            padding: 25px;
+        }
+
+        .news-date {
+            margin-bottom: 8px;
+
+            color: #999;
+
+            font-size: 13px;
+        }
+
+        .news-content h3 {
+            margin: 0 0 12px;
+
+            color: #17212b;
+
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            flex: 1;
+
+            margin: 0 0 25px;
+
+            color: #666;
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .read-news {
+            align-self: flex-start;
+
+            padding: 11px 19px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #17212b;
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .read-news:hover {
+            background: #c99a45;
+        }
+
+        /* No results */
+
+        .no-news {
+            display: none;
+
+            text-align: center;
+
+            padding: 40px;
+
+            color: #777;
+        }
+
+        /* CTA */
+
+        .news-cta {
+            padding: 70px 20px;
+
+            text-align: center;
+
+            background: #17212b;
+            color: #ffffff;
+        }
+
+        .news-cta h2 {
+            margin: 0 0 15px;
+
+            font-size: 36px;
+        }
+
+        .news-cta p {
+            max-width: 700px;
+
+            margin: 0 auto 28px;
+
+            color: #d9d9d9;
+
+            line-height: 1.7;
+        }
+
+        .news-cta a {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border-radius: 7px;
+
+            background: #c99a45;
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+        .news-cta a:hover {
+            background: #b58634;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 1000px) {
+
+            .news-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-search {
+                flex-direction: column;
+            }
+
+            .news-search button {
+                padding: 14px;
+            }
+
+            .news-image {
+                height: 220px;
+            }
+
+            .news-heading h2 {
+                font-size: 32px;
+            }
+
+            .news-cta h2 {
+                font-size: 30px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body class="news-page">
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo">
+            GhorCast
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+            <a href="news.html" class="active">
+                News
+            </a>
+
+            <a href="index.html#articles">
+                Articles
+            </a>
+
+            <a href="index.html#products">
+                Products
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </nav>
+
+        <button
+            class="menu-toggle"
+            aria-label="Open menu">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <h1>
+            Latest News
+        </h1>
+
+        <p>
+            Stay informed with the latest travel, hotel,
+            tourism and destination news.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWS
+     ===================================================== -->
+
+<section class="news-section">
+
+    <div class="news-container">
+
+
+        <!-- Search -->
+
+        <div class="news-search">
+
+            <input
+                type="text"
+                id="newsSearch"
+                placeholder="Search news..."
+                aria-label="Search news"
+            >
+
+            <button onclick="searchNews()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="news-heading">
+
+            <h2>
+                Latest News
+            </h2>
+
+            <p>
+                Explore the latest stories from the world
+                of travel and tourism.
+            </p>
+
+        </div>
+
+
+        <div class="news-grid" id="newsGrid">
+
+
+            <!-- NEWS 1 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        Travel
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        New Travel Opportunities
+                        Around the World
+                    </h3>
+
+                    <p>
+                        Discover new travel opportunities,
+                        destinations and experiences for
+                        your next journey.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="New Travel Opportunities Around the World"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEWS 2 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        Hotels
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Hotel Industry Continues
+                        to Grow
+                    </h3>
+
+                    <p>
+                        Hotels and resorts continue to
+                        expand their services for
+                        international travelers.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="Hotel Industry Continues to Grow"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEWS 3 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        Tourism
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Popular Destinations
+                        Attract More Visitors
+                    </h3>
+
+                    <p>
+                        Major tourist destinations continue
+                        to attract visitors with new
+                        attractions and experiences.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="Popular Destinations Attract More Visitors"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEWS 4 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        Bangladesh
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Bangladesh Travel
+                        Destinations Gain Attention
+                    </h3>
+
+                    <p>
+                        Bangladesh offers beaches, forests,
+                        hills and cultural destinations
+                        for travelers to explore.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="Bangladesh Travel Destinations Gain Attention"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEWS 5 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        Saudi Arabia
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        Saudi Arabia Expands
+                        Tourism Experiences
+                    </h3>
+
+                    <p>
+                        Travelers can discover historic,
+                        cultural and modern experiences
+                        across Saudi Arabia.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="Saudi Arabia Expands Tourism Experiences"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEWS 6 -->
+
+            <article class="news-card">
+
+                <div
+                    class="news-image"
+                    style="
+                    background-image:
+                    url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80');
+                    "
+                >
+
+                    <span class="news-category">
+                        International
+                    </span>
+
+                </div>
+
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        September 2026
+                    </div>
+
+                    <h3>
+                        International Travel
+                        Trends to Watch
+                    </h3>
+
+                    <p>
+                        Explore some of the travel trends
+                        shaping the international tourism
+                        industry.
+                    </p>
+
+                    <button
+                        class="read-news"
+                        data-news="International Travel Trends to Watch"
+                    >
+                        Read More
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div
+            class="no-news"
+            id="noNews">
+
+            No news found.
+            Please try another search.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="news-cta">
+
+    <div class="container">
+
+        <h2>
+            Explore More with GhorCast
+        </h2>
+
+        <p>
+            Discover hotels, destinations, travel deals,
+            articles, products and videos.
+        </p>
+
+        <a href="destinations.html">
+            Explore Destinations
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+     ===================================================== -->
+
+<section class="newsletter-section">
+
+    <div class="container">
+
+        <h2>
+            Stay Updated
+        </h2>
+
+        <p>
+            Get the latest travel news and GhorCast updates.
+        </p>
+
+        <form
+            class="newsletter-form"
+            onsubmit="subscribeNewsletter(event)"
+        >
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <h3>
+                GhorCast
+            </h3>
+
+            <p>
+                Your growing platform for hotels, travel,
+                news, articles, products and videos.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Content
+            </h4>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="index.html#articles">
+                Articles
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                GhorCast
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="currentYear"></span>
+            GhorCast. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* Mobile menu */
+
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const nav =
+            document.querySelector(".main-nav");
+
+        if (menuToggle && nav) {
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    nav.classList.toggle("active");
+
+                }
+            );
+
+        }
+
+
+        /* Read More buttons */
+
+        const buttons =
+            document.querySelectorAll(".read-news");
+
+        buttons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const title =
+                            this.getAttribute(
+                                "data-news"
+                            );
+
+                        showNews(title);
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* Current year */
+
+        const year =
+            document.getElementById(
+                "currentYear"
+            );
+
+        if (year) {
+
+            year.textContent =
+                new Date().getFullYear();
+
+        }
+
+    }
+);
+
+
+/* Search */
+
+function searchNews() {
+
+    const input =
+        document.getElementById(
+            "newsSearch"
+        );
+
+    const search =
+        input.value
+            .toLowerCase()
+            .trim();
+
+    const cards =
+        document.querySelectorAll(
+            ".news-card"
+        );
+
+    const noNews =
+        document.getElementById(
+            "noNews"
+        );
+
+    let found = false;
+
+
+    cards.forEach(
+        function (card) {
+
+            const text =
+                card.textContent.toLowerCase();
+
+            if (
+                !search ||
+                text.includes(search)
+            ) {
+
+                card.style.display =
+                    "flex";
+
+                found = true;
+
+            } else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    if (noNews) {
+
+        noNews.style.display =
+            found ? "none" : "block";
+
+    }
+
+}
+
+
+/* News details */
+
+function showNews(title) {
+
+    const descriptions = {
+
+        "New Travel Opportunities Around the World":
+            "Explore new travel opportunities, destinations and experiences around the world with GhorCast.",
+
+        "Hotel Industry Continues to Grow":
+            "Discover hotel and hospitality developments and the changing experiences available to travelers.",
+
+        "Popular Destinations Attract More Visitors":
+            "Popular destinations continue to attract travelers through new attractions and memorable experiences.",
+
+        "Bangladesh Travel Destinations Gain Attention":
+            "Explore the natural beauty, beaches, hills and cultural attractions of Bangladesh.",
+
+        "Saudi Arabia Expands Tourism Experiences":
+            "Discover the diverse historical, cultural and modern travel experiences available across Saudi Arabia.",
+
+        "International Travel Trends to Watch":
+            "Learn about international travel trends and the experiences shaping modern tourism."
+
+    };
+
+
+    alert(
+        title +
+        "\\n\\n" +
+        descriptions[title]
+    );
+
+}
+
+
+/* Newsletter */
+
+function subscribeNewsletter(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Thank you for subscribing to GhorCast!"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
