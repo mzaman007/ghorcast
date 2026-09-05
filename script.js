@@ -485,3 +485,278 @@ if (footerYear) {
         " GhorCast. All rights reserved.";
 
 }
+// ================= HOTEL DEALS =================
+
+const dealsButton =
+    document.querySelector(".deals-section .primary-button");
+
+
+if (dealsButton) {
+
+    dealsButton.addEventListener("click", function () {
+
+        const dealsModal = document.createElement("div");
+
+        dealsModal.style.position = "fixed";
+        dealsModal.style.left = "0";
+        dealsModal.style.top = "0";
+        dealsModal.style.width = "100%";
+        dealsModal.style.height = "100%";
+        dealsModal.style.background = "rgba(0,0,0,0.78)";
+        dealsModal.style.display = "flex";
+        dealsModal.style.alignItems = "center";
+        dealsModal.style.justifyContent = "center";
+        dealsModal.style.zIndex = "9999";
+        dealsModal.style.padding = "20px";
+        dealsModal.style.boxSizing = "border-box";
+        dealsModal.style.overflowY = "auto";
+
+
+        const dealsBox = document.createElement("div");
+
+        dealsBox.style.background = "#ffffff";
+        dealsBox.style.maxWidth = "700px";
+        dealsBox.style.width = "100%";
+        dealsBox.style.borderRadius = "20px";
+        dealsBox.style.padding = "30px";
+        dealsBox.style.boxSizing = "border-box";
+        dealsBox.style.position = "relative";
+        dealsBox.style.boxShadow =
+            "0 25px 70px rgba(0,0,0,0.4)";
+
+
+        dealsBox.innerHTML = `
+
+            <button id="closeDeals"
+            style="
+                position:absolute;
+                right:18px;
+                top:18px;
+                width:42px;
+                height:42px;
+                border:0;
+                border-radius:50%;
+                background:#eeeeee;
+                color:#17212b;
+                font-size:26px;
+                cursor:pointer;
+            ">
+                ×
+            </button>
+
+
+            <p style="
+                color:#b38a3c;
+                font-weight:bold;
+                letter-spacing:1.5px;
+                font-size:13px;
+                margin:0 0 8px;
+            ">
+                GHORCAST SPECIAL OFFERS
+            </p>
+
+
+            <h2 style="
+                color:#17212b;
+                font-size:30px;
+                margin:0 0 10px;
+            ">
+                Great Hotel Deals
+            </h2>
+
+
+            <p style="
+                color:#666;
+                line-height:1.6;
+                margin-bottom:25px;
+            ">
+                Discover selected hotel offers available through
+                GhorCast.
+            </p>
+
+
+            <!-- DEAL 1 -->
+
+            <div style="
+                border:1px solid #eeeeee;
+                border-radius:12px;
+                padding:18px;
+                margin-bottom:15px;
+            ">
+
+                <span style="
+                    background:#b38a3c;
+                    color:white;
+                    padding:5px 9px;
+                    border-radius:5px;
+                    font-size:12px;
+                    font-weight:bold;
+                ">
+                    20% OFF
+                </span>
+
+
+                <h3 style="
+                    color:#17212b;
+                    margin:12px 0 5px;
+                ">
+                    Luxury Grand Hotel
+                </h3>
+
+
+                <p style="
+                    color:#666;
+                    margin:0 0 8px;
+                ">
+                    📍 Dubai, UAE
+                </p>
+
+
+                <strong style="
+                    color:#17212b;
+                    font-size:18px;
+                ">
+                    From $96/night
+                </strong>
+
+            </div>
+
+
+            <!-- DEAL 2 -->
+
+            <div style="
+                border:1px solid #eeeeee;
+                border-radius:12px;
+                padding:18px;
+                margin-bottom:15px;
+            ">
+
+                <span style="
+                    background:#b38a3c;
+                    color:white;
+                    padding:5px 9px;
+                    border-radius:5px;
+                    font-size:12px;
+                    font-weight:bold;
+                ">
+                    15% OFF
+                </span>
+
+
+                <h3 style="
+                    color:#17212b;
+                    margin:12px 0 5px;
+                ">
+                    Royal View Hotel
+                </h3>
+
+
+                <p style="
+                    color:#666;
+                    margin:0 0 8px;
+                ">
+                    📍 Makkah, Saudi Arabia
+                </p>
+
+
+                <strong style="
+                    color:#17212b;
+                    font-size:18px;
+                ">
+                    From $81/night
+                </strong>
+
+            </div>
+
+
+            <!-- DEAL 3 -->
+
+            <div style="
+                border:1px solid #eeeeee;
+                border-radius:12px;
+                padding:18px;
+                margin-bottom:20px;
+            ">
+
+                <span style="
+                    background:#b38a3c;
+                    color:white;
+                    padding:5px 9px;
+                    border-radius:5px;
+                    font-size:12px;
+                    font-weight:bold;
+                ">
+                    25% OFF
+                </span>
+
+
+                <h3 style="
+                    color:#17212b;
+                    margin:12px 0 5px;
+                ">
+                    Ocean Paradise Resort
+                </h3>
+
+
+                <p style="
+                    color:#666;
+                    margin:0 0 8px;
+                ">
+                    📍 Cox's Bazar, Bangladesh
+                </p>
+
+
+                <strong style="
+                    color:#17212b;
+                    font-size:18px;
+                ">
+                    From $52.50/night
+                </strong>
+
+            </div>
+
+
+            <p style="
+                color:#888;
+                font-size:12px;
+                text-align:center;
+                margin:0;
+            ">
+                Demo offers — real booking availability will
+                be connected later.
+            </p>
+
+        `;
+
+
+        dealsModal.appendChild(dealsBox);
+
+        document.body.appendChild(dealsModal);
+
+
+        // CLOSE BUTTON
+
+        document
+            .getElementById("closeDeals")
+            .onclick = function () {
+
+                dealsModal.remove();
+
+            };
+
+
+        // CLOSE OUTSIDE
+
+        dealsModal.onclick = function (event) {
+
+            if (event.target === dealsModal) {
+
+                dealsModal.remove();
+
+            }
+
+        };
+
+    });
+
+}
