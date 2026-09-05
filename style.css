@@ -982,3 +982,36 @@ input {
         grid-template-columns: 1fr;
     }
 }
+/* ===== DEAL BUTTON ALIGNMENT FIX ===== */
+
+.deal-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 50px !important;
+    margin-top: auto !important;
+    gap: 15px !important;
+}
+
+.deal-footer .deal-button {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+}
+
+/* Make every deal card equal height */
+.hotel-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.hotel-card .card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.hotel-card .card-footer {
+    margin-top: auto !important;
+}
