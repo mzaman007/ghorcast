@@ -1447,3 +1447,74 @@ input {
     }
 
 }
+/* =====================================================
+   MOBILE MENU FIX
+   ===================================================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #17212b;
+}
+
+
+/* Desktop */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 8px 20px rgba(0,0,0,0.12);
+
+        z-index: 9999;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav a {
+        display: block;
+        width: 100%;
+
+        padding: 15px 20px;
+
+        border-bottom: 1px solid #eeeeee;
+
+        text-align: left;
+    }
+
+    .site-header {
+        position: relative;
+    }
+
+}
