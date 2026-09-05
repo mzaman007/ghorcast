@@ -1,7 +1,13 @@
-// GHORCAST - Main JavaScript
+// ============================================================
+// GHORCAST - MAIN JAVASCRIPT
+// Hotels • Deals • Destinations • Articles • News
+// Products • Videos • Search • Newsletter
+// ============================================================
 
 
-// ================= MOBILE MENU =================
+// ============================================================
+// MOBILE MENU
+// ============================================================
 
 const menuButton = document.getElementById("menuButton");
 const navigation = document.querySelector(".navigation");
@@ -33,37 +39,426 @@ if (menuButton) {
 }
 
 
-// ================= SEARCH =================
+// ============================================================
+// SEARCH DATA
+// ============================================================
+
+const searchData = [
+
+    {
+        type: "Hotel",
+        title: "Luxury Grand Hotel",
+        location: "Dubai, UAE",
+        keywords: "hotel dubai uae luxury"
+    },
+
+    {
+        type: "Hotel",
+        title: "Royal View Hotel",
+        location: "Makkah, Saudi Arabia",
+        keywords: "hotel makkah saudi arabia royal"
+    },
+
+    {
+        type: "Hotel",
+        title: "Ocean Paradise Resort",
+        location: "Cox's Bazar, Bangladesh",
+        keywords: "hotel resort cox bazar bangladesh ocean"
+    },
+
+    {
+        type: "Destination",
+        title: "Saudi Arabia",
+        location: "Makkah • Madinah • Riyadh • Jeddah",
+        keywords: "saudi arabia makkah madinah riyadh jeddah"
+    },
+
+    {
+        type: "Destination",
+        title: "Bangladesh",
+        location: "Cox's Bazar • Sylhet • Sundarbans • Dhaka",
+        keywords: "bangladesh cox bazar sylhet sundarbans dhaka"
+    },
+
+    {
+        type: "Destination",
+        title: "United Arab Emirates",
+        location: "Dubai • Abu Dhabi • Sharjah",
+        keywords: "uae united arab emirates dubai abu dhabi sharjah"
+    },
+
+    {
+        type: "Destination",
+        title: "Turkey",
+        location: "Istanbul • Cappadocia • Antalya",
+        keywords: "turkey istanbul cappadocia antalya"
+    },
+
+    {
+        type: "Article",
+        title: "10 Things to Know Before Your Next Hotel Stay",
+        location: "Travel Guide",
+        keywords: "hotel travel guide stay tips"
+    },
+
+    {
+        type: "Article",
+        title: "Beautiful Destinations You Should Discover",
+        location: "Destination",
+        keywords: "beautiful destinations travel discover"
+    },
+
+    {
+        type: "Article",
+        title: "How to Choose the Right Hotel for Your Trip",
+        location: "Hotel Tips",
+        keywords: "choose hotel hotel tips travel"
+    },
+
+    {
+        type: "News",
+        title: "Tourism and hotel industry updates",
+        location: "Tourism",
+        keywords: "tourism hotel industry news"
+    },
+
+    {
+        type: "News",
+        title: "New travel opportunities for visitors",
+        location: "Travel",
+        keywords: "travel opportunities visitors news"
+    },
+
+    {
+        type: "News",
+        title: "New hotel experiences arriving soon",
+        location: "Hotels",
+        keywords: "hotel experiences hospitality news"
+    },
+
+    {
+        type: "Product",
+        title: "Travel Essentials",
+        location: "Travel",
+        keywords: "travel essentials product"
+    },
+
+    {
+        type: "Product",
+        title: "Travel Accessories",
+        location: "Travel Gear",
+        keywords: "travel accessories gear product"
+    },
+
+    {
+        type: "Product",
+        title: "Special Travel Products",
+        location: "Special Deal",
+        keywords: "special travel products deal"
+    },
+
+    {
+        type: "Video",
+        title: "Discover Amazing Destinations",
+        location: "GhorCast Travel",
+        keywords: "video destinations travel"
+    },
+
+    {
+        type: "Video",
+        title: "Hotel Experience & Review",
+        location: "GhorCast Hotels",
+        keywords: "video hotel experience review"
+    }
+
+];
+
+
+// ============================================================
+// SEARCH FUNCTION
+// ============================================================
 
 function searchWebsite() {
 
-    const searchInput = document.getElementById("searchInput");
+    const searchInput =
+        document.getElementById("searchInput");
+
 
     if (!searchInput) {
         return;
     }
 
-    const searchTerm = searchInput.value.trim();
+
+    const searchTerm =
+        searchInput.value.trim().toLowerCase();
+
 
     if (searchTerm === "") {
 
-        alert("Please enter a hotel, destination or article to search.");
+        alert(
+            "Please enter a hotel, destination, article or product to search."
+        );
 
         searchInput.focus();
 
         return;
     }
 
-    alert(
-        "GhorCast search: " +
-        searchTerm +
-        "\n\nThe full search system will be added later."
+
+    const results =
+        searchData.filter(function (item) {
+
+            const searchableText =
+                (
+                    item.type +
+                    " " +
+                    item.title +
+                    " " +
+                    item.location +
+                    " " +
+                    item.keywords
+                ).toLowerCase();
+
+
+            return searchableText.includes(searchTerm);
+
+        });
+
+
+    openSearchResults(
+        searchTerm,
+        results
     );
 
 }
 
 
-// ================= HOTEL DETAILS =================
+// ============================================================
+// SEARCH RESULTS POPUP
+// ============================================================
+
+function openSearchResults(searchTerm, results) {
+
+    const modal =
+        document.createElement("div");
+
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box =
+        document.createElement("div");
+
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "720px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.padding = "30px";
+    box.style.boxSizing = "border-box";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
+
+
+    let resultsHTML = "";
+
+
+    if (results.length === 0) {
+
+        resultsHTML = `
+
+            <div style="
+                text-align:center;
+                padding:40px 10px;
+            ">
+
+                <div style="
+                    font-size:45px;
+                    margin-bottom:15px;
+                ">
+                    🔎
+                </div>
+
+                <h3 style="
+                    color:#17212b;
+                    margin-bottom:10px;
+                ">
+                    No Results Found
+                </h3>
+
+                <p style="
+                    color:#777;
+                    line-height:1.6;
+                    margin:0;
+                ">
+                    We couldn't find anything matching
+                    "<strong>${searchTerm}</strong>".
+                    Try another search.
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        results.forEach(function (item) {
+
+            resultsHTML += `
+
+                <div style="
+                    border:1px solid #eeeeee;
+                    border-radius:12px;
+                    padding:18px;
+                    margin-bottom:12px;
+                    cursor:pointer;
+                ">
+
+                    <span style="
+                        display:inline-block;
+                        background:#b38a3c;
+                        color:#ffffff;
+                        padding:5px 9px;
+                        border-radius:5px;
+                        font-size:11px;
+                        font-weight:bold;
+                        margin-bottom:8px;
+                    ">
+                        ${item.type}
+                    </span>
+
+                    <h3 style="
+                        color:#17212b;
+                        margin:5px 0;
+                        font-size:19px;
+                    ">
+                        ${item.title}
+                    </h3>
+
+                    <p style="
+                        color:#777;
+                        margin:0;
+                        font-size:14px;
+                    ">
+                        ${item.location}
+                    </p>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    box.innerHTML = `
+
+        <!-- CLOSE -->
+
+        <button id="closeSearch"
+        style="
+            position:absolute;
+            right:18px;
+            top:18px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#eeeeee;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+        ">
+            ×
+        </button>
+
+
+        <p style="
+            color:#b38a3c;
+            font-weight:bold;
+            letter-spacing:1.5px;
+            font-size:13px;
+            margin:0 0 8px;
+        ">
+            GHORCAST SEARCH
+        </p>
+
+
+        <h2 style="
+            color:#17212b;
+            font-size:30px;
+            margin:0 0 8px;
+        ">
+            Search Results
+        </h2>
+
+
+        <p style="
+            color:#777;
+            margin-bottom:25px;
+        ">
+            Results for:
+            <strong>${searchTerm}</strong>
+        </p>
+
+
+        <div>
+
+            ${resultsHTML}
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // CLOSE
+
+    box.querySelector("#closeSearch").onclick =
+        function () {
+
+            modal.remove();
+
+        };
+
+
+    // CLOSE OUTSIDE
+
+    modal.onclick =
+        function (event) {
+
+            if (event.target === modal) {
+
+                modal.remove();
+
+            }
+
+        };
+
+}
+
+
+// ============================================================
+// HOTEL DETAILS
+// ============================================================
 
 const hotelDetails = [
 
@@ -87,7 +482,6 @@ const hotelDetails = [
         ]
     },
 
-
     {
         name: "Royal View Hotel",
         location: "Makkah, Saudi Arabia",
@@ -107,7 +501,6 @@ const hotelDetails = [
             "🕌 Near Haram"
         ]
     },
-
 
     {
         name: "Ocean Paradise Resort",
@@ -132,11 +525,15 @@ const hotelDetails = [
 ];
 
 
-// ================= OPEN HOTEL =================
+// ============================================================
+// OPEN HOTEL
+// ============================================================
 
 function openHotel(hotel) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
@@ -153,9 +550,9 @@ function openHotel(hotel) {
     modal.style.overflowY = "auto";
 
 
-    // ================= HOTEL BOX =================
+    const box =
+        document.createElement("div");
 
-    const box = document.createElement("div");
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "620px";
@@ -163,16 +560,17 @@ function openHotel(hotel) {
     box.style.borderRadius = "20px";
     box.style.overflow = "hidden";
     box.style.position = "relative";
-    box.style.boxShadow = "0 25px 70px rgba(0,0,0,0.4)";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
 
-
-    // ================= FACILITIES =================
 
     let facilitiesHTML = "";
+
 
     hotel.facilities.forEach(function (facility) {
 
         facilitiesHTML += `
+
             <div style="
                 padding:12px;
                 background:#f6f6f6;
@@ -182,16 +580,13 @@ function openHotel(hotel) {
             ">
                 ${facility}
             </div>
+
         `;
 
     });
 
 
-    // ================= HOTEL CONTENT =================
-
     box.innerHTML = `
-
-        <!-- HOTEL IMAGE -->
 
         <div style="
             width:100%;
@@ -201,8 +596,6 @@ function openHotel(hotel) {
             background-position:center;
         "></div>
 
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeHotel"
         style="
@@ -223,10 +616,7 @@ function openHotel(hotel) {
         </button>
 
 
-        <!-- HOTEL INFORMATION -->
-
         <div style="padding:30px;">
-
 
             <p style="
                 color:#b38a3c;
@@ -276,8 +666,6 @@ function openHotel(hotel) {
             </p>
 
 
-            <!-- FACILITIES -->
-
             <h3 style="
                 color:#17212b;
                 margin:0 0 12px;
@@ -298,8 +686,6 @@ function openHotel(hotel) {
 
             </div>
 
-
-            <!-- PRICE -->
 
             <div style="
                 padding:18px;
@@ -328,8 +714,6 @@ function openHotel(hotel) {
             </div>
 
 
-            <!-- AVAILABILITY BUTTON -->
-
             <button id="availabilityButton"
             style="
                 width:100%;
@@ -345,65 +729,53 @@ function openHotel(hotel) {
                 Check Availability
             </button>
 
-
         </div>
 
     `;
 
-
-    // ================= ADD MODAL =================
 
     modal.appendChild(box);
 
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE BUTTON =================
-
-    const closeButton =
-        box.querySelector("#closeHotel");
-
-
-    closeButton.onclick = function () {
-
-        modal.remove();
-
-    };
-
-
-    // ================= CLOSE OUTSIDE =================
-
-    modal.onclick = function (event) {
-
-        if (event.target === modal) {
+    box.querySelector("#closeHotel").onclick =
+        function () {
 
             modal.remove();
 
-        }
-
-    };
+        };
 
 
-    // ================= AVAILABILITY =================
+    modal.onclick =
+        function (event) {
 
-    const availabilityButton =
-        box.querySelector("#availabilityButton");
+            if (event.target === modal) {
+
+                modal.remove();
+
+            }
+
+        };
 
 
-    availabilityButton.onclick = function () {
+    box.querySelector("#availabilityButton").onclick =
+        function () {
 
-        alert(
-            "Hotel availability and online booking for " +
-            hotel.name +
-            " will be available on GhorCast soon."
-        );
+            alert(
+                "Hotel availability and online booking for " +
+                hotel.name +
+                " will be available on GhorCast soon."
+            );
 
-    };
+        };
 
 }
 
 
-// ================= HOTEL BUTTONS =================
+// ============================================================
+// HOTEL BUTTONS
+// ============================================================
 
 const hotelButtons =
     document.querySelectorAll(
@@ -417,7 +789,9 @@ hotelButtons.forEach(function (button, index) {
 
         if (hotelDetails[index]) {
 
-            openHotel(hotelDetails[index]);
+            openHotel(
+                hotelDetails[index]
+            );
 
         }
 
@@ -426,44 +800,278 @@ hotelButtons.forEach(function (button, index) {
 });
 
 
-// ================= NEWSLETTER =================
+// ============================================================
+// HOTEL DEALS
+// ============================================================
 
-const newsletterForm =
-    document.querySelector(".newsletter-form");
-
-
-if (newsletterForm) {
-
-    newsletterForm.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
+const dealsButton =
+    document.querySelector(
+        ".deals-section .primary-button"
+    );
 
 
-            const emailInput =
-                newsletterForm.querySelector("input");
+if (dealsButton) {
+
+    dealsButton.addEventListener(
+        "click",
+        function () {
+
+            const dealsModal =
+                document.createElement("div");
 
 
-            const email =
-                emailInput.value.trim();
+            dealsModal.style.position = "fixed";
+            dealsModal.style.left = "0";
+            dealsModal.style.top = "0";
+            dealsModal.style.width = "100%";
+            dealsModal.style.height = "100%";
+            dealsModal.style.background =
+                "rgba(0,0,0,0.78)";
+            dealsModal.style.display = "flex";
+            dealsModal.style.alignItems = "center";
+            dealsModal.style.justifyContent = "center";
+            dealsModal.style.zIndex = "9999";
+            dealsModal.style.padding = "20px";
+            dealsModal.style.boxSizing = "border-box";
+            dealsModal.style.overflowY = "auto";
 
 
-            if (email === "") {
-
-                alert("Please enter your email address.");
-
-                return;
-
-            }
+            const dealsBox =
+                document.createElement("div");
 
 
-            alert(
-                "Thank you for subscribing to GhorCast!"
-            );
+            dealsBox.style.background = "#ffffff";
+            dealsBox.style.maxWidth = "700px";
+            dealsBox.style.width = "100%";
+            dealsBox.style.borderRadius = "20px";
+            dealsBox.style.padding = "30px";
+            dealsBox.style.boxSizing = "border-box";
+            dealsBox.style.position = "relative";
+            dealsBox.style.boxShadow =
+                "0 25px 70px rgba(0,0,0,0.4)";
 
 
-            emailInput.value = "";
+            dealsBox.innerHTML = `
+
+                <button id="closeDeals"
+                style="
+                    position:absolute;
+                    right:18px;
+                    top:18px;
+                    width:42px;
+                    height:42px;
+                    border:0;
+                    border-radius:50%;
+                    background:#eeeeee;
+                    color:#17212b;
+                    font-size:26px;
+                    cursor:pointer;
+                ">
+                    ×
+                </button>
+
+
+                <p style="
+                    color:#b38a3c;
+                    font-weight:bold;
+                    letter-spacing:1.5px;
+                    font-size:13px;
+                    margin:0 0 8px;
+                ">
+                    GHORCAST SPECIAL OFFERS
+                </p>
+
+
+                <h2 style="
+                    color:#17212b;
+                    font-size:30px;
+                    margin:0 0 10px;
+                ">
+                    Great Hotel Deals
+                </h2>
+
+
+                <p style="
+                    color:#666;
+                    line-height:1.6;
+                    margin-bottom:25px;
+                ">
+                    Discover selected hotel offers available through
+                    GhorCast.
+                </p>
+
+
+                <div style="
+                    border:1px solid #eeeeee;
+                    border-radius:12px;
+                    padding:18px;
+                    margin-bottom:15px;
+                ">
+
+                    <span style="
+                        background:#b38a3c;
+                        color:white;
+                        padding:5px 9px;
+                        border-radius:5px;
+                        font-size:12px;
+                        font-weight:bold;
+                    ">
+                        20% OFF
+                    </span>
+
+
+                    <h3 style="
+                        color:#17212b;
+                        margin:12px 0 5px;
+                    ">
+                        Luxury Grand Hotel
+                    </h3>
+
+
+                    <p style="
+                        color:#666;
+                        margin:0 0 8px;
+                    ">
+                        📍 Dubai, UAE
+                    </p>
+
+
+                    <strong style="
+                        color:#17212b;
+                        font-size:18px;
+                    ">
+                        From $96/night
+                    </strong>
+
+                </div>
+
+
+                <div style="
+                    border:1px solid #eeeeee;
+                    border-radius:12px;
+                    padding:18px;
+                    margin-bottom:15px;
+                ">
+
+                    <span style="
+                        background:#b38a3c;
+                        color:white;
+                        padding:5px 9px;
+                        border-radius:5px;
+                        font-size:12px;
+                        font-weight:bold;
+                    ">
+                        15% OFF
+                    </span>
+
+
+                    <h3 style="
+                        color:#17212b;
+                        margin:12px 0 5px;
+                    ">
+                        Royal View Hotel
+                    </h3>
+
+
+                    <p style="
+                        color:#666;
+                        margin:0 0 8px;
+                    ">
+                        📍 Makkah, Saudi Arabia
+                    </p>
+
+
+                    <strong style="
+                        color:#17212b;
+                        font-size:18px;
+                    ">
+                        From $81/night
+                    </strong>
+
+                </div>
+
+
+                <div style="
+                    border:1px solid #eeeeee;
+                    border-radius:12px;
+                    padding:18px;
+                    margin-bottom:20px;
+                ">
+
+                    <span style="
+                        background:#b38a3c;
+                        color:white;
+                        padding:5px 9px;
+                        border-radius:5px;
+                        font-size:12px;
+                        font-weight:bold;
+                    ">
+                        25% OFF
+                    </span>
+
+
+                    <h3 style="
+                        color:#17212b;
+                        margin:12px 0 5px;
+                    ">
+                        Ocean Paradise Resort
+                    </h3>
+
+
+                    <p style="
+                        color:#666;
+                        margin:0 0 8px;
+                    ">
+                        📍 Cox's Bazar, Bangladesh
+                    </p>
+
+
+                    <strong style="
+                        color:#17212b;
+                        font-size:18px;
+                    ">
+                        From $52.50/night
+                    </strong>
+
+                </div>
+
+
+                <p style="
+                    color:#888;
+                    font-size:12px;
+                    text-align:center;
+                    margin:0;
+                ">
+                    Demo offers — real booking availability will
+                    be connected later.
+                </p>
+
+            `;
+
+
+            dealsModal.appendChild(dealsBox);
+
+            document.body.appendChild(dealsModal);
+
+
+            dealsBox.querySelector("#closeDeals").onclick =
+                function () {
+
+                    dealsModal.remove();
+
+                };
+
+
+            dealsModal.onclick =
+                function (event) {
+
+                    if (event.target === dealsModal) {
+
+                        dealsModal.remove();
+
+                    }
+
+                };
 
         }
     );
@@ -471,305 +1079,21 @@ if (newsletterForm) {
 }
 
 
-// ================= CURRENT YEAR =================
-
-const footerYear =
-    document.querySelector(".footer-bottom p");
-
-
-if (footerYear) {
-
-    footerYear.textContent =
-        "© " +
-        new Date().getFullYear() +
-        " GhorCast. All rights reserved.";
-
-}
-// ================= HOTEL DEALS =================
-
-const dealsButton =
-    document.querySelector(".deals-section .primary-button");
-
-
-if (dealsButton) {
-
-    dealsButton.addEventListener("click", function () {
-
-        const dealsModal = document.createElement("div");
-
-        dealsModal.style.position = "fixed";
-        dealsModal.style.left = "0";
-        dealsModal.style.top = "0";
-        dealsModal.style.width = "100%";
-        dealsModal.style.height = "100%";
-        dealsModal.style.background = "rgba(0,0,0,0.78)";
-        dealsModal.style.display = "flex";
-        dealsModal.style.alignItems = "center";
-        dealsModal.style.justifyContent = "center";
-        dealsModal.style.zIndex = "9999";
-        dealsModal.style.padding = "20px";
-        dealsModal.style.boxSizing = "border-box";
-        dealsModal.style.overflowY = "auto";
-
-
-        const dealsBox = document.createElement("div");
-
-        dealsBox.style.background = "#ffffff";
-        dealsBox.style.maxWidth = "700px";
-        dealsBox.style.width = "100%";
-        dealsBox.style.borderRadius = "20px";
-        dealsBox.style.padding = "30px";
-        dealsBox.style.boxSizing = "border-box";
-        dealsBox.style.position = "relative";
-        dealsBox.style.boxShadow =
-            "0 25px 70px rgba(0,0,0,0.4)";
-
-
-        dealsBox.innerHTML = `
-
-            <button id="closeDeals"
-            style="
-                position:absolute;
-                right:18px;
-                top:18px;
-                width:42px;
-                height:42px;
-                border:0;
-                border-radius:50%;
-                background:#eeeeee;
-                color:#17212b;
-                font-size:26px;
-                cursor:pointer;
-            ">
-                ×
-            </button>
-
-
-            <p style="
-                color:#b38a3c;
-                font-weight:bold;
-                letter-spacing:1.5px;
-                font-size:13px;
-                margin:0 0 8px;
-            ">
-                GHORCAST SPECIAL OFFERS
-            </p>
-
-
-            <h2 style="
-                color:#17212b;
-                font-size:30px;
-                margin:0 0 10px;
-            ">
-                Great Hotel Deals
-            </h2>
-
-
-            <p style="
-                color:#666;
-                line-height:1.6;
-                margin-bottom:25px;
-            ">
-                Discover selected hotel offers available through
-                GhorCast.
-            </p>
-
-
-            <!-- DEAL 1 -->
-
-            <div style="
-                border:1px solid #eeeeee;
-                border-radius:12px;
-                padding:18px;
-                margin-bottom:15px;
-            ">
-
-                <span style="
-                    background:#b38a3c;
-                    color:white;
-                    padding:5px 9px;
-                    border-radius:5px;
-                    font-size:12px;
-                    font-weight:bold;
-                ">
-                    20% OFF
-                </span>
-
-
-                <h3 style="
-                    color:#17212b;
-                    margin:12px 0 5px;
-                ">
-                    Luxury Grand Hotel
-                </h3>
-
-
-                <p style="
-                    color:#666;
-                    margin:0 0 8px;
-                ">
-                    📍 Dubai, UAE
-                </p>
-
-
-                <strong style="
-                    color:#17212b;
-                    font-size:18px;
-                ">
-                    From $96/night
-                </strong>
-
-            </div>
-
-
-            <!-- DEAL 2 -->
-
-            <div style="
-                border:1px solid #eeeeee;
-                border-radius:12px;
-                padding:18px;
-                margin-bottom:15px;
-            ">
-
-                <span style="
-                    background:#b38a3c;
-                    color:white;
-                    padding:5px 9px;
-                    border-radius:5px;
-                    font-size:12px;
-                    font-weight:bold;
-                ">
-                    15% OFF
-                </span>
-
-
-                <h3 style="
-                    color:#17212b;
-                    margin:12px 0 5px;
-                ">
-                    Royal View Hotel
-                </h3>
-
-
-                <p style="
-                    color:#666;
-                    margin:0 0 8px;
-                ">
-                    📍 Makkah, Saudi Arabia
-                </p>
-
-
-                <strong style="
-                    color:#17212b;
-                    font-size:18px;
-                ">
-                    From $81/night
-                </strong>
-
-            </div>
-
-
-            <!-- DEAL 3 -->
-
-            <div style="
-                border:1px solid #eeeeee;
-                border-radius:12px;
-                padding:18px;
-                margin-bottom:20px;
-            ">
-
-                <span style="
-                    background:#b38a3c;
-                    color:white;
-                    padding:5px 9px;
-                    border-radius:5px;
-                    font-size:12px;
-                    font-weight:bold;
-                ">
-                    25% OFF
-                </span>
-
-
-                <h3 style="
-                    color:#17212b;
-                    margin:12px 0 5px;
-                ">
-                    Ocean Paradise Resort
-                </h3>
-
-
-                <p style="
-                    color:#666;
-                    margin:0 0 8px;
-                ">
-                    📍 Cox's Bazar, Bangladesh
-                </p>
-
-
-                <strong style="
-                    color:#17212b;
-                    font-size:18px;
-                ">
-                    From $52.50/night
-                </strong>
-
-            </div>
-
-
-            <p style="
-                color:#888;
-                font-size:12px;
-                text-align:center;
-                margin:0;
-            ">
-                Demo offers — real booking availability will
-                be connected later.
-            </p>
-
-        `;
-
-
-        dealsModal.appendChild(dealsBox);
-
-        document.body.appendChild(dealsModal);
-
-
-        // CLOSE BUTTON
-
-        document
-            .getElementById("closeDeals")
-            .onclick = function () {
-
-                dealsModal.remove();
-
-            };
-
-
-        // CLOSE OUTSIDE
-
-        dealsModal.onclick = function (event) {
-
-            if (event.target === dealsModal) {
-
-                dealsModal.remove();
-
-            }
-
-        };
-
-    });
-
-}
-// ================= DESTINATIONS =================
+// ============================================================
+// DESTINATIONS
+// ============================================================
 
 const destinationCards =
-    document.querySelectorAll(".destination-card");
+    document.querySelectorAll(
+        ".destination-card"
+    );
 
 
 const destinationDetails = [
 
     {
         name: "Saudi Arabia",
+
         image:
             "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
 
@@ -787,6 +1111,7 @@ const destinationDetails = [
 
     {
         name: "Bangladesh",
+
         image:
             "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
 
@@ -804,6 +1129,7 @@ const destinationDetails = [
 
     {
         name: "United Arab Emirates",
+
         image:
             "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
 
@@ -821,6 +1147,7 @@ const destinationDetails = [
 
     {
         name: "Turkey",
+
         image:
             "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80",
 
@@ -838,18 +1165,19 @@ const destinationDetails = [
 ];
 
 
-// ================= OPEN DESTINATION =================
-
 function openDestination(destination) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.background =
+        "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -859,7 +1187,9 @@ function openDestination(destination) {
     modal.style.overflowY = "auto";
 
 
-    const box = document.createElement("div");
+    const box =
+        document.createElement("div");
+
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "620px";
@@ -895,8 +1225,6 @@ function openDestination(destination) {
 
     box.innerHTML = `
 
-        <!-- DESTINATION IMAGE -->
-
         <div style="
             width:100%;
             height:250px;
@@ -905,8 +1233,6 @@ function openDestination(destination) {
             background-position:center;
         "></div>
 
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeDestination"
         style="
@@ -926,8 +1252,6 @@ function openDestination(destination) {
             ×
         </button>
 
-
-        <!-- DESTINATION INFORMATION -->
 
         <div style="padding:30px;">
 
@@ -1006,77 +1330,75 @@ function openDestination(destination) {
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE =================
-
-    const closeButton =
-        box.querySelector("#closeDestination");
-
-
-    closeButton.onclick = function () {
-
-        modal.remove();
-
-    };
-
-
-    // ================= CLOSE OUTSIDE =================
-
-    modal.onclick = function (event) {
-
-        if (event.target === modal) {
+    box.querySelector("#closeDestination").onclick =
+        function () {
 
             modal.remove();
 
-        }
-
-    };
+        };
 
 
-    // ================= EXPLORE HOTELS =================
+    modal.onclick =
+        function (event) {
 
-    const hotelsButton =
-        box.querySelector("#destinationHotels");
+            if (event.target === modal) {
+
+                modal.remove();
+
+            }
+
+        };
 
 
-    hotelsButton.onclick = function () {
+    box.querySelector("#destinationHotels").onclick =
+        function () {
 
-        modal.remove();
+            modal.remove();
 
-        document
-            .getElementById("hotels")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+            document
+                .getElementById("hotels")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
 
-    };
+        };
 
 }
 
 
-// ================= DESTINATION BUTTONS =================
+destinationCards.forEach(
+    function (card, index) {
 
-destinationCards.forEach(function (card, index) {
-
-    card.style.cursor = "pointer";
+        card.style.cursor = "pointer";
 
 
-    card.addEventListener("click", function () {
+        card.addEventListener(
+            "click",
+            function () {
 
-        if (destinationDetails[index]) {
+                if (destinationDetails[index]) {
 
-            openDestination(
-                destinationDetails[index]
-            );
+                    openDestination(
+                        destinationDetails[index]
+                    );
 
-        }
+                }
 
-    });
+            }
+        );
 
-});
-// ================= ARTICLES =================
+    }
+);
+
+
+// ============================================================
+// ARTICLES
+// ============================================================
 
 const articleCards =
-    document.querySelectorAll(".article-card");
+    document.querySelectorAll(
+        ".article-card"
+    );
 
 
 const articleDetails = [
@@ -1235,18 +1557,19 @@ const articleDetails = [
 ];
 
 
-// ================= OPEN ARTICLE =================
-
 function openArticle(article) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.background =
+        "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -1256,7 +1579,9 @@ function openArticle(article) {
     modal.style.overflowY = "auto";
 
 
-    const box = document.createElement("div");
+    const box =
+        document.createElement("div");
+
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "760px";
@@ -1270,8 +1595,6 @@ function openArticle(article) {
 
     box.innerHTML = `
 
-        <!-- ARTICLE IMAGE -->
-
         <div style="
             width:100%;
             height:300px;
@@ -1280,8 +1603,6 @@ function openArticle(article) {
             background-position:center;
         "></div>
 
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeArticle"
         style="
@@ -1302,11 +1623,7 @@ function openArticle(article) {
         </button>
 
 
-        <!-- ARTICLE CONTENT -->
-
-        <div style="
-            padding:35px;
-        ">
+        <div style="padding:35px;">
 
             <span style="
                 display:inline-block;
@@ -1351,24 +1668,6 @@ function openArticle(article) {
 
             </div>
 
-
-            <div style="
-                margin-top:30px;
-                padding-top:20px;
-                border-top:1px solid #eeeeee;
-                text-align:center;
-            ">
-
-                <p style="
-                    color:#999;
-                    font-size:13px;
-                    margin:0;
-                ">
-                    More travel stories coming soon on GhorCast.
-                </p>
-
-            </div>
-
         </div>
 
     `;
@@ -1379,8 +1678,6 @@ function openArticle(article) {
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE =================
-
     box.querySelector("#closeArticle").onclick =
         function () {
 
@@ -1389,43 +1686,53 @@ function openArticle(article) {
         };
 
 
-    // ================= CLOSE OUTSIDE =================
+    modal.onclick =
+        function (event) {
 
-    modal.onclick = function (event) {
+            if (event.target === modal) {
 
-        if (event.target === modal) {
+                modal.remove();
 
-            modal.remove();
+            }
 
-        }
-
-    };
+        };
 
 }
 
 
-// ================= ARTICLE BUTTONS =================
+articleCards.forEach(
+    function (card, index) {
 
-articleCards.forEach(function (card, index) {
-
-    card.style.cursor = "pointer";
+        card.style.cursor = "pointer";
 
 
-    card.addEventListener("click", function () {
+        card.addEventListener(
+            "click",
+            function () {
 
-        if (articleDetails[index]) {
+                if (articleDetails[index]) {
 
-            openArticle(articleDetails[index]);
+                    openArticle(
+                        articleDetails[index]
+                    );
 
-        }
+                }
 
-    });
+            }
+        );
 
-});
-// ================= NEWS =================
+    }
+);
+
+
+// ============================================================
+// NEWS
+// ============================================================
 
 const newsItems =
-    document.querySelectorAll(".news-item");
+    document.querySelectorAll(
+        ".news-item"
+    );
 
 
 const newsDetails = [
@@ -1546,18 +1853,19 @@ const newsDetails = [
 ];
 
 
-// ================= OPEN NEWS =================
-
 function openNews(news) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.background =
+        "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -1567,7 +1875,9 @@ function openNews(news) {
     modal.style.overflowY = "auto";
 
 
-    const box = document.createElement("div");
+    const box =
+        document.createElement("div");
+
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "760px";
@@ -1581,8 +1891,6 @@ function openNews(news) {
 
     box.innerHTML = `
 
-        <!-- NEWS IMAGE -->
-
         <div style="
             width:100%;
             height:300px;
@@ -1591,8 +1899,6 @@ function openNews(news) {
             background-position:center;
         "></div>
 
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeNews"
         style="
@@ -1613,11 +1919,7 @@ function openNews(news) {
         </button>
 
 
-        <!-- NEWS CONTENT -->
-
-        <div style="
-            padding:35px;
-        ">
+        <div style="padding:35px;">
 
             <span style="
                 display:inline-block;
@@ -1662,24 +1964,6 @@ function openNews(news) {
 
             </div>
 
-
-            <div style="
-                margin-top:30px;
-                padding-top:20px;
-                border-top:1px solid #eeeeee;
-                text-align:center;
-            ">
-
-                <p style="
-                    color:#999;
-                    font-size:13px;
-                    margin:0;
-                ">
-                    More news and travel updates coming soon on GhorCast.
-                </p>
-
-            </div>
-
         </div>
 
     `;
@@ -1690,8 +1974,6 @@ function openNews(news) {
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE =================
-
     box.querySelector("#closeNews").onclick =
         function () {
 
@@ -1700,43 +1982,53 @@ function openNews(news) {
         };
 
 
-    // ================= CLOSE OUTSIDE =================
+    modal.onclick =
+        function (event) {
 
-    modal.onclick = function (event) {
+            if (event.target === modal) {
 
-        if (event.target === modal) {
+                modal.remove();
 
-            modal.remove();
+            }
 
-        }
-
-    };
+        };
 
 }
 
 
-// ================= NEWS BUTTONS =================
+newsItems.forEach(
+    function (item, index) {
 
-newsItems.forEach(function (item, index) {
-
-    item.style.cursor = "pointer";
+        item.style.cursor = "pointer";
 
 
-    item.addEventListener("click", function () {
+        item.addEventListener(
+            "click",
+            function () {
 
-        if (newsDetails[index]) {
+                if (newsDetails[index]) {
 
-            openNews(newsDetails[index]);
+                    openNews(
+                        newsDetails[index]
+                    );
 
-        }
+                }
 
-    });
+            }
+        );
 
-});
-// ================= PRODUCTS =================
+    }
+);
+
+
+// ============================================================
+// PRODUCTS
+// ============================================================
 
 const productCards =
-    document.querySelectorAll(".product-card");
+    document.querySelectorAll(
+        ".product-card"
+    );
 
 
 const productDetails = [
@@ -1794,18 +2086,19 @@ const productDetails = [
 ];
 
 
-// ================= OPEN PRODUCT =================
-
 function openProduct(product) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.background =
+        "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -1815,7 +2108,9 @@ function openProduct(product) {
     modal.style.overflowY = "auto";
 
 
-    const box = document.createElement("div");
+    const box =
+        document.createElement("div");
+
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "620px";
@@ -1829,8 +2124,6 @@ function openProduct(product) {
 
     box.innerHTML = `
 
-        <!-- PRODUCT IMAGE -->
-
         <div style="
             width:100%;
             height:280px;
@@ -1839,8 +2132,6 @@ function openProduct(product) {
             background-position:center;
         "></div>
 
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeProduct"
         style="
@@ -1860,8 +2151,6 @@ function openProduct(product) {
             ×
         </button>
 
-
-        <!-- PRODUCT INFORMATION -->
 
         <div style="padding:30px;">
 
@@ -1912,8 +2201,6 @@ function openProduct(product) {
             </p>
 
 
-            <!-- PRICE -->
-
             <div style="
                 padding:18px;
                 background:#f8f8f8;
@@ -1941,8 +2228,6 @@ function openProduct(product) {
             </div>
 
 
-            <!-- AVAILABILITY -->
-
             <p style="
                 color:#777;
                 font-size:14px;
@@ -1951,8 +2236,6 @@ function openProduct(product) {
                 📦 ${product.availability}
             </p>
 
-
-            <!-- PRODUCT BUTTON -->
 
             <button id="buyProduct"
             style="
@@ -1979,8 +2262,6 @@ function openProduct(product) {
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE =================
-
     box.querySelector("#closeProduct").onclick =
         function () {
 
@@ -1989,20 +2270,17 @@ function openProduct(product) {
         };
 
 
-    // ================= CLOSE OUTSIDE =================
+    modal.onclick =
+        function (event) {
 
-    modal.onclick = function (event) {
+            if (event.target === modal) {
 
-        if (event.target === modal) {
+                modal.remove();
 
-            modal.remove();
+            }
 
-        }
+        };
 
-    };
-
-
-    // ================= VIEW PRODUCT =================
 
     box.querySelector("#buyProduct").onclick =
         function () {
@@ -2017,30 +2295,39 @@ function openProduct(product) {
 }
 
 
-// ================= PRODUCT BUTTONS =================
+productCards.forEach(
+    function (card, index) {
 
-productCards.forEach(function (card, index) {
-
-    card.style.cursor = "pointer";
+        card.style.cursor = "pointer";
 
 
-    card.addEventListener("click", function () {
+        card.addEventListener(
+            "click",
+            function () {
 
-        if (productDetails[index]) {
+                if (productDetails[index]) {
 
-            openProduct(
-                productDetails[index]
-            );
+                    openProduct(
+                        productDetails[index]
+                    );
 
-        }
+                }
 
-    });
+            }
+        );
 
-});
-// ================= VIDEOS =================
+    }
+);
+
+
+// ============================================================
+// VIDEOS
+// ============================================================
 
 const videoCards =
-    document.querySelectorAll(".video-card");
+    document.querySelectorAll(
+        ".video-card"
+    );
 
 
 const videoDetails = [
@@ -2048,6 +2335,7 @@ const videoDetails = [
     {
         title: "Discover Amazing Destinations",
         channel: "GhorCast Travel",
+
         description:
             "Explore beautiful destinations and get inspiration for your next journey.",
 
@@ -2059,6 +2347,7 @@ const videoDetails = [
     {
         title: "Hotel Experience & Review",
         channel: "GhorCast Hotels",
+
         description:
             "Discover hotel experiences, facilities and useful tips for choosing accommodation.",
 
@@ -2069,18 +2358,19 @@ const videoDetails = [
 ];
 
 
-// ================= OPEN VIDEO =================
-
 function openVideo(video) {
 
-    const modal = document.createElement("div");
+    const modal =
+        document.createElement("div");
+
 
     modal.style.position = "fixed";
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.88)";
+    modal.style.background =
+        "rgba(0,0,0,0.88)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -2090,7 +2380,9 @@ function openVideo(video) {
     modal.style.overflowY = "auto";
 
 
-    const box = document.createElement("div");
+    const box =
+        document.createElement("div");
+
 
     box.style.background = "#ffffff";
     box.style.maxWidth = "850px";
@@ -2103,8 +2395,6 @@ function openVideo(video) {
 
 
     box.innerHTML = `
-
-        <!-- CLOSE BUTTON -->
 
         <button id="closeVideo"
         style="
@@ -2125,8 +2415,6 @@ function openVideo(video) {
             ×
         </button>
 
-
-        <!-- VIDEO -->
 
         <div style="
             width:100%;
@@ -2150,8 +2438,6 @@ function openVideo(video) {
 
         </div>
 
-
-        <!-- VIDEO INFORMATION -->
 
         <div style="
             padding:30px;
@@ -2204,8 +2490,6 @@ function openVideo(video) {
     document.body.appendChild(modal);
 
 
-    // ================= CLOSE =================
-
     box.querySelector("#closeVideo").onclick =
         function () {
 
@@ -2214,38 +2498,113 @@ function openVideo(video) {
         };
 
 
-    // ================= CLOSE OUTSIDE =================
+    modal.onclick =
+        function (event) {
 
-    modal.onclick = function (event) {
+            if (event.target === modal) {
 
-        if (event.target === modal) {
+                modal.remove();
 
-            modal.remove();
+            }
 
-        }
-
-    };
+        };
 
 }
 
 
-// ================= VIDEO BUTTONS =================
+videoCards.forEach(
+    function (card, index) {
 
-videoCards.forEach(function (card, index) {
-
-    card.style.cursor = "pointer";
+        card.style.cursor = "pointer";
 
 
-    card.addEventListener("click", function () {
+        card.addEventListener(
+            "click",
+            function () {
 
-        if (videoDetails[index]) {
+                if (videoDetails[index]) {
 
-            openVideo(
-                videoDetails[index]
+                    openVideo(
+                        videoDetails[index]
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+// ============================================================
+// NEWSLETTER
+// ============================================================
+
+const newsletterForm =
+    document.querySelector(
+        ".newsletter-form"
+    );
+
+
+if (newsletterForm) {
+
+    newsletterForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const emailInput =
+                newsletterForm.querySelector(
+                    "input"
+                );
+
+
+            const email =
+                emailInput.value.trim();
+
+
+            if (email === "") {
+
+                alert(
+                    "Please enter your email address."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Thank you for subscribing to GhorCast!"
             );
 
+
+            emailInput.value = "";
+
         }
+    );
 
-    });
+}
 
-});
+
+// ============================================================
+// CURRENT YEAR
+// ============================================================
+
+const footerYear =
+    document.querySelector(
+        ".footer-bottom p"
+    );
+
+
+if (footerYear) {
+
+    footerYear.textContent =
+        "© " +
+        new Date().getFullYear() +
+        " GhorCast. All rights reserved.";
+
+}
