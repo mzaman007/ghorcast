@@ -1422,3 +1422,314 @@ articleCards.forEach(function (card, index) {
     });
 
 });
+// ================= NEWS =================
+
+const newsItems =
+    document.querySelectorAll(".news-item");
+
+
+const newsDetails = [
+
+    {
+        category: "Tourism",
+        title: "Tourism and hotel industry updates",
+        date: "September 5, 2026",
+        author: "GhorCast News",
+
+        image:
+            "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                The tourism and hospitality industry continues to
+                develop as travellers explore new destinations and
+                look for better accommodation experiences.
+            </p>
+
+            <h3>Travel Industry</h3>
+
+            <p>
+                Hotels, resorts and tourism businesses are continuing
+                to improve their services and create new experiences
+                for visitors.
+            </p>
+
+            <h3>What Travellers Should Know</h3>
+
+            <p>
+                Travellers should compare accommodation, transportation
+                and destination information before planning a trip.
+            </p>
+
+            <p>
+                GhorCast will continue to bring useful tourism,
+                hotel and travel updates to its readers.
+            </p>
+        `
+    },
+
+
+    {
+        category: "Travel",
+        title: "New travel opportunities for visitors",
+        date: "September 4, 2026",
+        author: "GhorCast Travel",
+
+        image:
+            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                Travellers today have more opportunities to discover
+                destinations around the world.
+            </p>
+
+            <h3>Explore New Destinations</h3>
+
+            <p>
+                From historic cities to beaches and natural landscapes,
+                different destinations offer unique experiences.
+            </p>
+
+            <h3>Plan Your Journey</h3>
+
+            <p>
+                Before travelling, check accommodation options,
+                transportation, local attractions and important
+                travel requirements.
+            </p>
+
+            <p>
+                Follow GhorCast for more destination ideas and travel
+                information.
+            </p>
+        `
+    },
+
+
+    {
+        category: "Hotels",
+        title: "New hotel experiences arriving soon",
+        date: "September 3, 2026",
+        author: "GhorCast Hotels",
+
+        image:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                The hotel industry continues to introduce new
+                accommodation experiences for travellers.
+            </p>
+
+            <h3>Better Guest Experiences</h3>
+
+            <p>
+                Modern hotels are focusing on comfortable rooms,
+                convenient facilities and better guest services.
+            </p>
+
+            <h3>Choosing a Hotel</h3>
+
+            <p>
+                When choosing accommodation, consider location,
+                facilities, reviews and price before making a decision.
+            </p>
+
+            <p>
+                GhorCast will feature more hotels, resorts and
+                accommodation opportunities in the future.
+            </p>
+        `
+    }
+
+];
+
+
+// ================= OPEN NEWS =================
+
+function openNews(news) {
+
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box = document.createElement("div");
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "760px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.overflow = "hidden";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
+
+
+    box.innerHTML = `
+
+        <!-- NEWS IMAGE -->
+
+        <div style="
+            width:100%;
+            height:300px;
+            background-image:url('${news.image}');
+            background-size:cover;
+            background-position:center;
+        "></div>
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button id="closeNews"
+        style="
+            position:absolute;
+            right:18px;
+            top:18px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#ffffff;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+            box-shadow:0 3px 12px rgba(0,0,0,0.25);
+        ">
+            ×
+        </button>
+
+
+        <!-- NEWS CONTENT -->
+
+        <div style="
+            padding:35px;
+        ">
+
+            <span style="
+                display:inline-block;
+                background:#b38a3c;
+                color:#ffffff;
+                padding:6px 11px;
+                border-radius:5px;
+                font-size:12px;
+                font-weight:bold;
+                margin-bottom:15px;
+            ">
+                ${news.category}
+            </span>
+
+
+            <h2 style="
+                color:#17212b;
+                font-size:32px;
+                line-height:1.25;
+                margin:0 0 12px;
+            ">
+                ${news.title}
+            </h2>
+
+
+            <p style="
+                color:#888;
+                font-size:13px;
+                margin:0 0 28px;
+            ">
+                ${news.date} &nbsp; • &nbsp; ${news.author}
+            </p>
+
+
+            <div style="
+                color:#555;
+                font-size:16px;
+                line-height:1.8;
+            ">
+
+                ${news.content}
+
+            </div>
+
+
+            <div style="
+                margin-top:30px;
+                padding-top:20px;
+                border-top:1px solid #eeeeee;
+                text-align:center;
+            ">
+
+                <p style="
+                    color:#999;
+                    font-size:13px;
+                    margin:0;
+                ">
+                    More news and travel updates coming soon on GhorCast.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // ================= CLOSE =================
+
+    box.querySelector("#closeNews").onclick =
+        function () {
+
+            modal.remove();
+
+        };
+
+
+    // ================= CLOSE OUTSIDE =================
+
+    modal.onclick = function (event) {
+
+        if (event.target === modal) {
+
+            modal.remove();
+
+        }
+
+    };
+
+}
+
+
+// ================= NEWS BUTTONS =================
+
+newsItems.forEach(function (item, index) {
+
+    item.style.cursor = "pointer";
+
+
+    item.addEventListener("click", function () {
+
+        if (newsDetails[index]) {
+
+            openNews(newsDetails[index]);
+
+        }
+
+    });
+
+});
