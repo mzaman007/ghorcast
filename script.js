@@ -1733,3 +1733,307 @@ newsItems.forEach(function (item, index) {
     });
 
 });
+// ================= PRODUCTS =================
+
+const productCards =
+    document.querySelectorAll(".product-card");
+
+
+const productDetails = [
+
+    {
+        name: "Travel Essentials",
+        category: "Travel",
+        price: "$29.99",
+        rating: "4.8 / 5",
+
+        image:
+            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Useful travel essentials designed to make your journey more comfortable and organized.",
+
+        availability:
+            "Available soon"
+    },
+
+
+    {
+        name: "Travel Accessories",
+        category: "Travel Gear",
+        price: "$39.99",
+        rating: "4.7 / 5",
+
+        image:
+            "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Practical travel accessories for travellers who want convenience, organization and comfort.",
+
+        availability:
+            "Available soon"
+    },
+
+
+    {
+        name: "Special Travel Products",
+        category: "Special Deal",
+        price: "$49.99",
+        rating: "4.9 / 5",
+
+        image:
+            "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Selected travel products and special offers featured by GhorCast.",
+
+        availability:
+            "Available soon"
+    }
+
+];
+
+
+// ================= OPEN PRODUCT =================
+
+function openProduct(product) {
+
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box = document.createElement("div");
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "620px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.overflow = "hidden";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
+
+
+    box.innerHTML = `
+
+        <!-- PRODUCT IMAGE -->
+
+        <div style="
+            width:100%;
+            height:280px;
+            background-image:url('${product.image}');
+            background-size:cover;
+            background-position:center;
+        "></div>
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button id="closeProduct"
+        style="
+            position:absolute;
+            right:18px;
+            top:18px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#ffffff;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+            box-shadow:0 3px 12px rgba(0,0,0,0.25);
+        ">
+            ×
+        </button>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div style="padding:30px;">
+
+            <p style="
+                color:#b38a3c;
+                font-weight:bold;
+                letter-spacing:1.5px;
+                font-size:13px;
+                margin:0 0 8px;
+            ">
+                GHORCAST SHOP
+            </p>
+
+
+            <h2 style="
+                color:#17212b;
+                font-size:30px;
+                margin:0 0 8px;
+            ">
+                ${product.name}
+            </h2>
+
+
+            <p style="
+                color:#777;
+                margin:0 0 12px;
+            ">
+                ${product.category}
+            </p>
+
+
+            <p style="
+                color:#b38a3c;
+                font-size:18px;
+                font-weight:bold;
+                margin:0 0 18px;
+            ">
+                ★ ${product.rating}
+            </p>
+
+
+            <p style="
+                color:#555;
+                line-height:1.7;
+                margin:0 0 22px;
+            ">
+                ${product.description}
+            </p>
+
+
+            <!-- PRICE -->
+
+            <div style="
+                padding:18px;
+                background:#f8f8f8;
+                border-radius:10px;
+                margin-bottom:18px;
+            ">
+
+                <div style="
+                    color:#777;
+                    font-size:13px;
+                    margin-bottom:4px;
+                ">
+                    Price
+                </div>
+
+
+                <div style="
+                    color:#17212b;
+                    font-size:25px;
+                    font-weight:bold;
+                ">
+                    ${product.price}
+                </div>
+
+            </div>
+
+
+            <!-- AVAILABILITY -->
+
+            <p style="
+                color:#777;
+                font-size:14px;
+                margin-bottom:20px;
+            ">
+                📦 ${product.availability}
+            </p>
+
+
+            <!-- PRODUCT BUTTON -->
+
+            <button id="buyProduct"
+            style="
+                width:100%;
+                padding:16px;
+                border:0;
+                border-radius:9px;
+                background:#17212b;
+                color:#ffffff;
+                font-weight:bold;
+                font-size:15px;
+                cursor:pointer;
+            ">
+                View Product
+            </button>
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // ================= CLOSE =================
+
+    box.querySelector("#closeProduct").onclick =
+        function () {
+
+            modal.remove();
+
+        };
+
+
+    // ================= CLOSE OUTSIDE =================
+
+    modal.onclick = function (event) {
+
+        if (event.target === modal) {
+
+            modal.remove();
+
+        }
+
+    };
+
+
+    // ================= VIEW PRODUCT =================
+
+    box.querySelector("#buyProduct").onclick =
+        function () {
+
+            alert(
+                product.name +
+                "\n\nProduct ordering will be available on GhorCast soon."
+            );
+
+        };
+
+}
+
+
+// ================= PRODUCT BUTTONS =================
+
+productCards.forEach(function (card, index) {
+
+    card.style.cursor = "pointer";
+
+
+    card.addEventListener("click", function () {
+
+        if (productDetails[index]) {
+
+            openProduct(
+                productDetails[index]
+            );
+
+        }
+
+    });
+
+});
