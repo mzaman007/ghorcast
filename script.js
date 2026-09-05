@@ -1073,3 +1073,352 @@ destinationCards.forEach(function (card, index) {
     });
 
 });
+// ================= ARTICLES =================
+
+const articleCards =
+    document.querySelectorAll(".article-card");
+
+
+const articleDetails = [
+
+    {
+        category: "Travel Guide",
+        title: "10 Things to Know Before Your Next Hotel Stay",
+        date: "September 5, 2026",
+        author: "GhorCast Travel",
+
+        image:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                Choosing the right hotel can make a big difference
+                to your travel experience. Before booking your next
+                stay, there are several important things to consider.
+            </p>
+
+            <h3>1. Check the Location</h3>
+
+            <p>
+                A hotel may look attractive online, but its location
+                is equally important. Check how close it is to the
+                places you want to visit.
+            </p>
+
+            <h3>2. Read the Hotel Facilities</h3>
+
+            <p>
+                Check whether the hotel provides the facilities you
+                actually need, such as Wi-Fi, breakfast, parking,
+                swimming pool or restaurant services.
+            </p>
+
+            <h3>3. Compare Prices</h3>
+
+            <p>
+                Compare the hotel price with other available options.
+                Look carefully at what is included in the room price.
+            </p>
+
+            <h3>4. Check Reviews</h3>
+
+            <p>
+                Guest reviews can provide useful information about
+                cleanliness, service, location and the overall hotel
+                experience.
+            </p>
+
+            <p>
+                With a little research before booking, you can make
+                your hotel stay more comfortable and enjoyable.
+            </p>
+        `
+    },
+
+
+    {
+        category: "Destination",
+        title: "Beautiful Destinations You Should Discover",
+        date: "September 4, 2026",
+        author: "GhorCast Travel",
+
+        image:
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                The world is full of beautiful destinations waiting
+                to be explored. From busy modern cities to peaceful
+                beaches and historic locations, every destination
+                offers a different experience.
+            </p>
+
+            <h3>Discover Something New</h3>
+
+            <p>
+                Travelling allows you to experience different
+                cultures, food, landscapes and traditions.
+            </p>
+
+            <h3>Plan Before You Travel</h3>
+
+            <p>
+                Research the destination, accommodation, transportation
+                and important attractions before starting your journey.
+            </p>
+
+            <h3>Make Your Journey Memorable</h3>
+
+            <p>
+                Take time to explore local places instead of only
+                visiting the most famous attractions.
+            </p>
+
+            <p>
+                GhorCast will continue to bring you travel inspiration
+                and destination ideas from around the world.
+            </p>
+        `
+    },
+
+
+    {
+        category: "Hotel Tips",
+        title: "How to Choose the Right Hotel for Your Trip",
+        date: "September 3, 2026",
+        author: "GhorCast Hotels",
+
+        image:
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+
+        content: `
+            <p>
+                Finding the right hotel depends on your destination,
+                budget and the type of experience you want.
+            </p>
+
+            <h3>Think About Your Budget</h3>
+
+            <p>
+                Decide how much you want to spend before comparing
+                different hotels.
+            </p>
+
+            <h3>Consider Your Travel Purpose</h3>
+
+            <p>
+                A business traveller may need different facilities
+                from a family travelling for a holiday.
+            </p>
+
+            <h3>Look at the Location</h3>
+
+            <p>
+                Staying near important attractions or transportation
+                can save both time and travel costs.
+            </p>
+
+            <h3>Check What Is Included</h3>
+
+            <p>
+                Always check whether breakfast, Wi-Fi, parking and
+                other facilities are included in the advertised price.
+            </p>
+
+            <p>
+                The best hotel is not always the most expensive one.
+                Choose the hotel that best matches your actual needs.
+            </p>
+        `
+    }
+
+];
+
+
+// ================= OPEN ARTICLE =================
+
+function openArticle(article) {
+
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box = document.createElement("div");
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "760px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.overflow = "hidden";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
+
+
+    box.innerHTML = `
+
+        <!-- ARTICLE IMAGE -->
+
+        <div style="
+            width:100%;
+            height:300px;
+            background-image:url('${article.image}');
+            background-size:cover;
+            background-position:center;
+        "></div>
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button id="closeArticle"
+        style="
+            position:absolute;
+            right:18px;
+            top:18px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#ffffff;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+            box-shadow:0 3px 12px rgba(0,0,0,0.25);
+        ">
+            ×
+        </button>
+
+
+        <!-- ARTICLE CONTENT -->
+
+        <div style="
+            padding:35px;
+        ">
+
+            <span style="
+                display:inline-block;
+                background:#b38a3c;
+                color:#ffffff;
+                padding:6px 11px;
+                border-radius:5px;
+                font-size:12px;
+                font-weight:bold;
+                margin-bottom:15px;
+            ">
+                ${article.category}
+            </span>
+
+
+            <h2 style="
+                color:#17212b;
+                font-size:32px;
+                line-height:1.25;
+                margin:0 0 12px;
+            ">
+                ${article.title}
+            </h2>
+
+
+            <p style="
+                color:#888;
+                font-size:13px;
+                margin:0 0 28px;
+            ">
+                ${article.date} &nbsp; • &nbsp; ${article.author}
+            </p>
+
+
+            <div style="
+                color:#555;
+                font-size:16px;
+                line-height:1.8;
+            ">
+
+                ${article.content}
+
+            </div>
+
+
+            <div style="
+                margin-top:30px;
+                padding-top:20px;
+                border-top:1px solid #eeeeee;
+                text-align:center;
+            ">
+
+                <p style="
+                    color:#999;
+                    font-size:13px;
+                    margin:0;
+                ">
+                    More travel stories coming soon on GhorCast.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // ================= CLOSE =================
+
+    box.querySelector("#closeArticle").onclick =
+        function () {
+
+            modal.remove();
+
+        };
+
+
+    // ================= CLOSE OUTSIDE =================
+
+    modal.onclick = function (event) {
+
+        if (event.target === modal) {
+
+            modal.remove();
+
+        }
+
+    };
+
+}
+
+
+// ================= ARTICLE BUTTONS =================
+
+articleCards.forEach(function (card, index) {
+
+    card.style.cursor = "pointer";
+
+
+    card.addEventListener("click", function () {
+
+        if (articleDetails[index]) {
+
+            openArticle(articleDetails[index]);
+
+        }
+
+    });
+
+});
