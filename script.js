@@ -760,3 +760,316 @@ if (dealsButton) {
     });
 
 }
+// ================= DESTINATIONS =================
+
+const destinationCards =
+    document.querySelectorAll(".destination-card");
+
+
+const destinationDetails = [
+
+    {
+        name: "Saudi Arabia",
+        image:
+            "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Discover the beauty, culture and hospitality of Saudi Arabia. Explore historic places, modern cities and important destinations.",
+
+        places: [
+            "🕋 Makkah",
+            "🕌 Madinah",
+            "🏙️ Riyadh",
+            "🌊 Jeddah"
+        ]
+    },
+
+
+    {
+        name: "Bangladesh",
+        image:
+            "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Explore Bangladesh, a beautiful country known for rivers, beaches, green landscapes, culture and warm hospitality.",
+
+        places: [
+            "🏖️ Cox's Bazar",
+            "🌿 Sylhet",
+            "🌳 Sundarbans",
+            "🏙️ Dhaka"
+        ]
+    },
+
+
+    {
+        name: "United Arab Emirates",
+        image:
+            "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Experience the United Arab Emirates with its luxury hotels, modern cities, shopping, beaches and spectacular architecture.",
+
+        places: [
+            "🏙️ Dubai",
+            "🕌 Abu Dhabi",
+            "🏖️ Sharjah",
+            "⛰️ Ras Al Khaimah"
+        ]
+    },
+
+
+    {
+        name: "Turkey",
+        image:
+            "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80",
+
+        description:
+            "Discover Turkey, where historic cities, beautiful coastlines, traditional culture and modern hospitality come together.",
+
+        places: [
+            "🕌 Istanbul",
+            "🎈 Cappadocia",
+            "🏖️ Antalya",
+            "🏛️ Ephesus"
+        ]
+    }
+
+];
+
+
+// ================= OPEN DESTINATION =================
+
+function openDestination(destination) {
+
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.78)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "9999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.overflowY = "auto";
+
+
+    const box = document.createElement("div");
+
+    box.style.background = "#ffffff";
+    box.style.maxWidth = "620px";
+    box.style.width = "100%";
+    box.style.borderRadius = "20px";
+    box.style.overflow = "hidden";
+    box.style.position = "relative";
+    box.style.boxShadow =
+        "0 25px 70px rgba(0,0,0,0.4)";
+
+
+    let placesHTML = "";
+
+
+    destination.places.forEach(function (place) {
+
+        placesHTML += `
+
+            <div style="
+                padding:12px;
+                background:#f6f6f6;
+                border-radius:8px;
+                color:#444;
+                font-size:14px;
+            ">
+                ${place}
+            </div>
+
+        `;
+
+    });
+
+
+    box.innerHTML = `
+
+        <!-- DESTINATION IMAGE -->
+
+        <div style="
+            width:100%;
+            height:250px;
+            background-image:url('${destination.image}');
+            background-size:cover;
+            background-position:center;
+        "></div>
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button id="closeDestination"
+        style="
+            position:absolute;
+            right:18px;
+            top:18px;
+            width:42px;
+            height:42px;
+            border:0;
+            border-radius:50%;
+            background:#ffffff;
+            color:#17212b;
+            font-size:26px;
+            cursor:pointer;
+            box-shadow:0 3px 12px rgba(0,0,0,0.25);
+        ">
+            ×
+        </button>
+
+
+        <!-- DESTINATION INFORMATION -->
+
+        <div style="padding:30px;">
+
+            <p style="
+                color:#b38a3c;
+                font-weight:bold;
+                letter-spacing:1.5px;
+                font-size:13px;
+                margin:0 0 8px;
+            ">
+                GHORCAST DESTINATION
+            </p>
+
+
+            <h2 style="
+                font-size:30px;
+                margin:0 0 15px;
+                color:#17212b;
+            ">
+                ${destination.name}
+            </h2>
+
+
+            <p style="
+                color:#555;
+                line-height:1.7;
+                margin:0 0 25px;
+            ">
+                ${destination.description}
+            </p>
+
+
+            <h3 style="
+                color:#17212b;
+                margin:0 0 12px;
+                font-size:20px;
+            ">
+                Popular Places
+            </h3>
+
+
+            <div style="
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:10px;
+                margin-bottom:25px;
+            ">
+
+                ${placesHTML}
+
+            </div>
+
+
+            <button id="destinationHotels"
+            style="
+                width:100%;
+                padding:16px;
+                border:0;
+                border-radius:9px;
+                background:#17212b;
+                color:#ffffff;
+                font-weight:bold;
+                font-size:15px;
+                cursor:pointer;
+            ">
+                Explore Hotels in ${destination.name}
+            </button>
+
+        </div>
+
+    `;
+
+
+    modal.appendChild(box);
+
+    document.body.appendChild(modal);
+
+
+    // ================= CLOSE =================
+
+    const closeButton =
+        box.querySelector("#closeDestination");
+
+
+    closeButton.onclick = function () {
+
+        modal.remove();
+
+    };
+
+
+    // ================= CLOSE OUTSIDE =================
+
+    modal.onclick = function (event) {
+
+        if (event.target === modal) {
+
+            modal.remove();
+
+        }
+
+    };
+
+
+    // ================= EXPLORE HOTELS =================
+
+    const hotelsButton =
+        box.querySelector("#destinationHotels");
+
+
+    hotelsButton.onclick = function () {
+
+        modal.remove();
+
+        document
+            .getElementById("hotels")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    };
+
+}
+
+
+// ================= DESTINATION BUTTONS =================
+
+destinationCards.forEach(function (card, index) {
+
+    card.style.cursor = "pointer";
+
+
+    card.addEventListener("click", function () {
+
+        if (destinationDetails[index]) {
+
+            openDestination(
+                destinationDetails[index]
+            );
+
+        }
+
+    });
+
+});
