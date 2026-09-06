@@ -900,7 +900,7 @@ input {
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
     padding-bottom: 60px;
     align-items: start;
 }
