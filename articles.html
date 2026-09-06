@@ -1871,18 +1871,21 @@ document.addEventListener(
             function (button) {
 
                 button.addEventListener(
-                    "click",
-                    function () {
+    "click",
+    function () {
 
-                        const title =
-                            this.getAttribute(
-                                "data-article"
-                            );
+        const title =
+            this.getAttribute(
+                "data-article"
+            );
 
-                        showArticle(title);
+        showArticle(title);
 
-                    }
-                );
+        /* Remove mouse-click focus box */
+        this.blur();
+
+    }
+);
 
             }
         );
@@ -2440,3 +2443,4 @@ function subscribeNewsletter(event) {
 </body>
 
 </html>
+
