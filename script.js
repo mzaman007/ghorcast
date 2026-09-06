@@ -2040,7 +2040,7 @@ const productDetails = [
         rating: "4.8 / 5",
 
         image:
-            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=85",
 
         description:
             "Useful travel essentials designed to make your journey more comfortable and organized.",
@@ -2057,7 +2057,7 @@ const productDetails = [
         rating: "4.7 / 5",
 
         image:
-            "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=85",
 
         description:
             "Practical travel accessories for travellers who want convenience, organization and comfort.",
@@ -2074,7 +2074,7 @@ const productDetails = [
         rating: "4.9 / 5",
 
         image:
-            "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85",
 
         description:
             "Selected travel products and special offers featured by GhorCast.",
