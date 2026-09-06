@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Travel Videos | GhorCast</title>
-    <meta name="description" content="Watch travel videos, destination guides, hotel experiences and travel inspiration on GhorCast.">
+
+    <meta
+        name="description"
+        content="Watch travel videos, destination guides, hotel experiences and travel inspiration on GhorCast."
+    >
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================================
+        /* =================================
            GHORCAST VIDEOS PAGE
         ================================= */
 
@@ -18,10 +22,14 @@
             padding: 75px 20px 55px;
             text-align: center;
             color: white;
+
             background:
-                linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.58)),
+                linear-gradient(
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.58)
+                ),
                 url("https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1800&q=85")
-                center/cover;
+                center / cover;
         }
 
         .videos-hero h1 {
@@ -31,10 +39,14 @@
 
         .videos-hero p {
             max-width: 720px;
-            margin: auto;
+            margin: 0 auto;
             font-size: 18px;
             line-height: 1.6;
         }
+
+        /* =================================
+           SEARCH
+        ================================= */
 
         .video-search-area {
             max-width: 850px;
@@ -46,33 +58,44 @@
 
         .video-search {
             display: flex;
-            background: white;
+            background: #ffffff;
             padding: 8px;
             border-radius: 14px;
-            box-shadow: 0 8px 30px rgba(0,0,0,.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .video-search input {
             flex: 1;
+            min-width: 0;
             border: none;
             outline: none;
             padding: 15px;
             font-size: 16px;
+            background: transparent;
         }
 
         .video-search button {
             border: none;
             background: #c99a45;
-            color: white;
+            color: #ffffff;
             padding: 0 25px;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
         }
 
+        .video-search button:hover {
+            opacity: 0.9;
+        }
+
+        /* =================================
+           CATEGORY FILTERS
+        ================================= */
+
         .video-categories {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             flex-wrap: wrap;
             padding: 0 20px;
@@ -80,59 +103,88 @@
         }
 
         .video-filter {
-            border: 1px solid #ddd;
-            background: white;
+            border: 1px solid #dddddd;
+            background: #ffffff;
+            color: #333333;
             padding: 10px 18px;
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
+            transition: 0.2s ease;
         }
 
-        .video-filter.active,
-        .video-filter:hover {
+        .video-filter:hover,
+        .video-filter.active {
             background: #c99a45;
-            color: white;
+            color: #ffffff;
             border-color: #c99a45;
         }
 
+        /* =================================
+           VIDEO CONTAINER
+        ================================= */
+
         .videos-container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
             padding: 0 20px 70px;
         }
 
+        /* =================================
+           VIDEO GRID
+        ================================= */
+
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 28px;
         }
 
+        /* =================================
+           VIDEO CARD
+        ================================= */
+
         .video-card {
-            background: white;
+            background: #ffffff;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
-            transition: transform .2s ease, box-shadow .2s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .video-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 28px rgba(0,0,0,.13);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
         }
+
+        /* =================================
+           VIDEO FRAME
+           SAME SIZE FOR ALL VIDEOS
+        ================================= */
 
         .video-frame {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: #111;
+            background: #111111;
+            overflow: hidden;
         }
 
         .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: 0;
             display: block;
         }
+
+        /* =================================
+           VIDEO CONTENT
+        ================================= */
 
         .video-content {
             padding: 20px;
@@ -144,27 +196,46 @@
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 7px;
+            letter-spacing: 0.3px;
         }
 
         .video-content h3 {
             margin: 0 0 9px;
             font-size: 21px;
+            line-height: 1.35;
         }
 
         .video-content p {
-            color: #666;
+            color: #666666;
             line-height: 1.6;
             margin: 0;
         }
+
+        /* =================================
+           NO RESULTS
+        ================================= */
 
         .no-videos {
             display: none;
             text-align: center;
             padding: 50px 20px;
-            color: #777;
+            color: #777777;
         }
 
+        .no-videos h2 {
+            margin-bottom: 8px;
+        }
+
+        .no-videos p {
+            margin: 0;
+        }
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
         @media (max-width: 800px) {
+
             .videos-grid {
                 grid-template-columns: 1fr;
             }
@@ -175,6 +246,7 @@
         }
 
         @media (max-width: 600px) {
+
             .videos-hero {
                 padding: 55px 18px 40px;
             }
@@ -195,14 +267,26 @@
             .video-search button {
                 padding: 13px;
             }
+
+            .video-content {
+                padding: 17px;
+            }
+
+            .video-content h3 {
+                font-size: 19px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =================================
+     HEADER
+================================= -->
+
 <header>
+
     <div class="container">
 
         <div class="logo">
@@ -220,10 +304,14 @@
         </nav>
 
     </div>
+
 </header>
 
 
-<!-- HERO -->
+<!-- =================================
+     HERO
+================================= -->
+
 <section class="videos-hero">
 
     <h1>Travel Videos</h1>
@@ -236,7 +324,10 @@
 </section>
 
 
-<!-- SEARCH -->
+<!-- =================================
+     SEARCH
+================================= -->
+
 <div class="video-search-area">
 
     <div class="video-search">
@@ -245,10 +336,13 @@
             type="text"
             id="videoSearch"
             placeholder="Search travel videos..."
-            onkeyup="searchVideos()"
+            autocomplete="off"
+            oninput="searchVideos()"
         >
 
-        <button type="button" onclick="searchVideos()">
+        <button
+            type="button"
+            onclick="searchVideos()">
             Search
         </button>
 
@@ -257,7 +351,10 @@
 </div>
 
 
-<!-- CATEGORIES -->
+<!-- =================================
+     CATEGORY FILTERS
+================================= -->
+
 <div class="video-categories">
 
     <button
@@ -287,7 +384,7 @@
         onclick="filterVideos('travel-tips', this)">
         Travel Tips
     </button>
-    
+
     <button
         type="button"
         class="video-filter"
@@ -298,17 +395,26 @@
 </div>
 
 
-<!-- VIDEOS -->
+<!-- =================================
+     VIDEOS
+================================= -->
+
 <section class="videos-container">
 
-    <div class="videos-grid" id="videosGrid">
+    <div
+        class="videos-grid"
+        id="videosGrid">
 
 
-        <!-- VIDEO 1 -->
+        <!-- =================================
+             VIDEO 1
+             SAUDI ARABIA
+        ================================= -->
+
         <article
             class="video-card"
             data-category="saudi"
-            data-name="Saudi Arabia Where in the World">
+            data-name="Saudi Arabia">
 
             <div class="video-frame">
 
@@ -328,11 +434,13 @@
                     Saudi Arabia
                 </div>
 
-                <h3>Where in the World? Saudi Arabia</h3>
+                <h3>
+                    Where in the World? Saudi Arabia
+                </h3>
 
                 <p>
-                    Discover the landscapes, culture and experiences
-                    of Saudi Arabia.
+                    Discover the landscapes, culture and
+                    experiences of Saudi Arabia.
                 </p>
 
             </div>
@@ -340,53 +448,21 @@
         </article>
 
 
-        <!-- VIDEO 2 -->
+        <!-- =================================
+             VIDEO 2
+             DESTINATIONS
+        ================================= -->
+
         <article
             class="video-card"
-            data-category="travel-tips"
-            data-name="Travel Tips"
+            data-category="destination"
+            data-name="World Destinations">
 
             <div class="video-frame">
 
                 <iframe
                     src="https://www.youtube.com/embed/WBotvcJgCD8"
-                    title="Visit Saudi Arabia"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
-
-            <div class="video-content">
-
-                <div class="video-category">
-                    Travel Tips
-                </div>
-
-                <h3>Visit Saudi Arabia</h3>
-
-                <p>
-                    Explore Saudi Arabia's heritage, landscapes
-                    and major tourist destinations.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- VIDEO 3 -->
-        <article
-            class="video-card"
-            data-category="destination"
-            data-name="Travel Inspiration">
-
-            <div class="video-frame">
-
-                <iframe
-                    src="https://www.youtube.com/embed/OxiONPC2hIM"
-                    title="Travel Inspiration"
+                    title="World Destinations Travel Video"
                     loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -400,11 +476,13 @@
                     Destinations
                 </div>
 
-                <h3>Smart Travel Tips for Your Next Journey</h3>
+                <h3>
+                    Discover New Destinations
+                </h3>
 
                 <p>
-                    Get inspired to discover new destinations
-                    and plan your next adventure.
+                    Explore inspiring destinations and
+                    discover amazing places around the world.
                 </p>
 
             </div>
@@ -412,17 +490,21 @@
         </article>
 
 
-        <!-- VIDEO 4 -->
+        <!-- =================================
+             VIDEO 3
+             TRAVEL TIPS
+        ================================= -->
+
         <article
             class="video-card"
-            data-category="hotels"
-            data-name="Hotel Travel Guide"
+            data-category="travel-tips"
+            data-name="Travel Tips">
 
             <div class="video-frame">
 
                 <iframe
-                    src="https://www.youtube.com/embed/WBotvcJgCD8"
-                    title="Travel Planning"
+                    src="https://www.youtube.com/embed/OxiONPC2hIM"
+                    title="Travel Tips"
                     loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -433,14 +515,58 @@
             <div class="video-content">
 
                 <div class="video-category">
-                     Hotels
+                    Travel Tips
                 </div>
 
-                <h3>How to Choose the Right Hotel</h3>
+                <h3>
+                    Smart Travel Tips for Your Next Journey
+                </h3>
 
                 <p>
-                    Helpful inspiration for planning your next
-                    international trip.
+                    Get useful travel tips to help you
+                    plan your next adventure.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================
+             VIDEO 4
+             HOTELS
+        ================================= -->
+
+        <article
+            class="video-card"
+            data-category="hotels"
+            data-name="Hotels">
+
+            <div class="video-frame">
+
+                <iframe
+                    src="https://www.youtube.com/embed/WBotvcJgCD8"
+                    title="Hotel Travel Guide"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <div class="video-content">
+
+                <div class="video-category">
+                    Hotels
+                </div>
+
+                <h3>
+                    How to Choose the Right Hotel
+                </h3>
+
+                <p>
+                    Helpful inspiration for choosing
+                    the right hotel for your next trip.
                 </p>
 
             </div>
@@ -450,9 +576,17 @@
     </div>
 
 
-    <div class="no-videos" id="noVideos">
+    <!-- =================================
+         NO RESULTS
+    ================================= -->
 
-        <h2>No videos found</h2>
+    <div
+        class="no-videos"
+        id="noVideos">
+
+        <h2>
+            No videos found
+        </h2>
 
         <p>
             Try another search or category.
@@ -463,7 +597,10 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- =================================
+     FOOTER
+================================= -->
+
 <footer>
 
     <div class="container">
@@ -471,7 +608,6 @@
         <p>
             © 2026 GhorCast. All rights reserved.
         </p>
-
     </div>
 
 </footer>
@@ -479,87 +615,59 @@
 
 <script>
 
-    /* ================================
-       VIDEO SEARCH
+    /* =================================
+       CURRENT CATEGORY
+    ================================= */
+
+    let currentCategory = "all";
+
+
+    /* =================================
+       SEARCH VIDEOS
     ================================= */
 
     function searchVideos() {
 
-    const search =
-        document
-            .getElementById("videoSearch")
-            .value
-            .toLowerCase()
-            .trim();
+        const searchInput =
+            document.getElementById("videoSearch");
 
-    const videos =
-        document.querySelectorAll(".video-card");
-
-    let visible = 0;
-
-    videos.forEach(video => {
-
-        const name =
-            (video.dataset.name || "").toLowerCase();
-
-        const category =
-            (video.dataset.category || "").toLowerCase();
-
-        const titleElement =
-            video.querySelector("h3");
-
-        const title =
-            titleElement
-                ? titleElement.innerText.toLowerCase()
-                : "";
-
-        const matches =
-            search === "" ||
-            name.includes(search) ||
-            category.includes(search) ||
-            title.includes(search);
-
-        if (matches) {
-            video.style.display = "block";
-            visible++;
-        } else {
-            video.style.display = "none";
-        }
-
-    });
-
-    document.getElementById("noVideos").style.display =
-        visible === 0 ? "block" : "none";
-}
-
-
-    /* ================================
-       CATEGORY FILTER
-    ================================= */
-
-    function filterVideos(category, button) {
-
-        document
-            .querySelectorAll(".video-filter")
-            .forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-        button.classList.add("active");
+        const search =
+            searchInput.value
+                .toLowerCase()
+                .trim();
 
         const videos =
             document.querySelectorAll(".video-card");
 
         let visible = 0;
 
+
         videos.forEach(video => {
 
-            if (
-                category === "all" ||
-                video.dataset.category === category
-            ) {
+            const name =
+                (video.dataset.name || "")
+                    .toLowerCase();
 
-                video.style.display = "block";
+            const category =
+                (video.dataset.category || "")
+                    .toLowerCase();
+
+
+            const searchMatch =
+                search === "" ||
+                name.includes(search) ||
+                category.includes(search);
+
+
+            const categoryMatch =
+                currentCategory === "all" ||
+                category === currentCategory;
+
+
+            if (searchMatch && categoryMatch) {
+
+                video.style.display = "";
+
                 visible++;
 
             } else {
@@ -570,9 +678,70 @@
 
         });
 
-        document.getElementById("noVideos").style.display =
-            visible === 0 ? "block" : "none";
+
+        updateNoVideos(visible);
     }
+
+
+    /* =================================
+       CATEGORY FILTER
+    ================================= */
+
+    function filterVideos(category, button) {
+
+        currentCategory = category;
+
+
+        document
+            .querySelectorAll(".video-filter")
+            .forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+        button.classList.add("active");
+
+
+        searchVideos();
+    }
+
+
+    /* =================================
+       NO RESULTS MESSAGE
+    ================================= */
+
+    function updateNoVideos(visible) {
+
+        const noVideos =
+            document.getElementById("noVideos");
+
+
+        if (visible === 0) {
+
+            noVideos.style.display = "block";
+
+        } else {
+
+            noVideos.style.display = "none";
+
+        }
+    }
+
+
+    /* =================================
+       INITIAL LOAD
+    ================================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            searchVideos();
+
+        }
+    );
 
 </script>
 
