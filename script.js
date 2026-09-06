@@ -2295,29 +2295,26 @@ function openProduct(product) {
 }
 
 
-productCards.forEach(
-    function (card, index) {
+productCards.forEach(function (card, index) {
 
-        card.style.cursor = "pointer";
+    card.style.cursor = "pointer";
 
+    card.addEventListener("click", function () {
 
-        card.addEventListener(
-            "click",
-            function () {
+        if (productDetails[index]) {
 
-                if (productDetails[index]) {
+            productDetails[index].image =
+                card.querySelector(".product-image img").src;
 
-                    openProduct(
-                        productDetails[index]
-                    );
+            openProduct(productDetails[index]);
 
-                }
+        }
 
-            }
-        );
+    });
 
-    }
-);
+});
+
+         
 
 
 // ============================================================
