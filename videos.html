@@ -493,23 +493,30 @@
     videos.forEach(video => {
 
         const name =
-            video.dataset.name.toLowerCase();
+            (video.dataset.name || "").toLowerCase();
 
         const category =
-            video.dataset.category.toLowerCase();
+            (video.dataset.category || "").toLowerCase();
 
-        if (
+        const titleElement =
+            video.querySelector("h3");
+
+        const title =
+            titleElement
+                ? titleElement.innerText.toLowerCase()
+                : "";
+
+        const matches =
+            search === "" ||
             name.includes(search) ||
-            category.includes(search)
-        ) {
+            category.includes(search) ||
+            title.includes(search);
 
+        if (matches) {
             video.style.display = "block";
             visible++;
-
         } else {
-
             video.style.display = "none";
-
         }
 
     });
