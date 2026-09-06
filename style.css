@@ -682,10 +682,10 @@ input {
 
 .news-item {
     display: grid;
-    grid-template-columns: 180px 80px 1fr;
-    gap: 25px;
+    grid-template-columns: 120px 70px 1fr;
+    gap: 20px;
     align-items: center;
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #eeeeee;
 }
 
@@ -709,20 +709,19 @@ input {
     min-width: 0;
 }
 
+
+/* ================= NEWS MOBILE ================= */
+
 @media (max-width: 700px) {
 
     .news-item {
-    display: grid;
-    grid-template-columns: 120px 70px 1fr;
-    gap: 20px;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
-}
+        grid-template-columns: 90px 1fr;
+        gap: 12px;
+    }
 
     .news-image {
-        width: 100px;
-        height: 85px;
+        width: 90px;
+        height: 65px;
         grid-row: span 2;
     }
 
@@ -735,7 +734,6 @@ input {
     }
 
 }
-
 
 /* =====================================================
    PRODUCTS
