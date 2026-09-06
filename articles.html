@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -10,14 +11,14 @@
     <title>Articles | GhorCast</title>
 
     <meta name="description"
-          content="Read travel guides, hotel guides, destination ideas and useful travel tips on GhorCast.">
+          content="Discover travel guides, destination ideas, hotel tips and travel inspiration on GhorCast.">
 
     <link rel="stylesheet" href="style.css">
 
     <style>
 
         /* =====================================================
-           GHORCAST ARTICLES PAGE
+           GHORCAST PREMIUM ARTICLES PAGE
            ===================================================== */
 
         .articles-page {
@@ -25,28 +26,41 @@
         }
 
 
-        /* ================= HERO ================= */
+        /* =====================================================
+           HERO
+           ===================================================== */
 
         .articles-page .page-hero {
 
             background:
                 linear-gradient(
-                    rgba(23, 33, 43, 0.88),
+                    rgba(23, 33, 43, 0.80),
                     rgba(23, 33, 43, 0.88)
                 ),
-                url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80")
+                url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=85")
                 center / cover;
 
         }
 
 
-        /* ================= ARTICLES SECTION ================= */
+        .articles-page .page-hero h1 {
+
+            font-size: 52px;
+            letter-spacing: -1px;
+
+        }
+
+
+        /* =====================================================
+           MAIN SECTION
+           ===================================================== */
 
         .articles-section {
 
-            padding: 70px 20px;
+            padding: 70px 20px 80px;
 
         }
+
 
         .articles-container {
 
@@ -57,28 +71,33 @@
         }
 
 
-        /* ================= SEARCH ================= */
+        /* =====================================================
+           SEARCH
+           ===================================================== */
 
         .articles-search {
 
             max-width: 850px;
 
-            margin: 0 auto 55px;
+            margin: 0 auto 60px;
 
             display: flex;
 
-            gap: 12px;
+            gap: 10px;
 
             background: #ffffff;
 
-            padding: 10px;
+            padding: 9px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.10);
+                0 10px 30px rgba(0,0,0,0.10);
+
+            border: 1px solid #eeeeee;
 
         }
+
 
         .articles-search input {
 
@@ -94,13 +113,25 @@
 
             font-size: 16px;
 
+            color: #17212b;
+
+            background: transparent;
+
         }
+
+
+        .articles-search input::placeholder {
+
+            color: #999;
+
+        }
+
 
         .articles-search button {
 
             border: none;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             padding: 0 28px;
 
@@ -112,24 +143,191 @@
 
             cursor: pointer;
 
+            transition: 0.2s ease;
+
         }
+
 
         .articles-search button:hover {
 
             background: #b58634;
 
+            transform: translateY(-1px);
+
         }
 
 
-        /* ================= HEADING ================= */
+        /* =====================================================
+           FEATURED ARTICLE
+           ===================================================== */
+
+        .featured-article {
+
+            display: grid;
+
+            grid-template-columns: 1.15fr 1fr;
+
+            min-height: 450px;
+
+            margin-bottom: 75px;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.10);
+
+            border: 1px solid #eeeeee;
+
+        }
+
+
+        .featured-image {
+
+            position: relative;
+
+            min-height: 450px;
+
+            background:
+                url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=85")
+                center / cover;
+
+        }
+
+
+        .featured-badge {
+
+            position: absolute;
+
+            top: 22px;
+
+            left: 22px;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            background: #c99a45;
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        .featured-content {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 50px;
+
+        }
+
+
+        .featured-meta {
+
+            margin-bottom: 15px;
+
+            color: #999;
+
+            font-size: 13px;
+
+        }
+
+
+        .featured-content h2 {
+
+            margin: 0 0 18px;
+
+            color: #17212b;
+
+            font-size: 38px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .featured-content p {
+
+            margin: 0 0 25px;
+
+            color: #666;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .featured-author {
+
+            margin-bottom: 28px;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        .featured-button {
+
+            align-self: flex-start;
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 13px 23px;
+
+            background: #17212b;
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .featured-button:hover {
+
+            background: #c99a45;
+
+        }
+
+
+        /* =====================================================
+           HEADING
+           ===================================================== */
 
         .articles-heading {
 
             text-align: center;
 
-            margin-bottom: 45px;
+            margin-bottom: 42px;
 
         }
+
 
         .articles-heading h2 {
 
@@ -140,6 +338,7 @@
             font-size: 38px;
 
         }
+
 
         .articles-heading p {
 
@@ -152,7 +351,63 @@
         }
 
 
-        /* ================= GRID ================= */
+        /* =====================================================
+           CATEGORY FILTERS
+           ===================================================== */
+
+        .article-filters {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 42px;
+
+        }
+
+
+        .article-filter {
+
+            border: 1px solid #dddddd;
+
+            background: #ffffff;
+
+            color: #555;
+
+            padding: 9px 17px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .article-filter:hover,
+        .article-filter.active {
+
+            background: #17212b;
+
+            color: #ffffff;
+
+            border-color: #17212b;
+
+        }
+
+
+        /* =====================================================
+           ARTICLE GRID
+           ===================================================== */
 
         .articles-grid {
 
@@ -168,7 +423,9 @@
         }
 
 
-        /* ================= CARD ================= */
+        /* =====================================================
+           ARTICLE CARD
+           ===================================================== */
 
         .article-card {
 
@@ -189,7 +446,7 @@
             border: 1px solid #eeeeee;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.08);
+                0 8px 25px rgba(0,0,0,0.07);
 
             transition:
                 transform 0.25s ease,
@@ -197,17 +454,20 @@
 
         }
 
+
         .article-card:hover {
 
-            transform: translateY(-5px);
+            transform: translateY(-6px);
 
             box-shadow:
-                0 15px 35px rgba(0,0,0,0.14);
+                0 16px 35px rgba(0,0,0,0.13);
 
         }
 
 
-        /* ================= IMAGE ================= */
+        /* =====================================================
+           ARTICLE IMAGE
+           ===================================================== */
 
         .article-image {
 
@@ -215,7 +475,7 @@
 
             width: 100%;
 
-            height: 230px;
+            height: 235px;
 
             flex-shrink: 0;
 
@@ -228,8 +488,6 @@
         }
 
 
-        /* ================= CATEGORY ================= */
-
         .article-category {
 
             position: absolute;
@@ -237,8 +495,6 @@
             left: 16px;
 
             top: 16px;
-
-            z-index: 2;
 
             padding: 7px 12px;
 
@@ -248,14 +504,20 @@
 
             color: #ffffff;
 
-            font-size: 12px;
+            font-size: 11px;
 
             font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.4px;
 
         }
 
 
-        /* ================= CONTENT ================= */
+        /* =====================================================
+           ARTICLE CONTENT
+           ===================================================== */
 
         .article-content {
 
@@ -269,33 +531,36 @@
 
         }
 
+
         .article-date {
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
 
             color: #999;
 
-            font-size: 13px;
+            font-size: 12px;
 
         }
 
+
         .article-content h3 {
 
-            margin: 0 0 12px;
+            margin: 0 0 13px;
 
             color: #17212b;
 
-            font-size: 22px;
+            font-size: 21px;
 
             line-height: 1.4;
 
         }
 
+
         .article-content p {
 
             flex: 1;
 
-            margin: 0 0 25px;
+            margin: 0 0 20px;
 
             color: #666;
 
@@ -306,7 +571,20 @@
         }
 
 
-        /* ================= BUTTON ================= */
+        .article-author {
+
+            margin-bottom: 18px;
+
+            color: #888;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           READ BUTTON
+           ===================================================== */
 
         .read-article {
 
@@ -328,7 +606,10 @@
 
             cursor: pointer;
 
+            transition: 0.2s ease;
+
         }
+
 
         .read-article:hover {
 
@@ -337,7 +618,9 @@
         }
 
 
-        /* ================= NO RESULTS ================= */
+        /* =====================================================
+           NO RESULTS
+           ===================================================== */
 
         .no-articles {
 
@@ -345,18 +628,171 @@
 
             text-align: center;
 
-            padding: 40px;
+            padding: 50px 20px;
 
             color: #777;
+
+            font-size: 16px;
 
         }
 
 
-        /* ================= CTA ================= */
+        /* =====================================================
+           ARTICLE READER
+           ===================================================== */
+
+        .article-reader {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            background: rgba(0,0,0,0.72);
+
+            padding: 30px 20px;
+
+            overflow-y: auto;
+
+        }
+
+
+        .article-reader-box {
+
+            max-width: 900px;
+
+            margin: 20px auto;
+
+            background: #ffffff;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.30);
+
+        }
+
+
+        .reader-image {
+
+            height: 330px;
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .reader-content {
+
+            padding: 45px;
+
+        }
+
+
+        .reader-category {
+
+            display: inline-block;
+
+            margin-bottom: 14px;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #c99a45;
+
+            color: #ffffff;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .reader-content h2 {
+
+            margin: 0 0 12px;
+
+            color: #17212b;
+
+            font-size: 38px;
+
+            line-height: 1.25;
+
+        }
+
+
+        .reader-meta {
+
+            margin-bottom: 30px;
+
+            color: #999;
+
+            font-size: 13px;
+
+        }
+
+
+        .reader-content p {
+
+            margin: 0 0 20px;
+
+            color: #555;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .reader-close {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 12px 22px;
+
+            background: #17212b;
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .reader-close:hover {
+
+            background: #c99a45;
+
+        }
+
+
+        /* =====================================================
+           CTA
+           ===================================================== */
 
         .articles-cta {
 
-            padding: 70px 20px;
+            padding: 75px 20px;
 
             text-align: center;
 
@@ -366,6 +802,7 @@
 
         }
 
+
         .articles-cta h2 {
 
             margin: 0 0 15px;
@@ -373,6 +810,7 @@
             font-size: 36px;
 
         }
+
 
         .articles-cta p {
 
@@ -385,6 +823,7 @@
             line-height: 1.7;
 
         }
+
 
         .articles-cta a {
 
@@ -402,16 +841,23 @@
 
             font-weight: 700;
 
+            transition: 0.2s ease;
+
         }
+
 
         .articles-cta a:hover {
 
             background: #b58634;
 
+            transform: translateY(-1px);
+
         }
 
 
-        /* ================= MOBILE ================= */
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
 
         @media (max-width: 1000px) {
 
@@ -422,16 +868,38 @@
 
             }
 
+
+            .featured-article {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .featured-image {
+
+                min-height: 360px;
+
+            }
+
+
+            .featured-content {
+
+                padding: 40px;
+
+            }
+
         }
 
 
         @media (max-width: 700px) {
 
-            .articles-grid {
+            .articles-page .page-hero h1 {
 
-                grid-template-columns: 1fr;
+                font-size: 38px;
 
             }
+
 
             .articles-search {
 
@@ -439,11 +907,48 @@
 
             }
 
+
             .articles-search button {
 
                 padding: 14px;
 
             }
+
+
+            .articles-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .featured-image {
+
+                min-height: 260px;
+
+            }
+
+
+            .featured-content {
+
+                padding: 30px;
+
+            }
+
+
+            .featured-content h2 {
+
+                font-size: 30px;
+
+            }
+
+
+            .articles-heading h2 {
+
+                font-size: 30px;
+
+            }
+
 
             .article-image {
 
@@ -451,11 +956,34 @@
 
             }
 
-            .articles-heading h2 {
 
-                font-size: 32px;
+            .reader-image {
+
+                height: 230px;
 
             }
+
+
+            .reader-content {
+
+                padding: 28px 22px;
+
+            }
+
+
+            .reader-content h2 {
+
+                font-size: 28px;
+
+            }
+
+
+            .article-reader {
+
+                padding: 15px;
+
+            }
+
 
             .articles-cta h2 {
 
@@ -545,8 +1073,8 @@
         </h1>
 
         <p>
-            Discover useful travel guides, destination ideas,
-            hotel tips and inspiration for your next journey.
+            Stories, guides and useful ideas to make
+            every journey better.
         </p>
 
     </div>
@@ -570,7 +1098,7 @@
             <input
                 type="text"
                 id="articleSearch"
-                placeholder="Search articles..."
+                placeholder="Search travel guides, destinations, hotels..."
                 aria-label="Search articles"
             >
 
@@ -581,32 +1109,151 @@
         </div>
 
 
+        <!-- =================================================
+             FEATURED
+             ================================================= -->
+
+        <article class="featured-article">
+
+            <div class="featured-image">
+
+                <span class="featured-badge">
+                    Featured
+                </span>
+
+            </div>
+
+
+            <div class="featured-content">
+
+                <div class="featured-meta">
+                    Travel Guide • September 2026
+                </div>
+
+                <h2>
+                    How to Plan the Perfect
+                    International Trip
+                </h2>
+
+                <p>
+                    From choosing the right destination to
+                    organizing hotels, transportation and daily
+                    activities, discover a practical approach
+                    to planning a memorable international journey.
+                </p>
+
+                <div class="featured-author">
+                    By GhorCast Travel Team
+                </div>
+
+                <button
+                    class="featured-button"
+                    data-article="How to Plan the Perfect International Trip">
+
+                    Read Featured Article
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             HEADING
+             ================================================= -->
+
         <div class="articles-heading">
 
             <h2>
-                Featured Articles
+                Latest Travel Articles
             </h2>
 
             <p>
-                Helpful ideas and inspiration for travelers.
+                Helpful guides, destination ideas and
+                inspiration for travelers.
             </p>
 
         </div>
 
 
-        <div class="articles-grid"
-             id="articlesGrid">
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <div class="article-filters">
+
+            <button
+                class="article-filter active"
+                data-filter="all">
+
+                All
+
+            </button>
+
+            <button
+                class="article-filter"
+                data-filter="Travel Guide">
+
+                Travel Guide
+
+            </button>
+
+            <button
+                class="article-filter"
+                data-filter="Hotels">
+
+                Hotels
+
+            </button>
+
+            <button
+                class="article-filter"
+                data-filter="Destinations">
+
+                Destinations
+
+            </button>
+
+            <button
+                class="article-filter"
+                data-filter="Bangladesh">
+
+                Bangladesh
+
+            </button>
+
+            <button
+                class="article-filter"
+                data-filter="Travel Tips">
+
+                Travel Tips
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             ARTICLE GRID
+             ================================================= -->
+
+        <div
+            class="articles-grid"
+            id="articlesGrid">
 
 
             <!-- ARTICLE 1 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Travel Guide">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -630,9 +1277,13 @@
 
                     <p>
                         Learn how to choose destinations,
-                        organize your journey and prepare
+                        organize your itinerary and prepare
                         for a comfortable international trip.
                     </p>
+
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
 
                     <button
                         class="read-article"
@@ -649,13 +1300,15 @@
 
             <!-- ARTICLE 2 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Hotels">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -683,6 +1336,10 @@
                         including location, facilities and price.
                     </p>
 
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
+
                     <button
                         class="read-article"
                         data-article="How to Choose the Right Hotel for Your Trip">
@@ -698,13 +1355,15 @@
 
             <!-- ARTICLE 3 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Destinations">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -732,6 +1391,10 @@
                         experiences across Saudi Arabia.
                     </p>
 
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
+
                     <button
                         class="read-article"
                         data-article="Exploring the Best Places to Visit in Saudi Arabia">
@@ -747,13 +1410,15 @@
 
             <!-- ARTICLE 4 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Bangladesh">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -781,6 +1446,10 @@
                         across Bangladesh.
                     </p>
 
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
+
                     <button
                         class="read-article"
                         data-article="A Guide to Exploring Bangladesh">
@@ -796,13 +1465,15 @@
 
             <!-- ARTICLE 5 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Destinations">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -830,6 +1501,10 @@
                         hotels and travel experiences.
                     </p>
 
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
+
                     <button
                         class="read-article"
                         data-article="Things to Know Before Visiting Dubai">
@@ -845,13 +1520,15 @@
 
             <!-- ARTICLE 6 -->
 
-            <article class="article-card">
+            <article
+                class="article-card"
+                data-category="Travel Tips">
 
                 <div
                     class="article-image"
                     style="
                     background-image:
-                    url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80');
+                    url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85');
                     "
                 >
 
@@ -878,6 +1555,10 @@
                         travelers prepare for a smoother
                         and more enjoyable journey.
                     </p>
+
+                    <div class="article-author">
+                        By GhorCast Travel Team
+                    </div>
 
                     <button
                         class="read-article"
@@ -910,6 +1591,69 @@
 
 
 <!-- =====================================================
+     ARTICLE READER
+     ===================================================== -->
+
+<div
+    class="article-reader"
+    id="articleReader">
+
+    <div class="article-reader-box">
+
+        <div
+            class="reader-image"
+            id="readerImage">
+        </div>
+
+
+        <div class="reader-content">
+
+            <span
+                class="reader-category"
+                id="readerCategory">
+
+                Travel Guide
+
+            </span>
+
+
+            <h2
+                id="readerTitle">
+
+                Article Title
+
+            </h2>
+
+
+            <div
+                class="reader-meta"
+                id="readerMeta">
+
+                September 2026 • GhorCast Travel Team
+
+            </div>
+
+
+            <div id="readerText">
+            </div>
+
+
+            <button
+                class="reader-close"
+                onclick="closeArticle()">
+
+                ← Back to Articles
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
      CTA
      ===================================================== -->
 
@@ -922,8 +1666,8 @@
         </h2>
 
         <p>
-            Explore destinations and find hotels for your
-            next unforgettable journey.
+            Explore beautiful destinations and discover
+            hotels for your next unforgettable journey.
         </p>
 
         <a href="destinations.html">
@@ -1088,7 +1832,9 @@ document.addEventListener(
     function () {
 
 
-        /* ================= MOBILE MENU ================= */
+        /* ================================================
+           MOBILE MENU
+           ================================================ */
 
         const menuToggle =
             document.querySelector(".menu-toggle");
@@ -1111,11 +1857,13 @@ document.addEventListener(
         }
 
 
-        /* ================= ARTICLE BUTTONS ================= */
+        /* ================================================
+           ARTICLE BUTTONS
+           ================================================ */
 
         const buttons =
             document.querySelectorAll(
-                ".read-article"
+                ".read-article, .featured-button"
             );
 
 
@@ -1140,7 +1888,59 @@ document.addEventListener(
         );
 
 
-        /* ================= YEAR ================= */
+        /* ================================================
+           CATEGORY FILTERS
+           ================================================ */
+
+        const filters =
+            document.querySelectorAll(
+                ".article-filter"
+            );
+
+
+        filters.forEach(
+            function (filter) {
+
+                filter.addEventListener(
+                    "click",
+                    function () {
+
+                        filters.forEach(
+                            function (item) {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        this.classList.add(
+                            "active"
+                        );
+
+
+                        const category =
+                            this.getAttribute(
+                                "data-filter"
+                            );
+
+
+                        filterArticles(
+                            category
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ================================================
+           YEAR
+           ================================================ */
 
         const year =
             document.getElementById(
@@ -1155,12 +1955,331 @@ document.addEventListener(
 
         }
 
+
+        /* ================================================
+           SEARCH WHILE TYPING
+           ================================================ */
+
+        const searchInput =
+            document.getElementById(
+                "articleSearch"
+            );
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                function () {
+
+                    searchArticles();
+
+                }
+            );
+
+        }
+
+
+        /* ================================================
+           CLOSE READER BY CLICKING OUTSIDE
+           ================================================ */
+
+        const reader =
+            document.getElementById(
+                "articleReader"
+            );
+
+
+        if (reader) {
+
+            reader.addEventListener(
+                "click",
+                function (event) {
+
+                    if (event.target === reader) {
+
+                        closeArticle();
+
+                    }
+
+                }
+            );
+
+        }
+
     }
 );
 
 
 /* =====================================================
-   ARTICLE SEARCH
+   ARTICLE DATA
+   ===================================================== */
+
+const articleData = {
+
+    "How to Plan the Perfect International Trip": {
+
+        category: "Travel Guide",
+
+        image:
+            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "Planning an international trip becomes much easier when you divide the journey into a few simple stages.",
+
+            "Start by choosing a destination that matches your interests, budget and available travel time. Research the best season to visit, transportation options and the areas where you would like to stay.",
+
+            "Next, organize your hotel, flights and daily activities. Leaving some free time in your schedule can make the journey more comfortable and allow you to discover places you did not originally plan to visit.",
+
+            "Finally, prepare your travel documents, luggage and emergency information before departure. Good preparation can help make an international journey more enjoyable and less stressful."
+
+        ]
+
+    },
+
+
+    "How to Choose the Right Hotel for Your Trip": {
+
+        category: "Hotels",
+
+        image:
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "Choosing the right hotel can make a major difference to your travel experience.",
+
+            "Location should be one of the first things you consider. A hotel close to major attractions, transportation or business areas can save both time and transportation costs.",
+
+            "You should also compare facilities, room types, guest reviews and total pricing. A lower nightly rate is not always the best value if important facilities or services cost extra.",
+
+            "Before booking, make sure the hotel matches your personal travel priorities. Families, business travelers and leisure travelers may all require different facilities."
+
+        ]
+
+    },
+
+
+    "Exploring the Best Places to Visit in Saudi Arabia": {
+
+        category: "Destinations",
+
+        image:
+            "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "Saudi Arabia offers a wide variety of travel experiences, from historic cities and cultural attractions to modern destinations and natural landscapes.",
+
+            "Riyadh provides a modern city experience with shopping, restaurants, museums and major attractions. Jeddah combines coastal scenery with history and a lively urban atmosphere.",
+
+            "Makkah and Madinah are among the most important destinations for Muslim travelers, while destinations such as AlUla provide opportunities to explore remarkable historical and natural landscapes.",
+
+            "When planning a trip, consider the season, transportation and the amount of time you want to spend in each destination."
+
+        ]
+
+    },
+
+
+    "A Guide to Exploring Bangladesh": {
+
+        category: "Bangladesh",
+
+        image:
+            "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "Bangladesh has a diverse collection of destinations ranging from beaches and rivers to hills, forests and historic cities.",
+
+            "Cox's Bazar is famous for its long beach, while the Chattogram Hill Tracts provide a very different landscape with hills, forests and indigenous cultural experiences.",
+
+            "The Sundarbans offer a unique natural environment, while Sylhet is known for its green landscapes, tea gardens and surrounding attractions.",
+
+            "Travelers can create different types of journeys across Bangladesh depending on their interests, available time and preferred style of travel."
+
+        ]
+
+    },
+
+
+    "Things to Know Before Visiting Dubai": {
+
+        category: "City Guide",
+
+        image:
+            "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "Dubai is a major international destination known for modern architecture, shopping, entertainment and luxury hospitality.",
+
+            "Before visiting, it is useful to plan which attractions you want to see because the city is large and travel time between different areas can vary.",
+
+            "Travelers can choose from luxury hotels, business hotels, family accommodation and budget-friendly options depending on their needs.",
+
+            "Planning activities in advance can help you make better use of your time while still leaving room to enjoy Dubai at a relaxed pace."
+
+        ]
+
+    },
+
+
+    "Essential Travel Tips for First-Time Travelers": {
+
+        category: "Travel Tips",
+
+        image:
+            "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1400&q=85",
+
+        text: [
+
+            "First-time travelers can make their journey much easier by preparing a few important things before departure.",
+
+            "Keep your passport, tickets, accommodation information and other important documents organized and accessible.",
+
+            "Avoid overpacking. Take clothing and personal items that are appropriate for the destination and expected weather conditions.",
+
+            "Finally, keep some flexibility in your schedule. Travel does not always go exactly according to plan, and a flexible approach can make unexpected changes easier to handle."
+
+        ]
+
+    }
+
+};
+
+
+/* =====================================================
+   SHOW ARTICLE
+   ===================================================== */
+
+function showArticle(title) {
+
+    const data =
+        articleData[title];
+
+
+    if (!data) {
+
+        return;
+
+    }
+
+
+    const reader =
+        document.getElementById(
+            "articleReader"
+        );
+
+
+    const readerImage =
+        document.getElementById(
+            "readerImage"
+        );
+
+
+    const readerCategory =
+        document.getElementById(
+            "readerCategory"
+        );
+
+
+    const readerTitle =
+        document.getElementById(
+            "readerTitle"
+        );
+
+
+    const readerMeta =
+        document.getElementById(
+            "readerMeta"
+        );
+
+
+    const readerText =
+        document.getElementById(
+            "readerText"
+        );
+
+
+    readerImage.style.backgroundImage =
+        "url('" + data.image + "')";
+
+
+    readerCategory.textContent =
+        data.category;
+
+
+    readerTitle.textContent =
+        title;
+
+
+    readerMeta.textContent =
+        "September 2026 • GhorCast Travel Team";
+
+
+    readerText.innerHTML = "";
+
+
+    data.text.forEach(
+        function (paragraph) {
+
+            const p =
+                document.createElement(
+                    "p"
+                );
+
+            p.textContent =
+                paragraph;
+
+            readerText.appendChild(
+                p
+            );
+
+        }
+    );
+
+
+    reader.style.display =
+        "block";
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE ARTICLE
+   ===================================================== */
+
+function closeArticle() {
+
+    const reader =
+        document.getElementById(
+            "articleReader"
+        );
+
+
+    if (reader) {
+
+        reader.style.display =
+            "none";
+
+    }
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =====================================================
+   SEARCH ARTICLES
    ===================================================== */
 
 function searchArticles() {
@@ -1189,14 +2308,16 @@ function searchArticles() {
         );
 
 
-    let found = false;
+    let found =
+        false;
 
 
     cards.forEach(
         function (card) {
 
             const text =
-                card.textContent.toLowerCase();
+                card.textContent
+                    .toLowerCase();
 
 
             if (
@@ -1207,7 +2328,8 @@ function searchArticles() {
                 card.style.display =
                     "flex";
 
-                found = true;
+                found =
+                    true;
 
             } else {
 
@@ -1233,54 +2355,66 @@ function searchArticles() {
 
 
 /* =====================================================
-   ARTICLE DETAILS
+   CATEGORY FILTER
    ===================================================== */
 
-function showArticle(title) {
+function filterArticles(category) {
+
+    const cards =
+        document.querySelectorAll(
+            ".article-card"
+        );
 
 
-    const descriptions = {
+    const noArticles =
+        document.getElementById(
+            "noArticles"
+        );
 
 
-        "How to Plan the Perfect International Trip":
-
-            "A useful guide to choosing destinations, preparing your itinerary and organizing an enjoyable international journey.",
-
-
-        "How to Choose the Right Hotel for Your Trip":
-
-            "Learn how location, facilities, reviews and price can help you choose a hotel that matches your travel needs.",
+    let found =
+        false;
 
 
-        "Exploring the Best Places to Visit in Saudi Arabia":
+    cards.forEach(
+        function (card) {
 
-            "Discover cities, attractions and travel experiences across Saudi Arabia.",
-
-
-        "A Guide to Exploring Bangladesh":
-
-            "Explore the beaches, hills, forests and cultural attractions that make Bangladesh an interesting destination.",
-
-
-        "Things to Know Before Visiting Dubai":
-
-            "Explore useful ideas about attractions, shopping, hotels and experiences in Dubai.",
+            const cardCategory =
+                card.getAttribute(
+                    "data-category"
+                );
 
 
-        "Essential Travel Tips for First-Time Travelers":
+            if (
+                category === "all" ||
+                cardCategory === category
+            ) {
 
-            "Simple preparation tips for travelers taking their first international or long-distance journey."
+                card.style.display =
+                    "flex";
 
-    };
+                found =
+                    true;
 
+            } else {
 
-    alert(
+                card.style.display =
+                    "none";
 
-        title +
-        "\\n\\n" +
-        descriptions[title]
+            }
 
+        }
     );
+
+
+    if (noArticles) {
+
+        noArticles.style.display =
+            found
+                ? "none"
+                : "block";
+
+    }
 
 }
 
@@ -1304,4 +2438,5 @@ function subscribeNewsletter(event) {
 
 
 </body>
+
 </html>
