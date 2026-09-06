@@ -502,9 +502,10 @@ const visibleText =
     video.innerText.toLowerCase();
 
             if (
-                name.includes(search) ||
-                category.includes(search)
-            ) {
+    name.includes(search) ||
+    category.includes(search) ||
+    visibleText.includes(search)
+) {
 
                 video.style.display = "block";
                 visible++;
