@@ -581,22 +581,33 @@ input {
 
 .destination-one {
     grid-row: span 2;
-    background: linear-gradient(135deg, #37515b, #b58e4c);
+    background-image:
+        url('https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20rock%20Al%20Ula%2C%20Saudi%20Arabia%202011.jpg?width=1200');
+    background-size: cover;
+    background-position: center;
 }
 
 .destination-two {
-    background: linear-gradient(135deg, #527878, #c7a462);
+    background-image:
+        url('https://commons.wikimedia.org/wiki/Special:FilePath/Cox%27s%20Bazar%20sea%20beach.jpg?width=1200');
+    background-size: cover;
+    background-position: center;
 }
 
 .destination-three {
-    background: linear-gradient(135deg, #596c83, #b49a67);
+    background-image:
+        url('https://commons.wikimedia.org/wiki/Special:FilePath/Burj%20Khalifa.jpg?width=1200');
+    background-size: cover;
+    background-position: center;
 }
 
 .destination-four {
     grid-column: 2 / span 2;
-    background: linear-gradient(135deg, #6b6574, #c09d61);
+    background-image:
+        url('https://commons.wikimedia.org/wiki/Special:FilePath/Istanbul%20panorama%20%2816293921746%29.jpg?width=1200');
+    background-size: cover;
+    background-position: center;
 }
-
 
 /* =====================================================
    ARTICLES
