@@ -637,154 +637,130 @@
         }
 
 
-        /* =====================================================
-           ARTICLE READER
-           ===================================================== */
+       /* =====================================================
+   ARTICLE READER - CLEAN FIX
+   ===================================================== */
+
+.article-reader {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.72);
+    padding: 30px 20px;
+    overflow-y: auto;
+}
+
+.article-reader-box {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.30);
+}
+
+.reader-image {
+    width: 100%;
+    height: 330px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.reader-content {
+    padding: 45px;
+}
+
+.reader-category {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #c99a45;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.reader-content h2 {
+    margin: 0 0 12px;
+    color: #17212b;
+    font-size: 38px;
+    line-height: 1.25;
+}
+
+.reader-meta {
+    margin-bottom: 30px;
+    color: #999999;
+    font-size: 13px;
+}
+
+#readerText {
+    display: block;
+    width: 100%;
+}
+
+#readerText p {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.reader-close {
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 22px;
+    background: #17212b;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.reader-close:hover {
+    background: #c99a45;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
 
-        .article-reader {
+    .article-reader {
+        padding: 15px;
+    }
 
-            display: none;
+    .article-reader-box {
+        margin: 10px auto;
+    }
 
-            position: fixed;
+    .reader-image {
+        height: 230px;
+    }
 
-            inset: 0;
+    .reader-content {
+        padding: 28px 22px;
+    }
 
-            z-index: 9999;
+    .reader-content h2 {
+        font-size: 28px;
+    }
 
-            background: rgba(0,0,0,0.72);
-
-            padding: 30px 20px;
-
-            overflow-y: auto;
-
-        }
-
-
-        .article-reader-box {
-
-            max-width: 900px;
-
-            margin: 20px auto;
-
-            background: #ffffff;
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 25px 70px rgba(0,0,0,0.30);
-
-        }
-
-
-        .reader-image {
-
-            height: 330px;
-
-            background-size: cover;
-
-            background-position: center;
-
-        }
-
-
-        .reader-content {
-
-            padding: 45px;
-
-        }
-
-
-        .reader-category {
-
-            display: inline-block;
-
-            margin-bottom: 14px;
-
-            padding: 7px 12px;
-
-            border-radius: 20px;
-
-            background: #c99a45;
-
-            color: #ffffff;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-        }
-
-
-        .reader-content h2 {
-
-            margin: 0 0 12px;
-
-            color: #17212b;
-
-            font-size: 38px;
-
-            line-height: 1.25;
-
-        }
-
-
-        .reader-meta {
-
-            margin-bottom: 30px;
-
-            color: #999;
-
-            font-size: 13px;
-
-        }
-
-
-        .reader-content p {
-
-            margin: 0 0 20px;
-
-            color: #555;
-
-            font-size: 16px;
-
-            line-height: 1.9;
-
-        }
-
-
-        .reader-close {
-
-            display: inline-block;
-
-            margin-top: 15px;
-
-            border: none;
-
-            border-radius: 7px;
-
-            padding: 12px 22px;
-
-            background: #17212b;
-
-            color: #ffffff;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-        }
-
-
-        .reader-close:hover {
-
-            background: #c99a45;
-
-        }
-
+}
 
         /* =====================================================
            CTA
