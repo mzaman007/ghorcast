@@ -259,8 +259,9 @@
             overflow: hidden;
             border: 1px solid #eeeeee;
             box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-            transition: transform 0.25s ease,
-                        box-shadow 0.25s ease;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .article-card:hover {
@@ -277,10 +278,17 @@
             position: relative;
             width: 100%;
             height: 235px;
+            overflow: hidden;
+            background: #dddddd;
             flex-shrink: 0;
-            background-size: cover;
-            background-position: center;
-            background-color: #ddd;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
         }
 
         .article-category {
@@ -366,7 +374,7 @@
 
 
         /* =====================================================
-           CLEAN ARTICLE READING AREA
+           ARTICLE READING AREA
            ===================================================== */
 
         .article-reading-area {
@@ -785,7 +793,9 @@
         </div>
 
 
-        <!-- ARTICLE GRID -->
+        <!-- =================================================
+             ARTICLE GRID
+             ================================================= -->
 
         <div
             class="articles-grid"
@@ -798,9 +808,11 @@
                 class="article-card"
                 data-category="Travel Guide">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85"
+                        alt="International travel planning">
 
                     <span class="article-category">
                         Travel Guide
@@ -849,9 +861,11 @@
                 class="article-card"
                 data-category="Hotels">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85"
+                        alt="Hotel room">
 
                     <span class="article-category">
                         Hotels
@@ -900,9 +914,11 @@
                 class="article-card"
                 data-category="Destinations">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85"
+                        alt="Saudi Arabia destination">
 
                     <span class="article-category">
                         Destinations
@@ -951,9 +967,11 @@
                 class="article-card"
                 data-category="Bangladesh">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85"
+                        alt="Bangladesh travel destination">
 
                     <span class="article-category">
                         Bangladesh
@@ -1002,9 +1020,11 @@
                 class="article-card"
                 data-category="Destinations">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85"
+                        alt="Dubai city">
 
                     <span class="article-category">
                         City Guide
@@ -1053,9 +1073,11 @@
                 class="article-card"
                 data-category="Travel Tips">
 
-                <div
-                    class="article-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85');">
+                <div class="article-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85"
+                        alt="Travel tips">
 
                     <span class="article-category">
                         Travel Tips
@@ -1099,6 +1121,8 @@
 
         </div>
 
+
+        <!-- NO RESULTS -->
 
         <div
             class="no-articles"
