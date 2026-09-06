@@ -799,23 +799,38 @@ input {
 
 .video-placeholder {
     height: 300px;
+    position: relative;
+    overflow: hidden;
+    background: #eeeeee;
+}
+
+.video-placeholder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 64px;
+    height: 64px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 55px;
+
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
     color: white;
-    background: linear-gradient(135deg, #405663, #c19d5e);
-}
 
-.video-card h3 {
-    padding: 18px 20px 0;
-}
-
-.video-card p {
-    padding: 0 20px 20px;
-    color: #aeb8be;
-    font-size: 13px;
-}
+    font-size: 24px;
+    padding-left: 4px;
 
 
 /* =====================================================
