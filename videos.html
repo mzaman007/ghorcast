@@ -478,49 +478,45 @@
 
     function searchVideos() {
 
-        const search =
-            document
-                .getElementById("videoSearch")
-                .value
-                .toLowerCase()
-                .trim();
+    const search =
+        document
+            .getElementById("videoSearch")
+            .value
+            .toLowerCase()
+            .trim();
 
-        const videos =
-            document.querySelectorAll(".video-card");
+    const videos =
+        document.querySelectorAll(".video-card");
 
-        let visible = 0;
+    let visible = 0;
 
-        videos.forEach(video => {
+    videos.forEach(video => {
 
-            const name =
-    video.dataset.name.toLowerCase();
+        const name =
+            video.dataset.name.toLowerCase();
 
-const category =
-    video.dataset.category.toLowerCase();
+        const category =
+            video.dataset.category.toLowerCase();
 
-const visibleText =
-    video.innerText.toLowerCase();
+        if (
+            name.includes(search) ||
+            category.includes(search)
+        ) {
 
-            if (
-    name.includes(search) ||
-    category.includes(search) ||
-    visibleText.includes(search)
-) {
+            video.style.display = "block";
+            visible++;
 
-                video.style.display = "block";
-                visible++;
+        } else {
 
-            } else {
+            video.style.display = "none";
 
-                video.style.display = "none";
+        }
 
-            }
+    });
 
-        });
-
-        document.getElementById("noVideos").style.display =
-            visible === 0 ? "block" : "none";
-    }
+    document.getElementById("noVideos").style.display =
+        visible === 0 ? "block" : "none";
+}
 
 
     /* ================================
