@@ -493,10 +493,13 @@
         videos.forEach(video => {
 
             const name =
-                video.dataset.name.toLowerCase();
+    video.dataset.name.toLowerCase();
 
-            const category =
-                video.dataset.category.toLowerCase();
+const category =
+    video.dataset.category.toLowerCase();
+
+const visibleText =
+    video.innerText.toLowerCase();
 
             if (
                 name.includes(search) ||
