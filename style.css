@@ -367,15 +367,21 @@ input {
 }
 
 .hotel-one {
-    background: linear-gradient(135deg, #8ba0a8, #d3b77a);
+    background-image: url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85");
+    background-size: cover;
+    background-position: center;
 }
 
 .hotel-two {
-    background: linear-gradient(135deg, #687a91, #c9a768);
+    background-image: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85");
+    background-size: cover;
+    background-position: center;
 }
 
 .hotel-three {
-    background: linear-gradient(135deg, #5e8588, #e0bd7d);
+    background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85");
+    background-size: cover;
+    background-position: center;
 }
 
 .card-badge {
