@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | GhorCast</title>
+    <meta name="description" content="Discover useful travel products, accessories and essentials with GhorCast.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================================
+           GHORCAST PRODUCTS PAGE
+        ================================= */
+
+        .products-hero {
+            padding: 70px 20px 45px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url("https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            color: white;
+        }
+
+        .products-hero h1 {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+
+        .products-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            opacity: .95;
+        }
+
+        .product-search-area {
+            max-width: 850px;
+            margin: -25px auto 35px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-search {
+            display: flex;
+            background: white;
+            border-radius: 14px;
+            padding: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.15);
+        }
+
+        .product-search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .product-search button {
+            border: none;
+            background: #c99a45;
+            color: white;
+            padding: 0 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 25px auto 45px;
+            padding: 0 20px;
+        }
+
+        .product-filter {
+            border: 1px solid #ddd;
+            background: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product-filter.active,
+        .product-filter:hover {
+            background: #c99a45;
+            color: white;
+            border-color: #c99a45;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 70px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.13);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-category {
+            font-size: 13px;
+            color: #c99a45;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .product-content h3 {
+            margin: 0 0 8px;
+            font-size: 21px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .product-rating {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .product-button {
+            display: inline-block;
+            background: #c99a45;
+            color: white;
+            padding: 11px 17px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product-button:hover {
+            opacity: .9;
+        }
+
+        .no-products {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+            color: #777;
+        }
+
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-hero {
+                padding: 55px 18px 40px;
+            }
+
+            .products-hero h1 {
+                font-size: 32px;
+            }
+
+            .products-hero p {
+                font-size: 16px;
+            }
+
+            .product-search {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .product-search button {
+                padding: 13px;
+            }
+
+            .product-footer {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">GhorCast</a>
+        </div>
+
+        <nav>
+            <a href="hotels.html">Hotels</a>
+            <a href="deals.html">Deals</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="news.html">News</a>
+            <a href="articles.html">Articles</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="videos.html">Videos</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="products-hero">
+    <h1>Travel Products</h1>
+    <p>
+        Discover useful travel gear, accessories and essentials
+        selected for modern travelers.
+    </p>
+</section>
+
+
+<!-- SEARCH -->
+<div class="product-search-area">
+    <div class="product-search">
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search travel products..."
+            onkeyup="searchProducts()"
+        >
+        <button type="button" onclick="searchProducts()">Search</button>
+    </div>
+</div>
+
+
+<!-- CATEGORIES -->
+<div class="product-categories">
+
+    <button type="button"
+            class="product-filter active"
+            onclick="filterProducts('all', this)">
+        All
+    </button>
+
+    <button type="button"
+            class="product-filter"
+            onclick="filterProducts('luggage', this)">
+        Luggage
+    </button>
+
+    <button type="button"
+            class="product-filter"
+            onclick="filterProducts('bags', this)">
+        Bags
+    </button>
+
+    <button type="button"
+            class="product-filter"
+            onclick="filterProducts('electronics', this)">
+        Electronics
+    </button>
+
+    <button type="button"
+            class="product-filter"
+            onclick="filterProducts('accessories', this)">
+        Accessories
+    </button>
+
+</div>
+
+
+<!-- PRODUCTS -->
+<section class="products-container">
+
+    <div class="products-grid" id="productsGrid">
+
+
+        <!-- PRODUCT 1 -->
+        <article class="product-card"
+                 data-category="luggage"
+                 data-name="Premium Travel Suitcase">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1565026057447-bc90a4d2c0c9?auto=format&fit=crop&w=900&q=80"
+                alt="Premium Travel Suitcase"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Luggage
+                </div>
+
+                <h3>Premium Travel Suitcase</h3>
+
+                <p class="product-description">
+                    Lightweight hard-shell suitcase designed for
+                    comfortable international travel.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.8</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$89</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Premium Travel Suitcase')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+        <article class="product-card"
+                 data-category="bags"
+                 data-name="Travel Backpack">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+                alt="Travel Backpack"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Bags
+                </div>
+
+                <h3>Smart Travel Backpack</h3>
+
+                <p class="product-description">
+                    Spacious backpack with laptop storage and
+                    multiple travel compartments.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.7</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$59</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Smart Travel Backpack')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+        <article class="product-card"
+                 data-category="electronics"
+                 data-name="Universal Travel Adapter">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80"
+                alt="Universal Travel Adapter"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Electronics
+                </div>
+
+                <h3>Universal Travel Adapter</h3>
+
+                <p class="product-description">
+                    Compact universal adapter suitable for
+                    international travelers.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.6</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$25</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Universal Travel Adapter')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+        <article class="product-card"
+                 data-category="accessories"
+                 data-name="Travel Neck Pillow">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=80"
+                alt="Travel Neck Pillow"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <h3>Memory Foam Travel Pillow</h3>
+
+                <p class="product-description">
+                    Comfortable memory foam pillow designed
+                    for long flights and road journeys.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.5</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$22</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Memory Foam Travel Pillow')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- PRODUCT 5 -->
+        <article class="product-card"
+                 data-category="bags"
+                 data-name="Compact Duffel Bag">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80"
+                alt="Compact Duffel Bag"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Bags
+                </div>
+
+                <h3>Compact Travel Duffel</h3>
+
+                <p class="product-description">
+                    Lightweight weekend travel bag with
+                    practical storage space.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐☆ <strong>4.4</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$45</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Compact Travel Duffel')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- PRODUCT 6 -->
+        <article class="product-card"
+                 data-category="electronics"
+                 data-name="Portable Power Bank">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1609592424847-5c4d5b5a0f8b?auto=format&fit=crop&w=900&q=80"
+                alt="Portable Power Bank"
+            >
+
+            <div class="product-content">
+
+                <div class="product-category">
+                    Electronics
+                </div>
+
+                <h3>Portable Travel Power Bank</h3>
+
+                <p class="product-description">
+                    Compact power bank for keeping your
+                    smartphone charged while traveling.
+                </p>
+
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.7</strong>
+                </div>
+
+                <div class="product-footer">
+                    <div class="product-price">$35</div>
+
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('Portable Travel Power Bank')">
+                        View Product
+                    </button>
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+
+
+    <div class="no-products" id="noProducts">
+        <h2>No products found</h2>
+        <p>Try another search or category.</p>
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© 2026 GhorCast. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+
+    /* ================================
+       PRODUCT SEARCH
+    ================================= */
+
+    function searchProducts() {
+
+        const search =
+            document.getElementById("productSearch")
+                .value
+                .toLowerCase()
+                .trim();
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+        let visible = 0;
+
+        products.forEach(product => {
+
+            const name =
+                product.dataset.name.toLowerCase();
+
+            const category =
+                product.dataset.category.toLowerCase();
+
+            if (
+                name.includes(search) ||
+                category.includes(search)
+            ) {
+                product.style.display = "flex";
+                visible++;
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+
+        document.getElementById("noProducts").style.display =
+            visible === 0 ? "block" : "none";
+    }
+
+
+    /* ================================
+       CATEGORY FILTER
+    ================================= */
+
+    function filterProducts(category, button) {
+
+        document
+            .querySelectorAll(".product-filter")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+        let visible = 0;
+
+        products.forEach(product => {
+
+            if (
+                category === "all" ||
+                product.dataset.category === category
+            ) {
+                product.style.display = "flex";
+                visible++;
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+
+        document.getElementById("noProducts").style.display =
+            visible === 0 ? "block" : "none";
+    }
+
+
+    /* ================================
+       PRODUCT BUTTON
+    ================================= */
+
+    function viewProduct(productName) {
+
+        alert(
+            productName +
+            "\n\nProduct details and purchasing options will be available soon."
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
