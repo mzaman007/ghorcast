@@ -900,8 +900,9 @@ input {
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 50px;
+    gap: 60px;
     padding-bottom: 60px;
+    align-items: start;
 }
 
 .footer-logo {
@@ -918,7 +919,7 @@ input {
 
 .footer h4,
 .site-footer h4 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     font-size: 15px;
 }
 
