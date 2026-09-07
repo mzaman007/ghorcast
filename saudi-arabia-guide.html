@@ -1,0 +1,311 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saudi Arabia Travel Guide | GhorCast</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .guide-hero {
+            padding: 70px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1600&q=85")
+                center/cover;
+        }
+
+        .guide-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .guide-hero p {
+            font-size: 18px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .guide-section {
+            padding: 50px 20px;
+        }
+
+        .guide-section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .guide-intro {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .city-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .city-content {
+            padding: 20px;
+        }
+
+        .city-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .city-content p {
+            line-height: 1.7;
+        }
+
+        .tips-list {
+            max-width: 800px;
+            margin: 30px auto 0;
+            line-height: 2;
+        }
+
+        .guide-cta {
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .guide-hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+
+    <section class="guide-hero">
+
+        <h1>🇸🇦 Saudi Arabia Travel Guide</h1>
+
+        <p>
+            Discover the spiritual heart of Saudi Arabia, its historic cities,
+            modern attractions and unforgettable travel experiences.
+        </p>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="guide-section">
+
+        <div class="container">
+
+            <h2>Discover Saudi Arabia</h2>
+
+            <p class="guide-intro">
+                Saudi Arabia offers a unique combination of Islamic heritage,
+                historic destinations, modern cities, beautiful landscapes and
+                traditional Arabian culture. From the holy cities of Makkah and
+                Madinah to the modern attractions of Riyadh and Jeddah, there is
+                something for every traveler.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CITIES -->
+
+    <section class="guide-section">
+
+        <div class="container">
+
+            <h2>Popular Cities</h2>
+
+            <div class="city-grid">
+
+
+                <!-- MAKKAH -->
+
+                <div class="city-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=1200&q=85"
+                        alt="Makkah">
+
+                    <div class="city-content">
+
+                        <h3>🕋 Makkah</h3>
+
+                        <p>
+                            Makkah is the holiest city in Islam and home to
+                            Masjid al-Haram and the Kaaba. Millions of Muslims
+                            visit the city every year for Umrah and Hajj.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MADINAH -->
+
+                <div class="city-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1200&q=85"
+                        alt="Madinah">
+
+                    <div class="city-content">
+
+                        <h3>🕌 Madinah</h3>
+
+                        <p>
+                            Madinah is the city of the Prophet Muhammad ﷺ and
+                            home to Al-Masjid an-Nabawi. It is one of the most
+                            important destinations for Muslim travelers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIYADH -->
+
+                <div class="city-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85"
+                        alt="Riyadh">
+
+                    <div class="city-content">
+
+                        <h3>🏙️ Riyadh</h3>
+
+                        <p>
+                            Riyadh is the capital of Saudi Arabia and a modern
+                            city known for shopping, restaurants, entertainment
+                            and impressive architecture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JEDDAH -->
+
+                <div class="city-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=85"
+                        alt="Jeddah">
+
+                    <div class="city-content">
+
+                        <h3>🌊 Jeddah</h3>
+
+                        <p>
+                            Jeddah is a major coastal city on the Red Sea,
+                            famous for its waterfront, historic Al-Balad area,
+                            shopping and seafood.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAVEL TIPS -->
+
+    <section class="guide-section">
+
+        <div class="container">
+
+            <h2>Saudi Arabia Travel Tips</h2>
+
+            <ul class="tips-list">
+
+                <li>🛂 Check visa and entry requirements before traveling.</li>
+
+                <li>🌡️ Check the weather before planning outdoor activities.</li>
+
+                <li>👕 Dress respectfully and follow local customs.</li>
+
+                <li>🕌 If performing Umrah or Hajj, learn the relevant rituals beforehand.</li>
+
+                <li>💳 Keep a payment card and some Saudi Riyals available.</li>
+
+                <li>📱 Keep your phone, maps and important travel information accessible.</li>
+
+                <li>🏨 Book accommodation early during busy pilgrimage seasons.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="guide-cta">
+
+        <h2>Ready to Explore Saudi Arabia?</h2>
+
+        <p>
+            Discover destinations, hotels and useful travel information with GhorCast.
+        </p>
+
+        <a href="destinations.html" class="back-button">
+            ← Back to Destinations
+        </a>
+
+    </section>
+
+
+</body>
+
+</html>
+```
