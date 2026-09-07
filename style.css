@@ -1714,14 +1714,12 @@ a:active {
     box-shadow: none !important;
 }
 
-/* =========================
-   TRAVEL GUIDES
-========================= */
+/* TRAVEL GUIDES */
 
 .guide-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 20px;
 }
 
 .guide-card {
@@ -1729,73 +1727,59 @@ a:active {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #eeeeee;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.guide-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .guide-image {
-    height: 190px;
+    height: 160px;
     overflow: hidden;
-    background: #eeeeee;
 }
 
 .guide-image img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
-    object-position: center;
+    display: block;
 }
 
 .guide-content {
-    padding: 20px;
+    padding: 15px;
 }
 
 .guide-content > span {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .guide-content h3 {
-    margin: 10px 0;
-    font-size: 20px;
+    margin: 8px 0;
+    font-size: 18px;
 }
 
 .guide-content p {
-    margin: 0 0 15px;
-    color: #666666;
-    line-height: 1.6;
+    margin: 0 0 12px;
+    color: #666;
+    line-height: 1.5;
 }
 
 .guide-content a {
     color: #84652f;
-    font-weight: 700;
+    font-weight: bold;
     text-decoration: none;
 }
 
-.guide-content a:hover {
-    text-decoration: underline;
-}
+/* MOBILE */
 
-
-/* TABLET */
 @media (max-width: 900px) {
     .guide-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
-/* MOBILE */
 @media (max-width: 600px) {
     .guide-grid {
         grid-template-columns: 1fr;
     }
 
     .guide-image {
-        height: 220px;
+        height: 200px;
     }
 }
