@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Turkey Travel Guide | GhorCast</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+    .guide-hero {
+        padding: 70px 20px;
+        text-align: center;
+        color: white;
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+            url("https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1600&q=85")
+            center/cover;
+    }
+
+    .guide-hero h1 {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .guide-hero p {
+        font-size: 18px;
+        max-width: 750px;
+        margin: auto;
+    }
+
+    .guide-section {
+        padding: 50px 20px;
+    }
+
+    .guide-section h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .guide-intro {
+        max-width: 850px;
+        margin: 0 auto 40px;
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    .city-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .city-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    }
+
+    .city-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .city-content {
+        padding: 20px;
+    }
+
+    .city-content h3 {
+        margin-bottom: 10px;
+    }
+
+    .city-content p {
+        line-height: 1.7;
+    }
+
+    .tips-list {
+        max-width: 800px;
+        margin: 30px auto 0;
+        line-height: 2;
+    }
+
+    .guide-cta {
+        text-align: center;
+        padding: 55px 20px;
+    }
+
+    .back-button {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+        .guide-hero h1 {
+            font-size: 32px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span>Ghor</span><strong>Cast</strong>
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html#hotels">Hotels</a>
+            <a href="index.html#deals">Deals</a>
+            <a href="index.html#destinations">Destinations</a>
+            <a href="index.html#news">News</a>
+            <a href="index.html#articles">Articles</a>
+            <a href="index.html#products">Products</a>
+            <a href="index.html#videos">Videos</a>
+        </nav>
+
+        <button class="menu-button" id="menuButton">☰</button>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="guide-hero">
+
+    <h1>🇹🇷 Turkey Travel Guide</h1>
+
+    <p>
+        Discover Turkey — a fascinating country where Europe and Asia
+        meet, with historic cities, beautiful coastlines, ancient sites,
+        delicious cuisine and rich cultural traditions.
+    </p>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <h2>Discover Turkey</h2>
+
+        <p class="guide-intro">
+            Turkey offers an incredible mix of history, culture, nature
+            and modern city life. From the iconic landmarks of Istanbul
+            to the Mediterranean beaches of Antalya and the unique
+            landscapes of Cappadocia, Turkey has something for every
+            traveler.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CITIES ================= -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <h2>Popular Cities</h2>
+
+        <div class="city-grid">
+
+
+            <!-- ISTANBUL -->
+
+            <div class="city-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85"
+                    alt="Istanbul, Turkey">
+
+                <div class="city-content">
+
+                    <h3>🕌 Istanbul</h3>
+
+                    <p>
+                        Istanbul is Turkey's largest city and a unique
+                        destination connecting Europe and Asia. Explore
+                        Hagia Sophia, the Blue Mosque, Grand Bazaar and
+                        the beautiful Bosphorus.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANTALYA -->
+
+            <div class="city-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+                    alt="Antalya, Turkey">
+
+                <div class="city-content">
+
+                    <h3>🏖️ Antalya</h3>
+
+                    <p>
+                        Antalya is a popular Mediterranean destination
+                        known for beautiful beaches, resorts, historic
+                        sites and spectacular coastal scenery.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CAPPADOCIA -->
+
+            <div class="city-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1570939274717-7eda259b50ed?auto=format&fit=crop&w=1200&q=85"
+                    alt="Cappadocia, Turkey">
+
+                <div class="city-content">
+
+                    <h3>🎈 Cappadocia</h3>
+
+                    <p>
+                        Cappadocia is famous for its unusual rock
+                        formations, underground cities, cave hotels and
+                        spectacular hot-air balloon experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANKARA -->
+
+            <div class="city-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1609513231746-8d5b8b7e0f9f?auto=format&fit=crop&w=1200&q=85"
+                    alt="Ankara, Turkey">
+
+                <div class="city-content">
+
+                    <h3>🏛️ Ankara</h3>
+
+                    <p>
+                        Ankara is the capital of Turkey and an important
+                        center of government, history and culture. Visit
+                        Anıtkabir, museums and historic landmarks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TOP ATTRACTIONS ================= -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <h2>Top Attractions</h2>
+
+        <ul class="tips-list">
+
+            <li>🕌 Visit Hagia Sophia and the Blue Mosque in Istanbul.</li>
+
+            <li>🌉 Take a Bosphorus cruise between Europe and Asia.</li>
+
+            <li>🎈 Experience a hot-air balloon ride in Cappadocia.</li>
+
+            <li>🏖️ Relax on the Mediterranean coast around Antalya.</li>
+
+            <li>🏛️ Explore the ancient ruins of Ephesus.</li>
+
+            <li>🏺 Discover Turkey's rich archaeological and historical heritage.</li>
+
+            <li>🛍️ Explore the Grand Bazaar and traditional Turkish markets.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOD & CULTURE ================= -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <h2>Food & Culture</h2>
+
+        <p class="guide-intro">
+            Turkish cuisine is famous around the world for its variety
+            and rich flavors. Travelers can enjoy kebabs, pide, meze,
+            gözleme, baklava, Turkish tea and traditional Turkish coffee.
+            Turkey's culture also reflects centuries of Ottoman, Byzantine
+            and Anatolian history.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRAVEL TIPS ================= -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <h2>Turkey Travel Tips</h2>
+
+        <ul class="tips-list">
+
+            <li>🛂 Check Turkey's visa and entry requirements before traveling.</li>
+
+            <li>🌦️ Check the weather because conditions vary significantly by region.</li>
+
+            <li>👕 Dress respectfully when visiting mosques and religious sites.</li>
+
+            <li>💳 Keep a payment card and some Turkish Lira available.</li>
+
+            <li>📱 Keep your phone, maps and important travel information accessible.</li>
+
+            <li>🚕 Use official taxis or trusted transportation services.</li>
+
+            <li>🏨 Book accommodation early during busy tourist seasons.</li>
+
+            <li>🗺️ Plan enough time because Turkey has many regions and attractions.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="guide-cta">
+
+    <h2>Ready to Explore Turkey?</h2>
+
+    <p>
+        Discover destinations, hotels and useful travel information with GhorCast.
+    </p>
+
+    <a href="destinations.html" class="back-button">
+        ← Back to Destinations
+    </a>
+
+</section>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const menuButton = document.getElementById("menuButton");
+    const navigation = document.querySelector(".navigation");
+
+    if (menuButton && navigation) {
+
+        menuButton.addEventListener("click", function () {
+
+            navigation.classList.toggle("active");
+
+        });
+
+    }
+
+</script>
+```
+
+</body>
+
+</html>
