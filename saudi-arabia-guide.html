@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -108,11 +108,37 @@
             }
         }
     </style>
+
 </head>
 
 <body>
 
-    <!-- HERO -->
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <span>Ghor</span><strong>Cast</strong>
+            </a>
+
+            <nav class="navigation">
+                <a href="index.html#hotels">Hotels</a>
+                <a href="index.html#deals">Deals</a>
+                <a href="index.html#destinations">Destinations</a>
+                <a href="index.html#news">News</a>
+                <a href="index.html#articles">Articles</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#videos">Videos</a>
+            </nav>
+
+            <button class="menu-button" id="menuButton">☰</button>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
 
     <section class="guide-hero">
 
@@ -126,7 +152,7 @@
     </section>
 
 
-    <!-- INTRO -->
+    <!-- ================= INTRO ================= -->
 
     <section class="guide-section">
 
@@ -147,7 +173,7 @@
     </section>
 
 
-    <!-- CITIES -->
+    <!-- ================= CITIES ================= -->
 
     <section class="guide-section">
 
@@ -156,7 +182,6 @@
             <h2>Popular Cities</h2>
 
             <div class="city-grid">
-
 
                 <!-- MAKKAH -->
 
@@ -206,11 +231,11 @@
 
                 <!-- RIYADH -->
 
-            <div class="city-card">
+                <div class="city-card">
 
-            <img
-                src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=85"
-                alt="Riyadh">
+                    <img
+                        src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=85"
+                        alt="Riyadh">
 
                     <div class="city-content">
 
@@ -231,10 +256,10 @@
 
                 <div class="city-card">
 
-                <img
-                   src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Jeddah_waterfront.jpg"
-                   alt="Jeddah">
-                        
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Jeddah_waterfront.jpg"
+                        alt="Jeddah">
+
                     <div class="city-content">
 
                         <h3>🌊 Jeddah</h3>
@@ -249,7 +274,6 @@
 
                 </div>
 
-
             </div>
 
         </div>
@@ -257,7 +281,7 @@
     </section>
 
 
-    <!-- TRAVEL TIPS -->
+    <!-- ================= TRAVEL TIPS ================= -->
 
     <section class="guide-section">
 
@@ -288,7 +312,7 @@
     </section>
 
 
-    <!-- CTA -->
+    <!-- ================= CTA ================= -->
 
     <section class="guide-cta">
 
@@ -305,7 +329,19 @@
     </section>
 
 
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navigation = document.querySelector(".navigation");
+
+        if (menuButton && navigation) {
+            menuButton.addEventListener("click", function () {
+                navigation.classList.toggle("active");
+            });
+        }
+    </script>
+
 </body>
 
 </html>
-```
