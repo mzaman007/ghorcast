@@ -558,7 +558,6 @@ function openHotel(hotel) {
     box.style.maxWidth = "620px";
     box.style.width = "100%";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.4)";
@@ -1195,7 +1194,6 @@ function openDestination(destination) {
     box.style.maxWidth = "620px";
     box.style.width = "100%";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.4)";
@@ -1587,7 +1585,6 @@ function openArticle(article) {
     box.style.maxWidth = "760px";
     box.style.width = "100%";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.4)";
@@ -2117,7 +2114,6 @@ function openProduct(product) {
     box.style.maxWidth = "620px";
     box.style.width = "100%";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.4)";
@@ -2386,7 +2382,6 @@ function openVideo(video) {
     box.style.maxWidth = "850px";
     box.style.width = "100%";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.5)";
