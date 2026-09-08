@@ -1686,11 +1686,20 @@ function openArticle(article) {
 
 
     box.querySelector("#closeArticle").onclick =
-        function () {
+    function () {
 
-            modal.remove();
+        modal.remove();
 
-        };
+        setTimeout(function () {
+
+            document.getElementById("articles").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 100);
+
+    };
 
 
     modal.onclick =
@@ -1987,9 +1996,14 @@ function openNews(news) {
 
         modal.remove();
 
-        document.getElementById("articles").scrollIntoView({
-            behavior: "smooth"
-        });
+        setTimeout(function () {
+
+    document.getElementById("articles").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}, 100);
 
     };
 
