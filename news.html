@@ -1,345 +1,456 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>News | GhorCast</title>
+```
+<title>News | GhorCast</title>
 
-    <meta name="description"
-          content="Read the latest travel, hotel, tourism and destination news on GhorCast.">
+<meta name="description"
+      content="Read the latest travel, hotel, tourism and destination news on GhorCast.">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <style>
-        /* =====================================================
-           GHORCAST NEWS PAGE
-           ===================================================== */
+<style>
 
-        .news-page {
-            background: #f7f7f7;
+    /* =====================================================
+       GHORCAST NEWS PAGE
+       ===================================================== */
+
+    .news-page {
+        background: #f7f7f7;
+    }
+
+    .news-page .page-hero {
+        background:
+            linear-gradient(
+                rgba(23, 33, 43, 0.88),
+                rgba(23, 33, 43, 0.88)
+            ),
+            url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80")
+            center / cover;
+    }
+
+    .news-section {
+        padding: 70px 20px;
+    }
+
+    .news-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Search */
+
+    .news-search {
+        max-width: 850px;
+        margin: 0 auto 55px;
+
+        display: flex;
+        gap: 12px;
+
+        background: #ffffff;
+        padding: 10px;
+
+        border-radius: 10px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    }
+
+    .news-search input {
+        flex: 1;
+        min-width: 0;
+
+        border: none;
+        outline: none;
+
+        padding: 15px 18px;
+
+        font-size: 16px;
+    }
+
+    .news-search button {
+        border: none;
+        border-radius: 7px;
+
+        padding: 0 28px;
+
+        background: #c99a45;
+        color: #ffffff;
+
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .news-search button:hover {
+        background: #b58634;
+    }
+
+    /* News grid */
+
+    .news-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 30px;
+
+        align-items: stretch;
+    }
+
+    /* News card */
+
+    .news-card {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+        min-width: 0;
+
+        background: #ffffff;
+
+        border-radius: 14px;
+        overflow: hidden;
+
+        border: 1px solid #eeeeee;
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,0.08);
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 15px 35px rgba(0,0,0,0.14);
+    }
+
+    .news-image {
+        position: relative;
+
+        width: 100%;
+        height: 230px;
+
+        flex-shrink: 0;
+
+        background-size: cover;
+        background-position: center;
+
+        background-color: #ddd;
+    }
+
+    .news-category {
+        position: absolute;
+
+        left: 16px;
+        top: 16px;
+
+        z-index: 2;
+
+        padding: 7px 12px;
+
+        border-radius: 20px;
+
+        background: #c99a45;
+        color: #ffffff;
+
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .news-content {
+        display: flex;
+        flex-direction: column;
+
+        flex: 1;
+
+        padding: 25px;
+    }
+
+    .news-date {
+        margin-bottom: 8px;
+
+        color: #999;
+
+        font-size: 13px;
+    }
+
+    .news-content h3 {
+        margin: 0 0 12px;
+
+        color: #17212b;
+
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .news-content p {
+        flex: 1;
+
+        margin: 0 0 25px;
+
+        color: #666;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .read-news {
+        align-self: flex-start;
+
+        padding: 11px 19px;
+
+        border: none;
+        border-radius: 7px;
+
+        background: #17212b;
+        color: #ffffff;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+    .read-news:hover {
+        background: #c99a45;
+    }
+
+    /* CTA */
+
+    .news-cta {
+        padding: 70px 20px;
+
+        text-align: center;
+
+        background: #17212b;
+        color: #ffffff;
+    }
+
+    .news-cta h2 {
+        margin: 0 0 15px;
+
+        font-size: 36px;
+    }
+
+    .news-cta p {
+        max-width: 700px;
+
+        margin: 0 auto 28px;
+
+        color: #d9d9d9;
+
+        line-height: 1.7;
+    }
+
+    .news-cta a {
+        display: inline-block;
+
+        padding: 14px 28px;
+
+        border-radius: 7px;
+
+        background: #c99a45;
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-weight: 700;
+    }
+
+    .news-cta a:hover {
+        background: #b58634;
+    }
+
+    /* =====================================================
+       NEWS POPUP
+       ===================================================== */
+
+    .news-modal {
+        display: none;
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 9999;
+
+        background: rgba(0,0,0,0.75);
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 20px;
+    }
+
+    .news-modal-content {
+        position: relative;
+
+        width: 100%;
+        max-width: 750px;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+
+        background: #ffffff;
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 20px 60px rgba(0,0,0,0.30);
+    }
+
+    .news-modal-content img {
+        display: block;
+
+        width: 100%;
+
+        height: 350px;
+
+        object-fit: cover;
+    }
+
+    .news-modal-text {
+        padding: 28px;
+    }
+
+    .modal-category {
+        display: inline-block;
+
+        margin-bottom: 10px;
+
+        padding: 7px 12px;
+
+        border-radius: 20px;
+
+        background: #c99a45;
+
+        color: #ffffff;
+
+        font-size: 12px;
+
+        font-weight: 700;
+    }
+
+    .modal-date {
+        margin-bottom: 8px;
+
+        color: #999;
+
+        font-size: 13px;
+    }
+
+    .news-modal-text h2 {
+        margin: 0 0 15px;
+
+        color: #17212b;
+
+        font-size: 30px;
+
+        line-height: 1.4;
+    }
+
+    .news-modal-text p {
+        margin: 0;
+
+        color: #666;
+
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+    .news-close {
+        position: absolute;
+
+        top: 15px;
+        right: 15px;
+
+        z-index: 5;
+
+        width: 42px;
+        height: 42px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: #ffffff;
+
+        color: #17212b;
+
+        font-size: 28px;
+
+        line-height: 1;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 3px 10px rgba(0,0,0,0.20);
+    }
+
+    .news-close:hover {
+        background: #c99a45;
+        color: #ffffff;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 1000px) {
+
+        .news-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
         }
 
-        .news-page .page-hero {
-            background:
-                linear-gradient(
-                    rgba(23, 33, 43, 0.88),
-                    rgba(23, 33, 43, 0.88)
-                ),
-                url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80")
-                center / cover;
-        }
+    }
 
-        .news-section {
-            padding: 70px 20px;
-        }
+    @media (max-width: 700px) {
 
-        .news-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .news-grid {
+            grid-template-columns: 1fr;
         }
-
-        .news-heading {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .news-heading h2 {
-            margin: 0 0 12px;
-            color: #17212b;
-            font-size: 38px;
-        }
-
-        .news-heading p {
-            margin: 0;
-            color: #777;
-            font-size: 17px;
-        }
-
-        /* Search */
 
         .news-search {
-            max-width: 850px;
-            margin: 0 auto 55px;
-
-            display: flex;
-            gap: 12px;
-
-            background: #ffffff;
-            padding: 10px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-        }
-
-        .news-search input {
-            flex: 1;
-
-            min-width: 0;
-
-            border: none;
-            outline: none;
-
-            padding: 15px 18px;
-
-            font-size: 16px;
+            flex-direction: column;
         }
 
         .news-search button {
-            border: none;
-            border-radius: 7px;
-
-            padding: 0 28px;
-
-            background: #c99a45;
-            color: #ffffff;
-
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .news-search button:hover {
-            background: #b58634;
-        }
-
-        /* News grid */
-
-        .news-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 30px;
-
-            align-items: stretch;
-        }
-
-        /* News card */
-
-        .news-card {
-            display: flex;
-            flex-direction: column;
-
-            height: 100%;
-            min-width: 0;
-
-            background: #ffffff;
-
-            border-radius: 14px;
-            overflow: hidden;
-
-            border: 1px solid #eeeeee;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.08);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.14);
+            padding: 14px;
         }
 
         .news-image {
-            position: relative;
-
-            width: 100%;
-            height: 230px;
-
-            flex-shrink: 0;
-
-            background-size: cover;
-            background-position: center;
-
-            background-color: #ddd;
+            height: 220px;
         }
 
-        .news-category {
-            position: absolute;
-
-            left: 16px;
-            top: 16px;
-
-            z-index: 2;
-
-            padding: 7px 12px;
-
-            border-radius: 20px;
-
-            background: #c99a45;
-            color: #ffffff;
-
-            font-size: 12px;
-            font-weight: 700;
+        .news-modal-content img {
+            height: 220px;
         }
 
-        .news-content {
-            display: flex;
-            flex-direction: column;
-
-            flex: 1;
-
-            padding: 25px;
+        .news-modal-text {
+            padding: 20px;
         }
 
-        .news-date {
-            margin-bottom: 8px;
-
-            color: #999;
-
-            font-size: 13px;
+        .news-modal-text h2 {
+            font-size: 24px;
         }
 
-        .news-content h3 {
-            margin: 0 0 12px;
+    }
 
-            color: #17212b;
+</style>
+```
 
-            font-size: 22px;
-            line-height: 1.4;
-        }
-
-        .news-content p {
-            flex: 1;
-
-            margin: 0 0 25px;
-
-            color: #666;
-
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .read-news {
-            align-self: flex-start;
-
-            padding: 11px 19px;
-
-            border: none;
-            border-radius: 7px;
-
-            background: #17212b;
-            color: #ffffff;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            cursor: pointer;
-        }
-
-        .read-news:hover {
-            background: #c99a45;
-        }
-
-        /* No results */
-
-        .no-news {
-            display: none;
-
-            text-align: center;
-
-            padding: 40px;
-
-            color: #777;
-        }
-
-        /* CTA */
-
-        .news-cta {
-            padding: 70px 20px;
-
-            text-align: center;
-
-            background: #17212b;
-            color: #ffffff;
-        }
-
-        .news-cta h2 {
-            margin: 0 0 15px;
-
-            font-size: 36px;
-        }
-
-        .news-cta p {
-            max-width: 700px;
-
-            margin: 0 auto 28px;
-
-            color: #d9d9d9;
-
-            line-height: 1.7;
-        }
-
-        .news-cta a {
-            display: inline-block;
-
-            padding: 14px 28px;
-
-            border-radius: 7px;
-
-            background: #c99a45;
-            color: #ffffff;
-
-            text-decoration: none;
-
-            font-weight: 700;
-        }
-
-        .news-cta a:hover {
-            background: #b58634;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 1000px) {
-
-            .news-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-        }
-
-        @media (max-width: 700px) {
-
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .news-search {
-                flex-direction: column;
-            }
-
-            .news-search button {
-                padding: 14px;
-            }
-
-            .news-image {
-                height: 220px;
-            }
-
-            .news-heading h2 {
-                font-size: 32px;
-            }
-
-            .news-cta h2 {
-                font-size: 30px;
-            }
-
-        }
-    </style>
 </head>
 
-
 <body class="news-page">
-
 
 <!-- =====================================================
      HEADER
@@ -347,56 +458,57 @@
 
 <header class="site-header">
 
-    <div class="container header-inner">
+```
+<div class="container header-inner">
 
-        <a href="index.html" class="logo">
-            <span>Ghor</span><strong>Cast</strong>
+    <a href="index.html" class="logo">
+        <span>Ghor</span><strong>Cast</strong>
+    </a>
+
+    <nav class="main-nav">
+
+        <a href="hotels.html">
+            Hotels
         </a>
 
-        <nav class="main-nav">
+        <a href="deals.html">
+            Deals
+        </a>
 
-            <a href="hotels.html">
-                Hotels
-            </a>
+        <a href="destinations.html">
+            Destinations
+        </a>
 
-            <a href="deals.html">
-                Deals
-            </a>
+        <a href="news.html" class="active">
+            News
+        </a>
 
-            <a href="destinations.html">
-                Destinations
-            </a>
+        <a href="index.html#articles">
+            Articles
+        </a>
 
-            <a href="news.html" class="active">
-                News
-            </a>
+        <a href="index.html#products">
+            Products
+        </a>
 
-            <a href="index.html#articles">
-                Articles
-            </a>
+        <a href="index.html#videos">
+            Videos
+        </a>
 
-            <a href="index.html#products">
-                Products
-            </a>
+    </nav>
 
-            <a href="index.html#videos">
-                Videos
-            </a>
+    <button
+        class="menu-toggle"
+        aria-label="Open menu">
 
-        </nav>
+        ☰
 
-        <button
-            class="menu-toggle"
-            aria-label="Open menu">
+    </button>
 
-            ☰
-
-        </button>
-
-    </div>
+</div>
+```
 
 </header>
-
 
 <!-- =====================================================
      HERO
@@ -404,21 +516,22 @@
 
 <section class="page-hero">
 
-    <div class="container">
+```
+<div class="container">
 
-        <h1>
-            Latest News
-        </h1>
+    <h1>
+        Latest News
+    </h1>
 
-        <p>
-            Stay informed with the latest travel, hotel,
-            tourism and destination news.
-        </p>
+    <p>
+        Stay informed with the latest travel, hotel,
+        tourism and destination news.
+    </p>
 
-    </div>
+</div>
+```
 
 </section>
-
 
 <!-- =====================================================
      NEWS
@@ -426,329 +539,365 @@
 
 <section class="news-section">
 
-    <div class="news-container">
+```
+<div class="news-container">
 
 
-        <!-- Search -->
+    <!-- SEARCH -->
 
-        <div class="news-search">
+    <div class="news-search">
 
-            <input
-                type="text"
-                id="newsSearch"
-                placeholder="Search news..."
-                aria-label="Search news"
+        <input
+            type="text"
+            id="newsSearch"
+            placeholder="Search news..."
+            aria-label="Search news"
+        >
+
+        <button onclick="searchNews()">
+            Search
+        </button>
+
+    </div>
+
+
+    <div class="news-grid" id="newsGrid">
+
+
+        <!-- NEWS 1 -->
+
+        <article class="news-card">
+
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80');
+                "
             >
 
-            <button onclick="searchNews()">
-                Search
-            </button>
+                <span class="news-category">
+                    Travel
+                </span>
 
-        </div>
+            </div>
 
+            <div class="news-content">
 
-        <div class="news-heading">
+                <div class="news-date">
+                    September 2026
+                </div>
 
-            
-            <p>
-                Explore the latest stories from the world
-                of travel and tourism.
-            </p>
+                <h3>
+                    New Travel Opportunities
+                    Around the World
+                </h3>
 
-        </div>
+                <p>
+                    Discover new travel opportunities,
+                    destinations and experiences for
+                    your next journey.
+                </p>
 
-
-        <div class="news-grid" id="newsGrid">
-
-
-            <!-- NEWS 1 -->
-
-            <article class="news-card">
-
-                <div
-                    class="news-image"
-                    style="
-                    background-image:
-                    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80');
-                    "
+                <button
+                    class="read-news"
+                    data-news="New Travel Opportunities Around the World"
                 >
+                    Read More
+                </button>
 
-                    <span class="news-category">
-                        Travel
-                    </span>
+            </div>
 
+        </article>
+
+
+        <!-- NEWS 2 -->
+
+        <article class="news-card">
+
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
+                "
+            >
+
+                <span class="news-category">
+                    Hotels
+                </span>
+
+            </div>
+
+            <div class="news-content">
+
+                <div class="news-date">
+                    September 2026
                 </div>
 
+                <h3>
+                    Hotel Industry Continues
+                    to Grow
+                </h3>
 
-                <div class="news-content">
+                <p>
+                    Hotels and resorts continue to
+                    expand their services for
+                    international travelers.
+                </p>
 
-                    <div class="news-date">
-                        September 2026
-                    </div>
-
-                    <h3>
-                        New Travel Opportunities
-                        Around the World
-                    </h3>
-
-                    <p>
-                        Discover new travel opportunities,
-                        destinations and experiences for
-                        your next journey.
-                    </p>
-
-                    <button
-                        class="read-news"
-                        data-news="New Travel Opportunities Around the World"
-                    >
-                        Read More
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- NEWS 2 -->
-
-            <article class="news-card">
-
-                <div
-                    class="news-image"
-                    style="
-                    background-image:
-                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');
-                    "
+                <button
+                    class="read-news"
+                    data-news="Hotel Industry Continues to Grow"
                 >
+                    Read More
+                </button>
 
-                    <span class="news-category">
-                        Hotels
-                    </span>
+            </div>
 
+        </article>
+
+
+        <!-- NEWS 3 -->
+
+        <article class="news-card">
+
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80');
+                "
+            >
+
+                <span class="news-category">
+                    Tourism
+                </span>
+
+            </div>
+
+            <div class="news-content">
+
+                <div class="news-date">
+                    September 2026
                 </div>
 
+                <h3>
+                    Popular Destinations
+                    Attract More Visitors
+                </h3>
 
-                <div class="news-content">
+                <p>
+                    Major tourist destinations continue
+                    to attract visitors with new
+                    attractions and experiences.
+                </p>
 
-                    <div class="news-date">
-                        September 2026
-                    </div>
-
-                    <h3>
-                        Hotel Industry Continues
-                        to Grow
-                    </h3>
-
-                    <p>
-                        Hotels and resorts continue to
-                        expand their services for
-                        international travelers.
-                    </p>
-
-                    <button
-                        class="read-news"
-                        data-news="Hotel Industry Continues to Grow"
-                    >
-                        Read More
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- NEWS 3 -->
-
-            <article class="news-card">
-
-                <div
-                    class="news-image"
-                    style="
-                    background-image:
-                    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80');
-                    "
+                <button
+                    class="read-news"
+                    data-news="Popular Destinations Attract More Visitors"
                 >
+                    Read More
+                </button>
 
-                    <span class="news-category">
-                        Tourism
-                    </span>
+            </div>
 
+        </article>
+
+
+        <!-- NEWS 4 -->
+
+        <article class="news-card">
+
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://www.emperortraveline.com/wp-content/uploads/2020/12/Leisure-bookings.jpg');
+                "
+            >
+
+                <span class="news-category">
+                    Travel Guide
+                </span>
+
+            </div>
+
+            <div class="news-content">
+
+                <div class="news-date">
+                    September 2026
                 </div>
 
+                <h3>
+                    How to Plan the Perfect
+                    International Trip
+                </h3>
 
-                <div class="news-content">
+                <p>
+                    Learn how to choose destinations,
+                    organize your itinerary and prepare
+                    for a comfortable international trip.
+                </p>
 
-                    <div class="news-date">
-                        September 2026
-                    </div>
+                <button
+                    class="read-news"
+                    data-news="How to Plan the Perfect International Trip"
+                >
+                    Read More
+                </button>
 
-                    <h3>
-                        Popular Destinations
-                        Attract More Visitors
-                    </h3>
+            </div>
 
-                    <p>
-                        Major tourist destinations continue
-                        to attract visitors with new
-                        attractions and experiences.
-                    </p>
+        </article>
 
-                    <button
-                        class="read-news"
-                        data-news="Popular Destinations Attract More Visitors"
-                    >
-                        Read More
-                    </button>
 
+        <!-- NEWS 5 -->
+
+        <article class="news-card">
+
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85');
+                "
+            >
+
+                <span class="news-category">
+                    Hotels
+                </span>
+
+            </div>
+
+            <div class="news-content">
+
+                <div class="news-date">
+                    September 2026
                 </div>
 
-            </article>
+                <h3>
+                    How to Choose the Right
+                    Hotel for Your Trip
+                </h3>
+
+                <p>
+                    Discover the important things to
+                    consider when selecting a hotel,
+                    including location, facilities and price.
+                </p>
+
+                <button
+                    class="read-news"
+                    data-news="How to Choose the Right Hotel for Your Trip"
+                >
+                    Read More
+                </button>
+
+            </div>
+
+        </article>
 
 
-          <!-- NEWS 4 -->
+        <!-- NEWS 6 -->
 
-<article class="news-card">
+        <article class="news-card">
 
-    <div
-        class="news-image"
-        style="
-        background-image:
-        url('https://www.emperortraveline.com/wp-content/uploads/2020/12/Leisure-bookings.jpg');
-        "
-    >
+            <div
+                class="news-image"
+                style="
+                background-image:
+                url('https://portfolio.investmentguruindia.com/uploads/news/solo%20travel_31032026.jpg');
+                "
+            >
 
-        <span class="news-category">
-            Travel Guide
-        </span>
+                <span class="news-category">
+                    City Guide
+                </span>
+
+            </div>
+
+            <div class="news-content">
+
+                <div class="news-date">
+                    September 2026
+                </div>
+
+                <h3>
+                    Things to Know Before
+                    Visiting Dubai
+                </h3>
+
+                <p>
+                    Get useful ideas for exploring Dubai,
+                    including attractions, shopping,
+                    hotels and travel experiences.
+                </p>
+
+                <button
+                    class="read-news"
+                    data-news="Things to Know Before Visiting Dubai"
+                >
+                    Read More
+                </button>
+
+            </div>
+
+        </article>
+
 
     </div>
-
-    <div class="news-content">
-
-        <div class="news-date">
-            September 2026
-        </div>
-
-        <h3>
-            How to Plan the Perfect
-            International Trip
-        </h3>
-
-        <p>
-            Learn how to choose destinations,
-            organize your itinerary and prepare
-            for a comfortable international trip.
-        </p>
-
-        <button
-            class="read-news"
-            data-news="How to Plan the Perfect International Trip"
-        >
-            Read More
-        </button>
-
-    </div>
-
-</article>
-
-<!-- NEWS 5 -->
-
-<article class="news-card">
-
-    <div
-        class="news-image"
-        style="
-        background-image:
-        url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85');
-        "
-    >
-
-        <span class="news-category">
-            Hotels
-        </span>
-
-    </div>
-
-    <div class="news-content">
-
-        <div class="news-date">
-            September 2026
-        </div>
-
-        <h3>
-            How to Choose the Right
-            Hotel for Your Trip
-        </h3>
-
-        <p>
-            Discover the important things to
-            consider when selecting a hotel,
-            including location, facilities and price.
-        </p>
-
-        <button
-            class="read-news"
-            data-news="How to Choose the Right Hotel for Your Trip"
-        >
-            Read More
-        </button>
-
-    </div>
-
-</article>
-
-<!-- NEWS 6 -->
-
-<article class="news-card">
-
-    <div
-        class="news-image"
-        style="
-        background-image:
-        url('https://portfolio.investmentguruindia.com/uploads/news/solo%20travel_31032026.jpg');
-        "
-    >
-
-        <span class="news-category">
-            City Guide
-        </span>
-
-    </div>
-
-    <div class="news-content">
-
-        <div class="news-date">
-            September 2026
-        </div>
-
-        <h3>
-            Things to Know Before
-            Visiting Dubai
-        </h3>
-
-        <p>
-            Get useful ideas for exploring Dubai,
-            including attractions, shopping,
-            hotels and travel experiences.
-        </p>
-
-        <button
-            class="read-news"
-            data-news="Things to Know Before Visiting Dubai"
-        >
-            Read More
-        </button>
-
-    </div>
-
-</article>
 
 </div>
-
-</div>
+```
 
 </section>
 
+<!-- =====================================================
+     NEWS POPUP
+     ===================================================== -->
+
+<div id="newsModal" class="news-modal">
+
+```
+<div class="news-modal-content">
+
+    <button
+        class="news-close"
+        onclick="closeNews()"
+        aria-label="Close news">
+        ×
+    </button>
+
+    <img
+        id="modalNewsImage"
+        src=""
+        alt="News image"
+    >
+
+    <div class="news-modal-text">
+
+        <span
+            id="modalNewsCategory"
+            class="modal-category">
+        </span>
+
+        <div
+            id="modalNewsDate"
+            class="modal-date">
+            September 2026
+        </div>
+
+        <h2 id="modalNewsTitle"></h2>
+
+        <p id="modalNewsDetails"></p>
+
+    </div>
+
+</div>
+```
+
+</div>
 
 <!-- =====================================================
      FOOTER
@@ -756,100 +905,99 @@
 
 <footer class="site-footer">
 
-    <div class="container footer-grid">
+```
+<div class="container footer-grid">
 
+    <div>
 
-        <div>
-
-            <h3>
-                GhorCast
-            </h3>
-
-            <p>
-                Your growing platform for hotels, travel,
-                news, articles, products and videos.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Explore
-            </h4>
-
-            <a href="hotels.html">
-                Hotels
-            </a>
-
-            <a href="deals.html">
-                Deals
-            </a>
-
-            <a href="destinations.html">
-                Destinations
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Content
-            </h4>
-
-            <a href="news.html">
-                News
-            </a>
-
-            <a href="index.html#articles">
-                Articles
-            </a>
-
-            <a href="index.html#videos">
-                Videos
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                GhorCast
-            </h4>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="#">
-                About
-            </a>
-
-            <a href="#">
-                Contact
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
+        <h3>
+            GhorCast
+        </h3>
 
         <p>
-            © <span id="currentYear"></span>
-            GhorCast. All rights reserved.
+            Your growing platform for hotels, travel,
+            news, articles, products and videos.
         </p>
 
     </div>
 
-</footer>
 
+    <div>
+
+        <h4>
+            Explore
+        </h4>
+
+        <a href="hotels.html">
+            Hotels
+        </a>
+
+        <a href="deals.html">
+            Deals
+        </a>
+
+        <a href="destinations.html">
+            Destinations
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Content
+        </h4>
+
+        <a href="news.html">
+            News
+        </a>
+
+        <a href="index.html#articles">
+            Articles
+        </a>
+
+        <a href="index.html#videos">
+            Videos
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            GhorCast
+        </h4>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#">
+            About
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <p>
+        © <span id="currentYear"></span>
+        GhorCast. All rights reserved.
+    </p>
+
+</div>
+```
+
+</footer>
 
 <!-- =====================================================
      JAVASCRIPT
@@ -860,6 +1008,7 @@
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
 
         /* Mobile menu */
 
@@ -883,7 +1032,7 @@ document.addEventListener(
         }
 
 
-        /* Read More buttons */
+        /* Read More */
 
         const buttons =
             document.querySelectorAll(".read-news");
@@ -895,12 +1044,77 @@ document.addEventListener(
                     "click",
                     function () {
 
+                        const card =
+                            this.closest(".news-card");
+
+                        const image =
+                            card.querySelector(".news-image");
+
+                        const category =
+                            card.querySelector(
+                                ".news-category"
+                            ).textContent.trim();
+
+                        const date =
+                            card.querySelector(
+                                ".news-date"
+                            ).textContent.trim();
+
                         const title =
                             this.getAttribute(
                                 "data-news"
                             );
 
-                        showNews(title);
+                        const details =
+                            card.querySelector(
+                                "p"
+                            ).textContent.trim();
+
+
+                        /* Get background image */
+
+                        let imageUrl =
+                            image.style.backgroundImage;
+
+
+                        imageUrl =
+                            imageUrl
+                                .replace(/^url\(["']?/, "")
+                                .replace(/["']?\)$/, "");
+
+
+                        /* Put information into popup */
+
+                        document.getElementById(
+                            "modalNewsImage"
+                        ).src = imageUrl;
+
+
+                        document.getElementById(
+                            "modalNewsCategory"
+                        ).textContent = category;
+
+
+                        document.getElementById(
+                            "modalNewsDate"
+                        ).textContent = date;
+
+
+                        document.getElementById(
+                            "modalNewsTitle"
+                        ).textContent = title;
+
+
+                        document.getElementById(
+                            "modalNewsDetails"
+                        ).textContent = details;
+
+
+                        /* Show popup */
+
+                        document.getElementById(
+                            "newsModal"
+                        ).style.display = "flex";
 
                     }
                 );
@@ -946,13 +1160,6 @@ function searchNews() {
             ".news-card"
         );
 
-    const noNews =
-        document.getElementById(
-            "noNews"
-        );
-
-    let found = false;
-
 
     cards.forEach(
         function (card) {
@@ -968,8 +1175,6 @@ function searchNews() {
                 card.style.display =
                     "flex";
 
-                found = true;
-
             } else {
 
                 card.style.display =
@@ -980,51 +1185,38 @@ function searchNews() {
         }
     );
 
+}
 
-    if (noNews) {
 
-        noNews.style.display =
-            found ? "none" : "block";
+/* Close News Popup */
+
+function closeNews() {
+
+    document.getElementById(
+        "newsModal"
+    ).style.display = "none";
+
+}
+
+
+/* Close popup by clicking outside */
+
+document.getElementById(
+    "newsModal"
+).addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === this
+        ) {
+
+            closeNews();
+
+        }
 
     }
-
-}
-
-
-/* News details */
-
-function showNews(title) {
-
-    const descriptions = {
-
-        "New Travel Opportunities Around the World":
-            "Explore new travel opportunities, destinations and experiences around the world with GhorCast.",
-
-        "Hotel Industry Continues to Grow":
-            "Discover hotel and hospitality developments and the changing experiences available to travelers.",
-
-        "Popular Destinations Attract More Visitors":
-            "Popular destinations continue to attract travelers through new attractions and memorable experiences.",
-
-        "How to Plan the Perfect International Trip":
-    "Learn how to choose destinations, organize your itinerary and prepare for a comfortable international trip.",
-
-"How to Choose the Right Hotel for Your Trip":
-    "Discover the important things to consider when selecting a hotel, including location, facilities and price.",
-
-"Things to Know Before Visiting Dubai":
-    "Get useful ideas for exploring Dubai, including attractions, shopping, hotels and travel experiences.",
-
-    };
-
-
-    alert(
-        title +
-        "\\n\\n" +
-        descriptions[title]
-    );
-
-}
+);
 
 
 /* Newsletter */
