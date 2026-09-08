@@ -443,15 +443,19 @@ function openSearchResults(searchTerm, results) {
     // CLOSE OUTSIDE
 
     modal.onclick =
-        function (event) {
+    function (event) {
 
-            if (event.target === modal) {
+        if (event.target === modal) {
 
-                modal.remove();
+            modal.remove();
 
-            }
+            document.getElementById("articles").scrollIntoView({
+                behavior: "smooth"
+            });
 
-        };
+        }
+
+    };
 
 }
 
