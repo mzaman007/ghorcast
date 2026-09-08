@@ -1572,7 +1572,7 @@ function openArticle(article) {
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
-    modal.style.alignItems = "center";
+    modal.style.alignItems = "flex-start";
     modal.style.justifyContent = "center";
     modal.style.zIndex = "20000";
     modal.style.padding = "20px";
@@ -1587,6 +1587,9 @@ function openArticle(article) {
     box.style.background = "#ffffff";
     box.style.maxWidth = "760px";
     box.style.width = "100%";
+    box.style.maxHeight = "calc(100vh - 40px)";
+    box.style.overflowY = "auto";
+    box.style.margin = "20px auto";
     box.style.borderRadius = "20px";
     box.style.position = "relative";
     box.style.boxShadow =
