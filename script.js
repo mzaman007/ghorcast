@@ -250,7 +250,7 @@ function openSearchResults(searchTerm, results) {
     modal.style.height = "100vh";
     modal.style.background = "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
-    modal.style.alignItems = "center";
+    modal.style.alignItems = "flex-start";
     modal.style.justifyContent = "center";
     modal.style.zIndex = "20000";
     modal.style.padding = "20px";
@@ -557,6 +557,9 @@ function openHotel(hotel) {
     box.style.background = "#ffffff";
     box.style.maxWidth = "620px";
     box.style.width = "100%";
+    box.style.maxHeight = "calc(100vh - 40px)";
+    box.style.overflowY = "auto";
+    box.style.margin = "20px auto";
     box.style.borderRadius = "20px";
     box.style.position = "relative";
     box.style.boxShadow =
@@ -827,7 +830,7 @@ if (dealsButton) {
             dealsModal.style.background =
                 "rgba(0,0,0,0.78)";
             dealsModal.style.display = "flex";
-            dealsModal.style.alignItems = "center";
+            dealsModal.style.alignItems = "flex-start";
             dealsModal.style.justifyContent = "center";
             dealsmodal.style.zIndex = "20000";
             dealsModal.style.padding = "20px";
@@ -2098,7 +2101,7 @@ function openProduct(product) {
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
-    modal.style.alignItems = "center";
+    modal.style.alignItems = "flex-star";
     modal.style.justifyContent = "center";
     modal.style.zIndex = "20000";
     modal.style.padding = "20px";
@@ -2113,6 +2116,9 @@ function openProduct(product) {
     box.style.background = "#ffffff";
     box.style.maxWidth = "620px";
     box.style.width = "100%";
+    box.style.maxHeight = "calc(100vh - 40px)";
+    box.style.overflowY = "auto";
+    box.style.margin = "20px auto";
     box.style.borderRadius = "20px";
     box.style.position = "relative";
     box.style.boxShadow =
