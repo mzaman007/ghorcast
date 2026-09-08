@@ -826,13 +826,13 @@ if (dealsButton) {
             dealsModal.style.left = "0";
             dealsModal.style.top = "0";
             dealsModal.style.width = "100%";
-            dealsmodal.style.height = "100vh";
+            dealsModal.style.height = "100vh";
             dealsModal.style.background =
                 "rgba(0,0,0,0.78)";
             dealsModal.style.display = "flex";
             dealsModal.style.alignItems = "flex-start";
             dealsModal.style.justifyContent = "center";
-            dealsmodal.style.zIndex = "20000";
+            dealsModal.style.zIndex = "20000";
             dealsModal.style.padding = "20px";
             dealsModal.style.boxSizing = "border-box";
             dealsModal.style.overflowY = "auto";
@@ -2101,7 +2101,7 @@ function openProduct(product) {
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
-    modal.style.alignItems = "flex-star";
+    modal.style.alignItems = "flex-start";
     modal.style.justifyContent = "center";
     modal.style.zIndex = "20000";
     modal.style.padding = "20px";
