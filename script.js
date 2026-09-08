@@ -1978,12 +1978,16 @@ function openNews(news) {
     document.body.appendChild(modal);
 
 
-    box.querySelector("#closeNews").onclick =
-        function () {
+    box.querySelector("#closeArticle").onclick =
+    function () {
 
-            modal.remove();
+        modal.remove();
 
-        };
+        document.getElementById("articles").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    };
 
 
     modal.onclick =
