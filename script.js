@@ -247,12 +247,12 @@ function openSearchResults(searchTerm, results) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background = "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -539,12 +539,12 @@ function openHotel(hotel) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background = "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -824,13 +824,13 @@ if (dealsButton) {
             dealsModal.style.left = "0";
             dealsModal.style.top = "0";
             dealsModal.style.width = "100%";
-            dealsModal.style.height = "100%";
+            dealsmodal.style.height = "100vh";
             dealsModal.style.background =
                 "rgba(0,0,0,0.78)";
             dealsModal.style.display = "flex";
             dealsModal.style.alignItems = "center";
             dealsModal.style.justifyContent = "center";
-            dealsModal.style.zIndex = "9999";
+            dealsmodal.style.zIndex = "20000";
             dealsModal.style.padding = "20px";
             dealsModal.style.boxSizing = "border-box";
             dealsModal.style.overflowY = "auto";
@@ -1175,13 +1175,13 @@ function openDestination(destination) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -1567,13 +1567,13 @@ function openArticle(article) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -1863,13 +1863,13 @@ function openNews(news) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -1880,10 +1880,11 @@ function openNews(news) {
 
 
     box.style.background = "#ffffff";
-    box.style.maxWidth = "760px";
+    box.style.maxWidth = "620px";
     box.style.width = "100%";
+    box.style.maxHeight = "calc(100vh - 40px)";
+    box.style.overflowY = "auto";
     box.style.borderRadius = "20px";
-    box.style.overflow = "hidden";
     box.style.position = "relative";
     box.style.boxShadow =
         "0 25px 70px rgba(0,0,0,0.4)";
@@ -2096,13 +2097,13 @@ function openProduct(product) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background =
         "rgba(0,0,0,0.78)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
@@ -2365,13 +2366,13 @@ function openVideo(video) {
     modal.style.left = "0";
     modal.style.top = "0";
     modal.style.width = "100%";
-    modal.style.height = "100%";
+    modal.style.height = "100vh";
     modal.style.background =
         "rgba(0,0,0,0.88)";
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.zIndex = "9999";
+    modal.style.zIndex = "20000";
     modal.style.padding = "20px";
     modal.style.boxSizing = "border-box";
     modal.style.overflowY = "auto";
