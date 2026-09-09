@@ -8,20 +8,20 @@
     <meta name="description" content="Discover useful travel products, accessories and essentials with GhorCast.">
 
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
-.logo a {
-    text-decoration: none;
-}
+        .logo a {
+            text-decoration: none;
+        }
 
-.logo a span {
-    color: #17202a;
-}
+        .logo a span {
+            color: #17202a;
+        }
 
-.logo a strong {
-    color: #c79a4b;
-}
-        
+        .logo a strong {
+            color: #c79a4b;
+        }
+
         /* ================================
            GHORCAST PRODUCTS PAGE
         ================================= */
@@ -82,7 +82,6 @@
             font-weight: 600;
         }
 
-        
         .product-categories {
             display: flex;
             justify-content: center;
@@ -258,13 +257,13 @@
 <header>
     <div class="container">
 
-    <div class="logo">
-        <a href="index.html">
-            <span>GHOR</span><strong>CAST</strong> <span>SHOP</span>
-        </a>
-    </div>
+        <div class="logo">
+            <a href="index.html">
+                <span>GHOR</span><strong>CAST</strong> <span>SHOP</span>
+            </a>
+        </div>
 
-     <nav class="navigation">
+        <nav class="navigation">
             <a href="index.html#hotels">Hotels</a>
             <a href="index.html#deals">Deals</a>
             <a href="index.html#destinations">Destinations</a>
@@ -281,6 +280,7 @@
 <!-- HERO -->
 <section class="products-hero">
     <h1>Travel Products</h1>
+
     <p>
         Discover useful travel gear, accessories and essentials
         selected for modern travelers.
@@ -290,47 +290,60 @@
 
 <!-- SEARCH -->
 <div class="product-search-area">
+
     <div class="product-search">
+
         <input
             type="text"
             id="productSearch"
             placeholder="Search travel products..."
             onkeyup="searchProducts()"
         >
-        <button type="button" onclick="searchProducts()">Search</button>
+
+        <button
+            type="button"
+            onclick="searchProducts()">
+            Search
+        </button>
+
     </div>
+
 </div>
 
 
 <!-- CATEGORIES -->
-    
 <div class="product-categories">
 
-    <button type="button"
-            class="product-filter active"
-            onclick="filterProducts('all', this)">
+    <button
+        type="button"
+        class="product-filter active"
+        onclick="filterProducts('all', this)">
         All Products
     </button>
 
-    <button type="button"
-            class="product-filter"
-            onclick="filterProducts('essentials', this)">
+    <button
+        type="button"
+        class="product-filter"
+        onclick="filterProducts('essentials', this)">
         ✈️ Travel Essentials
     </button>
 
-    <button type="button"
-            class="product-filter"
-            onclick="filterProducts('accessories', this)">
+    <button
+        type="button"
+        class="product-filter"
+        onclick="filterProducts('accessories', this)">
         🎒 Travel Accessories
     </button>
 
-    <button type="button"
-            class="product-filter"
-            onclick="filterProducts('special', this)">
+    <button
+        type="button"
+        class="product-filter"
+        onclick="filterProducts('special', this)">
         ⭐ Special Products
     </button>
 
 </div>
+
 
 <!-- PRODUCTS -->
 <section class="products-container">
@@ -339,9 +352,10 @@
 
 
         <!-- PRODUCT 1 -->
-        <article class="product-card"
-                 data-category="essentials"
-                 data-name="Premium Travel Suitcase">
+        <article
+            class="product-card"
+            data-category="essentials"
+            data-name="Premium Travel Suitcase">
 
             <img
                 class="product-image"
@@ -367,14 +381,18 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$89</div>
+
+                    <div class="product-price">
+                        $89
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Premium Travel Suitcase')">
+                        onclick="viewProduct('suitcase')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
@@ -382,14 +400,15 @@
 
 
         <!-- PRODUCT 2 -->
-        <article class="product-card"
-                 data-category="essentials"
-                 data-name="Smart Travel Backpack">
+        <article
+            class="product-card"
+            data-category="essentials"
+            data-name="Smart Travel Backpack">
 
             <img
                 class="product-image"
                 src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
-                alt="Travel Backpack"
+                alt="Smart Travel Backpack"
             >
 
             <div class="product-content">
@@ -410,14 +429,18 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$59</div>
+
+                    <div class="product-price">
+                        $59
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Smart Travel Backpack')">
+                        onclick="viewProduct('backpack')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
@@ -425,13 +448,14 @@
 
 
         <!-- PRODUCT 3 -->
-        <article class="product-card"
-                 data-category="special"
-                 data-name="Universal Travel Adapter">
+        <article
+            class="product-card"
+            data-category="special"
+            data-name="Universal Travel Adapter">
 
             <img
                 class="product-image"
-                src="https://www.bebat.be/_next/image?q=95&url=https%3A%2F%2Fwebsite-backend.prod.bebat.hosted-temp.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Ffull_width%2Fpublic%2Fimages%2FPowerbank%2520in%2520bag.jpeg%3Fitok%3DfXRSW1Hp&w=3840"
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80"
                 alt="Universal Travel Adapter"
             >
 
@@ -453,14 +477,18 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$25</div>
+
+                    <div class="product-price">
+                        $25
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Universal Travel Adapter')">
+                        onclick="viewProduct('adapter')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
@@ -468,14 +496,15 @@
 
 
         <!-- PRODUCT 4 -->
-        <article class="product-card"
-                 data-category="accessories"
-                 data-name="Memory Foam Travel Pillow">
+        <article
+            class="product-card"
+            data-category="accessories"
+            data-name="Memory Foam Travel Pillow">
 
             <img
                 class="product-image"
                 src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=80"
-                alt="Travel Neck Pillow"
+                alt="Memory Foam Travel Pillow"
             >
 
             <div class="product-content">
@@ -496,24 +525,29 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$22</div>
+
+                    <div class="product-price">
+                        $22
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Memory Foam Travel Pillow')">
+                        onclick="viewProduct('pillow')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
         </article>
 
 
-                <!-- PRODUCT 7 -->
-        <article class="product-card"
-                 data-category="accessories"
-                 data-name="Travel Gear">
+        <!-- PRODUCT 5 -->
+        <article
+            class="product-card"
+            data-category="accessories"
+            data-name="Travel Gear">
 
             <img
                 class="product-image"
@@ -539,74 +573,82 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$39.99</div>
+
+                    <div class="product-price">
+                        $39.99
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Travel Gear')">
-                        Available soon
+                        onclick="viewProduct('gear')">
+                        View Product
                     </button>
+
                 </div>
 
             </div>
         </article>
 
-<!-- PRODUCT 8 -->
 
-<article class="product-card"
-         data-category="special"
-         data-name="Special Travel Products">
+        <!-- PRODUCT 6 -->
+        <article
+            class="product-card"
+            data-category="special"
+            data-name="Special Travel Products">
 
-<img
-    class="product-image"
-    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
-    alt="Special Travel Products"
->
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+                alt="Special Travel Products"
+            >
 
-<div class="product-content">
+            <div class="product-content">
 
-    <div class="product-category">
-        Special Products
-    </div>
+                <div class="product-category">
+                    Special Products
+                </div>
 
-    <h3>Special Travel Products</h3>
+                <h3>Special Travel Products</h3>
 
-    <p class="product-description">
-        Selected travel products and special offers featured.
-    </p>
+                <p class="product-description">
+                    Selected travel products and special offers
+                    featured by GhorCast.
+                </p>
 
-    <div class="product-rating">
-        ⭐⭐⭐⭐⭐ <strong>4.9</strong>
-    </div>
+                <div class="product-rating">
+                    ⭐⭐⭐⭐⭐ <strong>4.9</strong>
+                </div>
 
-    <div class="product-footer">
-        <div class="product-price">$49.99</div>
+                <div class="product-footer">
 
-        <button
-            type="button"
-            class="product-button"
-            onclick="viewProduct('Special Travel Products')">
-            Available soon
-        </button>
-    </div>
+                    <div class="product-price">
+                        $49.99
+                    </div>
 
-</div>
-```
+                    <button
+                        type="button"
+                        class="product-button"
+                        onclick="viewProduct('special')">
+                        View Product
+                    </button>
 
-</article>
+                </div>
 
-        
+            </div>
+        </article>
 
-        <!-- PRODUCT 5 -->
-        <article class="product-card"
-                 data-category="essentials"
-                 data-name="Compact Travel Duffel">
+
+        <!-- PRODUCT 7 -->
+        <article
+            class="product-card"
+            data-category="essentials"
+            data-name="Compact Travel Duffel">
 
             <img
                 class="product-image"
                 src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80"
-                alt="Compact Duffel Bag"
+                alt="Compact Travel Duffel"
             >
 
             <div class="product-content">
@@ -627,29 +669,34 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$45</div>
+
+                    <div class="product-price">
+                        $45
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Compact Travel Duffel')">
+                        onclick="viewProduct('duffel')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
         </article>
 
 
-        <!-- PRODUCT 6 -->
-        <article class="product-card"
-                 data-category="special"
-                 data-name="Portable Travel Power Bank">
+        <!-- PRODUCT 8 -->
+        <article
+            class="product-card"
+            data-category="special"
+            data-name="Portable Travel Power Bank">
 
             <img
                 class="product-image"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Portable_power_bank.jpg/960px-Portable_power_bank.jpg"
-                alt="Portable Power Bank"
+                alt="Portable Travel Power Bank"
             >
 
             <div class="product-content">
@@ -670,14 +717,18 @@
                 </div>
 
                 <div class="product-footer">
-                    <div class="product-price">$35</div>
+
+                    <div class="product-price">
+                        $35
+                    </div>
 
                     <button
                         type="button"
                         class="product-button"
-                        onclick="viewProduct('Portable Travel Power Bank')">
+                        onclick="viewProduct('powerbank')">
                         View Product
                     </button>
+
                 </div>
 
             </div>
@@ -686,9 +737,15 @@
     </div>
 
 
+    <!-- NO PRODUCTS -->
     <div class="no-products" id="noProducts">
+
         <h2>No products found</h2>
-        <p>Try another search or category.</p>
+
+        <p>
+            Try another search or category.
+        </p>
+
     </div>
 
 </section>
@@ -696,9 +753,15 @@
 
 <!-- FOOTER -->
 <footer>
+
     <div class="container">
-        <p>© 2026 GhorCast. All rights reserved.</p>
+
+        <p>
+            © 2026 GhorCast. All rights reserved.
+        </p>
+
     </div>
+
 </footer>
 
 
@@ -711,7 +774,8 @@
     function searchProducts() {
 
         const search =
-            document.getElementById("productSearch")
+            document
+                .getElementById("productSearch")
                 .value
                 .toLowerCase()
                 .trim();
@@ -733,10 +797,15 @@
                 name.includes(search) ||
                 category.includes(search)
             ) {
+
                 product.style.display = "flex";
+
                 visible++;
+
             } else {
+
                 product.style.display = "none";
+
             }
 
         });
@@ -769,10 +838,15 @@
                 category === "all" ||
                 product.dataset.category === category
             ) {
+
                 product.style.display = "flex";
+
                 visible++;
+
             } else {
+
                 product.style.display = "none";
+
             }
 
         });
@@ -783,15 +857,14 @@
 
 
     /* ================================
-       PRODUCT BUTTON
+       OPEN EXISTING PRODUCT PAGE
     ================================= */
 
-    function viewProduct(productName) {
+    function viewProduct(productId) {
 
-        alert(
-            productName +
-            "\n\nProduct details and purchasing options will be available soon."
-        );
+        window.location.href =
+            "product.html?id=" +
+            encodeURIComponent(productId);
 
     }
 
