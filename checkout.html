@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | GhorCast</title>
+
+    <meta name="description"
+          content="Complete your GhorCast travel product order.">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <style>
+
+        /* ================================
+           GHORCAST CHECKOUT
+        ================================= */
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .logo a span {
+            color: #17202a;
+        }
+
+        .logo a strong {
+            color: #c79a4b;
+        }
+
+        .checkout-page {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #c99a45;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .checkout-page h1 {
+            color: #17202a;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* ================================
+           CHECKOUT FORM
+        ================================= */
+
+        .checkout-form {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+        }
+
+        .checkout-section {
+            margin-bottom: 35px;
+        }
+
+        .checkout-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkout-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #17202a;
+            font-size: 23px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            margin-bottom: 7px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #c99a45;
+        }
+
+        .required {
+            color: #c0392b;
+        }
+
+        /* ================================
+           ORDER SUMMARY
+        ================================= */
+
+        .order-summary {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+            position: sticky;
+            top: 20px;
+        }
+
+        .order-summary h2 {
+            margin-top: 0;
+            color: #17202a;
+            margin-bottom: 25px;
+        }
+
+        .checkout-product {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checkout-product-image {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 9px;
+            background: #f5f5f5;
+        }
+
+        .checkout-product-info {
+            flex: 1;
+        }
+
+        .checkout-product-info h3 {
+            margin: 0 0 5px;
+            font-size: 15px;
+            color: #17202a;
+        }
+
+        .checkout-product-info p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .checkout-product-price {
+            font-weight: 700;
+            color: #c99a45;
+            white-space: nowrap;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+            margin-top: 20px;
+            color: #17202a;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        /* ================================
+           PAYMENT NOTICE
+        ================================= */
+
+        .payment-notice {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 15px;
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* ================================
+           BUTTON
+        ================================= */
+
+        .payment-button {
+            width: 100%;
+            border: none;
+            background: #c99a45;
+            color: white;
+            padding: 15px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 20px;
+        }
+
+        .payment-button:hover {
+            opacity: .9;
+        }
+
+        .secure-text {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* ================================
+           EMPTY CHECKOUT
+        ================================= */
+
+        .empty-checkout {
+            max-width: 700px;
+            margin: 80px auto;
+            background: white;
+            border-radius: 18px;
+            padding: 50px 25px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+        }
+
+        .empty-checkout-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .empty-checkout h2 {
+            color: #17202a;
+        }
+
+        .empty-checkout p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .shop-button {
+            display: inline-block;
+            background: #c99a45;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .checkout-page {
+                margin-top: 30px;
+            }
+
+            .checkout-page h1 {
+                font-size: 30px;
+            }
+
+            .checkout-form {
+                padding: 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .order-summary {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="container">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <span>GHOR</span>
+                <strong>CAST</strong>
+                <span>SHOP</span>
+
+            </a>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html#hotels">
+                Hotels
+            </a>
+
+            <a href="index.html#deals">
+                Deals
+            </a>
+
+            <a href="index.html#destinations">
+                Destinations
+            </a>
+
+            <a href="index.html#news">
+                News
+            </a>
+
+            <a href="index.html#articles">
+                Articles
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="checkout-page">
+
+
+    <a href="cart.html"
+       class="back-link">
+
+        ← Back to Cart
+
+    </a>
+
+
+    <h1>
+        Checkout
+    </h1>
+
+
+    <div id="checkoutContent">
+
+
+        <div class="checkout-layout">
+
+
+            <!-- =========================
+                 CUSTOMER INFORMATION
+            ========================== -->
+
+            <section class="checkout-form">
+
+
+                <div class="checkout-section">
+
+                    <h2>
+                        👤 Customer Information
+                    </h2>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="firstName">
+                                First Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                required
+                                placeholder="Enter your first name">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="lastName">
+                                Last Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                required
+                                placeholder="Enter your last name">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                required
+                                placeholder="you@example.com">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                required
+                                placeholder="Enter your phone number">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     SHIPPING INFORMATION
+                ========================== -->
+
+                <div class="checkout-section">
+
+                    <h2>
+                        🚚 Shipping Information
+                    </h2>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group full">
+
+                            <label for="address">
+                                Street Address
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                id="address"
+                                required
+                                placeholder="House number, street, area, etc."></textarea>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="country">
+                                Country
+                                <span class="required">*</span>
+                            </label>
+
+                            <select id="country"
+                                    required>
+
+                                <option value="">
+                                    Select Country
+                                </option>
+
+                                <option value="Bangladesh">
+                                    Bangladesh
+                                </option>
+
+                                <option value="Saudi Arabia">
+                                    Saudi Arabia
+                                </option>
+
+                                <option value="United Arab Emirates">
+                                    United Arab Emirates
+                                </option>
+
+                                <option value="Turkey">
+                                    Turkey
+                                </option>
+
+                                <option value="United Kingdom">
+                                    United Kingdom
+                                </option>
+
+                                <option value="United States">
+                                    United States
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                required
+                                placeholder="Enter your city">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="postalCode">
+                                Postal Code
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="postalCode"
+                                required
+                                placeholder="Postal code">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="state">
+                                State / Division
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                placeholder="State or division">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     ORDER NOTE
+                ========================== -->
+
+                <div class="checkout-section">
+
+                    <h2>
+                        📝 Order Note
+                    </h2>
+
+
+                    <div class="form-group">
+
+                        <label for="orderNote">
+                            Additional Information
+                        </label>
+
+                        <textarea
+                            id="orderNote"
+                            placeholder="Optional instructions for your order"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="payment-button"
+                    onclick="continueToPayment()">
+
+                    Continue to Payment →
+
+                </button>
+
+
+                <div class="secure-text">
+
+                    🔒 Your information is securely handled.
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =========================
+                 ORDER SUMMARY
+            ========================== -->
+
+            <aside class="order-summary">
+
+
+                <h2>
+                    Your Order
+                </h2>
+
+
+                <div id="checkoutProducts">
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="checkoutSubtotal">
+                        $0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <strong>
+                        Calculated later
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="checkoutTotal">
+                        $0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="payment-notice">
+
+                    💳 Payment options will be shown
+                    on the next step.
+
+                    <br><br>
+
+                    Shipping cost and final order
+                    details will be confirmed before
+                    payment.
+
+                </div>
+
+
+            </aside>
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            © 2026 GhorCast. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+
+    /* ================================
+       LOAD CHECKOUT CART
+    ================================= */
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("ghorcastCheckoutCart")
+            ||
+            localStorage.getItem("ghorcastCart")
+            ||
+            "[]"
+        );
+
+
+    /* ================================
+       DISPLAY ORDER
+    ================================= */
+
+    function renderCheckout() {
+
+        const checkoutProducts =
+            document.getElementById(
+                "checkoutProducts"
+            );
+
+
+        if (cart.length === 0) {
+
+            document.getElementById(
+                "checkoutContent"
+            ).innerHTML = `
+
+                <div class="empty-checkout">
+
+                    <div class="empty-checkout-icon">
+                        🛒
+                    </div>
+
+                    <h2>
+                        Your cart is empty
+                    </h2>
+
+                    <p>
+                        Please add a product before
+                        continuing to checkout.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="shop-button">
+
+                        Explore Products
+
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        checkoutProducts.innerHTML = "";
+
+
+        let subtotal = 0;
+
+
+        cart.forEach(item => {
+
+            const itemTotal =
+                Number(item.price) *
+                Number(item.quantity);
+
+
+            subtotal += itemTotal;
+
+
+            const product =
+                document.createElement("div");
+
+
+            product.className =
+                "checkout-product";
+
+
+            product.innerHTML = `
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    class="checkout-product-image"
+                >
+
+
+                <div class="checkout-product-info">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p>
+                        Quantity: ${item.quantity}
+                    </p>
+
+                </div>
+
+
+                <div class="checkout-product-price">
+
+                    $${itemTotal.toFixed(2)}
+
+                </div>
+
+            `;
+
+
+            checkoutProducts.appendChild(
+                product
+            );
+
+        });
+
+
+        document.getElementById(
+            "checkoutSubtotal"
+        ).textContent =
+            "$" + subtotal.toFixed(2);
+
+
+        document.getElementById(
+            "checkoutTotal"
+        ).textContent =
+            "$" + subtotal.toFixed(2);
+
+    }
+
+
+    /* ================================
+       CONTINUE TO PAYMENT
+    ================================= */
+
+    function continueToPayment() {
+
+
+        const firstName =
+            document.getElementById(
+                "firstName"
+            ).value.trim();
+
+
+        const lastName =
+            document.getElementById(
+                "lastName"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "phone"
+            ).value.trim();
+
+
+        const address =
+            document.getElementById(
+                "address"
+            ).value.trim();
+
+
+        const country =
+            document.getElementById(
+                "country"
+            ).value;
+
+
+        const city =
+            document.getElementById(
+                "city"
+            ).value.trim();
+
+
+        const postalCode =
+            document.getElementById(
+                "postalCode"
+            ).value.trim();
+
+
+        /* =========================
+           VALIDATION
+        ========================== */
+
+        if (
+            !firstName ||
+            !lastName ||
+            !email ||
+            !phone ||
+            !address ||
+            !country ||
+            !city ||
+            !postalCode
+        ) {
+
+            alert(
+                "Please complete all required fields."
+            );
+
+            return;
+
+        }
+
+
+        /* =========================
+           SAVE CUSTOMER INFORMATION
+        ========================== */
+
+        const customer = {
+
+            firstName:
+                firstName,
+
+            lastName:
+                lastName,
+
+            email:
+                email,
+
+            phone:
+                phone,
+
+            address:
+                address,
+
+            country:
+                country,
+
+            city:
+                city,
+
+            postalCode:
+                postalCode,
+
+            state:
+                document.getElementById(
+                    "state"
+                ).value.trim(),
+
+            orderNote:
+                document.getElementById(
+                    "orderNote"
+                ).value.trim()
+
+        };
+
+
+        localStorage.setItem(
+            "ghorcastCustomer",
+            JSON.stringify(customer)
+        );
+
+
+        /* =========================
+           SAVE ORDER TOTAL
+        ========================== */
+
+        let subtotal = 0;
+
+
+        cart.forEach(item => {
+
+            subtotal +=
+                Number(item.price) *
+                Number(item.quantity);
+
+        });
+
+
+        const orderSummary = {
+
+            items:
+                cart,
+
+            subtotal:
+                subtotal,
+
+            total:
+                subtotal
+
+        };
+
+
+        localStorage.setItem(
+            "ghorcastOrder",
+            JSON.stringify(orderSummary)
+        );
+
+
+        /* =========================
+           NEXT STEP
+        ========================== */
+
+        window.location.href =
+            "payment.html";
+
+    }
+
+
+    /* ================================
+       INITIAL LOAD
+    ================================= */
+
+    renderCheckout();
+
+
+</script>
+
+
+</body>
+</html>
