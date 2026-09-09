@@ -506,33 +506,167 @@
 
             <!-- ADDRESSES -->
 
-            <div id="addresses" class="account-section">
+           <!-- ADDRESSES -->
 
-                <h2>My Addresses</h2>
+<div id="addresses" class="account-section">
 
-                <p class="section-description">
-                    Your saved shipping addresses will appear here.
-                </p>
+    <h2>My Addresses</h2>
 
-                <div class="empty-box">
+    <p class="section-description">
+        Manage your saved shipping and delivery addresses.
+    </p>
 
-                    <div class="empty-icon">
-                        📍
-                    </div>
+    <div class="address-form">
 
-                    <h3>
-                        No saved addresses
-                    </h3>
+        <div class="form-row">
 
-                    <p>
-                        Add your shipping information during checkout.
-                    </p>
+            <div class="form-group">
+                <label for="addressName">Full Name</label>
+                <input
+                    type="text"
+                    id="addressName"
+                    placeholder="Enter full name">
+            </div>
 
-                </div>
+            <div class="form-group">
+                <label for="addressPhone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="addressPhone"
+                    placeholder="Enter phone number">
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="house">House / Flat / Apartment</label>
+            <input
+                type="text"
+                id="house"
+                placeholder="House, flat or apartment number">
+        </div>
+
+
+        <div class="form-group">
+            <label for="road">Road / Street</label>
+            <input
+                type="text"
+                id="road"
+                placeholder="Road or street name">
+        </div>
+
+
+        <div class="form-group">
+            <label for="area">Area / Village</label>
+            <input
+                type="text"
+                id="area"
+                placeholder="Area, village or neighborhood">
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="addressCity">City</label>
+                <input
+                    type="text"
+                    id="addressCity"
+                    placeholder="City">
+            </div>
+
+            <div class="form-group">
+                <label for="district">District</label>
+                <input
+                    type="text"
+                    id="district"
+                    placeholder="District">
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="division">Division / State</label>
+                <input
+                    type="text"
+                    id="division"
+                    placeholder="Division or state">
+            </div>
+
+            <div class="form-group">
+                <label for="postalCode">Postal Code</label>
+                <input
+                    type="text"
+                    id="postalCode"
+                    placeholder="Postal code">
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="country">Country</label>
+
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Turkey">Turkey</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Address Type</label>
+
+            <div class="address-type">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="addressType"
+                        value="Home"
+                        checked>
+                    Home
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="addressType"
+                        value="Office">
+                    Office
+                </label>
 
             </div>
 
+        </div>
 
+
+        <button
+            type="button"
+            class="save-button"
+            onclick="saveAddress()">
+            Save Address
+        </button>
+
+    </div>
+
+
+    <!-- SAVED ADDRESS -->
+
+    <div id="savedAddressContainer"></div>
+
+</div>
             <!-- SETTINGS -->
 
             <div id="settings" class="account-section">
