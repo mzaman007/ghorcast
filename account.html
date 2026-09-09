@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account | GhorCast Shop</title>
+
+    <meta name="description"
+          content="Manage your GhorCast Shop account, orders and customer information.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #17202a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* =================================
+           HEADER
+           ================================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 18px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: #17202a;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .logo a strong {
+            color: #c79a4b;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #17202a;
+            font-weight: 600;
+        }
+
+        .navigation a:hover {
+            color: #c79a4b;
+        }
+
+        /* =================================
+           ACCOUNT PAGE
+           ================================= */
+
+        .account-page {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px 80px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: #666;
+        }
+
+        .account-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 25px;
+        }
+
+        /* =================================
+           SIDEBAR
+           ================================= */
+
+        .account-sidebar {
+            background: #ffffff;
+            border: 1px solid #e3e3e3;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .sidebar-title {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .account-option {
+            display: block;
+            width: 100%;
+            padding: 17px 20px;
+            border: none;
+            background: #ffffff;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            color: #17202a;
+        }
+
+        .account-option:hover {
+            background: #f7f7f7;
+        }
+
+        .account-option.active {
+            background: #f1eadf;
+            font-weight: 700;
+        }
+
+        /* =================================
+           CONTENT
+           ================================= */
+
+        .account-content {
+            background: #ffffff;
+            border: 1px solid #e3e3e3;
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 500px;
+        }
+
+        .account-section {
+            display: none;
+        }
+
+        .account-section.active {
+            display: block;
+        }
+
+        .account-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            color: #777;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* =================================
+           PROFILE
+           ================================= */
+
+        .profile-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .profile-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #17202a;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .profile-box h3 {
+            margin-bottom: 5px;
+        }
+
+        .profile-box p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =================================
+           FORM
+           ================================= */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .save-button {
+            padding: 12px 25px;
+            border: none;
+            background: #17202a;
+            color: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .save-button:hover {
+            background: #c79a4b;
+        }
+
+        /* =================================
+           ORDERS
+           ================================= */
+
+        .empty-box {
+            text-align: center;
+            padding: 70px 20px;
+            color: #777;
+        }
+
+        .empty-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .empty-box h3 {
+            color: #17202a;
+            margin-bottom: 10px;
+        }
+
+        .empty-box p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .shop-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #17202a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .shop-button:hover {
+            background: #c79a4b;
+        }
+
+        /* =================================
+           FOOTER
+           ================================= */
+
+        footer {
+            background: #17202a;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 0;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* =================================
+           MOBILE
+           ================================= */
+
+        @media (max-width: 768px) {
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .navigation {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .account-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 30px;
+            }
+
+            .account-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <div class="header-content">
+
+            <div class="logo">
+                <a href="products.html">
+                    GHOR<strong>CAST</strong> SHOP
+                </a>
+            </div>
+
+            <nav class="navigation">
+                <a href="products.html">Home</a>
+                <a href="messages.html">Messages</a>
+                <a href="cart.html">Cart</a>
+                <a href="account.html">Account</a>
+            </nav>
+
+        </div>
+
+    </div>
+</header>
+
+
+<main class="account-page">
+
+    <div class="page-title">
+        <h1>My Account</h1>
+        <p>Manage your GhorCast Shop account.</p>
+    </div>
+
+
+    <div class="account-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="account-sidebar">
+
+            <div class="sidebar-title">
+                My Account
+            </div>
+
+            <button class="account-option active"
+                    onclick="showSection('profile', this)">
+                👤 Profile
+            </button>
+
+            <button class="account-option"
+                    onclick="showSection('orders', this)">
+                📦 My Orders
+            </button>
+
+            <button class="account-option"
+                    onclick="showSection('addresses', this)">
+                📍 Addresses
+            </button>
+
+            <button class="account-option"
+                    onclick="showSection('settings', this)">
+                ⚙️ Settings
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+
+        <section class="account-content">
+
+            <!-- PROFILE -->
+
+            <div id="profile" class="account-section active">
+
+                <h2>My Profile</h2>
+
+                <p class="section-description">
+                    Manage your basic customer information.
+                </p>
+
+                <div class="profile-box">
+
+                    <div class="profile-icon">
+                        👤
+                    </div>
+
+                    <div>
+                        <h3 id="profileName">
+                            Guest Customer
+                        </h3>
+
+                        <p id="profileEmail">
+                            No email added
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number">
+                </div>
+
+
+                <button class="save-button"
+                        onclick="saveProfile()">
+                    Save Changes
+                </button>
+
+            </div>
+
+
+            <!-- ORDERS -->
+
+            <div id="orders" class="account-section">
+
+                <h2>My Orders</h2>
+
+                <p class="section-description">
+                    View your GhorCast Shop orders and order history.
+                </p>
+
+                <div id="ordersContent" class="empty-box">
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        No orders yet
+                    </h3>
+
+                    <p>
+                        Your completed orders will appear here.
+                    </p>
+
+                    <a href="products.html" class="shop-button">
+                        Start Shopping
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESSES -->
+
+            <div id="addresses" class="account-section">
+
+                <h2>My Addresses</h2>
+
+                <p class="section-description">
+                    Your saved shipping addresses will appear here.
+                </p>
+
+                <div class="empty-box">
+
+                    <div class="empty-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        No saved addresses
+                    </h3>
+
+                    <p>
+                        Add your shipping information during checkout.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SETTINGS -->
+
+            <div id="settings" class="account-section">
+
+                <h2>Account Settings</h2>
+
+                <p class="section-description">
+                    Manage your GhorCast Shop preferences.
+                </p>
+
+                <div class="form-group">
+
+                    <label>
+                        Account Status
+                    </label>
+
+                    <input
+                        type="text"
+                        value="Guest Account"
+                        readonly>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Notifications
+                    </label>
+
+                    <input
+                        type="text"
+                        value="Enabled"
+                        readonly>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>© 2026 GhorCast. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+
+    /* =================================
+       LOAD CUSTOMER INFORMATION
+       ================================= */
+
+    const customer =
+        JSON.parse(
+            localStorage.getItem("ghorcastCustomer") || "null"
+        );
+
+
+    if (customer) {
+
+        const fullName =
+            ((customer.firstName || "") + " " +
+             (customer.lastName || "")).trim();
+
+        document.getElementById("name").value =
+            fullName;
+
+        document.getElementById("email").value =
+            customer.email || "";
+
+        document.getElementById("phone").value =
+            customer.phone || "";
+
+        document.getElementById("profileName").textContent =
+            fullName || "Customer";
+
+        document.getElementById("profileEmail").textContent =
+            customer.email || "No email added";
+    }
+
+
+    /* =================================
+       SHOW ACCOUNT SECTION
+       ================================= */
+
+    function showSection(sectionId, button) {
+
+        const sections =
+            document.querySelectorAll(".account-section");
+
+        sections.forEach(function(section) {
+            section.classList.remove("active");
+        });
+
+
+        const buttons =
+            document.querySelectorAll(".account-option");
+
+        buttons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+
+        document
+            .getElementById(sectionId)
+            .classList.add("active");
+
+        button.classList.add("active");
+    }
+
+
+    /* =================================
+       SAVE PROFILE
+       ================================= */
+
+    function saveProfile() {
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+
+        let firstName = name;
+        let lastName = "";
+
+
+        if (name.includes(" ")) {
+
+            const parts =
+                name.split(" ");
+
+            firstName = parts.shift();
+
+            lastName = parts.join(" ");
+        }
+
+
+        const customerData = {
+
+            firstName: firstName,
+
+            lastName: lastName,
+
+            email: email,
+
+            phone: phone
+        };
+
+
+        localStorage.setItem(
+            "ghorcastCustomer",
+            JSON.stringify(customerData)
+        );
+
+
+        document.getElementById("profileName").textContent =
+            name || "Customer";
+
+        document.getElementById("profileEmail").textContent =
+            email || "No email added";
+
+
+        alert("Profile saved successfully.");
+    }
+
+</script>
+
+</body>
+</html>
