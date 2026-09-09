@@ -21,13 +21,27 @@
             text-decoration: none;
         }
 
-        .logo a span {
-            color: #17202a;
-        }
+        .logo a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    letter-spacing: 0;
+}
 
-        .logo a strong {
-            color: #c79a4b;
-        }
+.logo a span,
+.logo a strong {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+}
+
+.logo a span {
+    color: #17202a;
+}
+
+.logo a strong {
+    color: #c79a4b;
+}
 
         .cart-page {
             max-width: 1200px;
@@ -341,16 +355,10 @@
     <div class="container">
 
         <div class="logo">
-
-            <a href="index.html">
-
-                <span>GHOR</span>
-                <strong>CAST</strong>
-                <span>SHOP</span>
-
-            </a>
-
-        </div>
+    <a href="index.html">
+        <span>GHOR</span><strong>CAST</strong><span>SHOP</span>
+    </a>
+</div>
 
         <nav class="navigation">
 
