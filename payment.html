@@ -666,28 +666,146 @@
 
             event.preventDefault();
 
+            if (!buyNowItem) {
+                return;
+            }
 
             const name =
                 document.getElementById(
                     "customerName"
-                ).value;
+                ).value.trim();
 
+            const phone =
+                document.getElementById(
+                    "customerPhone"
+                ).value.trim();
+
+            const email =
+                document.getElementById(
+                    "customerEmail"
+                ).value.trim();
+
+            const address =
+                document.getElementById(
+                    "customerAddress"
+                ).value.trim();
 
             const payment =
                 document.querySelector(
                     'input[name="payment"]:checked'
                 ).value;
 
+            const quantity =
+                Number(buyNowItem.quantity);
 
-            alert(
-                "Order received!\n\n" +
-                "Thank you, " +
-                name +
-                "!\n\n" +
-                "Payment Method: " +
-                payment
+            const price =
+                Number(buyNowItem.price);
+
+            const total =
+                price * quantity;
+
+            const order = {
+                orderId:
+                    "GC-" +
+                    Date.now(),
+
+                productId:
+                    buyNowItem.id || "",
+
+                productName:
+                    buyNowItem.name,
+
+                image:
+                    buyNowItem.image,
+
+                price:
+                    price,
+
+                quantity:
+                    quantity,
+
+                total:
+                    total,
+
+                customerName:
+                    name,
+
+                customerPhone:
+                    phone,
+
+                customerEmail:
+                    email,
+
+                customerAddress:
+                    address,
+
+                paymentMethod:
+                    payment,
+
+                status:
+                    "Order Received",
+
+                date:
+                    new Date().toISOString()
+            };
+
+            const orders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ghorcastOrders"
+                    )
+                ) || [];
+
+            orders.push(order);
+
+            localStorage.setItem(
+                "ghorcastOrders",
+                JSON.stringify(orders)
             );
 
+            localStorage.removeItem(
+                "ghorcastBuyNow"
+            );
+
+            document.getElementById(
+                "paymentContent"
+            ).innerHTML = `
+
+                <div class="payment-box empty-message">
+
+                    <h2>
+                        Order Received
+                    </h2>
+
+                    <p style="margin-top:15px;">
+                        Thank you, ${name}!
+                    </p>
+
+                    <p style="margin-top:8px;">
+                        Your order has been received successfully.
+                    </p>
+
+                    <p style="margin-top:8px;">
+                        Order ID:
+                        <strong>${order.orderId}</strong>
+                    </p>
+
+                    <p style="margin-top:8px;">
+                        Total:
+                        <strong>$${total.toFixed(2)}</strong>
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="back-button">
+
+                        Continue Shopping
+
+                    </a>
+
+                </div>
+
+            `;
 
         }
     );
