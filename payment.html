@@ -581,13 +581,87 @@
 
 <script>
 
-    const buyNowItem =
-        JSON.parse(
-            localStorage.getItem("ghorcastBuyNow")
+
+    /* ================================
+       LOAD ORDER SOURCE
+    ================================= */
+
+    const checkoutSource =
+        localStorage.getItem(
+            "ghorcastCheckoutSource"
         );
 
 
-    if (!buyNowItem) {
+    const buyNowItem =
+        JSON.parse(
+            localStorage.getItem(
+                "ghorcastBuyNow"
+            )
+        );
+
+
+    const cartOrder =
+        JSON.parse(
+            localStorage.getItem(
+                "ghorcastOrder"
+            )
+        );
+
+
+    let orderItems = [];
+
+    let orderTotal = 0;
+
+    let isCartOrder = false;
+
+
+    /* ================================
+       DETERMINE ORDER
+    ================================= */
+
+    if (
+        checkoutSource === "cart" &&
+        cartOrder &&
+        Array.isArray(cartOrder.items) &&
+        cartOrder.items.length > 0
+    ) {
+
+        isCartOrder = true;
+
+        orderItems =
+            cartOrder.items;
+
+        orderTotal =
+            Number(
+                cartOrder.total ||
+                cartOrder.subtotal ||
+                0
+            );
+
+    } else if (buyNowItem) {
+
+        orderItems = [
+            buyNowItem
+        ];
+
+        orderTotal =
+            Number(
+                buyNowItem.price
+            ) *
+            Number(
+                buyNowItem.quantity
+            );
+
+    }
+
+
+    /* ================================
+       EMPTY ORDER
+    ================================= */
+
+    if (
+        orderItems.length === 0
+    ) {
 
         document.getElementById(
             "paymentContent"
@@ -600,7 +674,8 @@
                 </h2>
 
                 <p>
-                    Please select a product using Buy Now.
+                    Please add a product
+                    before continuing.
                 </p>
 
                 <a
@@ -617,202 +692,684 @@
 
     } else {
 
-        document.getElementById(
-            "productImage"
-        ).src = buyNowItem.image;
+
+        /* ================================
+           CUSTOMER INFORMATION
+        ================================= */
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem(
+                    "ghorcastCustomer"
+                )
+            ) || {};
 
 
-        document.getElementById(
-            "productName"
-        ).textContent = buyNowItem.name;
+        if (customer.firstName) {
+
+            document.getElementById(
+                "customerName"
+            ).value =
+                (
+                    customer.firstName +
+                    " " +
+                    (
+                        customer.lastName ||
+                        ""
+                    )
+                ).trim();
+
+        }
 
 
-        document.getElementById(
-            "productQuantity"
-        ).textContent = buyNowItem.quantity;
+        if (customer.phone) {
+
+            document.getElementById(
+                "customerPhone"
+            ).value =
+                customer.phone;
+
+        }
 
 
-        document.getElementById(
-            "productPrice"
-        ).textContent =
-            "$" +
-            Number(buyNowItem.price).toFixed(2);
+        if (customer.email) {
+
+            document.getElementById(
+                "customerEmail"
+            ).value =
+                customer.email;
+
+        }
 
 
-        const total =
-            Number(buyNowItem.price) *
-            Number(buyNowItem.quantity);
+        if (customer.address) {
 
+            let fullAddress =
+                customer.address;
+
+
+            if (customer.city) {
+
+                fullAddress +=
+                    ", " +
+                    customer.city;
+
+            }
+
+
+            if (customer.state) {
+
+                fullAddress +=
+                    ", " +
+                    customer.state;
+
+            }
+
+
+            if (customer.postalCode) {
+
+                fullAddress +=
+                    ", " +
+                    customer.postalCode;
+
+            }
+
+
+            if (customer.country) {
+
+                fullAddress +=
+                    ", " +
+                    customer.country;
+
+            }
+
+
+            document.getElementById(
+                "customerAddress"
+            ).value =
+                fullAddress;
+
+        }
+
+
+        /* ================================
+           ORDER SUMMARY
+        ================================= */
+
+        const productSummary =
+            document.querySelector(
+                ".product-summary"
+            );
+
+
+        if (orderItems.length === 1) {
+
+            const item =
+                orderItems[0];
+
+
+            document.getElementById(
+                "productImage"
+            ).src =
+                item.image || "";
+
+
+            document.getElementById(
+                "productName"
+            ).textContent =
+                item.name ||
+                "Product";
+
+
+            document.getElementById(
+                "productQuantity"
+            ).textContent =
+                item.quantity || 1;
+
+
+            document.getElementById(
+                "productPrice"
+            ).textContent =
+                "$" +
+                Number(
+                    item.price || 0
+                ).toFixed(2);
+
+        } else {
+
+
+            /* ============================
+               MULTIPLE CART PRODUCTS
+            ============================= */
+
+            productSummary.innerHTML =
+                "";
+
+
+            productSummary.style.display =
+                "block";
+
+
+            orderItems.forEach(
+                function(item) {
+
+                    const row =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    row.style.display =
+                        "flex";
+
+                    row.style.alignItems =
+                        "center";
+
+                    row.style.gap =
+                        "15px";
+
+                    row.style.padding =
+                        "12px 0";
+
+                    row.style.borderBottom =
+                        "1px solid #eeeeee";
+
+
+                    row.innerHTML = `
+
+                        <img
+                            src="${item.image || ""}"
+                            alt="${item.name || "Product"}"
+                            style="
+                                width:75px;
+                                height:75px;
+                                object-fit:cover;
+                                border-radius:8px;
+                                border:1px solid #eeeeee;
+                            "
+                        >
+
+                        <div
+                            style="
+                                flex:1;
+                            "
+                        >
+
+                            <h3
+                                style="
+                                    font-size:16px;
+                                    margin-bottom:7px;
+                                "
+                            >
+                                ${item.name || "Product"}
+                            </h3>
+
+                            <p
+                                style="
+                                    font-size:14px;
+                                    color:#666;
+                                    margin-bottom:5px;
+                                "
+                            >
+                                Quantity:
+                                ${item.quantity || 1}
+                            </p>
+
+                            <p
+                                style="
+                                    font-size:14px;
+                                    color:#c79a4b;
+                                    font-weight:700;
+                                "
+                            >
+                                $
+                                ${
+                                    (
+                                        Number(
+                                            item.price || 0
+                                        ) *
+                                        Number(
+                                            item.quantity || 1
+                                        )
+                                    ).toFixed(2)
+                                }
+                            </p>
+
+                        </div>
+
+                    `;
+
+
+                    productSummary.appendChild(
+                        row
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ================================
+           TOTAL
+        ================================= */
 
         document.getElementById(
             "subtotal"
         ).textContent =
-            "$" + total.toFixed(2);
+            "$" +
+            orderTotal.toFixed(2);
 
 
         document.getElementById(
             "total"
         ).textContent =
-            "$" + total.toFixed(2);
+            "$" +
+            orderTotal.toFixed(2);
+
+
+        /* ================================
+           PLACE ORDER
+        ================================= */
+
+        document.getElementById(
+            "paymentForm"
+        ).addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "customerName"
+                    ).value.trim();
+
+
+                const phone =
+                    document.getElementById(
+                        "customerPhone"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "customerEmail"
+                    ).value.trim();
+
+
+                const address =
+                    document.getElementById(
+                        "customerAddress"
+                    ).value.trim();
+
+
+                const paymentElement =
+                    document.querySelector(
+                        'input[name="payment"]:checked'
+                    );
+
+
+                if (!name) {
+
+                    alert(
+                        "Please enter your name."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!phone) {
+
+                    alert(
+                        "Please enter your phone number."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!address) {
+
+                    alert(
+                        "Please enter your delivery address."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!paymentElement) {
+
+                    alert(
+                        "Please select a payment method."
+                    );
+
+                    return;
+
+                }
+
+
+                const payment =
+                    paymentElement.value;
+
+
+                /* ============================
+                   CREATE ORDER
+                ============================= */
+
+                const firstItem =
+                    orderItems[0];
+
+
+                const orderId =
+                    "GC-" +
+                    Date.now();
+
+
+                const order = {
+
+                    orderId:
+                        orderId,
+
+
+                    productId:
+                        firstItem.id ||
+                        "",
+
+
+                    productName:
+                        orderItems.length === 1
+                            ? (
+                                firstItem.name ||
+                                "Product"
+                            )
+                            :
+                            (
+                                firstItem.name ||
+                                "Product"
+                            ) +
+                            (
+                                orderItems.length > 1
+                                    ? " +" +
+                                      (
+                                          orderItems.length -
+                                          1
+                                      ) +
+                                      " more"
+                                    : ""
+                            ),
+
+
+                    image:
+                        firstItem.image ||
+                        "",
+
+
+                    price:
+                        Number(
+                            firstItem.price ||
+                            0
+                        ),
+
+
+                    quantity:
+                        orderItems.length === 1
+                            ? Number(
+                                firstItem.quantity ||
+                                1
+                            )
+                            : orderItems.reduce(
+                                function(
+                                    total,
+                                    item
+                                ) {
+
+                                    return (
+                                        total +
+                                        Number(
+                                            item.quantity ||
+                                            1
+                                        )
+                                    );
+
+                                },
+                                0
+                            ),
+
+
+                    total:
+                        orderTotal,
+
+
+                    items:
+                        orderItems,
+
+
+                    customerName:
+                        name,
+
+
+                    customerPhone:
+                        phone,
+
+
+                    customerEmail:
+                        email,
+
+
+                    customerAddress:
+                        address,
+
+
+                    paymentMethod:
+                        payment,
+
+
+                    status:
+                        "Order Received",
+
+
+                    date:
+                        new Date().toISOString()
+
+                };
+
+
+                /* ============================
+                   SAVE ORDER
+                ============================= */
+
+                const orders =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "ghorcastOrders"
+                        )
+                    ) || [];
+
+
+                orders.push(
+                    order
+                );
+
+
+                localStorage.setItem(
+                    "ghorcastOrders",
+                    JSON.stringify(
+                        orders
+                    )
+                );
+
+
+                /* ============================
+                   CLEAR PURCHASED CART
+                ============================= */
+
+                if (isCartOrder) {
+
+                    localStorage.removeItem(
+                        "ghorcastCart"
+                    );
+
+                    localStorage.removeItem(
+                        "ghorcastCheckoutCart"
+                    );
+
+                }
+
+
+                /* ============================
+                   CLEAR TEMPORARY CHECKOUT DATA
+                ============================= */
+
+                localStorage.removeItem(
+                    "ghorcastBuyNow"
+                );
+
+
+                localStorage.removeItem(
+                    "ghorcastOrder"
+                );
+
+
+                localStorage.removeItem(
+                    "ghorcastCheckoutSource"
+                );
+
+
+                /* ============================
+                   ORDER CONFIRMATION
+                ============================= */
+
+                document.getElementById(
+                    "paymentContent"
+                ).innerHTML = `
+
+                    <div
+                        class="payment-box empty-message"
+                        style="
+                            max-width:650px;
+                            margin:0 auto;
+                        "
+                    >
+
+                        <div
+                            style="
+                                font-size:55px;
+                                margin-bottom:15px;
+                            "
+                        >
+                            ✓
+                        </div>
+
+
+                        <h2
+                            style="
+                                color:#17202a;
+                                margin-bottom:15px;
+                            "
+                        >
+                            Order Received
+                        </h2>
+
+
+                        <p
+                            style="
+                                margin-top:10px;
+                            "
+                        >
+                            Thank you,
+                            <strong>
+                                ${name}
+                            </strong>!
+                        </p>
+
+
+                        <p
+                            style="
+                                margin-top:10px;
+                            "
+                        >
+                            Your order has been
+                            received successfully.
+                        </p>
+
+
+                        <p
+                            style="
+                                margin-top:15px;
+                            "
+                        >
+                            Order ID:
+                            <strong>
+                                ${orderId}
+                            </strong>
+                        </p>
+
+
+                        <p
+                            style="
+                                margin-top:10px;
+                            "
+                        >
+                            Total:
+                            <strong>
+                                $${orderTotal.toFixed(2)}
+                            </strong>
+                        </p>
+
+
+                        <p
+                            style="
+                                margin-top:10px;
+                            "
+                        >
+                            Payment Method:
+                            <strong>
+                                ${payment}
+                            </strong>
+                        </p>
+
+
+                        <div
+                            style="
+                                margin-top:25px;
+                            "
+                        >
+
+                            <a
+                                href="account.html"
+                                class="back-button"
+                                style="
+                                    margin-right:8px;
+                                "
+                            >
+                                View My Orders
+                            </a>
+
+
+                            <a
+                                href="products.html"
+                                class="back-button"
+                            >
+                                Continue Shopping
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        );
 
     }
 
 
-    document.getElementById(
-        "paymentForm"
-    ).addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
-            if (!buyNowItem) {
-                return;
-            }
-
-            const name =
-                document.getElementById(
-                    "customerName"
-                ).value.trim();
-
-            const phone =
-                document.getElementById(
-                    "customerPhone"
-                ).value.trim();
-
-            const email =
-                document.getElementById(
-                    "customerEmail"
-                ).value.trim();
-
-            const address =
-                document.getElementById(
-                    "customerAddress"
-                ).value.trim();
-
-            const payment =
-                document.querySelector(
-                    'input[name="payment"]:checked'
-                ).value;
-
-            const quantity =
-                Number(buyNowItem.quantity);
-
-            const price =
-                Number(buyNowItem.price);
-
-            const total =
-                price * quantity;
-
-            const order = {
-                orderId:
-                    "GC-" +
-                    Date.now(),
-
-                productId:
-                    buyNowItem.id || "",
-
-                productName:
-                    buyNowItem.name,
-
-                image:
-                    buyNowItem.image,
-
-                price:
-                    price,
-
-                quantity:
-                    quantity,
-
-                total:
-                    total,
-
-                customerName:
-                    name,
-
-                customerPhone:
-                    phone,
-
-                customerEmail:
-                    email,
-
-                customerAddress:
-                    address,
-
-                paymentMethod:
-                    payment,
-
-                status:
-                    "Order Received",
-
-                date:
-                    new Date().toISOString()
-            };
-
-            const orders =
-                JSON.parse(
-                    localStorage.getItem(
-                        "ghorcastOrders"
-                    )
-                ) || [];
-
-            orders.push(order);
-
-            localStorage.setItem(
-                "ghorcastOrders",
-                JSON.stringify(orders)
-            );
-
-            localStorage.removeItem(
-                "ghorcastBuyNow"
-            );
-
-            document.getElementById(
-                "paymentContent"
-            ).innerHTML = `
-
-                <div class="payment-box empty-message">
-
-                    <h2>
-                        Order Received
-                    </h2>
-
-                    <p style="margin-top:15px;">
-                        Thank you, ${name}!
-                    </p>
-
-                    <p style="margin-top:8px;">
-                        Your order has been received successfully.
-                    </p>
-
-                    <p style="margin-top:8px;">
-                        Order ID:
-                        <strong>${order.orderId}</strong>
-                    </p>
-
-                    <p style="margin-top:8px;">
-                        Total:
-                        <strong>$${total.toFixed(2)}</strong>
-                    </p>
-
-                    <a
-                        href="products.html"
-                        class="back-button">
-
-                        Continue Shopping
-
-                    </a>
-
-                </div>
-
-            `;
-
-        }
-    );
-
 </script>
-
-
-</body>
-
-</html>
