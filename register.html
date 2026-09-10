@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhorCast | Create Account</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js" defer></script>
+</head>
+<body class="auth-page">
+    <main class="auth-container">
+        <a href="index.html" class="auth-logo"><span>Ghor</span><strong>Cast</strong></a>
+        <div class="auth-card">
+            <p class="eyebrow">JOIN GHORCAST</p>
+            <h1>Create account</h1>
+            <p class="auth-subtitle">Create your account for bookings and travel services.</p>
+
+            <div id="authMessage" class="auth-message" hidden></div>
+
+            <form id="registerForm">
+                <label for="name">Full name</label>
+                <input id="name" type="text" autocomplete="name" required>
+
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="email" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="new-password" minlength="6" required>
+
+                <label for="confirmPassword">Confirm password</label>
+                <input id="confirmPassword" type="password" autocomplete="new-password" minlength="6" required>
+
+                <button class="primary-button auth-submit" type="submit">Create Account</button>
+            </form>
+
+            <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+        </div>
+    </main>
+</body>
+</html>
