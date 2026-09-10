@@ -1,52 +1,617 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GhorCast</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GhorCast | Hotels, Travel, News & Deals</title>
+
+    <meta name="description"
+          content="GhorCast — discover hotels, travel destinations, news, articles, products and videos.">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="site-header">
-<div class="header-inner">
-<div class="logo"><a href="index.html"><strong>GHOR</strong><span>CAST</span></a></div>
-<button class="menu-toggle" id="menuButton">☰</button>
-<nav class="main-nav navigation">
-<a href="index.html">Home</a><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="products.html">Shop</a><a href="account.html">Account</a><a href="messages.html">Messages</a>
-</nav>
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>Ghor</span><strong>Cast</strong>
+            </a>
+
+            <nav class="navigation">
+                <a href="#hotels">Hotels</a>
+                <a href="#deals">Deals</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#news">News</a>
+                <a href="#articles">Articles</a>
+                <a href="#videos">Videos</a>
+            </nav>
+
+            <button class="menu-button" id="menuButton">☰</button>
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <p class="hero-small-title">DISCOVER • TRAVEL • EXPERIENCE</p>
+
+            <h1>
+                Your Journey<br>
+                Starts With <span>GhorCast</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover beautiful hotels, exciting destinations,
+                travel stories, useful products and the latest news.
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search hotels, destinations or articles..."
+                >
+                <button onclick="searchWebsite()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FEATURED HOTELS ================= -->
+
+    <section class="section" id="hotels">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">STAY SOMEWHERE SPECIAL</p>
+                    <h2>Featured Hotels</h2>
+                </div>
+
+                <a href="hotels.html" class="view-link">View All →</a>
+            </div>
+
+            <div class="card-grid">
+
+                <article class="hotel-card">
+                    <div class="card-image hotel-one">
+                         <span class="card-badge">Featured</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="location">📍 Dubai, UAE</p>
+                        <h3>Luxury Grand Hotel</h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>4.8</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <strong>From $120/night</strong>
+                            <button>View Hotel</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hotel-card">
+                    <div class="card-image hotel-two">
+                         <span class="card-badge">Popular</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="location">📍 Makkah, Saudi Arabia</p>
+                        <h3>Royal View Hotel</h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>4.7</span>
+                        </div>
+
+                        <div class="card-footer">
+    <strong>From $95/night</strong>
+
+    <button onclick="window.location.href='royal-view-hotel.html'">
+        View Hotel
+    </button>
 </div>
-</header>
+                    </div>
+                </article>
 
-<main>
-<section class="hero"><div class="container"><h1>Travel Further. Stay Better.</h1><p>Discover hotels, destinations and unforgettable travel experiences.</p><div class="search-box"><input id="searchInput" type="text" placeholder="Search hotels, destinations, articles or products"><button onclick="searchWebsite()">Search</button></div></div></section>
+                <article class="hotel-card">
+                    <div class="card-image hotel-three">
+                         <span class="card-badge">New</span>
+                    </div>
 
-<section class="section"><div class="container"><div class="section-heading"><p class="eyebrow">FEATURED HOTELS</p><h2>Stay Somewhere Special</h2></div>
-<div class="hotel-grid">
-<div class="hotel-card"><div class="hotel-image hotel-one"></div><div class="hotel-info"><h3>Luxury Grand Hotel</h3><p>Dubai, UAE</p><div class="card-footer"><span>From $120/night</span><button type="button" onclick="openFeaturedHotel('luxury'); return false;">View Hotel</button></div></div></div>
-<div class="hotel-card"><div class="hotel-image hotel-two"></div><div class="hotel-info"><h3>Royal View Hotel</h3><p>Makkah, Saudi Arabia</p><div class="card-footer"><span>From $95/night</span><button type="button" onclick="openFeaturedHotel('royal'); return false;">View Hotel</button></div></div></div>
-<div class="hotel-card"><div class="hotel-image hotel-three"></div><div class="hotel-info"><h3>Ocean Paradise Resort</h3><p>Cox's Bazar, Bangladesh</p><div class="card-footer"><span>From $70/night</span><button type="button" onclick="openFeaturedHotel('ocean'); return false;">View Hotel</button></div></div></div>
-</div></div></section>
+                    <div class="card-content">
+                        <p class="location">📍 Cox's Bazar, Bangladesh</p>
+                        <h3>Ocean Paradise Resort</h3>
 
-<!-- Featured Hotel Popup -->
-<div class="hotel-popup" id="featuredHotelPopup" onclick="closeFeaturedHotel(event)">
-<div class="hotel-popup-box" onclick="event.stopPropagation()">
-<button class="hotel-popup-close" type="button" onclick="closeFeaturedHotel()">×</button>
-<div class="hotel-popup-image" id="popupHotelImage"></div>
-<div class="hotel-popup-content"><p class="popup-location" id="popupHotelLocation"></p><h2 id="popupHotelName"></h2><div class="popup-rating" id="popupHotelRating"></div><p id="popupHotelDescription"></p><a class="hotel-popup-button" id="popupHotelLink" href="#">View Hotel Details →</a></div>
-</div></div>
-</main>
+                        <div class="rating">
+                            ★★★★★
+                            <span>4.6</span>
+                        </div>
 
-<script>
-function openFeaturedHotel(type){
-const hotels={
-luxury:{name:'Luxury Grand Hotel',location:'📍 Dubai, UAE',rating:'★ 4.8 / 5',description:'A premium hotel listing featured on GhorCast. Hotel facilities, rooms, availability and booking information will be added here.\n\nHotel Facilities\n🛏️ Comfortable Rooms\n📶 Free Wi-Fi\n🍽️ Restaurant\n🏊 Swimming Pool\n\nStarting from\nFrom $120/night',image:"url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85')",link:'luxury-grand-hotel.html'},
-royal:{name:'Royal View Hotel',location:'📍 Makkah, Saudi Arabia',rating:'★★★★★ 4.7',description:'Royal View Hotel offers comfortable accommodation for travelers visiting Makkah, with comfortable rooms and easy access to important destinations.',image:"url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=85')",link:'royal-view-hotel.html'},
-ocean:{name:'Ocean Paradise Resort',location:"📍 Cox's Bazar, Bangladesh",rating:'★★★★★ 4.6',description:'Enjoy a relaxing beach experience at Cox\'s Bazar with comfortable rooms and resort-style facilities.',image:"url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85')",link:'ocean-paradise-resort.html'}};
-const hotel=hotels[type];if(!hotel)return;document.getElementById('popupHotelImage').style.backgroundImage=hotel.image;document.getElementById('popupHotelLocation').textContent=hotel.location;document.getElementById('popupHotelName').textContent=hotel.name;document.getElementById('popupHotelRating').textContent=hotel.rating;document.getElementById('popupHotelDescription').textContent=hotel.description;document.getElementById('popupHotelLink').href=hotel.link;document.getElementById('popupHotelLink').textContent=type==='luxury'?'Check Availability':'View Hotel Details →';document.getElementById('featuredHotelPopup').classList.add('active');document.body.style.overflow='hidden';}
-function closeFeaturedHotel(event){if(event && event.target!==document.getElementById('featuredHotelPopup'))return;document.getElementById('featuredHotelPopup').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeFeaturedHotel();});
-</script>
-<script src="script.js"></script>
+                        <div class="card-footer">
+                            <strong>From $70/night</strong>
+                            <button>View Hotel</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= HOTEL DEALS ================= -->
+
+    <section class="deals-section" id="deals">
+        <div class="container">
+
+            <div class="deal-content">
+                <p class="eyebrow">SPECIAL OFFERS</p>
+
+                <h2>
+                    Find Your Next<br>
+                    <span>Great Hotel Deal</span>
+                </h2>
+
+                <p>
+                    Explore selected hotel offers and discover
+                    comfortable stays at attractive prices.
+                </p>
+
+                <button class="primary-button">Explore Hotel Deals</button>
+            </div>
+
+            <div class="deal-visual">
+                <div class="deal-circle" onclick="document.querySelector('.deals-section .primary-button').click()">
+                 HOTEL<br>
+                 DEALS
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= DESTINATIONS ================= -->
+
+    <section class="section" id="destinations">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE THE WORLD</p>
+                    <h2>Popular Destinations</h2>
+                </div>
+
+                <a href="destinations.html" class="view-link">Explore All →</a>
+            </div>
+
+            <div class="destination-grid">
+                <div class="destination-card destination-one">
+                    <div><span>01</span><h3>Saudi Arabia</h3></div>
+                </div>
+
+                <div class="destination-card destination-two">
+                    <div><span>02</span><h3>Bangladesh</h3></div>
+                </div>
+
+                <div class="destination-card destination-three">
+                    <div><span>03</span><h3>United Arab Emirates</h3></div>
+                </div>
+
+                <div class="destination-card destination-four">
+                    <div><span>04</span><h3>Turkey</h3></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= TRAVEL GUIDES ================= -->
+
+<section class="content-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Travel Guides</h2>
+            <p>Helpful guides to make your journey easier.</p>
+        </div>
+
+        <div class="guide-grid">
+
+            <!-- Saudi Arabia -->
+            <div class="guide-card">
+
+                <div class="guide-image">
+                    <img src="https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1200&q=85"
+                         alt="Saudi Arabia">
+
+                </div>
+
+                <div class="guide-content">
+                    
+                    <h3>Saudi Arabia Travel Guide</h3>
+
+                    <p>
+                        Discover Makkah, Madinah, Riyadh and Jeddah.
+                    </p>
+
+                    <a href="saudi-arabia-guide.html">
+                        Explore Guide →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- Bangladesh -->
+            <div class="guide-card">
+
+                <div class="guide-image">
+                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85"
+                         alt="Bangladesh">
+
+                </div>
+
+                <div class="guide-content">
+                    
+                    <h3>Bangladesh Travel Guide</h3>
+
+                    <p>
+                        Explore Cox's Bazar, Sylhet, Dhaka and Bandarban.
+                    </p>
+
+                    <a href="bangladesh-travel-guide.html">
+                        Explore Guide →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- UAE -->
+            <div class="guide-card">
+
+                <div class="guide-image">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85"
+                         alt="Dubai UAE">
+
+                </div>
+
+                <div class="guide-content">
+                    
+                    <h3>Dubai & UAE Travel Guide</h3>
+
+                    <p>
+                        Discover attractions, hotels and useful travel tips.
+                    </p>
+
+                    <a href="dubai-uae-guide.html">
+                        Explore Guide →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- Turkey -->
+            <div class="guide-card">
+
+                <div class="guide-image">
+                    <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85"
+                         alt="Turkey">
+
+                </div>
+
+                <div class="guide-content">
+                    
+                    <h3>Turkey Travel Guide</h3>
+
+                    <p>
+                        Explore Istanbul, Cappadocia, Antalya and more.
+                    </p>
+
+                    <a href="turkey-guide.html">
+                        Explore Guide →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    
+<!-- ================= ARTICLES ================= -->
+
+<section class="section light-section" id="articles">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">TRAVEL STORIES</p>
+                <h2>Latest Articles</h2>
+            </div>
+
+            <a href="articles.html" class="view-link">All Articles →</a>
+        </div>
+
+        <div class="article-grid">
+
+            <article class="article-card">
+                <div class="article-image article-one"></div>
+
+                <div class="article-content">
+                    <span class="category">Travel Guide</span>
+                    <h3>10 Things to Know Before Your Next Hotel Stay</h3>
+                    <p>Helpful tips to make your next hotel experience more comfortable.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image article-two"></div>
+
+                <div class="article-content">
+                    <span class="category">Destination</span>
+                    <h3>Beautiful Destinations You Should Discover</h3>
+                    <p>Explore fascinating places and plan your next unforgettable journey.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image article-three"></div>
+
+                <div class="article-content">
+                    <span class="category">Hotel Tips</span>
+                    <h3>How to Choose the Right Hotel for Your Trip</h3>
+                    <p>Simple ideas for finding accommodation that matches your travel needs.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+    
+    <!-- ================= NEWS ================= -->
+
+<section class="section" id="news">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">STAY INFORMED</p>
+                <h2>Latest News</h2>
+            </div>
+
+            <a href="news.html" class="view-link">All News →</a>
+        </div>
+
+        <div class="news-list">
+
+            <article class="news-item">
+
+                <div class="news-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=85"
+                        alt="Tourism and hotel industry updates"
+                    >
+                </div>
+
+                <span class="news-date">SEP 04</span>
+
+                <div class="news-content">
+                    <span class="category">Tourism</span>
+
+                    <h3>
+                        Tourism and hotel industry updates
+                    </h3>
+
+                    <p>
+                        The latest developments from the travel and hospitality world.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="news-item">
+
+                <div class="news-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85"
+                        alt="New travel opportunities for visitors"
+                    >
+                </div>
+
+                <span class="news-date">SEP 03</span>
+
+                <div class="news-content">
+                    <span class="category">Travel</span>
+
+                    <h3>
+                        New travel opportunities for visitors
+                    </h3>
+
+                    <p>
+                        Discover new destinations and travel opportunities around the world.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="news-item">
+
+                <div class="news-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+                        alt="New hotel experiences arriving soon"
+                    >
+                </div>
+
+                <span class="news-date">SEP 02</span>
+
+                <div class="news-content">
+                    <span class="category">Hotels</span>
+
+                    <h3>
+                        New hotel experiences arriving soon
+                    </h3>
+
+                    <p>
+                        Discover what's changing in the international hospitality industry.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+  
+    <!-- ================= VIDEOS ================= -->
+
+<section class="section" id="videos">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">WATCH & EXPLORE</p>
+                <h2>Latest Videos</h2>
+            </div>
+
+            <a href="#videos" class="view-link">All Videos →</a>
+        </div>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+
+                <div class="video-placeholder">
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85"
+                        alt="Discover Amazing Destinations"
+                    >
+                    <span class="video-play">▶</span>
+                </div>
+
+                <h3>Discover Amazing Destinations</h3>
+                <p>GhorCast Travel</p>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <div class="video-placeholder">
+                    <img
+                        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+                        alt="Hotel Experience & Review"
+                    >
+                    <span class="video-play">▶</span>
+                </div>
+
+                <h3>Hotel Experience & Review</h3>
+                <p>GhorCast Hotels</p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+        <div class="container">
+
+            <p class="eyebrow">GHORCAST NEWSLETTER</p>
+
+           
+            <p>
+                Subscribe for travel stories, hotel deals,
+                destinations and useful updates.
+            </p>
+
+            <form class="newsletter-form">
+                <input
+                    type="email"
+                    placeholder="Your email address"
+                    required
+                >
+
+                <button type="submit">Subscribe</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <div>
+                <a href="#" class="logo footer-logo">
+                    <span>Ghor</span><strong>Cast</strong>
+                </a>
+
+                <p>
+                    Hotels, travel, news, stories,
+                    products and experiences.
+                </p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+                <a href="#hotels">Hotels</a>
+                <a href="#deals">Hotel Deals</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#articles">Articles</a>
+            </div>
+
+            <div>
+                <h4>Media</h4>
+                <a href="#news">News</a>
+                <a href="#videos">Videos</a>
+                <a href="#products">Products</a>
+            </div>
+
+            <div>
+                <h4>GhorCast</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 GhorCast. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=9"></script>
+
 </body>
 </html>
+
+
+
