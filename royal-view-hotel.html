@@ -1,563 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Royal View Hotel | GhorCast</title>
-
-    <meta name="description"
-          content="Royal View Hotel in Makkah, Saudi Arabia — hotel information and booking.">
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* ================= HOTEL PAGE ================= */
-
-        .hotel-page {
-            background: #f7f7f5;
-            padding: 70px 0 90px;
-        }
-
-        .hotel-detail {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .hotel-hero-image {
-            height: 430px;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hotel-hero-image.hotel-two {
-            min-height: 430px;
-        }
-
-        .hotel-badge {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            background: #c79a4b;
-            color: #fff;
-            padding: 9px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .hotel-info {
-            background: #fff;
-            margin-top: -45px;
-            position: relative;
-            margin-left: 35px;
-            margin-right: 35px;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-        }
-
-        .hotel-location {
-            color: #777;
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .hotel-info h1 {
-            margin: 0 0 12px;
-            font-size: 36px;
-            color: #17202a;
-        }
-
-        .hotel-rating {
-            color: #c79a4b;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .hotel-description {
-            color: #666;
-            line-height: 1.8;
-            max-width: 800px;
-        }
-
-        .hotel-booking {
-            margin-top: 35px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-        }
-
-        .hotel-booking h2 {
-            color: #17202a;
-            margin-bottom: 25px;
-        }
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .booking-field label {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            color: #17202a;
-            margin-bottom: 8px;
-        }
-
-        .booking-field input,
-        .booking-field select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            box-sizing: border-box;
-            background: #fff;
-        }
-
-        .room-section {
-            margin-top: 25px;
-        }
-
-        .room-option {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 18px;
-            margin-bottom: 12px;
-        }
-
-        .room-option label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-        }
-
-        .room-name {
-            font-weight: 700;
-            color: #17202a;
-        }
-
-        .room-price {
-            margin-left: auto;
-            color: #b1853e;
-            font-weight: 700;
-        }
-
-        .booking-button {
-            display: inline-block;
-            margin-top: 25px;
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            background: #17202a;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .booking-button:hover {
-            background: #c79a4b;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #17202a;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            color: #c79a4b;
-        }
-
-        @media (max-width: 700px) {
-
-            .hotel-page {
-                padding: 40px 15px 60px;
-            }
-
-            .hotel-hero-image,
-            .hotel-hero-image.hotel-two {
-                height: 300px;
-                min-height: 300px;
-            }
-
-            .hotel-info {
-                margin-left: 10px;
-                margin-right: 10px;
-                padding: 25px 20px;
-            }
-
-            .hotel-info h1 {
-                font-size: 28px;
-            }
-
-            .booking-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .room-price {
-                margin-left: auto;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal View Hotel | GhorCast</title>
+<meta name="description" content="Royal View Hotel in Makkah, Saudi Arabia — hotel information and booking.">
+<link rel="stylesheet" href="style.css">
+<style>
+.hotel-page{background:#f7f7f5;padding:70px 0 90px}.hotel-detail{max-width:1100px;margin:0 auto}.hotel-hero-image{height:430px;border-radius:18px;overflow:hidden;position:relative;background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center}.hotel-badge{position:absolute;top:25px;left:25px;background:#c79a4b;color:#fff;padding:9px 16px;border-radius:30px;font-size:13px;font-weight:700}.hotel-info{background:#fff;margin-top:-45px;position:relative;margin-left:35px;margin-right:35px;border-radius:16px;padding:35px;box-shadow:0 12px 35px rgba(0,0,0,.08)}.hotel-location{color:#777;font-size:15px;margin-bottom:8px}.hotel-info h1{margin:0 0 12px;font-size:36px;color:#17202a}.hotel-rating{color:#c79a4b;font-size:18px;margin-bottom:20px}.hotel-description{color:#666;line-height:1.8;max-width:800px}.hotel-booking{margin-top:35px;padding-top:30px;border-top:1px solid #eee}.hotel-booking h2{color:#17202a;margin-bottom:25px}.booking-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.booking-field label{display:block;font-size:14px;font-weight:700;color:#17202a;margin-bottom:8px}.booking-field input,.booking-field select{width:100%;padding:14px;border:1px solid #ddd;border-radius:8px;font-size:15px;box-sizing:border-box;background:#fff}.room-section{margin-top:25px}.room-option{border:1px solid #ddd;border-radius:10px;padding:18px;margin-bottom:12px}.room-option label{display:flex;align-items:center;gap:12px;cursor:pointer}.room-name{font-weight:700;color:#17202a}.room-price{margin-left:auto;color:#b1853e;font-weight:700}.booking-button{display:block;margin-top:25px;width:100%;padding:16px;border:none;border-radius:8px;background:#17202a;color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:.2s}.booking-button:hover{background:#c79a4b}.back-link{display:inline-block;margin-bottom:25px;color:#17202a;text-decoration:none;font-weight:600}.back-link:hover{color:#c79a4b}@media(max-width:700px){.hotel-page{padding:40px 15px 60px}.hotel-hero-image{height:300px}.hotel-info{margin-left:10px;margin-right:10px;padding:25px 20px}.hotel-info h1{font-size:28px}.booking-grid{grid-template-columns:1fr}}
+</style>
 </head>
-
 <body>
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-    <div class="container nav-container">
-
-        <a href="index.html" class="logo">
-            <span>Ghor</span><strong>Cast</strong>
-        </a>
-
-        <nav class="navigation">
-            <a href="index.html#hotels">Hotels</a>
-            <a href="index.html#deals">Deals</a>
-            <a href="index.html#destinations">Destinations</a>
-            <a href="index.html#news">News</a>
-            <a href="index.html#articles">Articles</a>
-            <a href="index.html#videos">Videos</a>
-        </nav>
-
-        <button class="menu-button" id="menuButton">☰</button>
-
-    </div>
-</header>
-
-
-<!-- ================= HOTEL ================= -->
-
-<main class="hotel-page">
-
-    <div class="container hotel-detail">
-
-        <a href="index.html#hotels" class="back-link">
-            ← Back to Featured Hotels
-        </a>
-
-
-        <!-- HOTEL IMAGE -->
-
-        <div class="hotel-hero-image hotel-two">
-
-            <span class="hotel-badge">
-                Popular
-            </span>
-
-        </div>
-
-
-        <!-- HOTEL INFORMATION -->
-
-        <div class="hotel-info">
-
-            <p class="hotel-location">
-                📍 Makkah, Saudi Arabia
-            </p>
-
-            <h1>
-                Royal View Hotel
-            </h1>
-
-            <div class="hotel-rating">
-                ★★★★★
-                <span style="color:#555;">4.7</span>
-            </div>
-
-            <p class="hotel-description">
-                Royal View Hotel offers comfortable accommodation
-                for travelers visiting Makkah. Enjoy a convenient
-                stay with comfortable rooms and easy access to
-                important destinations.
-            </p>
-
-
-            <!-- ================= BOOKING ================= -->
-
-            <div class="hotel-booking">
-
-                <h2>
-                    Book Your Stay
-                </h2>
-
-                <form id="bookingForm">
-
-                    <div class="booking-grid">
-
-                        <div class="booking-field">
-                            <label for="checkin">
-                                Check-in
-                            </label>
-
-                            <input
-                                type="date"
-                                id="checkin"
-                                required
-                            >
-                        </div>
-
-
-                        <div class="booking-field">
-                            <label for="checkout">
-                                Check-out
-                            </label>
-
-                            <input
-                                type="date"
-                                id="checkout"
-                                required
-                            >
-                        </div>
-
-
-                        <div class="booking-field">
-                            <label for="guests">
-                                Guests
-                            </label>
-
-                            <select id="guests" required>
-
-                                <option value="">
-                                    Select guests
-                                </option>
-
-                                <option value="1">
-                                    1 Guest
-                                </option>
-
-                                <option value="2">
-                                    2 Guests
-                                </option>
-
-                                <option value="3">
-                                    3 Guests
-                                </option>
-
-                                <option value="4">
-                                    4 Guests
-                                </option>
-
-                                <option value="5">
-                                    5 Guests
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ROOM -->
-
-                    <div class="room-section">
-
-                        <h3>
-                            Select Room
-                        </h3>
-
-
-                        <div class="room-option">
-
-                            <label>
-
-                                <input
-                                    type="radio"
-                                    name="room"
-                                    value="Standard Room"
-                                    data-price="95"
-                                    required
-                                >
-
-                                <span class="room-name">
-                                    Standard Room
-                                </span>
-
-                                <span class="room-price">
-                                    $95 / night
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="room-option">
-
-                            <label>
-
-                                <input
-                                    type="radio"
-                                    name="room"
-                                    value="Deluxe Room"
-                                    data-price="135"
-                                >
-
-                                <span class="room-name">
-                                    Deluxe Room
-                                </span>
-
-                                <span class="room-price">
-                                    $135 / night
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="room-option">
-
-                            <label>
-
-                                <input
-                                    type="radio"
-                                    name="room"
-                                    value="Family Room"
-                                    data-price="180"
-                                >
-
-                                <span class="room-name">
-                                    Family Room
-                                </span>
-
-                                <span class="room-price">
-                                    $180 / night
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="booking-button"
-                    >
-                        Continue Booking
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <div class="container">
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 GhorCast. All rights reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
+<header class="header"><div class="container nav-container"><a href="index.html" class="logo"><span>Ghor</span><strong>Cast</strong></a><nav class="navigation"><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="destinations.html">Destinations</a><a href="news.html">News</a><a href="articles.html">Articles</a><a href="videos.html">Videos</a></nav><button class="menu-button" id="menuButton">☰</button></div></header>
+<main class="hotel-page"><div class="container hotel-detail">
+<a href="hotels.html" class="back-link">← Back to Hotels</a>
+<div class="hotel-hero-image"><span class="hotel-badge">Popular</span></div>
+<div class="hotel-info">
+<p class="hotel-location">📍 Makkah, Saudi Arabia</p>
+<h1>Royal View Hotel</h1>
+<div class="hotel-rating">★★★★★ <span style="color:#555">4.7</span></div>
+<p class="hotel-description">Royal View Hotel offers comfortable accommodation for travelers visiting Makkah. Enjoy a convenient stay with comfortable rooms and easy access to important destinations.</p>
+<div class="hotel-booking"><h2>Book Your Stay</h2>
+<form id="bookingForm">
+<div class="booking-grid">
+<div class="booking-field"><label for="checkin">Check-in</label><input type="date" id="checkin" required></div>
+<div class="booking-field"><label for="checkout">Check-out</label><input type="date" id="checkout" required></div>
+<div class="booking-field"><label for="guests">Guests</label><select id="guests" required><option value="">Select guests</option><option value="1">1 Guest</option><option value="2">2 Guests</option><option value="3">3 Guests</option><option value="4">4 Guests</option><option value="5">5 Guests</option></select></div>
+</div>
+<div class="room-section"><h3>Select Room</h3>
+<div class="room-option"><label><input type="radio" name="room" value="Standard Room" data-price="95" required><span class="room-name">Standard Room</span><span class="room-price">$95 / night</span></label></div>
+<div class="room-option"><label><input type="radio" name="room" value="Deluxe Room" data-price="135"><span class="room-name">Deluxe Room</span><span class="room-price">$135 / night</span></label></div>
+<div class="room-option"><label><input type="radio" name="room" value="Family Room" data-price="180"><span class="room-name">Family Room</span><span class="room-price">$180 / night</span></label></div>
+</div>
+<button type="submit" class="booking-button">Continue Booking</button>
+</form></div></div></div></main>
+<footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2026 GhorCast. All rights reserved.</p></div></div></footer>
 <script>
-
-document
-.getElementById("bookingForm")
-.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const checkin =
-        document.getElementById("checkin").value;
-
-    const checkout =
-        document.getElementById("checkout").value;
-
-    const guests =
-        document.getElementById("guests").value;
-
-    const room =
-        document.querySelector(
-            'input[name="room"]:checked'
-        );
-
-    if (!room) {
-
-        alert("Please select a room.");
-
-        return;
-
-    }
-
-    if (checkout <= checkin) {
-
-        alert(
-            "Check-out date must be after check-in date."
-        );
-
-        return;
-
-    }
-
-    const booking = {
-
-    hotel: "Royal View Hotel",
-
-    location: "Makkah, Saudi Arabia",
-
-    checkIn: checkin,
-
-    checkOut: checkout,
-
-    guests: guests,
-
-    room: room.value,
-
-    pricePerNight: room.dataset.price,
-
-    total: total
-
-
-    };
-
-    localStorage.setItem(
-        "ghorcastBooking",
-        JSON.stringify(booking)
-    );
-
-    window.location.href = "booking.html";
-
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('checkin').min=today;
+document.getElementById('checkout').min=today;
+document.getElementById('checkin').addEventListener('change',function(){document.getElementById('checkout').min=this.value;});
+document.getElementById('bookingForm').addEventListener('submit',function(event){
+ event.preventDefault();
+ const checkin=document.getElementById('checkin').value;
+ const checkout=document.getElementById('checkout').value;
+ const guests=document.getElementById('guests').value;
+ const room=document.querySelector('input[name="room"]:checked');
+ if(!room){alert('Please select a room.');return;}
+ if(checkout<=checkin){alert('Check-out date must be after check-in date.');return;}
+ const nights=Math.round((new Date(checkout)-new Date(checkin))/86400000);
+ const pricePerNight=Number(room.dataset.price);
+ const total=nights*pricePerNight;
+ const booking={hotel:'Royal View Hotel',location:'Makkah, Saudi Arabia',checkIn:checkin,checkOut:checkout,guests:guests,room:room.value,pricePerNight:pricePerNight,nights:nights,total:total};
+ localStorage.setItem('ghorcastBooking',JSON.stringify(booking));
+ window.location.href='booking.html';
 });
-
+const menuButton=document.getElementById('menuButton');const navigation=document.querySelector('.navigation');if(menuButton){menuButton.addEventListener('click',()=>{navigation.classList.toggle('mobile-open');});}
 </script>
-
 <script src="script.js?v=9"></script>
-
 </body>
 </html>
