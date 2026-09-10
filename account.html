@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="auth.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="auth.js" defer></script>
+    <style>
+        .booking-summary{margin-top:28px;padding-top:25px;border-top:1px solid #eee;text-align:left}
+        .booking-summary h2{font-size:20px;color:#17202a;margin:0 0 15px}
+        .booking-card{background:#f7f7f5;border-radius:12px;padding:18px}
+        .booking-card p{margin:6px 0;color:#555;font-size:14px}
+        .booking-card strong{color:#17202a}
+        .booking-total{margin-top:12px;font-size:18px;font-weight:800;color:#b1853e}
+        .no-booking{color:#777;font-size:14px}
+    </style>
 </head>
 <body class="auth-page" id="accountPage">
     <main class="auth-container">
@@ -22,8 +31,38 @@
                 <button class="secondary-button auth-action" type="button" onclick="logoutUser()">Sign Out</button>
             </div>
 
+            <section class="booking-summary">
+                <h2>My Latest Booking</h2>
+                <div id="bookingSummary" class="no-booking">No booking found on this device.</div>
+            </section>
+
             <div id="authMessage" class="auth-message" hidden></div>
         </div>
     </main>
+
+    <script>
+        function showLatestBooking(){
+            const box=document.getElementById('bookingSummary');
+            const raw=localStorage.getItem('ghorcastBooking');
+            if(!raw){return;}
+            try{
+                const booking=JSON.parse(raw);
+                box.className='booking-card';
+                box.innerHTML=`
+                    <p><strong>Hotel:</strong> ${booking.hotel||'—'}</p>
+                    <p><strong>Location:</strong> ${booking.location||'—'}</p>
+                    <p><strong>Room:</strong> ${booking.room||'—'}</p>
+                    <p><strong>Check-in:</strong> ${booking.checkIn||'—'}</p>
+                    <p><strong>Check-out:</strong> ${booking.checkOut||'—'}</p>
+                    <p><strong>Guests:</strong> ${booking.guests||'—'}</p>
+                    <p><strong>Nights:</strong> ${booking.nights||'—'}</p>
+                    <div class="booking-total">Total: $${Number(booking.total||0).toFixed(2)}</div>
+                `;
+            }catch(error){
+                box.textContent='Your booking information could not be loaded.';
+            }
+        }
+        showLatestBooking();
+    </script>
 </body>
 </html>
