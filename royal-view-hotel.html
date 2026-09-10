@@ -9,6 +9,8 @@
 <style>
 .hotel-page{background:#f7f7f5;padding:70px 0 90px}.hotel-detail{max-width:1100px;margin:0 auto}.hotel-hero-image{height:430px;border-radius:18px;overflow:hidden;position:relative;background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center}.hotel-badge{position:absolute;top:25px;left:25px;background:#c79a4b;color:#fff;padding:9px 16px;border-radius:30px;font-size:13px;font-weight:700}.hotel-info{background:#fff;margin-top:-45px;position:relative;margin-left:35px;margin-right:35px;border-radius:16px;padding:35px;box-shadow:0 12px 35px rgba(0,0,0,.08)}.hotel-location{color:#777;font-size:15px;margin-bottom:8px}.hotel-info h1{margin:0 0 12px;font-size:36px;color:#17202a}.hotel-rating{color:#c79a4b;font-size:18px;margin-bottom:20px}.hotel-description{color:#666;line-height:1.8;max-width:800px}.hotel-booking{margin-top:35px;padding-top:30px;border-top:1px solid #eee}.hotel-booking h2{color:#17202a;margin-bottom:25px}.booking-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.booking-field label{display:block;font-size:14px;font-weight:700;color:#17202a;margin-bottom:8px}.booking-field input,.booking-field select{width:100%;padding:14px;border:1px solid #ddd;border-radius:8px;font-size:15px;box-sizing:border-box;background:#fff}.room-section{margin-top:25px}.room-option{border:1px solid #ddd;border-radius:10px;padding:18px;margin-bottom:12px}.room-option label{display:flex;align-items:center;gap:12px;cursor:pointer}.room-name{font-weight:700;color:#17202a}.room-price{margin-left:auto;color:#b1853e;font-weight:700}.booking-button{display:block;margin-top:25px;width:100%;padding:16px;border:none;border-radius:8px;background:#17202a;color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:.2s}.booking-button:hover{background:#c79a4b}.back-link{display:inline-block;margin-bottom:25px;color:#17202a;text-decoration:none;font-weight:600}.back-link:hover{color:#c79a4b}@media(max-width:700px){.hotel-page{padding:40px 15px 60px}.hotel-hero-image{height:300px}.hotel-info{margin-left:10px;margin-right:10px;padding:25px 20px}.hotel-info h1{font-size:28px}.booking-grid{grid-template-columns:1fr}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js" defer></script>
 </head>
 <body>
 <header class="header"><div class="container nav-container"><a href="index.html" class="logo"><span>Ghor</span><strong>Cast</strong></a><nav class="navigation"><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="destinations.html">Destinations</a><a href="news.html">News</a><a href="articles.html">Articles</a><a href="videos.html">Videos</a></nav><button class="menu-button" id="menuButton">☰</button></div></header>
@@ -45,8 +47,11 @@ const today=new Date().toISOString().split('T')[0];
 document.getElementById('checkin').min=today;
 document.getElementById('checkout').min=today;
 document.getElementById('checkin').addEventListener('change',function(){document.getElementById('checkout').min=this.value;});
-document.getElementById('bookingForm').addEventListener('submit',function(event){
+document.getElementById('bookingForm').addEventListener('submit',async function(event){
  event.preventDefault();
+ if(!window.supabaseClient){alert('Authentication is loading. Please try again.');return;}
+ const {data:{user}}=await window.supabaseClient.auth.getUser();
+ if(!user){window.location.href='login.html';return;}
  const checkin=document.getElementById('checkin').value;
  const checkout=document.getElementById('checkout').value;
  const guests=document.getElementById('guests').value;
