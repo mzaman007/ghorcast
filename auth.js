@@ -4,6 +4,7 @@
 
 const SUPABASE_URL = "https://yrfhlzyfnljpchedmohr.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_7DcAYwdR1gefh9HSvRsw_w_spCyg2JG";
+const GHORCAST_SITE_URL = "https://mzaman007.github.io/ghorcast/";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -52,7 +53,7 @@ async function registerUser(event) {
         password,
         options: {
             data: { full_name: name },
-            emailRedirectTo: window.location.origin + "/account.html"
+            emailRedirectTo: GHORCAST_SITE_URL + "account.html"
         }
     });
 
