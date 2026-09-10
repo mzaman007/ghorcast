@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhorCast | My Account</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js" defer></script>
+</head>
+<body class="auth-page" id="accountPage">
+    <main class="auth-container">
+        <a href="index.html" class="auth-logo"><span>Ghor</span><strong>Cast</strong></a>
+        <div class="auth-card">
+            <p class="eyebrow">MY GHORCAST</p>
+            <h1 id="accountName">Loading...</h1>
+            <p class="auth-subtitle" id="accountEmail"></p>
+
+            <div class="account-actions">
+                <a class="primary-button auth-action" href="index.html">Back to GhorCast</a>
+                <button class="secondary-button auth-action" type="button" onclick="logoutUser()">Sign Out</button>
+            </div>
+
+            <div id="authMessage" class="auth-message" hidden></div>
+        </div>
+    </main>
+</body>
+</html>
