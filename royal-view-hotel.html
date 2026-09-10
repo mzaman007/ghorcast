@@ -28,7 +28,7 @@
 <div class="booking-field"><label for="guests">Guests</label><select id="guests" required><option value="">Select guests</option><option value="1">1 Guest</option><option value="2">2 Guests</option><option value="3">3 Guests</option><option value="4">4 Guests</option><option value="5">5 Guests</option></select></div>
 </div>
 <div class="room-section"><h3>Select Room</h3>
-<div class="room-option"><label><input type="radio" name="room" value="Standard Room" data-price="95" required><span class="room-name">Standard Room</span><span class="room-price">$95 / night</span></label></div>
+<div class="room-option"><label><input type="radio" name="room" value="Standard Room" data-price="95" required><span class="room-name">Standard Room</span><span class="room-price" id="standardPrice">$95 / night</span></label></div>
 <div class="room-option"><label><input type="radio" name="room" value="Deluxe Room" data-price="135"><span class="room-name">Deluxe Room</span><span class="room-price">$135 / night</span></label></div>
 <div class="room-option"><label><input type="radio" name="room" value="Family Room" data-price="180"><span class="room-name">Family Room</span><span class="room-price">$180 / night</span></label></div>
 </div>
@@ -36,6 +36,11 @@
 </form></div></div></div></main>
 <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2026 GhorCast. All rights reserved.</p></div></div></footer>
 <script>
+const deal=new URLSearchParams(window.location.search).get('deal');
+const dealPrice=deal?Number(deal):null;
+const standardRoom=document.querySelector('input[name="room"][value="Standard Room"]');
+const standardPrice=document.getElementById('standardPrice');
+if(dealPrice&&standardRoom){standardRoom.dataset.price=dealPrice;standardPrice.textContent='$'+dealPrice.toFixed(2)+' / night';standardRoom.checked=true;document.querySelector('.hotel-badge').textContent='Deal Rate';}
 const today=new Date().toISOString().split('T')[0];
 document.getElementById('checkin').min=today;
 document.getElementById('checkout').min=today;
@@ -51,7 +56,7 @@ document.getElementById('bookingForm').addEventListener('submit',function(event)
  const nights=Math.round((new Date(checkout)-new Date(checkin))/86400000);
  const pricePerNight=Number(room.dataset.price);
  const total=nights*pricePerNight;
- const booking={hotel:'Royal View Hotel',location:'Makkah, Saudi Arabia',checkIn:checkin,checkOut:checkout,guests:guests,room:room.value,pricePerNight:pricePerNight,nights:nights,total:total};
+ const booking={hotel:'Royal View Hotel',location:'Makkah, Saudi Arabia',checkIn:checkin,checkOut:checkout,guests:guests,room:room.value,pricePerNight:pricePerNight,nights:nights,total:total,dealApplied:!!dealPrice};
  localStorage.setItem('ghorcastBooking',JSON.stringify(booking));
  window.location.href='booking.html';
 });
