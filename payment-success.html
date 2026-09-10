@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Complete | GhorCast</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.success-page{min-height:70vh;padding:80px 20px;background:#f7f7f7;display:flex;align-items:center;justify-content:center}.success-box{max-width:650px;width:100%;background:#fff;padding:45px;text-align:center;border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.08)}.success-icon{width:76px;height:76px;line-height:76px;margin:0 auto 20px;border-radius:50%;background:#17202a;color:#fff;font-size:40px;font-weight:700}.success-box h1{color:#17202a;margin-bottom:10px}.success-box p{color:#666;line-height:1.6}.reference{display:inline-block;margin:20px 0;padding:10px 16px;background:#f7f3eb;border-radius:30px;font-weight:700;color:#17202a}.summary{text-align:left;background:#f7f3eb;padding:20px;border-radius:10px;margin:10px 0 25px}.row{display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-bottom:1px solid #ddd}.row:last-child{border-bottom:0}.row strong{color:#17202a}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.button{display:inline-block;padding:13px 22px;border-radius:7px;background:#17202a;color:#fff;text-decoration:none;font-weight:700}.button:hover{background:#c79a4b}.button.alt{background:#fff;color:#17202a;border:1px solid #ddd}@media(max-width:600px){.success-page{padding:40px 15px}.success-box{padding:28px 18px}.row{font-size:14px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="container nav-container"><a href="index.html" class="logo"><span>Ghor</span><strong>Cast</strong></a><nav class="navigation"><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="destinations.html">Destinations</a><a href="news.html">News</a><a href="articles.html">Articles</a><a href="videos.html">Videos</a></nav><button class="menu-button" id="menuButton">☰</button></div></header>
+<section class="success-page"><div class="success-box" id="successBox"><div class="success-icon">✓</div><h1>Booking Confirmed</h1><p>Your GhorCast booking has been successfully recorded.</p><div class="reference">Booking Reference: <span id="reference">GHORCAST</span></div><div class="summary"><div class="row"><span>Hotel</span><strong id="hotel">-</strong></div><div class="row"><span>Room</span><strong id="room">-</strong></div><div class="row"><span>Dates</span><strong id="dates">-</strong></div><div class="row"><span>Payment</span><strong id="payment">-</strong></div><div class="row"><span>Total</span><strong id="total">-</strong></div></div><div class="actions"><a href="hotels.html" class="button">Browse Hotels</a><a href="account.html" class="button alt">My Account</a></div></div></section>
+<script>
+const booking=JSON.parse(localStorage.getItem('ghorcastBooking'));
+const ref=localStorage.getItem('ghorcastBookingReference')||'GHORCAST';
+const set=(id,value)=>document.getElementById(id).textContent=value||'-';
+if(!booking){document.getElementById('successBox').innerHTML='<div class="success-icon">!</div><h1>No Booking Found</h1><p>We could not find a completed booking on this device.</p><a href="hotels.html" class="button">Browse Hotels</a>';}else{set('reference',ref);set('hotel',booking.hotel||'Royal View Hotel');set('room',booking.room||booking.roomType);set('dates',(booking.checkIn||'-')+' → '+(booking.checkOut||'-'));set('payment',booking.paymentMethod==='later'?'Pay Later':'Demo Paid');set('total',booking.total!=null?'$'+booking.total:'-');}
+const menuButton=document.getElementById('menuButton');const navigation=document.querySelector('.navigation');if(menuButton){menuButton.addEventListener('click',()=>navigation.classList.toggle('mobile-open'));}
+</script>
+</body>
+</html>
