@@ -438,6 +438,7 @@ input {
 }
 
 .card-footer button,
+.card-footer .view-button,
 .product-card button {
     border: none;
     background: #17202a;
@@ -447,11 +448,13 @@ input {
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
+   display: inline-block;
 }
 
 .card-footer button:hover,
+.card-footer .view-button:hover,
 .product-card button:hover {
-    background: #c79a4b;
+   background: #c79a4b;
 }
 
 
