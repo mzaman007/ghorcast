@@ -1,240 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Booking Confirmation | GhorCast</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        .confirmation-page {
-            padding: 80px 20px;
-            background: #f7f7f7;
-            min-height: 70vh;
-        }
-
-        .confirmation-box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
-
-        .success-icon {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
-
-        .confirmation-box h1 {
-            color: #17202a;
-            margin-bottom: 10px;
-        }
-
-        .confirmation-box > p {
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .confirmation-details {
-            text-align: left;
-            background: #f7f3eb;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-
-        .detail-row strong {
-            text-align: right;
-        }
-
-        .home-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 13px 22px;
-            background: #17202a;
-            color: white;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .home-button:hover {
-            background: #c79a4b;
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmation | GhorCast</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.confirmation-page{padding:80px 20px;background:#f7f7f7;min-height:70vh}.confirmation-box{max-width:760px;margin:auto;background:#fff;padding:45px;border-radius:16px;text-align:center;box-shadow:0 10px 35px rgba(0,0,0,.08)}.success-icon{width:70px;height:70px;line-height:70px;margin:0 auto 20px;border-radius:50%;background:#17202a;color:#fff;font-size:36px;font-weight:700}.confirmation-box h1{color:#17202a;margin-bottom:10px}.confirmation-box>p{color:#666;margin-bottom:28px}.booking-number{display:inline-block;padding:9px 15px;background:#f7f3eb;border-radius:30px;color:#17202a;font-weight:700;font-size:14px;margin-bottom:25px}.confirmation-details{text-align:left;background:#f7f3eb;padding:22px;border-radius:10px}.detail-row{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid #ddd}.detail-row:last-child{border-bottom:none}.detail-row strong{text-align:right;color:#17202a}.detail-row.total{font-size:18px;padding-top:18px}.detail-row.total strong{color:#b1853e}.confirmation-actions{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}.home-button{display:inline-block;padding:13px 22px;background:#17202a;color:#fff;border-radius:7px;font-weight:700;text-decoration:none;border:0;cursor:pointer}.home-button:hover{background:#c79a4b}.secondary-button{background:#fff;color:#17202a;border:1px solid #ddd}.secondary-button:hover{background:#f7f3eb}@media(max-width:600px){.confirmation-page{padding:45px 15px}.confirmation-box{padding:28px 18px}.detail-row{align-items:flex-start;font-size:14px}.detail-row strong{max-width:55%;overflow-wrap:anywhere}}
+</style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-
-<header class="header">
-
-    <div class="container nav-container">
-
-        <a href="index.html" class="logo">
-            <span>Ghor</span><strong>Cast</strong>
-        </a>
-
-        <nav class="navigation">
-
-            <a href="index.html#hotels">Hotels</a>
-            <a href="index.html#deals">Deals</a>
-            <a href="index.html#destinations">Destinations</a>
-            <a href="index.html#news">News</a>
-            <a href="index.html#articles">Articles</a>
-            <a href="index.html#videos">Videos</a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-<!-- CONFIRMATION -->
-
-<section class="confirmation-page">
-
-    <div class="confirmation-box">
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-        <h1>
-            Booking Information Received
-        </h1>
-
-        <p>
-            Thank you for choosing GhorCast.
-            Your booking information has been saved.
-        </p>
-
-
-        <div class="confirmation-details">
-
-            <div class="detail-row">
-                <span>Guest Name</span>
-                <strong id="guestName">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Email</span>
-                <strong id="guestEmail">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Phone</span>
-                <strong id="guestPhone">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Hotel</span>
-                <strong id="hotelName">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Room</span>
-                <strong id="roomType">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Check-in</span>
-                <strong id="checkIn">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Check-out</span>
-                <strong id="checkOut">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Guests</span>
-                <strong id="guests">-</strong>
-            </div>
-
-            <div class="detail-row">
-                <span>Total</span>
-                <strong id="totalPrice">-</strong>
-            </div>
-
-        </div>
-
-
-        <a href="payment.html" class="home-button">
-    Continue to Payment
-</a>
-
-    </div>
-
-</section>
-
-
+<header class="header"><div class="container nav-container"><a href="index.html" class="logo"><span>Ghor</span><strong>Cast</strong></a><nav class="navigation"><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="destinations.html">Destinations</a><a href="news.html">News</a><a href="articles.html">Articles</a><a href="videos.html">Videos</a></nav><button class="menu-button" id="menuButton">☰</button></div></header>
+<section class="confirmation-page"><div class="confirmation-box">
+<div class="success-icon">✓</div>
+<h1>Booking Information Received</h1>
+<p>Thank you for choosing GhorCast. Review your reservation details below before continuing to payment.</p>
+<div class="booking-number">Booking Reference: <span id="bookingReference">GHORCAST</span></div>
+<div class="confirmation-details">
+<div class="detail-row"><span>Guest Name</span><strong id="guestName">-</strong></div>
+<div class="detail-row"><span>Email</span><strong id="guestEmail">-</strong></div>
+<div class="detail-row"><span>Phone</span><strong id="guestPhone">-</strong></div>
+<div class="detail-row"><span>Hotel</span><strong id="hotelName">-</strong></div>
+<div class="detail-row"><span>Location</span><strong id="hotelLocation">-</strong></div>
+<div class="detail-row"><span>Room</span><strong id="roomType">-</strong></div>
+<div class="detail-row"><span>Check-in</span><strong id="checkIn">-</strong></div>
+<div class="detail-row"><span>Check-out</span><strong id="checkOut">-</strong></div>
+<div class="detail-row"><span>Nights</span><strong id="nights">-</strong></div>
+<div class="detail-row"><span>Guests</span><strong id="guests">-</strong></div>
+<div class="detail-row total"><span>Total</span><strong id="totalPrice">-</strong></div>
+</div>
+<div class="confirmation-actions"><a href="payment.html" class="home-button">Continue to Payment</a><a href="hotels.html" class="home-button secondary-button">Back to Hotels</a></div>
+</div></section>
 <script>
-
-const booking =
-    JSON.parse(
-        localStorage.getItem("ghorcastBooking")
-    );
-
-
-if (booking) {
-
-    document.getElementById("guestName").textContent =
-        booking.guestName || "-";
-
-    document.getElementById("guestEmail").textContent =
-        booking.guestEmail || "-";
-
-    document.getElementById("guestPhone").textContent =
-        booking.guestPhone || "-";
-
-    document.getElementById("hotelName").textContent =
-        booking.hotel || "Royal View Hotel";
-
-    document.getElementById("roomType").textContent =
-        booking.room || booking.roomType || "-";
-
-    document.getElementById("checkIn").textContent =
-        booking.checkIn || "-";
-
-    document.getElementById("checkOut").textContent =
-        booking.checkOut || "-";
-
-    document.getElementById("guests").textContent =
-        booking.guests || "-";
-
-    document.getElementById("totalPrice").textContent =
-        booking.total
-            ? "$" + booking.total
-            : booking.price
-                ? "$" + booking.price
-                : "-";
-
+const booking=JSON.parse(localStorage.getItem('ghorcastBooking'));
+if(!booking){document.querySelector('.confirmation-box').innerHTML='<div class="success-icon">!</div><h1>No Booking Found</h1><p>Please select a hotel and complete the booking form first.</p><a href="hotels.html" class="home-button">Browse Hotels</a>';}else{
+const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value||'-';};
+set('guestName',booking.guestName);set('guestEmail',booking.guestEmail);set('guestPhone',booking.guestPhone);set('hotelName',booking.hotel||'Royal View Hotel');set('hotelLocation',booking.location||'Makkah, Saudi Arabia');set('roomType',booking.room||booking.roomType);set('checkIn',booking.checkIn);set('checkOut',booking.checkOut);set('nights',booking.nights?booking.nights+' night'+(booking.nights==1?'':'s'):'-');set('guests',booking.guests);set('totalPrice',booking.total?'$'+booking.total:(booking.price?'$'+booking.price:'-'));
+let reference=localStorage.getItem('ghorcastBookingReference');if(!reference){reference='GC-'+Date.now().toString().slice(-8);localStorage.setItem('ghorcastBookingReference',reference);}set('bookingReference',reference);
 }
-
+const menuButton=document.getElementById('menuButton');const navigation=document.querySelector('.navigation');if(menuButton){menuButton.addEventListener('click',()=>navigation.classList.toggle('mobile-open'));}
 </script>
-
 </body>
-
 </html>
