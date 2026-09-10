@@ -1,13 +1,9 @@
 /* GhorCast Authentication
    Powered by Supabase Auth.
-
-   IMPORTANT:
-   Replace the two values below with your Supabase project's
-   Project URL and Publishable Key.
 */
 
-const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+const SUPABASE_URL = "https://yrfhlzyfnljpchedmohr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_7DcAYwdR1gefh9HSvRsw_w_spCyg2JG";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
