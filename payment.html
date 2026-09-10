@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment | GhorCast</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .payment-page {
+            padding: 70px 20px;
+            background: #f7f7f7;
+            min-height: 70vh;
+        }
+
+        .payment-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .payment-box h1 {
+            color: #17202a;
+            margin-bottom: 10px;
+        }
+
+        .payment-box > p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .payment-summary {
+            background: #f7f3eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .payment-summary h3 {
+            margin-top: 0;
+            color: #17202a;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-method {
+            margin-bottom: 25px;
+        }
+
+        .payment-method h3 {
+            margin-bottom: 15px;
+        }
+
+        .method-option {
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .method-option input {
+            margin-right: 10px;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #17202a;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .pay-button:hover {
+            background: #c79a4b;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #17202a;
+            font-weight: 600;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span>Ghor</span><strong>Cast</strong>
+        </a>
+
+        <nav class="navigation">
+
+            <a href="index.html#hotels">Hotels</a>
+            <a href="index.html#deals">Deals</a>
+            <a href="index.html#destinations">Destinations</a>
+            <a href="index.html#news">News</a>
+            <a href="index.html#articles">Articles</a>
+            <a href="index.html#videos">Videos</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================= PAYMENT ================= -->
+
+<section class="payment-page">
+
+    <div class="payment-box">
+
+        <h1>Payment</h1>
+
+        <p>
+            Review your booking and select a payment method.
+        </p>
+
+
+        <div class="payment-summary">
+
+            <h3 id="hotelName">
+                Royal View Hotel
+            </h3>
+
+            <div class="summary-row">
+                <span>Room</span>
+                <strong id="roomType">-</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Check-in</span>
+                <strong id="checkIn">-</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Check-out</span>
+                <strong id="checkOut">-</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Guests</span>
+                <strong id="guests">-</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Total</span>
+                <strong id="totalPrice">-</strong>
+            </div>
+
+        </div>
+
+
+        <div class="payment-method">
+
+            <h3>Choose Payment Method</h3>
+
+            <label class="method-option">
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="card"
+                    checked
+                >
+                Credit / Debit Card
+            </label>
+
+            <label class="method-option">
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="mobile"
+                >
+                Mobile Payment
+            </label>
+
+            <label class="method-option">
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="later"
+                >
+                Pay Later
+            </label>
+
+        </div>
+
+
+        <button
+            class="pay-button"
+            id="payButton">
+            Continue to Payment
+        </button>
+
+
+        <a
+            href="booking.html"
+            class="back-link">
+            ← Back to Guest Information
+        </a>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const booking =
+    JSON.parse(
+        localStorage.getItem("ghorcastBooking")
+    );
+
+
+if (booking) {
+
+    document.getElementById("hotelName").textContent =
+        booking.hotel || "Royal View Hotel";
+
+    document.getElementById("roomType").textContent =
+        booking.room || booking.roomType || "-";
+
+    document.getElementById("checkIn").textContent =
+        booking.checkIn || "-";
+
+    document.getElementById("checkOut").textContent =
+        booking.checkOut || "-";
+
+    document.getElementById("guests").textContent =
+        booking.guests || "-";
+
+    document.getElementById("totalPrice").textContent =
+        booking.total
+            ? "$" + booking.total
+            : booking.price
+                ? "$" + booking.price
+                : "-";
+}
+
+
+document
+    .getElementById("payButton")
+    .addEventListener("click", function() {
+
+        const paymentMethod =
+            document.querySelector(
+                'input[name="paymentMethod"]:checked'
+            ).value;
+
+
+        if (!booking) {
+
+            alert(
+                "No booking information was found."
+            );
+
+            return;
+        }
+
+
+        booking.paymentMethod =
+            paymentMethod;
+
+        booking.paymentStatus =
+            "Pending";
+
+
+        localStorage.setItem(
+            "ghorcastBooking",
+            JSON.stringify(booking)
+        );
+
+
+        window.location.href =
+            "payment-success.html";
+
+    });
+
+</script>
+
+</body>
+
+</html>
