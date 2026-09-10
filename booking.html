@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking | GhorCast</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .booking-page {
+            padding: 70px 20px;
+            background: #f7f7f7;
+            min-height: 70vh;
+        }
+
+        .booking-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .booking-box h1 {
+            margin-bottom: 10px;
+            color: #17202a;
+        }
+
+        .booking-box > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .booking-summary {
+            background: #f7f3eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .booking-summary h3 {
+            margin-top: 0;
+            color: #17202a;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .booking-form label {
+            font-weight: 600;
+            color: #17202a;
+        }
+
+        .booking-form input {
+            width: 100%;
+            padding: 13px;
+            margin-top: 7px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .booking-form button {
+            margin-top: 10px;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #17202a;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .booking-form button:hover {
+            background: #c79a4b;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #17202a;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: #b00020;
+            display: none;
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span>Ghor</span><strong>Cast</strong>
+        </a>
+
+        <nav class="navigation">
+
+            <a href="index.html#hotels">Hotels</a>
+            <a href="index.html#deals">Deals</a>
+            <a href="index.html#destinations">Destinations</a>
+            <a href="index.html#news">News</a>
+            <a href="index.html#articles">Articles</a>
+            <a href="index.html#videos">Videos</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="booking-page">
+
+    <div class="booking-box">
+
+        <h1>Complete Your Booking</h1>
+
+        <p>
+            Please enter your guest information to continue.
+        </p>
+
+
+        <div class="booking-summary">
+
+            <h3 id="hotelName">
+                Royal View Hotel
+            </h3>
+
+            <div class="summary-row">
+                <span>Location</span>
+                <strong id="hotelLocation">
+                    Makkah, Saudi Arabia
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Room</span>
+                <strong id="roomType">
+                    -
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Check-in</span>
+                <strong id="checkIn">
+                    -
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Check-out</span>
+                <strong id="checkOut">
+                    -
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Guests</span>
+                <strong id="guests">
+                    -
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Total</span>
+                <strong id="totalPrice">
+                    -
+                </strong>
+            </div>
+
+        </div>
+
+
+        <p id="errorMessage" class="error-message">
+            Please enter your information.
+        </p>
+
+
+        <form class="booking-form" id="bookingForm">
+
+            <label>
+                Full Name
+
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+                Email Address
+
+                <input
+                    type="email"
+                    id="guestEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+                Phone Number
+
+                <input
+                    type="tel"
+                    id="guestPhone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+
+            </label>
+
+
+            <button type="submit">
+                Confirm Booking
+            </button>
+
+        </form>
+
+
+        <a href="royal-view-hotel.html" class="back-link">
+            ← Back to Royal View Hotel
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const booking =
+    JSON.parse(
+        localStorage.getItem("ghorcastBooking")
+    );
+
+
+if (!booking) {
+
+    document.getElementById("errorMessage").style.display = "block";
+
+    document.getElementById("errorMessage").textContent =
+        "No booking information was found. Please select your hotel and booking details again.";
+
+    document.getElementById("bookingForm").style.display = "none";
+
+} else {
+
+    document.getElementById("hotelName").textContent =
+        booking.hotel || "Royal View Hotel";
+
+    document.getElementById("hotelLocation").textContent =
+        booking.location || "Makkah, Saudi Arabia";
+
+    document.getElementById("roomType").textContent =
+        booking.room || booking.roomType || "-";
+
+    document.getElementById("checkIn").textContent =
+        booking.checkIn || "-";
+
+    document.getElementById("checkOut").textContent =
+        booking.checkOut || "-";
+
+    document.getElementById("guests").textContent =
+        booking.guests || "-";
+
+    document.getElementById("totalPrice").textContent =
+        booking.total
+            ? "$" + booking.total
+            : booking.price
+                ? "$" + booking.price
+                : "-";
+}
+
+
+document
+    .getElementById("bookingForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        if (!booking) {
+            return;
+        }
+
+
+        const guestName =
+            document.getElementById("guestName").value.trim();
+
+        const guestEmail =
+            document.getElementById("guestEmail").value.trim();
+
+        const guestPhone =
+            document.getElementById("guestPhone").value.trim();
+
+
+        if (!guestName || !guestEmail || !guestPhone) {
+
+            document.getElementById("errorMessage").style.display = "block";
+
+            document.getElementById("errorMessage").textContent =
+                "Please complete all guest information.";
+
+            return;
+        }
+
+
+        booking.guestName = guestName;
+        booking.guestEmail = guestEmail;
+        booking.guestPhone = guestPhone;
+
+
+        localStorage.setItem(
+            "ghorcastBooking",
+            JSON.stringify(booking)
+        );
+
+
+        alert(
+            "Booking information saved successfully!"
+        );
+
+
+        window.location.href =
+            "booking-confirmation.html";
+
+    });
+
+</script>
+
+</body>
+
+</html>
