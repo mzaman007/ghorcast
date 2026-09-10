@@ -10,6 +10,23 @@
           content="GhorCast — discover hotels, travel destinations, news, articles, products and videos.">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Featured Hotel Popup — index.html only */
+        .hotel-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99999;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+        .hotel-popup.active{display:flex}
+        .hotel-popup-box{position:relative;background:#fff;max-width:760px;width:100%;max-height:90vh;overflow:auto;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+        .hotel-popup-image{height:300px;background-size:cover;background-position:center;border-radius:18px 18px 0 0}
+        .hotel-popup-content{padding:28px}
+        .hotel-popup-content h2{margin:5px 0 10px;color:#17202a}
+        .hotel-popup-content .popup-location{color:#777;margin-bottom:10px}
+        .hotel-popup-content .popup-rating{color:#c79a4b;font-size:18px;margin-bottom:15px}
+        .hotel-popup-content p{color:#666;line-height:1.7}
+        .hotel-popup-close{position:absolute;right:16px;top:16px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:#17202a;font-size:24px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.15);z-index:2}
+        .hotel-popup-button{display:inline-block;margin-top:15px;background:#17202a;color:#fff;text-decoration:none;padding:12px 18px;border-radius:7px;font-weight:700}
+        .hotel-popup-button:hover{background:#c79a4b}
+        @media(max-width:700px){.hotel-popup-image{height:220px}.hotel-popup-content{padding:22px}}
+    </style>
 </head>
 
 <body>
@@ -71,7 +88,7 @@
                         <div class="rating">★★★★★ <span>4.8</span></div>
                         <div class="card-footer">
                             <strong>From $120/night</strong>
-                            <button onclick="window.location.href='luxury-grand-hotel.html'">View Hotel</button>
+                            <button onclick="openFeaturedHotel('luxury')">View Hotel</button>
                         </div>
                     </div>
                 </article>
@@ -84,7 +101,7 @@
                         <div class="rating">★★★★★ <span>4.7</span></div>
                         <div class="card-footer">
                             <strong>From $95/night</strong>
-                            <button onclick="window.location.href='royal-view-hotel.html'">View Hotel</button>
+                            <button onclick="openFeaturedHotel('royal')">View Hotel</button>
                         </div>
                     </div>
                 </article>
@@ -104,6 +121,21 @@
             </div>
         </div>
     </section>
+
+    <!-- Featured Hotel Popup -->
+    <div class="hotel-popup" id="featuredHotelPopup" onclick="closeFeaturedHotel(event)">
+        <div class="hotel-popup-box" onclick="event.stopPropagation()">
+            <button class="hotel-popup-close" type="button" onclick="closeFeaturedHotel()">×</button>
+            <div class="hotel-popup-image" id="popupHotelImage"></div>
+            <div class="hotel-popup-content">
+                <p class="popup-location" id="popupHotelLocation"></p>
+                <h2 id="popupHotelName"></h2>
+                <div class="popup-rating" id="popupHotelRating"></div>
+                <p id="popupHotelDescription"></p>
+                <a class="hotel-popup-button" id="popupHotelLink" href="#">View Hotel Details →</a>
+            </div>
+        </div>
+    </div>
 
     <!-- ================= HOTEL DEALS ================= -->
     <section class="deals-section" id="deals">
@@ -389,6 +421,33 @@
             <p>© 2026 GhorCast. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function openFeaturedHotel(type){
+            const hotels={
+                luxury:{name:'Luxury Grand Hotel',location:'📍 Dubai, UAE',rating:'★★★★★ 4.8',description:'Luxury Grand Hotel offers an elegant Dubai stay with comfortable accommodation, modern facilities and convenient access to the city\'s major attractions.',image:"url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85')",link:'luxury-grand-hotel.html'},
+                royal:{name:'Royal View Hotel',location:'📍 Makkah, Saudi Arabia',rating:'★★★★★ 4.7',description:'Royal View Hotel offers comfortable accommodation for travelers visiting Makkah, with comfortable rooms and easy access to important destinations.',image:"url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=85')",link:'royal-view-hotel.html'}
+            };
+            const hotel=hotels[type];
+            if(!hotel)return;
+            document.getElementById('popupHotelImage').style.backgroundImage=hotel.image;
+            document.getElementById('popupHotelLocation').textContent=hotel.location;
+            document.getElementById('popupHotelName').textContent=hotel.name;
+            document.getElementById('popupHotelRating').textContent=hotel.rating;
+            document.getElementById('popupHotelDescription').textContent=hotel.description;
+            document.getElementById('popupHotelLink').href=hotel.link;
+            document.getElementById('featuredHotelPopup').classList.add('active');
+            document.body.style.overflow='hidden';
+        }
+        function closeFeaturedHotel(event){
+            if(event && event.target!==document.getElementById('featuredHotelPopup'))return;
+            document.getElementById('featuredHotelPopup').classList.remove('active');
+            document.body.style.overflow='';
+        }
+        document.addEventListener('keydown',function(event){
+            if(event.key==='Escape')closeFeaturedHotel();
+        });
+    </script>
 
     <script src="script.js?v=9"></script>
 </body>
