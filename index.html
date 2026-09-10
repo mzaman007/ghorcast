@@ -114,7 +114,7 @@
                         <div class="rating">★★★★★ <span>4.6</span></div>
                         <div class="card-footer">
                             <strong>From $70/night</strong>
-                            <button onclick="window.location.href='ocean-paradise-resort.html'">View Hotel</button>
+                            <button onclick="openFeaturedHotel('ocean')">View Hotel</button>
                         </div>
                     </div>
                 </article>
@@ -425,8 +425,9 @@
     <script>
         function openFeaturedHotel(type){
             const hotels={
-                luxury:{name:'Luxury Grand Hotel',location:'📍 Dubai, UAE',rating:'★★★★★ 4.8',description:'Luxury Grand Hotel offers an elegant Dubai stay with comfortable accommodation, modern facilities and convenient access to the city\'s major attractions.',image:"url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85')",link:'luxury-grand-hotel.html'},
-                royal:{name:'Royal View Hotel',location:'📍 Makkah, Saudi Arabia',rating:'★★★★★ 4.7',description:'Royal View Hotel offers comfortable accommodation for travelers visiting Makkah, with comfortable rooms and easy access to important destinations.',image:"url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=85')",link:'royal-view-hotel.html'}
+                luxury:{name:'Luxury Grand Hotel',location:'📍 Dubai, UAE',rating:'★ 4.8 / 5',description:'A premium hotel listing featured on GhorCast. Hotel facilities, rooms, availability and booking information will be added here.\n\nHotel Facilities\n🛏️ Comfortable Rooms\n📶 Free Wi-Fi\n🍽️ Restaurant\n🏊 Swimming Pool\n\nStarting from\nFrom $120/night',image:"url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85')",link:'luxury-grand-hotel.html'},
+                royal:{name:'Royal View Hotel',location:'📍 Makkah, Saudi Arabia',rating:'★★★★★ 4.7',description:'Royal View Hotel offers comfortable accommodation for travelers visiting Makkah, with comfortable rooms and easy access to important destinations.',image:"url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=85')",link:'royal-view-hotel.html'},
+                ocean:{name:'Ocean Paradise Resort',location:"📍 Cox's Bazar, Bangladesh",rating:'★★★★★ 4.6',description:'Enjoy a relaxing beach experience at Cox\'s Bazar with comfortable rooms and resort-style facilities.',image:"url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85')",link:'ocean-paradise-resort.html'}
             };
             const hotel=hotels[type];
             if(!hotel)return;
@@ -436,6 +437,7 @@
             document.getElementById('popupHotelRating').textContent=hotel.rating;
             document.getElementById('popupHotelDescription').textContent=hotel.description;
             document.getElementById('popupHotelLink').href=hotel.link;
+            document.getElementById('popupHotelLink').textContent=type==='luxury'?'Check Availability':'View Hotel Details →';
             document.getElementById('featuredHotelPopup').classList.add('active');
             document.body.style.overflow='hidden';
         }
