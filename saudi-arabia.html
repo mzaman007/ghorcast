@@ -7,11 +7,16 @@
     <title>Saudi Arabia Travel Guide | GhorCast</title>
 
     <meta name="description"
-          content="Explore Saudi Arabia with GhorCast. Discover Makkah, Madinah, Riyadh, Jeddah, AlUla, attractions, food and travel information.">
+          content="Explore Saudi Arabia with GhorCast. Discover Makkah, Madinah, Riyadh, Jeddah, AlUla, Diriyah, Taif, Abha, Dammam, Al Khobar, Farasan Islands, the Red Sea and more.">
 
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* ================================
+           SAUDI ARABIA GUIDE
+        ================================= */
+
         .saudi-hero {
             min-height: 500px;
             display: flex;
@@ -39,7 +44,7 @@
         }
 
         .saudi-hero-content h1 {
-            font-size: clamp(40px,6vw,72px);
+            font-size: clamp(40px, 6vw, 72px);
             margin: 0 0 20px;
             line-height: 1.05;
         }
@@ -59,10 +64,12 @@
             text-decoration: none;
             border-radius: 6px;
             font-weight: 700;
+            transition: .25s ease;
         }
 
         .saudi-button:hover {
             background: #b1853e;
+            transform: translateY(-2px);
         }
 
         .saudi-section {
@@ -99,7 +106,7 @@
         .saudi-food-grid,
         .saudi-info-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
@@ -109,12 +116,19 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,.08);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .saudi-place-card:hover,
+        .saudi-food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 32px rgba(0,0,0,.13);
         }
 
         .saudi-place-image,
         .saudi-food-image {
             height: 210px;
-            background: linear-gradient(135deg,#d7c4a0,#8d7652);
+            background: linear-gradient(135deg, #d7c4a0, #8d7652);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,6 +138,20 @@
             font-weight: 700;
             background-size: cover;
             background-position: center;
+            position: relative;
+        }
+
+        .saudi-place-image::after,
+        .saudi-food-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,.25),
+                rgba(0,0,0,0)
+            );
+            pointer-events: none;
         }
 
         .saudi-card-content {
@@ -175,15 +203,22 @@
             margin-bottom: 25px;
         }
 
+        /* ================================
+           MOBILE
+        ================================= */
+
         @media (max-width: 900px) {
+
             .saudi-place-grid,
             .saudi-food-grid,
             .saudi-info-grid {
-                grid-template-columns: repeat(2,1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
+
         }
 
         @media (max-width: 600px) {
+
             .saudi-place-grid,
             .saudi-food-grid,
             .saudi-info-grid {
@@ -193,14 +228,30 @@
             .saudi-hero {
                 min-height: 450px;
             }
+
+            .saudi-hero-content {
+                padding: 60px 20px;
+            }
+
+            .saudi-place-image,
+            .saudi-food-image {
+                height: 220px;
+            }
+
         }
+
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+
+<!-- =================================
+     HEADER
+================================= -->
+
 <header class="site-header">
+
     <div class="header-inner">
 
         <div class="logo">
@@ -208,23 +259,41 @@
         </div>
 
         <nav class="main-nav">
-            <a href="index.html">Home</a>
+
             <a href="hotels.html">Hotels</a>
+
+            <a href="deals.html">Deals</a>
+
             <a href="destinations.html">Destinations</a>
-            <a href="products.html">Shop</a>
-            <a href="account.html">Account</a>
+
+            <a href="news.html">News</a>
+
+            <a href="articles.html">Articles</a>
+
+            <a href="videos.html">Videos</a>
+
         </nav>
 
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <button
+            class="menu-toggle"
+            onclick="toggleMenu()"
+            aria-label="Open navigation menu">
+            ☰
+        </button>
 
     </div>
+
 </header>
 
 
-<!-- HERO -->
+<!-- =================================
+     HERO
+================================= -->
+
 <section class="saudi-hero">
 
     <div class="saudi-container">
+
         <div class="saudi-hero-content">
 
             <span>GhorCast Destination Guide</span>
@@ -241,12 +310,16 @@
             </a>
 
         </div>
+
     </div>
 
 </section>
 
 
-<!-- INTRO -->
+<!-- =================================
+     INTRO
+================================= -->
+
 <section class="saudi-section">
 
     <div class="saudi-container">
@@ -269,7 +342,10 @@
 </section>
 
 
-<!-- PLACES -->
+<!-- =================================
+     PLACES
+================================= -->
+
 <section class="saudi-section" id="places">
 
     <div class="saudi-container">
@@ -288,7 +364,10 @@
         <div class="saudi-place-grid">
 
 
-            <!-- MAKKAH -->
+            <!-- =================================
+                 MAKKAH
+            ================================= -->
+
             <div class="saudi-place-card">
 
                 <div class="saudi-place-image"
@@ -316,7 +395,10 @@
             </div>
 
 
-            <!-- MADINAH -->
+            <!-- =================================
+                 MADINAH
+            ================================= -->
+
             <div class="saudi-place-card">
 
                 <div class="saudi-place-image"
@@ -343,7 +425,10 @@
             </div>
 
 
-            <!-- RIYADH -->
+            <!-- =================================
+                 RIYADH
+            ================================= -->
+
             <div class="saudi-place-card">
 
                 <div class="saudi-place-image"
@@ -371,11 +456,17 @@
             </div>
 
 
-            <!-- JEDDAH -->
+            <!-- =================================
+                 JEDDAH
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Jeddah
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Jeddah%20waterfront.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -396,11 +487,17 @@
             </div>
 
 
-            <!-- ALULA -->
+            <!-- =================================
+                 ALULA
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    AlUla
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20rock%2C%20Al-%27Ula.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -421,11 +518,17 @@
             </div>
 
 
-            <!-- DIRIYAH -->
+            <!-- =================================
+                 DIRIYAH
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Diriyah
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Et-Turaif.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -446,11 +549,17 @@
             </div>
 
 
-            <!-- TAIF -->
+            <!-- =================================
+                 TAIF
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Taif
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Taif%2C%20Saudi%20Arabia.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -471,11 +580,17 @@
             </div>
 
 
-            <!-- ABHA -->
+            <!-- =================================
+                 ABHA
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Abha
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Abha%2C%20Saudi%20Arabia.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -496,11 +611,17 @@
             </div>
 
 
-            <!-- DAMMAM -->
+            <!-- =================================
+                 DAMMAM
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Dammam
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/ISS-62%20Dammam%2C%20Eastern%20Province%20of%20Saudi%20Arabia.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -521,11 +642,17 @@
             </div>
 
 
-            <!-- AL KHOBAR -->
+            <!-- =================================
+                 AL KHOBAR
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Al Khobar
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Alkhobar%20city.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -546,11 +673,17 @@
             </div>
 
 
-            <!-- FARASAN ISLANDS -->
+            <!-- =================================
+                 FARASAN ISLANDS
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Farasan Islands
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Farasan%20Islands.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -571,11 +704,17 @@
             </div>
 
 
-            <!-- RED SEA -->
+            <!-- =================================
+                 RED SEA
+            ================================= -->
+
             <div class="saudi-place-card">
 
-                <div class="saudi-place-image">
-                    Red Sea Coast
+                <div class="saudi-place-image"
+                     style="background:
+                     linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+                     url('https://commons.wikimedia.org/wiki/Special:FilePath/Red%20Sea%2C%20Saudi%20Arabia.jpg?width=1200')
+                     center/cover no-repeat;">
                 </div>
 
                 <div class="saudi-card-content">
@@ -603,7 +742,10 @@
 </section>
 
 
-<!-- TRAVEL INFORMATION -->
+<!-- =================================
+     TRAVEL INFORMATION
+================================= -->
+
 <section class="saudi-section">
 
     <div class="saudi-container">
@@ -620,6 +762,7 @@
 
 
         <div class="saudi-info-grid">
+
 
             <div class="saudi-info-card">
 
@@ -656,6 +799,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -663,7 +807,10 @@
 </section>
 
 
-<!-- MAP -->
+<!-- =================================
+     MAP
+================================= -->
+
 <section class="saudi-section">
 
     <div class="saudi-container">
@@ -682,7 +829,9 @@
                 href="https://www.google.com/maps/search/Saudi+Arabia"
                 target="_blank"
                 rel="noopener">
+
                 Open Google Maps
+
             </a>
 
         </div>
@@ -692,7 +841,10 @@
 </section>
 
 
-<!-- FOOD -->
+<!-- =================================
+     FOOD
+================================= -->
+
 <section class="saudi-section">
 
     <div class="saudi-container">
@@ -968,7 +1120,10 @@
 </section>
 
 
-<!-- CTA -->
+<!-- =================================
+     CTA
+================================= -->
+
 <section class="saudi-section">
 
     <div class="saudi-container">
@@ -984,7 +1139,9 @@
             <a
                 href="hotels.html"
                 class="saudi-button">
+
                 Explore Hotels
+
             </a>
 
         </div>
@@ -994,7 +1151,10 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- =================================
+     FOOTER
+================================= -->
+
 <footer>
 
     <div class="saudi-container">
@@ -1008,6 +1168,10 @@
 </footer>
 
 
+<!-- =================================
+     MOBILE MENU
+================================= -->
+
 <script>
 
 function toggleMenu() {
@@ -1015,12 +1179,15 @@ function toggleMenu() {
     const nav = document.querySelector(".main-nav");
 
     if (nav) {
+
         nav.classList.toggle("active");
+
     }
 
 }
 
 </script>
+
 
 </body>
 </html>
