@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="style.css">
 
+
     <style>
 
         /* ================================
@@ -175,37 +176,47 @@
             font-weight: 700;
         }
 
+
+        /* ================================
+           PLACE BUTTONS
+        ================================= */
+
         .saudi-place-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 18px;
-    flex-wrap: wrap;
-}
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
 
-.saudi-place-actions a {
-    display: inline-block;
-    padding: 9px 14px;
-    border-radius: 6px;
-    background: #c79a4b;
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    transition: 0.3s ease;
-}
+        .saudi-place-actions a {
+            display: inline-block;
+            padding: 9px 14px;
+            border-radius: 6px;
+            background: #c79a4b;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
 
-.saudi-place-actions a:hover {
-    background: #b1853e;
-    transform: translateY(-2px);
-}
+        .saudi-place-actions a:hover {
+            background: #b1853e;
+            transform: translateY(-2px);
+        }
 
-.saudi-place-actions a.map-button {
-    background: #17202a;
-}
+        .saudi-place-actions a.map-button {
+            background: #17202a;
+        }
 
-.saudi-place-actions a.map-button:hover {
-    background: #2c3e50;
-}
+        .saudi-place-actions a.map-button:hover {
+            background: #2c3e50;
+        }
+
+
+        /* ================================
+           TRAVEL INFORMATION
+        ================================= */
 
         .saudi-info-card {
             background: #f8f6f1;
@@ -223,6 +234,11 @@
             line-height: 1.7;
         }
 
+
+        /* ================================
+           MAP
+        ================================= */
+
         .saudi-map-box {
             background: #f5f2eb;
             border-radius: 12px;
@@ -234,6 +250,67 @@
             color: #666;
             margin-bottom: 25px;
         }
+
+
+        /* ================================
+           SAUDI TRAVEL GUIDE
+        ================================= */
+
+        .saudi-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 35px;
+        }
+
+        .saudi-guide-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .saudi-guide-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #17202a;
+            font-size: 20px;
+        }
+
+        .saudi-guide-card p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .saudi-guide-card ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .saudi-guide-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .saudi-guide-button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            background: #c79a4b;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .saudi-guide-button:hover {
+            background: #b1853e;
+            transform: translateY(-2px);
+        }
+
 
         /* ================================
            MOBILE
@@ -248,6 +325,16 @@
             }
 
         }
+
+
+        @media (max-width: 768px) {
+
+            .saudi-guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
 
         @media (max-width: 600px) {
 
@@ -953,6 +1040,156 @@
 
 </section>
 
+
+<!-- =================================
+     MAKKAH TRAVEL GUIDE
+================================= -->
+
+<section class="saudi-section" id="makkah-guide">
+
+    <div class="saudi-container">
+
+        <div class="saudi-section-title">
+
+            <h2>Makkah Travel Guide</h2>
+
+            <p>
+                A practical guide to visiting Makkah, one of the most important
+                cities in the Islamic world and home to Masjid al-Haram.
+            </p>
+
+        </div>
+
+
+        <div class="saudi-guide-grid">
+
+            <!-- HOW TO GET THERE -->
+
+            <div class="saudi-guide-card">
+
+                <h3>How to Get to Makkah</h3>
+
+                <p>
+                    Most international visitors arrive in Saudi Arabia through
+                    Jeddah and continue to Makkah by train, taxi, private car
+                    or bus.
+                </p>
+
+                <ul>
+                    <li>Jeddah to Makkah by Haramain High-Speed Railway</li>
+                    <li>Taxi or private transfer from Jeddah</li>
+                    <li>Bus services are also available</li>
+                </ul>
+
+            </div>
+
+
+            <!-- LOCAL TRANSPORT -->
+
+            <div class="saudi-guide-card">
+
+                <h3>Getting Around Makkah</h3>
+
+                <p>
+                    Taxis, ride-hailing services, buses and hotel transportation
+                    are commonly used for getting around the city.
+                </p>
+
+                <ul>
+                    <li>Taxi and ride-hailing services</li>
+                    <li>Local buses</li>
+                    <li>Hotel shuttle services</li>
+                    <li>Walking around areas close to Masjid al-Haram</li>
+                </ul>
+
+            </div>
+
+
+            <!-- HOTELS -->
+
+            <div class="saudi-guide-card">
+
+                <h3>Where to Stay</h3>
+
+                <p>
+                    Makkah has a wide range of accommodation, from luxury hotels
+                    near Masjid al-Haram to more affordable options farther away.
+                </p>
+
+                <a href="hotels.html" class="saudi-guide-button">
+                    View Hotels
+                </a>
+
+            </div>
+
+
+            <!-- FOOD -->
+
+            <div class="saudi-guide-card">
+
+                <h3>Popular Foods</h3>
+
+                <p>
+                    Visitors can enjoy traditional Saudi and Middle Eastern
+                    dishes throughout Makkah.
+                </p>
+
+                <ul>
+                    <li>Kabsa</li>
+                    <li>Mandi</li>
+                    <li>Shawarma</li>
+                    <li>Sambusa</li>
+                    <li>Saudi dates and Arabic coffee</li>
+                </ul>
+
+            </div>
+
+
+            <!-- TRAVEL TIPS -->
+
+            <div class="saudi-guide-card">
+
+                <h3>Travel Tips</h3>
+
+                <ul>
+                    <li>Keep your passport and important documents secure.</li>
+                    <li>Carry water, especially when walking outdoors.</li>
+                    <li>Dress respectfully and follow local customs.</li>
+                    <li>Check official travel and pilgrimage requirements before travelling.</li>
+                    <li>Allow extra time when travelling during busy pilgrimage periods.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MAP -->
+
+            <div class="saudi-guide-card">
+
+                <h3>Makkah Map</h3>
+
+                <p>
+                    Open the map to explore Makkah, Masjid al-Haram, hotels,
+                    restaurants and nearby attractions.
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Makkah%2C+Saudi+Arabia"
+                    target="_blank"
+                    rel="noopener"
+                    class="saudi-guide-button">
+                    Open Makkah Map
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- =================================
      TRAVEL INFORMATION
 ================================= -->
@@ -1075,6 +1312,7 @@
 
 
             <!-- KABSA -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1095,6 +1333,7 @@
 
 
             <!-- MANDI -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1116,6 +1355,7 @@
 
 
             <!-- JAREESH -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1137,6 +1377,7 @@
 
 
             <!-- SALEEG -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1158,6 +1399,7 @@
 
 
             <!-- MUTABBAQ -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1179,6 +1421,7 @@
 
 
             <!-- SAMBUSA -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1200,6 +1443,7 @@
 
 
             <!-- DATES -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1221,6 +1465,7 @@
 
 
             <!-- MAAMOUL -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1241,6 +1486,7 @@
 
 
             <!-- KUNAFA -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1262,6 +1508,7 @@
 
 
             <!-- ARABIC COFFEE -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1283,6 +1530,7 @@
 
 
             <!-- SHAWARMA -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
@@ -1304,6 +1552,7 @@
 
 
             <!-- HANEEETH -->
+
             <div class="saudi-food-card">
 
                 <div class="saudi-food-image">
