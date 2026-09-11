@@ -1,136 +1,619 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Destinations | GhorCast</title>
-    <meta name="description" content="Explore popular travel destinations with GhorCast. Discover destinations, hotels, travel ideas and more.">
+
+    <meta
+        name="description"
+        content="Explore popular travel destinations with GhorCast. Discover destinations, hotels, travel ideas and more."
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<!-- HEADER -->
 <header class="site-header">
     <div class="container header-inner">
-        <a href="index.html" class="logo">GhorCast</a>
+
+        <a href="index.html" class="logo">
+            GhorCast
+        </a>
+
         <nav class="main-nav">
-            <a href="hotels.html">Hotels</a>
-            <a href="deals.html">Deals</a>
-            <a href="destinations.html" class="active">Destinations</a>
-            <a href="index.html#news">News</a>
-            <a href="index.html#articles">Articles</a>
-            <a href="index.html#videos">Videos</a>
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html" class="active">
+                Destinations
+            </a>
+
+            <a href="index.html#news">
+                News
+            </a>
+
+            <a href="index.html#articles">
+                Articles
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
         </nav>
-        <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+        <button
+            class="menu-toggle"
+            aria-label="Open menu"
+            type="button">
+            ☰
+        </button>
+
     </div>
 </header>
 
+
+<!-- HERO -->
 <section class="page-hero">
+
     <div class="container">
-        <h1>Explore Destinations</h1>
-        <p>Discover beautiful places, exciting cities and unforgettable travel experiences around the world.</p>
+
+        <h1>
+            Explore Destinations
+        </h1>
+
+        <p>
+            Discover beautiful places, exciting cities and unforgettable
+            travel experiences around the world.
+        </p>
+
     </div>
+
 </section>
 
+
+<!-- SEARCH -->
 <section class="search-section">
+
     <div class="container">
+
         <div class="search-box">
-            <input type="text" id="destinationSearch" placeholder="Search destinations..." aria-label="Search destinations">
-            <button onclick="searchDestinations()">Search</button>
+
+            <input
+                type="text"
+                id="destinationSearch"
+                placeholder="Search destinations..."
+                aria-label="Search destinations"
+            >
+
+            <button
+                type="button"
+                onclick="searchDestinations()">
+                Search
+            </button>
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- DESTINATIONS -->
 <section class="content-section">
+
     <div class="container">
+
         <div class="section-heading">
-            <h2>Popular Destinations</h2>
-            <p>Start planning your next journey with GhorCast.</p>
+
+            <h2>
+                Popular Destinations
+            </h2>
+
+            <p>
+                Start planning your next journey with GhorCast.
+            </p>
+
         </div>
+
 
         <div class="destination-grid">
+
+
+            <!-- SAUDI ARABIA -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20rock%20Al%20Ula,%20Saudi%20Arabia%202011.jpg?width=1200');"><span class="destination-badge">Popular</span></div>
-                <div class="destination-content"><span class="destination-country">Middle East</span><h3>Saudi Arabia</h3><p>Explore Makkah, Madinah, Riyadh, Jeddah and other remarkable destinations across Saudi Arabia.</p><a class="destination-button" href="hotels.html">Explore Hotels</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20rock%20Al%20Ula,%20Saudi%20Arabia%202011.jpg?width=1200');">
+
+                    <span class="destination-badge">
+                        Popular
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        Middle East
+                    </span>
+
+                    <h3>
+                        Saudi Arabia
+                    </h3>
+
+                    <p>
+                        Explore Makkah, Madinah, Riyadh, Jeddah and other
+                        remarkable destinations across Saudi Arabia.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="saudi-arabia.html">
+                        Explore Saudi Arabia
+                    </a>
+
+                </div>
+
             </article>
 
+
+            <!-- BANGLADESH -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Cox%27s%20Bazar%2C%20Bangladesh--The%20sea%20is%20calm.jpg?width=1200');"><span class="destination-badge">Trending</span></div>
-                <div class="destination-content"><span class="destination-country">South Asia</span><h3>Bangladesh</h3><p>Discover Cox's Bazar, Sylhet, Bandarban, Dhaka and the natural beauty of Bangladesh.</p><a class="destination-button" href="bangladesh-travel-guide.html">Explore Guide</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Cox%27s%20Bazar%2C%20Bangladesh--The%20sea%20is%20calm.jpg?width=1200');">
+
+                    <span class="destination-badge">
+                        Trending
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        South Asia
+                    </span>
+
+                    <h3>
+                        Bangladesh
+                    </h3>
+
+                    <p>
+                        Discover Cox's Bazar, Sylhet, Bandarban, Dhaka and
+                        the natural beauty of Bangladesh.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="bangladesh-travel-guide.html">
+                        Explore Bangladesh
+                    </a>
+
+                </div>
+
             </article>
 
+
+            <!-- UNITED ARAB EMIRATES -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Dubai%20Skyline%20mit%20Burj%20Khalifa%20%28cropped%29.jpg?width=1200');"><span class="destination-badge">Luxury</span></div>
-                <div class="destination-content"><span class="destination-country">Middle East</span><h3>United Arab Emirates</h3><p>Experience Dubai, Abu Dhabi, Sharjah and world-class hotels, shopping and attractions.</p><a class="destination-button" href="dubai-uae-guide.html">Explore Guide</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Dubai%20Skyline%20mit%20Burj%20Khalifa%20%28cropped%29.jpg?width=1200');">
+
+                    <span class="destination-badge">
+                        Luxury
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        Middle East
+                    </span>
+
+                    <h3>
+                        United Arab Emirates
+                    </h3>
+
+                    <p>
+                        Experience Dubai, Abu Dhabi, Sharjah and world-class
+                        hotels, shopping and attractions.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="dubai-uae-guide.html">
+                        Explore UAE
+                    </a>
+
+                </div>
+
             </article>
 
+
+            <!-- TURKEY -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Istanbul%2C%20Turkey%20%2810582815044%29.jpg?width=1200');"><span class="destination-badge">Featured</span></div>
-                <div class="destination-content"><span class="destination-country">Europe &amp; Asia</span><h3>Turkey</h3><p>Discover Istanbul, Cappadocia, Antalya and Turkey's fascinating history and culture.</p><a class="destination-button" href="turkey-guide.html">Explore Guide</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Istanbul%2C%20Turkey%20%2810582815044%29.jpg?width=1200');">
+
+                    <span class="destination-badge">
+                        Featured
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        Europe &amp; Asia
+                    </span>
+
+                    <h3>
+                        Turkey
+                    </h3>
+
+                    <p>
+                        Discover Istanbul, Cappadocia, Antalya and Turkey's
+                        fascinating history and culture.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="turkey-guide.html">
+                        Explore Turkey
+                    </a>
+
+                </div>
+
             </article>
 
+
+            <!-- MALAYSIA -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&amp;fit=crop&amp;w=1200&amp;q=80');"><span class="destination-badge">New</span></div>
-                <div class="destination-content"><span class="destination-country">Southeast Asia</span><h3>Malaysia</h3><p>Explore Kuala Lumpur, Langkawi, Penang and Malaysia's tropical landscapes.</p><a class="destination-button" href="hotels.html">Explore Hotels</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="destination-badge">
+                        New
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        Southeast Asia
+                    </span>
+
+                    <h3>
+                        Malaysia
+                    </h3>
+
+                    <p>
+                        Explore Kuala Lumpur, Langkawi, Penang and Malaysia's
+                        tropical landscapes.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="malaysia.html">
+                        Explore Malaysia
+                    </a>
+
+                </div>
+
             </article>
 
+
+            <!-- MALDIVES -->
             <article class="destination-card">
-                <div class="destination-image" style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80');"><span class="destination-badge">Beach</span></div>
-                <div class="destination-content"><span class="destination-country">Indian Ocean</span><h3>Maldives</h3><p>Relax among crystal-clear waters, beautiful islands and luxurious beach resorts.</p><a class="destination-button" href="hotels.html">Explore Hotels</a></div>
+
+                <div
+                    class="destination-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="destination-badge">
+                        Beach
+                    </span>
+
+                </div>
+
+                <div class="destination-content">
+
+                    <span class="destination-country">
+                        Indian Ocean
+                    </span>
+
+                    <h3>
+                        Maldives
+                    </h3>
+
+                    <p>
+                        Relax among crystal-clear waters, beautiful islands
+                        and luxurious beach resorts.
+                    </p>
+
+                    <a
+                        class="destination-button"
+                        href="maldives.html">
+                        Explore Maldives
+                    </a>
+
+                </div>
+
             </article>
+
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- CTA -->
 <section class="cta-section">
+
     <div class="container">
-        <h2>Ready for Your Next Adventure?</h2>
-        <p>Find hotels, discover destinations and explore travel opportunities with GhorCast.</p>
-        <a href="hotels.html" class="primary-button">Find Hotels</a>
+
+        <h2>
+            Ready for Your Next Adventure?
+        </h2>
+
+        <p>
+            Find hotels, discover destinations and explore travel
+            opportunities with GhorCast.
+        </p>
+
+        <a
+            href="hotels.html"
+            class="primary-button">
+            Find Hotels
+        </a>
+
     </div>
+
 </section>
 
+
+<!-- NEWSLETTER -->
 <section class="newsletter-section">
+
     <div class="container">
-        <h2>Stay Updated</h2>
-        <p>Get travel inspiration, hotel deals and the latest GhorCast updates.</p>
-        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Subscribe</button>
+
+        <h2>
+            Stay Updated
+        </h2>
+
+        <p>
+            Get travel inspiration, hotel deals and the latest
+            GhorCast updates.
+        </p>
+
+        <form
+            class="newsletter-form"
+            onsubmit="subscribeNewsletter(event)">
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                aria-label="Email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
         </form>
+
     </div>
+
 </section>
 
+
+<!-- FOOTER -->
 <footer class="site-footer">
+
     <div class="container footer-grid">
-        <div><h3>GhorCast</h3><p>Your growing platform for hotels, travel, news, articles, products and videos.</p></div>
-        <div><h4>Explore</h4><a href="hotels.html">Hotels</a><a href="deals.html">Deals</a><a href="destinations.html">Destinations</a></div>
-        <div><h4>Content</h4><a href="index.html#news">News</a><a href="index.html#articles">Articles</a><a href="index.html#videos">Videos</a></div>
-        <div><h4>GhorCast</h4><a href="index.html">Home</a><a href="#">About</a><a href="#">Contact</a></div>
+
+
+        <div>
+
+            <h3>
+                GhorCast
+            </h3>
+
+            <p>
+                Your growing platform for hotels, travel, news,
+                articles, products and videos.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Content
+            </h4>
+
+            <a href="index.html#news">
+                News
+            </a>
+
+            <a href="index.html#articles">
+                Articles
+            </a>
+
+            <a href="index.html#videos">
+                Videos
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                GhorCast
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
     </div>
-    <div class="footer-bottom"><p>© <span id="currentYear"></span> GhorCast. All rights reserved.</p></div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="currentYear"></span>
+            GhorCast. All rights reserved.
+        </p>
+
+    </div>
+
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".main-nav");
-    if (menuToggle && nav) menuToggle.addEventListener("click", function () { nav.classList.toggle("active"); });
-    const year = document.getElementById("currentYear");
-    if (year) year.textContent = new Date().getFullYear();
+
+    const menuToggle =
+        document.querySelector(".menu-toggle");
+
+    const nav =
+        document.querySelector(".main-nav");
+
+
+    if (menuToggle && nav) {
+
+        menuToggle.addEventListener("click", function () {
+
+            nav.classList.toggle("active");
+
+        });
+
+    }
+
+
+    const year =
+        document.getElementById("currentYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
 });
 
+
 function searchDestinations() {
-    const input = document.getElementById("destinationSearch");
-    const search = input.value.toLowerCase().trim();
-    const cards = document.querySelectorAll(".destination-card");
+
+    const input =
+        document.getElementById("destinationSearch");
+
+    const search =
+        input.value.toLowerCase().trim();
+
+    const cards =
+        document.querySelectorAll(".destination-card");
+
     let found = false;
+
+
     cards.forEach(function (card) {
-        const text = card.textContent.toLowerCase();
-        const visible = !search || text.includes(search);
-        card.style.display = visible ? "" : "none";
-        if (visible) found = true;
+
+        const text =
+            card.textContent.toLowerCase();
+
+        const visible =
+            !search || text.includes(search);
+
+        card.style.display =
+            visible ? "" : "none";
+
+
+        if (visible) {
+
+            found = true;
+
+        }
+
     });
-    if (!found) alert("No destination found. Try another search.");
+
+
+    if (!found) {
+
+        alert(
+            "No destination found. Try another search."
+        );
+
+    }
+
 }
+
 </script>
+
 </body>
 </html>
+```
