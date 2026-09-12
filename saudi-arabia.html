@@ -10,9 +10,83 @@
           content="Explore Saudi Arabia with GhorCast. Discover Makkah, Madinah, Riyadh, Jeddah, AlUla, Diriyah, Taif, Abha, Dammam, Al Khobar, Farasan Islands, the Red Sea and more.">
 
     <link rel="stylesheet" href="style.css">
+<style>
 
+    
+    /* =================================
+       MAKKAH TRANSPORT OPTIONS
+       ================================= */
 
-    <style>
+.saudi-transport-options {
+    display: grid;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.saudi-transport-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+}
+
+.transport-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 12px;
+    font-size: 28px;
+}
+
+.transport-info {
+    flex: 1;
+}
+
+.transport-info h4 {
+    margin: 0 0 8px;
+    color: #17202a;
+    font-size: 18px;
+}
+
+.transport-info p {
+    margin: 0 0 12px;
+    line-height: 1.6;
+}
+
+.transport-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.transport-details span {
+    display: inline-block;
+    padding: 7px 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #17202a;
+}
+
+.saudi-transport-note {
+    margin-top: 18px;
+    padding: 12px 15px;
+    background: #fffaf0;
+    border-left: 4px solid #c79a4b;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+    
+
 
         /* ================================
            SAUDI ARABIA GUIDE
@@ -1146,21 +1220,112 @@
 
             <div class="saudi-guide-card">
 
-                <h3>How to Get to Makkah</h3>
+               <!-- HOW TO GET THERE -->
+
+<div class="saudi-guide-card saudi-transport-card">
+
+    <h3>🚆 Jeddah to Makkah</h3>
+
+    <p>
+        Jeddah is one of the main gateways to Makkah. Travelers can
+        reach Makkah by high-speed train, taxi, private transfer or bus.
+    </p>
+
+    <div class="saudi-transport-options">
+
+        <!-- TRAIN -->
+
+        <div class="saudi-transport-option">
+
+            <div class="transport-icon">🚆</div>
+
+            <div class="transport-info">
+
+                <h4>Haramain High-Speed Railway</h4>
 
                 <p>
-                    Most international visitors arrive in Saudi Arabia through
-                    Jeddah and continue to Makkah by train, taxi, private car
-                    or bus.
+                    The fastest and most comfortable option from Jeddah
+                    to Makkah. Trains connect Jeddah Airport, Jeddah
+                    and Makkah.
                 </p>
 
-                <ul>
-                    <li>Jeddah to Makkah by Haramain High-Speed Railway</li>
-                    <li>Taxi or private transfer from Jeddah</li>
-                    <li>Bus services are also available</li>
-                </ul>
+                <div class="transport-details">
+
+                    <span>⏱️ About 30–45 min</span>
+
+                    <span>💰 Average: SAR 65–100</span>
+
+                </div>
 
             </div>
+
+        </div>
+
+
+        <!-- TAXI -->
+
+        <div class="saudi-transport-option">
+
+            <div class="transport-icon">🚕</div>
+
+            <div class="transport-info">
+
+                <h4>Taxi / Private Transfer</h4>
+
+                <p>
+                    Taxis and private transfers are available directly
+                    from Jeddah to your hotel or accommodation in Makkah.
+                </p>
+
+                <div class="transport-details">
+
+                    <span>⏱️ About 1–1.5 hours</span>
+
+                    <span>💰 Average: SAR 200–350</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUS -->
+
+        <div class="saudi-transport-option">
+
+            <div class="transport-icon">🚌</div>
+
+            <div class="transport-info">
+
+                <h4>Bus Services</h4>
+
+                <p>
+                    Bus services are also available between Jeddah
+                    and Makkah and can be a more economical option.
+                </p>
+
+                <div class="transport-details">
+
+                    <span>⏱️ About 1.5–2 hours</span>
+
+                    <span>💰 Average: SAR 15–40</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="saudi-transport-note">
+        <strong>Note:</strong> Fares and travel times are approximate
+        and may vary depending on travel date, booking class, traffic,
+        season and service provider.
+    </p>
+
+</div>
 
 
             <!-- LOCAL TRANSPORT -->
