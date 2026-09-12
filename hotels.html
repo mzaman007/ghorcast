@@ -2,119 +2,56 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <title>Hotels | GhorCast</title>
 
-    <title>
-        Hotels | GhorCast
-    </title>
+    <meta name="description"
+        content="Discover hotels, resorts and accommodation options around the world with GhorCast. Explore stays in Makkah, Madinah, Saudi Arabia, UAE, Bangladesh and Turkey.">
 
-    <meta
-        name="description"
-        content="Discover hotels, resorts and accommodation options around the world with GhorCast.">
-
-    <link
-        rel="stylesheet"
-        href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
-<!-- =================================
+<!-- =========================================================
      HEADER
-================================= -->
+========================================================= -->
 
 <header class="header">
-
     <div class="container nav-container">
 
-        <a
-            href="index.html"
-            class="logo">
-
-            <span>
-                Ghor
-            </span>
-
-            <strong>
-                Cast
-            </strong>
-
+        <a href="index.html" class="logo">
+            <span>Ghor</span>
+            <strong>Cast</strong>
         </a>
 
-
         <nav class="navigation">
-
-            <a
-                href="hotels.html">
-
-                Hotels
-
-            </a>
-
-            <a
-                href="deals.html">
-
-                Deals
-
-            </a>
-
-            <a
-                href="destinations.html">
-
-                Destinations
-
-            </a>
-
-            <a
-                href="news.html">
-
-                News
-
-            </a>
-
-            <a
-                href="articles.html">
-
-                Articles
-
-            </a>
-
-            <a
-                href="videos.html">
-
-                Videos
-
-            </a>
-
+            <a href="hotels.html">Hotels</a>
+            <a href="deals.html">Deals</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="news.html">News</a>
+            <a href="articles.html">Articles</a>
+            <a href="videos.html">Videos</a>
         </nav>
 
-
-        <button
-            class="menu-button"
-            id="menuButton">
-
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
             ☰
-
         </button>
 
     </div>
-
 </header>
 
 
-<!-- =================================
+<!-- =========================================================
      HERO
-================================= -->
+========================================================= -->
 
-<section
-    class="hero"
+<section class="hero"
     style="
         min-height:480px;
         background-image:
@@ -132,35 +69,20 @@
     <div class="container hero-content">
 
         <p class="hero-small-title">
-
             GHORCAST HOTELS
-
         </p>
-
 
         <h1>
-
-            Find Your
-            <br>
-
-            <span>
-                Perfect Stay
-            </span>
-
+            Find Your<br>
+            <span>Perfect Stay</span>
         </h1>
 
-
         <p class="hero-description">
-
             Discover hotels, resorts and comfortable accommodation
             for your next journey.
-
         </p>
 
-
-        <form
-            class="search-box"
-            onsubmit="searchHotels(event)">
+        <form class="search-box" onsubmit="searchHotels(event)">
 
             <input
                 type="search"
@@ -168,12 +90,8 @@
                 placeholder="Search hotel or destination..."
                 aria-label="Search hotel or destination">
 
-
-            <button
-                type="submit">
-
+            <button type="submit">
                 Search
-
             </button>
 
         </form>
@@ -183,35 +101,24 @@
 </section>
 
 
-<!-- =================================
+<!-- =========================================================
      HOTEL LIST
-================================= -->
+========================================================= -->
 
-<section
-    class="section"
-    id="hotel-list">
+<section class="section" id="hotel-list">
 
     <div class="container">
-
 
         <div class="section-heading">
 
             <div>
 
-                <p
-                    class="eyebrow"
-                    id="hotelEyebrow">
-
+                <p class="eyebrow" id="hotelEyebrow">
                     STAY SOMEWHERE SPECIAL
-
                 </p>
 
-
-                <h2
-                    id="hotelHeading">
-
+                <h2 id="hotelHeading">
                     Featured Hotels
-
                 </h2>
 
             </div>
@@ -222,179 +129,51 @@
         <div class="card-grid">
 
 
-            <!-- =================================
-                 LUXURY GRAND HOTEL
-            ================================= -->
-
-            <article
-                class="hotel-card">
-
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
-
-                    <span
-                        class="card-badge">
-
-                        Featured
-
-                    </span>
-
-                </div>
+            <!-- =================================================
+                 MAKKAH HOTELS
+            ================================================== -->
 
 
-                <div class="card-content">
+            <!-- ROYAL VIEW HOTEL -->
+            <article class="hotel-card">
 
-                    <p
-                        class="location">
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80');">
 
-                        📍 Dubai, UAE
-
-                    </p>
-
-
-                    <h3>
-
-                        Luxury Grand Hotel
-
-                    </h3>
-
-
-                    <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.8
-                        </span>
-
-                    </div>
-
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        A premium hotel experience with comfortable
-                        rooms and excellent facilities.
-
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <strong>
-
-                            From $120/night
-
-                        </strong>
-
-
-                        <a
-                            href="luxury-grand-hotel.html"
-                            class="view-button">
-
-                            View Hotel
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- =================================
-                 ROYAL VIEW HOTEL
-            ================================= -->
-
-            <article
-                class="hotel-card">
-
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
-
-                    <span
-                        class="card-badge">
-
+                    <span class="card-badge">
                         Popular
-
                     </span>
 
                 </div>
 
-
                 <div class="card-content">
 
-                    <p
-                        class="location">
-
+                    <p class="location">
                         📍 Makkah, Saudi Arabia
-
                     </p>
 
-
                     <h3>
-
                         Royal View Hotel
-
                     </h3>
 
-
                     <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.7
-                        </span>
-
+                        ★★★★★ <span>4.7</span>
                     </div>
 
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        A comfortable accommodation option
-                        for visitors to Makkah.
-
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A comfortable accommodation option for visitors
+                        traveling to Makkah.
                     </p>
-
 
                     <div class="card-footer">
 
                         <strong>
-
                             From $95/night
-
                         </strong>
 
-
-                        <a
-                            href="royal-view-hotel.html"
-                            class="view-button">
-
+                        <a href="royal-view-hotel.html"
+                           class="view-button">
                             View Hotel
-
                         </a>
 
                     </div>
@@ -404,88 +183,46 @@
             </article>
 
 
-            <!-- =================================
-                 OCEAN PARADISE RESORT
-            ================================= -->
+            <!-- MAKKAH GRAND STAY -->
+            <article class="hotel-card">
 
-            <article
-                class="hotel-card">
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80');">
 
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
-
-                    <span
-                        class="card-badge">
-
-                        New
-
+                    <span class="card-badge">
+                        Makkah
                     </span>
 
                 </div>
 
-
                 <div class="card-content">
 
-                    <p
-                        class="location">
-
-                        📍 Cox's Bazar, Bangladesh
-
+                    <p class="location">
+                        📍 Makkah, Saudi Arabia
                     </p>
-
 
                     <h3>
-
-                        Ocean Paradise Resort
-
+                        Makkah Grand Stay
                     </h3>
 
-
                     <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.6
-                        </span>
-
+                        ★★★★★ <span>4.6</span>
                     </div>
 
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        Enjoy a relaxing beach experience
-                        at Cox's Bazar.
-
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A convenient stay option for pilgrims and visitors
+                        exploring the holy city.
                     </p>
-
 
                     <div class="card-footer">
 
                         <strong>
-
-                            From $70/night
-
+                            From $105/night
                         </strong>
 
-
-                        <a
-                            href="ocean-paradise-resort.html"
-                            class="view-button">
-
+                        <a href="hotel.html"
+                           class="view-button">
                             View Hotel
-
                         </a>
 
                     </div>
@@ -495,179 +232,95 @@
             </article>
 
 
-            <!-- =================================
-                 ISTANBUL GRAND STAY
-            ================================= -->
+            <!-- HARAM VIEW RESIDENCE -->
+            <article class="hotel-card">
 
-            <article
-                class="hotel-card">
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80');">
 
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
+                    <span class="card-badge">
+                        Featured
+                    </span>
 
-                    <span
-                        class="card-badge">
+                </div>
 
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Makkah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Haram View Residence
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.7</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A modern accommodation concept designed for
+                        comfortable stays in Makkah.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $115/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MAKKAH PALACE HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
                         Recommended
-
                     </span>
 
                 </div>
 
-
                 <div class="card-content">
 
-                    <p
-                        class="location">
-
-                        📍 Istanbul, Turkey
-
+                    <p class="location">
+                        📍 Makkah, Saudi Arabia
                     </p>
-
 
                     <h3>
-
-                        Istanbul Grand Stay
-
+                        Makkah Palace Hotel
                     </h3>
 
-
                     <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.7
-                        </span>
-
+                        ★★★★★ <span>4.6</span>
                     </div>
 
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        Discover comfortable accommodation
-                        in the heart of Istanbul.
-
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        Comfortable rooms and convenient facilities
+                        for travelers visiting Makkah.
                     </p>
-
 
                     <div class="card-footer">
 
                         <strong>
-
-                            From $85/night
-
-                        </strong>
-
-
-                        <a
-                            href="istanbul-grand-stay.html"
-                            class="view-button">
-
-                            View Hotel
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- =================================
-                 ABU DHABI PALACE HOTEL
-            ================================= -->
-
-            <article
-                class="hotel-card">
-
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
-
-                    <span
-                        class="card-badge">
-
-                        Popular
-
-                    </span>
-
-                </div>
-
-
-                <div class="card-content">
-
-                    <p
-                        class="location">
-
-                        📍 Abu Dhabi, UAE
-
-                    </p>
-
-
-                    <h3>
-
-                        Abu Dhabi Palace Hotel
-
-                    </h3>
-
-
-                    <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.8
-                        </span>
-
-                    </div>
-
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        Modern hospitality, premium rooms
-                        and convenient facilities.
-
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <strong>
-
                             From $110/night
-
                         </strong>
 
-
-                        <a
-                            href="abu-dhabi-palace-hotel.html"
-                            class="view-button">
-
+                        <a href="hotel.html"
+                           class="view-button">
                             View Hotel
-
                         </a>
 
                     </div>
@@ -677,88 +330,810 @@
             </article>
 
 
-            <!-- =================================
-                 MADINAH COMFORT HOTEL
-            ================================= -->
+            <!-- AL SAFWA COMFORT HOTEL -->
+            <article class="hotel-card">
 
-            <article
-                class="hotel-card">
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80');">
 
-                <div
-                    class="card-image"
-                    style="
-                        background-image:
-                            url(
-                                'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80'
-                            );
-                    ">
-
-                    <span
-                        class="card-badge">
-
+                    <span class="card-badge">
                         Special
-
                     </span>
 
                 </div>
 
-
                 <div class="card-content">
 
-                    <p
-                        class="location">
-
-                        📍 Madinah, Saudi Arabia
-
+                    <p class="location">
+                        📍 Makkah, Saudi Arabia
                     </p>
-
 
                     <h3>
-
-                        Madinah Comfort Hotel
-
+                        Al Safwa Comfort Hotel
                     </h3>
 
-
                     <div class="rating">
-
-                        ★★★★★
-
-                        <span>
-                            4.8
-                        </span>
-
+                        ★★★★★ <span>4.5</span>
                     </div>
 
-
-                    <p
-                        style="
-                            color:#777;
-                            line-height:1.6;
-                            margin:12px 0;
-                        ">
-
-                        A comfortable accommodation option
-                        for visitors to Madinah.
-
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A practical accommodation choice for pilgrims
+                        and families visiting Makkah.
                     </p>
-
 
                     <div class="card-footer">
 
                         <strong>
-
                             From $90/night
-
                         </strong>
 
-
-                        <a
-                            href="madinah-comfort-hotel.html"
-                            class="view-button">
-
+                        <a href="hotel.html"
+                           class="view-button">
                             View Hotel
+                        </a>
 
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 MADINAH HOTELS
+            ================================================== -->
+
+
+            <!-- MADINAH COMFORT HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Special
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Madinah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Madinah Comfort Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A comfortable accommodation option for visitors
+                        traveling to Madinah.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $90/night
+                        </strong>
+
+                        <a href="madinah-comfort-hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MADINAH GRAND RESIDENCE -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Madinah
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Madinah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Madinah Grand Residence
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.7</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A comfortable stay concept for pilgrims and
+                        families visiting the Prophet's City.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $98/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GREEN DOME STAY -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Popular
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Madinah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Green Dome Stay
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.6</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A welcoming accommodation concept for travelers
+                        exploring historic Madinah.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $92/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MADINAH PALACE HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Madinah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Madinah Palace Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.7</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A refined accommodation option for visitors
+                        staying in Madinah.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $105/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 OTHER SAUDI ARABIA
+            ================================================== -->
+
+
+            <!-- RIYADH SKYLINE HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Saudi Arabia
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Riyadh, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Riyadh Skyline Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.6</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A modern city accommodation concept in the
+                        capital of Saudi Arabia.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $100/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- JEDDAH CORNICHE HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        New
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Jeddah, Saudi Arabia
+                    </p>
+
+                    <h3>
+                        Jeddah Corniche Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.5</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A contemporary stay concept for travelers
+                        exploring Jeddah and the Red Sea coast.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $88/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 UAE HOTELS
+            ================================================== -->
+
+
+            <!-- LUXURY GRAND HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Featured
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Dubai, UAE
+                    </p>
+
+                    <h3>
+                        Luxury Grand Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A premium hotel experience with comfortable rooms
+                        and excellent facilities.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $120/night
+                        </strong>
+
+                        <a href="luxury-grand-hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DUBAI MARINA STAY -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Dubai
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Dubai, UAE
+                    </p>
+
+                    <h3>
+                        Dubai Marina Stay
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.7</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A stylish accommodation concept for travelers
+                        visiting modern Dubai.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $115/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ABU DHABI PALACE HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Popular
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Abu Dhabi, UAE
+                    </p>
+
+                    <h3>
+                        Abu Dhabi Palace Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        Modern hospitality, premium rooms and convenient
+                        facilities in Abu Dhabi.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $110/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DOWNTOWN DUBAI RESIDENCE -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Dubai, UAE
+                    </p>
+
+                    <h3>
+                        Downtown Dubai Residence
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.6</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A convenient accommodation concept for visitors
+                        exploring Downtown Dubai.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $125/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 BANGLADESH HOTELS
+            ================================================== -->
+
+
+            <!-- OCEAN PARADISE RESORT -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        New
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Cox's Bazar, Bangladesh
+                    </p>
+
+                    <h3>
+                        Ocean Paradise Resort
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.6</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        Enjoy a relaxing beach experience at Cox's Bazar.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $70/night
+                        </strong>
+
+                        <a href="ocean-paradise-resort.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DHAKA GRAND HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Bangladesh
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Dhaka, Bangladesh
+                    </p>
+
+                    <h3>
+                        Dhaka Grand Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.5</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A comfortable city accommodation concept for
+                        business and leisure travelers.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $65/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- COX'S BAZAR BEACH RESORT -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Beach
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Cox's Bazar, Bangladesh
+                    </p>
+
+                    <h3>
+                        Cox's Bazar Beach Resort
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.5</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A relaxed coastal accommodation concept near
+                        one of Bangladesh's most popular beaches.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $60/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 TURKEY HOTELS
+            ================================================== -->
+
+
+            <!-- ISTANBUL GRAND STAY -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Istanbul, Turkey
+                    </p>
+
+                    <h3>
+                        Istanbul Grand Stay
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.7</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        Discover comfortable accommodation in the
+                        heart of Istanbul.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $85/night
+                        </strong>
+
+                        <a href="istanbul-grand-stay.html"
+                           class="view-button">
+                            View Hotel
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BOSPHORUS VIEW HOTEL -->
+            <article class="hotel-card">
+
+                <div class="card-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80');">
+
+                    <span class="card-badge">
+                        Turkey
+                    </span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="location">
+                        📍 Istanbul, Turkey
+                    </p>
+
+                    <h3>
+                        Bosphorus View Hotel
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>4.6</span>
+                    </div>
+
+                    <p style="color:#777;line-height:1.6;margin:12px 0;">
+                        A stylish accommodation concept for travelers
+                        discovering Istanbul.
+                    </p>
+
+                    <div class="card-footer">
+
+                        <strong>
+                            From $90/night
+                        </strong>
+
+                        <a href="hotel.html"
+                           class="view-button">
+                            View Hotel
                         </a>
 
                     </div>
@@ -775,42 +1150,29 @@
 </section>
 
 
-<!-- =================================
+
+<!-- =========================================================
      WHY GHORCAST
-================================= -->
+========================================================= -->
 
 <section class="deals-section">
 
     <div class="container">
 
-
         <div class="deal-content">
 
             <p class="eyebrow">
-
                 WHY GHORCAST
-
             </p>
 
-
             <h2>
-
-                Discover Better
-                <br>
-
-                <span>
-                    Hotel Experiences
-                </span>
-
+                Discover Better<br>
+                <span>Hotel Experiences</span>
             </h2>
 
-
             <p>
-
-                GhorCast brings hotels, destinations,
-                travel information and special offers
-                together in one place.
-
+                GhorCast brings hotels, destinations, travel information
+                and special offers together in one place.
             </p>
 
         </div>
@@ -818,29 +1180,13 @@
 
         <div class="deal-visual">
 
-            <div
-                class="deal-circle"
-                role="button"
-                tabindex="0"
-                onclick="
-                    document
-                        .getElementById('hotel-list')
-                        .scrollIntoView({
-                            behavior:'smooth'
-                        });
-                "
-                onkeydown="
-                    if(
-                        event.key==='Enter' ||
-                        event.key===' '
-                    ){
-                        event.preventDefault();
-                        this.click();
-                    }
-                ">
+            <div class="deal-circle"
+                 role="button"
+                 tabindex="0"
+                 onclick="document.getElementById('hotel-list').scrollIntoView({behavior:'smooth'});"
+                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
 
-                HOTEL
-                <br>
+                HOTEL<br>
                 DISCOVERY
 
             </div>
@@ -852,41 +1198,30 @@
 </section>
 
 
-<!-- =================================
+
+<!-- =========================================================
      NEWSLETTER
-================================= -->
+========================================================= -->
 
 <section class="newsletter">
 
     <div class="container">
 
         <p class="eyebrow">
-
             GHORCAST NEWSLETTER
-
         </p>
-
 
         <h2>
-
-            Travel inspiration
-            delivered to you.
-
+            Travel inspiration delivered to you.
         </h2>
 
-
         <p>
-
-            Subscribe for hotel deals,
-            travel stories, destinations
+            Subscribe for hotel deals, travel stories, destinations
             and useful updates.
-
         </p>
 
-
-        <form
-            class="newsletter-form"
-            onsubmit="subscribeNewsletter(event)">
+        <form class="newsletter-form"
+              onsubmit="subscribeNewsletter(event)">
 
             <input
                 type="email"
@@ -894,12 +1229,8 @@
                 placeholder="Your email address"
                 required>
 
-
-            <button
-                type="submit">
-
+            <button type="submit">
                 Subscribe
-
             </button>
 
         </form>
@@ -909,158 +1240,99 @@
 </section>
 
 
-<!-- =================================
+
+<!-- =========================================================
      FOOTER
-================================= -->
+========================================================= -->
 
 <footer class="footer">
 
     <div class="container footer-grid">
 
 
+        <!-- BRAND -->
         <div>
 
-            <a
-                href="index.html"
-                class="logo footer-logo">
+            <a href="index.html"
+               class="logo footer-logo">
 
-                <span>
-                    Ghor
-                </span>
-
-                <strong>
-                    Cast
-                </strong>
+                <span>Ghor</span>
+                <strong>Cast</strong>
 
             </a>
 
-
             <p>
-
-                Hotels, travel, news, stories,
-                products and experiences.
-
+                Hotels, travel, news, stories and experiences.
             </p>
 
         </div>
 
 
+        <!-- EXPLORE -->
         <div>
 
             <h4>
-
                 Explore
-
             </h4>
 
-
-            <a
-                href="hotels.html">
-
+            <a href="hotels.html">
                 Hotels
-
             </a>
 
-
-            <a
-                href="deals.html">
-
+            <a href="deals.html">
                 Hotel Deals
-
             </a>
 
-
-            <a
-                href="destinations.html">
-
+            <a href="destinations.html">
                 Destinations
-
             </a>
 
-
-            <a
-                href="articles.html">
-
+            <a href="articles.html">
                 Articles
-
             </a>
 
         </div>
 
 
+        <!-- MEDIA -->
         <div>
 
             <h4>
-
                 Media
-
             </h4>
 
-
-            <a
-                href="news.html">
-
+            <a href="news.html">
                 News
-
             </a>
 
-
-            <a
-                href="videos.html">
-
+            <a href="videos.html">
                 Videos
-
-            </a>
-
-
-            <a
-                href="products.html">
-
-                Products
-
             </a>
 
         </div>
 
 
+        <!-- GHORCAST -->
         <div>
 
             <h4>
-
                 GhorCast
-
             </h4>
 
-
-            <a
-                href="about.html">
-
+            <a href="about.html">
                 About Us
-
             </a>
 
-
-            <a
-                href="contact.html">
-
+            <a href="contact.html">
                 Contact
-
             </a>
 
-
-            <a
-                href="privacy.html">
-
+            <a href="privacy.html">
                 Privacy Policy
-
             </a>
 
-
-            <a
-                href="terms.html">
-
+            <a href="terms.html">
                 Terms
-
             </a>
 
         </div>
@@ -1071,10 +1343,7 @@
     <div class="footer-bottom">
 
         <p>
-
-            © 2026 GhorCast.
-            All rights reserved.
-
+            © 2026 GhorCast. All rights reserved.
         </p>
 
     </div>
@@ -1082,119 +1351,98 @@
 </footer>
 
 
-<!-- =================================
+
+<!-- =========================================================
      JAVASCRIPT
-================================= -->
+========================================================= -->
 
 <script>
 
 
-/* =================================
+/* =========================================================
    HOTEL SEARCH
-================================= */
+========================================================= */
 
-function searchHotels(event){
+function searchHotels(event) {
 
-    if(event){
-
+    if (event) {
         event.preventDefault();
-
     }
 
-
     const searchInput =
-        document.getElementById(
-            'hotelSearch'
-        );
-
+        document.getElementById('hotelSearch');
 
     const searchText =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
+        searchInput.value.trim().toLowerCase();
 
     const hotels =
-        document.querySelectorAll(
-            '.hotel-card'
-        );
+        document.querySelectorAll('.hotel-card');
 
 
-    if(!searchText){
+    /* Show everything when search is empty */
 
-        hotels.forEach(
-            hotel => {
+    if (!searchText) {
 
-                hotel.style.display = '';
-
-            }
-        );
+        hotels.forEach(hotel => {
+            hotel.style.display = '';
+        });
 
         return;
-
     }
 
 
     let found = false;
 
 
-    hotels.forEach(
-        hotel => {
+    hotels.forEach(hotel => {
 
-            const matches =
-                hotel.innerText
-                    .toLowerCase()
-                    .includes(searchText);
-
-
-            hotel.style.display =
-                matches ? '' : 'none';
+        const matches =
+            hotel.innerText
+                .toLowerCase()
+                .includes(searchText);
 
 
-            if(matches && !found){
+        hotel.style.display =
+            matches ? '' : 'none';
 
-                hotel.scrollIntoView({
 
-                    behavior: 'smooth',
+        if (matches && !found) {
 
-                    block: 'center'
+            hotel.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
 
-                });
-
-                found = true;
-
-            }
-
+            found = true;
         }
-    );
+
+    });
 
 
-    if(!found){
+    /* Nothing found */
+
+    if (!found) {
 
         alert(
             'No hotel found for: ' +
             searchText
         );
 
-
-        hotels.forEach(
-            hotel => {
-
-                hotel.style.display = '';
-
-            }
-        );
+        hotels.forEach(hotel => {
+            hotel.style.display = '';
+        });
 
     }
 
 }
 
 
-/* =================================
-   MAKKAH HOTEL FILTER
-================================= */
 
-function filterMakkahHotels(){
+/* =========================================================
+   MAKKAH HOTEL FILTER
+========================================================= */
+
+function filterMakkahHotels() {
 
     const destination =
         sessionStorage.getItem(
@@ -1202,61 +1450,46 @@ function filterMakkahHotels(){
         );
 
 
-    if(destination !== 'makkah'){
+    /* Only activate when destination is Makkah */
 
+    if (destination !== 'makkah') {
         return;
-
     }
 
 
     const hotels =
-        document.querySelectorAll(
-            '.hotel-card'
-        );
-
+        document.querySelectorAll('.hotel-card');
 
     const heading =
-        document.getElementById(
-            'hotelHeading'
-        );
-
+        document.getElementById('hotelHeading');
 
     const eyebrow =
-        document.getElementById(
-            'hotelEyebrow'
-        );
-
+        document.getElementById('hotelEyebrow');
 
     const searchInput =
-        document.getElementById(
-            'hotelSearch'
-        );
+        document.getElementById('hotelSearch');
 
 
-    hotels.forEach(
-        hotel => {
+    hotels.forEach(hotel => {
 
-            const location =
-                hotel.querySelector(
-                    '.location'
-                );
+        const location =
+            hotel.querySelector('.location');
 
 
-            const isMakkah =
-                location &&
-                location.innerText
-                    .toLowerCase()
-                    .includes('makkah');
+        const isMakkah =
+            location &&
+            location.innerText
+                .toLowerCase()
+                .includes('makkah');
 
 
-            hotel.style.display =
-                isMakkah ? '' : 'none';
+        hotel.style.display =
+            isMakkah ? '' : 'none';
 
-        }
-    );
+    });
 
 
-    if(heading){
+    if (heading) {
 
         heading.textContent =
             'Makkah Hotels';
@@ -1264,7 +1497,7 @@ function filterMakkahHotels(){
     }
 
 
-    if(eyebrow){
+    if (eyebrow) {
 
         eyebrow.textContent =
             'STAY IN MAKKAH';
@@ -1272,7 +1505,7 @@ function filterMakkahHotels(){
     }
 
 
-    if(searchInput){
+    if (searchInput) {
 
         searchInput.value = '';
 
@@ -1282,14 +1515,7 @@ function filterMakkahHotels(){
     }
 
 
-    /*
-        Clear the destination flag
-        after applying the filter.
-
-        This means that if the visitor
-        later opens hotels.html normally,
-        all hotels will appear again.
-    */
+    /* Remove the session flag after applying filter */
 
     sessionStorage.removeItem(
         'ghorcastHotelDestination'
@@ -1298,11 +1524,12 @@ function filterMakkahHotels(){
 }
 
 
-/* =================================
-   NEWSLETTER
-================================= */
 
-function subscribeNewsletter(event){
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+function subscribeNewsletter(event) {
 
     event.preventDefault();
 
@@ -1313,10 +1540,8 @@ function subscribeNewsletter(event){
         );
 
 
-    if(!input.value.trim()){
-
+    if (!input.value.trim()) {
         return;
-
     }
 
 
@@ -1330,15 +1555,15 @@ function subscribeNewsletter(event){
 }
 
 
-/* =================================
+
+/* =========================================================
    MOBILE MENU
-================================= */
+========================================================= */
 
 const menuButton =
     document.getElementById(
         'menuButton'
     );
-
 
 const navigation =
     document.querySelector(
@@ -1346,7 +1571,7 @@ const navigation =
     );
 
 
-if(menuButton && navigation){
+if (menuButton && navigation) {
 
     menuButton.addEventListener(
         'click',
@@ -1361,30 +1586,23 @@ if(menuButton && navigation){
             navigation.style.display =
                 open ? 'flex' : '';
 
-
             navigation.style.flexDirection =
                 open ? 'column' : '';
-
 
             navigation.style.position =
                 open ? 'absolute' : '';
 
-
             navigation.style.top =
                 open ? '70px' : '';
-
 
             navigation.style.right =
                 open ? '20px' : '';
 
-
             navigation.style.background =
                 open ? '#fff' : '';
 
-
             navigation.style.padding =
                 open ? '20px' : '';
-
 
             navigation.style.gap =
                 open ? '15px' : '';
@@ -1401,9 +1619,10 @@ if(menuButton && navigation){
 }
 
 
-/* =================================
-   START HOTEL PAGE
-================================= */
+
+/* =========================================================
+   START MAKKAH FILTER
+========================================================= */
 
 filterMakkahHotels();
 
@@ -1411,5 +1630,4 @@ filterMakkahHotels();
 </script>
 
 </body>
-
 </html>
