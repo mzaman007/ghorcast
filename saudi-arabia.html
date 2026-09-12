@@ -1732,6 +1732,38 @@ function toggleMenu() {
 
 }
 
+    function openMakkahGuide() {
+    const modal = document.getElementById("makkahGuideModal");
+
+    if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeMakkahGuide() {
+    const modal = document.getElementById("makkahGuideModal");
+
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+}
+
+document.addEventListener("click", function(event) {
+    const modal = document.getElementById("makkahGuideModal");
+
+    if (modal && event.target === modal) {
+        closeMakkahGuide();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeMakkahGuide();
+    }
+});
+    
 </script>
 
 
