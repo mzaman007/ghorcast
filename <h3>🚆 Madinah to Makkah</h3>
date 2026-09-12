@@ -1221,116 +1221,239 @@
                  HOW TO GET THERE
             ================================= -->
 
-            <div class="saudi-guide-card saudi-transport-card">
+            <!-- =================================
+                 JEDDAH TO MAKKAH
+             ================================= -->
 
-                <h3>🚆 Jeddah to Makkah</h3>
+<div class="saudi-guide-card saudi-transport-card">
 
-                <p>
-                    Jeddah is one of the main gateways to Makkah. Travelers can
-                    reach Makkah by high-speed train, taxi, private transfer or bus.
-                </p>
+<h3>🚆 Jeddah to Makkah</h3>
 
-
-                <div class="saudi-transport-options">
-
-
-                    <!-- TRAIN -->
-
-                    <div class="saudi-transport-option">
-
-                        <div class="transport-icon">🚆</div>
-
-                        <div class="transport-info">
-
-                            <h4>Haramain High-Speed Railway</h4>
-
-                            <p>
-                                The fastest and most comfortable option from Jeddah
-                                to Makkah. Trains connect Jeddah Airport, Jeddah
-                                and Makkah.
-                            </p>
-
-                            <div class="transport-details">
-
-                                <span>⏱️ About 30–45 min</span>
-
-                                <span>💰 Approximate fare</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+<p>
+    Jeddah is one of the main gateways to Makkah. Travelers can
+    reach Makkah by high-speed train, taxi, private transfer or bus.
+</p>
 
 
-                    <!-- TAXI -->
-
-                    <div class="saudi-transport-option">
-
-                        <div class="transport-icon">🚕</div>
-
-                        <div class="transport-info">
-
-                            <h4>Taxi / Private Transfer</h4>
-
-                            <p>
-                                Taxis and private transfers are available directly
-                                from Jeddah to your hotel or accommodation in Makkah.
-                            </p>
-
-                            <div class="transport-details">
-
-                                <span>⏱️ About 1–1.5 hours</span>
-
-                                <span>💰 Fare varies</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+<div class="saudi-transport-options">
 
 
-                    <!-- BUS -->
+    <!-- TRAIN -->
 
-                    <div class="saudi-transport-option">
+    <div class="saudi-transport-option">
 
-                        <div class="transport-icon">🚌</div>
+        <div class="transport-icon">🚆</div>
 
-                        <div class="transport-info">
+        <div class="transport-info">
 
-                            <h4>Bus Services</h4>
+            <h4>Haramain High-Speed Railway</h4>
 
-                            <p>
-                                Bus services are also available between Jeddah
-                                and Makkah and can be a more economical option.
-                            </p>
+            <p>
+                The fastest and most comfortable option from Jeddah
+                to Makkah. Trains connect Jeddah Airport, Jeddah
+                and Makkah.
+            </p>
 
-                            <div class="transport-details">
+            <div class="transport-details">
 
-                                <span>⏱️ About 1.5–2 hours</span>
+                <span>⏱️ About 30–45 min</span>
 
-                                <span>💰 Fare varies</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-                <p class="saudi-transport-note">
-
-                    <strong>Note:</strong> Fares and travel times are approximate
-                    and may vary depending on travel date, booking class, traffic,
-                    season and service provider.
-
-                </p>
+                <span>💰 Approximate fare</span>
 
             </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TAXI -->
+
+    <div class="saudi-transport-option">
+
+        <div class="transport-icon">🚕</div>
+
+        <div class="transport-info">
+
+            <h4>Taxi / Private Transfer</h4>
+
+            <p>
+                Taxis and private transfers are available directly
+                from Jeddah to your hotel or accommodation in Makkah.
+            </p>
+
+            <div class="transport-details">
+
+                <span>⏱️ About 1–1.5 hours</span>
+
+                <span>💰 Fare varies</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUS -->
+
+    <div class="saudi-transport-option">
+
+        <div class="transport-icon">🚌</div>
+
+        <div class="transport-info">
+
+            <h4>Bus Services</h4>
+
+            <p>
+                Bus services are also available between Jeddah
+                and Makkah and can be a more economical option.
+            </p>
+
+            <div class="transport-details">
+
+                <span>⏱️ About 1.5–2 hours</span>
+
+                <span>💰 Fare varies</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<p class="saudi-transport-note">
+
+    <strong>Note:</strong> Fares and travel times are approximate
+    and may vary depending on travel date, booking class, traffic,
+    season and service provider.
+
+</p>
+
+</div>
+
+<!-- =================================
+     MADINAH TO MAKKAH
+================================= -->
+
+<div class="saudi-guide-card saudi-transport-card">
+
+<h3>🚆 Madinah to Makkah</h3>
+
+<p>
+    Madinah is another major destination for pilgrims. Travelers can
+    reach Makkah from Madinah by high-speed train, taxi, private
+    transfer or bus.
+</p>
+
+
+<div class="saudi-transport-options">
+
+
+    <!-- TRAIN -->
+
+    <div class="saudi-transport-option">
+
+        <div class="transport-icon">🚆</div>
+
+        <div class="transport-info">
+
+            <h4>Haramain High-Speed Railway</h4>
+
+            <p>
+                A comfortable and convenient way to travel between
+                Madinah and Makkah. The railway provides direct
+                high-speed connections between the two cities.
+            </p>
+
+            <div class="transport-details">
+
+                <span>⏱️ About 2.5–3 hours</span>
+
+                <span>💰 Approximate fare</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TAXI -->
+
+    <div class="saudi-transport-option">
+
+        <div class="transport-icon">🚕</div>
+
+        <div class="transport-info">
+
+            <h4>Taxi / Private Transfer</h4>
+
+            <p>
+                Private taxis and transfers can take travelers directly
+                from their accommodation in Madinah to their hotel
+                or accommodation in Makkah.
+            </p>
+
+            <div class="transport-details">
+
+                <span>⏱️ About 4–5 hours</span>
+
+                <span>💰 Fare varies</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUS -->
+
+    <div class="saudi-transport-option">
+
+        <div class="transport-icon">🚌</div>
+
+        <div class="transport-info">
+
+            <h4>Bus Services</h4>
+
+            <p>
+                Bus services can provide a more economical way to
+                travel from Madinah to Makkah, depending on the
+                service and travel schedule.
+            </p>
+
+            <div class="transport-details">
+
+                <span>⏱️ About 5–7 hours</span>
+
+                <span>💰 Fare varies</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<p class="saudi-transport-note">
+
+    <strong>Note:</strong> Fares and travel times are approximate
+    and may vary depending on travel date, booking class, traffic,
+    season and service provider.
+
+</p>
+
+</div>
+
 
 
             <!-- =================================
