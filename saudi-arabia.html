@@ -1365,17 +1365,24 @@
      MAKKAH TRAVEL GUIDE MODAL
 ================================= -->
 
-<div id="makkahGuideModal"
-     class="saudi-modal"
-     role="dialog"
-     aria-modal="true"
-     aria-labelledby="makkahGuideTitle">
+<div
+    id="makkahGuideModal"
+    class="saudi-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="makkahGuideTitle">
 
     <div class="saudi-modal-content">
 
+        <!-- =================================
+             MAKKAH GUIDE TITLE
+        ================================= -->
+
         <div class="saudi-section-title">
 
-            <h2 id="makkahGuideTitle">Makkah Travel Guide</h2>
+            <h2 id="makkahGuideTitle">
+                Makkah Travel Guide
+            </h2>
 
             <p>
                 A practical guide to visiting Makkah, one of the most important
@@ -1389,242 +1396,362 @@
 
 
             <!-- =================================
+                 MAKKAH MAP
+            ================================= -->
+
+            <div class="saudi-guide-card">
+
+                <h3>
+                    🗺️ Makkah Map
+                </h3>
+
+                <p>
+                    Open the map to explore Makkah, Masjid al-Haram, hotels,
+                    restaurants and nearby attractions.
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Makkah%2C+Saudi+Arabia"
+                    target="_blank"
+                    rel="noopener"
+                    class="saudi-guide-button">
+
+                    Open Makkah Map
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================
+                 WHERE TO STAY
+            ================================= -->
+
+            <div class="saudi-guide-card">
+
+                <h3>
+                    🏨 Where to Stay
+                </h3>
+
+                <p>
+                    Makkah has a wide range of accommodation, from luxury hotels
+                    near Masjid al-Haram to more affordable options farther away.
+                </p>
+
+                <a
+                    href="hotels.html"
+                    class="saudi-guide-button"
+                    onclick="
+                        sessionStorage.setItem(
+                            'ghorcastHotelDestination',
+                            'makkah'
+                        );
+                    ">
+
+                    View Makkah Hotels
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================
                  HOW TO GET THERE
             ================================= -->
 
             <!-- =================================
                  JEDDAH TO MAKKAH
-             ================================= -->
+            ================================= -->
 
-<div class="saudi-guide-card saudi-transport-card">
+            <div class="saudi-guide-card saudi-transport-card">
 
-<h3>🚆 Jeddah to Makkah</h3>
+                <h3>
+                    🚆 Jeddah to Makkah
+                </h3>
 
-<p>
-    Jeddah is one of the main gateways to Makkah. Travelers can
-    reach Makkah by high-speed train, taxi, private transfer or bus.
-</p>
+                <p>
+                    Jeddah is one of the main gateways to Makkah. Travelers can
+                    reach Makkah by high-speed train, taxi, private transfer or bus.
+                </p>
 
 
-<div class="saudi-transport-options">
+                <div class="saudi-transport-options">
 
 
-    <!-- TRAIN -->
+                    <!-- TRAIN -->
 
-    <div class="saudi-transport-option">
+                    <div class="saudi-transport-option">
 
-        <div class="transport-icon">🚆</div>
+                        <div class="transport-icon">
+                            🚆
+                        </div>
 
-        <div class="transport-info">
+                        <div class="transport-info">
 
-            <h4>Haramain High-Speed Railway</h4>
+                            <h4>
+                                Haramain High-Speed Railway
+                            </h4>
 
-            <p>
-                The fastest and most comfortable option from Jeddah
-                to Makkah. Trains connect Jeddah Airport, Jeddah
-                and Makkah.
-            </p>
+                            <p>
+                                The fastest and most comfortable option from Jeddah
+                                to Makkah. Trains connect Jeddah Airport, Jeddah
+                                and Makkah.
+                            </p>
 
-            <div class="transport-details">
+                            <div class="transport-details">
 
-                <span>⏱️ About 30–45 min</span>
+                                <span>
+                                    ⏱️ About 30–45 min
+                                </span>
 
-                <span>💰 Approximate fare</span>
+                                <span>
+                                    💰 Approximate fare
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TAXI -->
+
+                    <div class="saudi-transport-option">
+
+                        <div class="transport-icon">
+                            🚕
+                        </div>
+
+                        <div class="transport-info">
+
+                            <h4>
+                                Taxi / Private Transfer
+                            </h4>
+
+                            <p>
+                                Taxis and private transfers are available directly
+                                from Jeddah to your hotel or accommodation in Makkah.
+                            </p>
+
+                            <div class="transport-details">
+
+                                <span>
+                                    ⏱️ About 1–1.5 hours
+                                </span>
+
+                                <span>
+                                    💰 Fare varies
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUS -->
+
+                    <div class="saudi-transport-option">
+
+                        <div class="transport-icon">
+                            🚌
+                        </div>
+
+                        <div class="transport-info">
+
+                            <h4>
+                                Bus Services
+                            </h4>
+
+                            <p>
+                                Bus services are also available between Jeddah
+                                and Makkah and can be a more economical option.
+                            </p>
+
+                            <div class="transport-details">
+
+                                <span>
+                                    ⏱️ About 1.5–2 hours
+                                </span>
+
+                                <span>
+                                    💰 Fare varies
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="saudi-transport-note">
+
+                    <strong>
+                        Note:
+                    </strong>
+
+                    Fares and travel times are approximate
+                    and may vary depending on travel date, booking class, traffic,
+                    season and service provider.
+
+                </p>
 
             </div>
 
-        </div>
 
-    </div>
+            <!-- =================================
+                 MADINAH TO MAKKAH
+            ================================= -->
+
+            <div class="saudi-guide-card saudi-transport-card">
+
+                <h3>
+                    🚆 Madinah to Makkah
+                </h3>
+
+                <p>
+                    Madinah is another major destination for pilgrims. Travelers can
+                    reach Makkah from Madinah by high-speed train, taxi, private
+                    transfer or bus.
+                </p>
 
 
-    <!-- TAXI -->
+                <div class="saudi-transport-options">
 
-    <div class="saudi-transport-option">
 
-        <div class="transport-icon">🚕</div>
+                    <!-- TRAIN -->
 
-        <div class="transport-info">
+                    <div class="saudi-transport-option">
 
-            <h4>Taxi / Private Transfer</h4>
+                        <div class="transport-icon">
+                            🚆
+                        </div>
 
-            <p>
-                Taxis and private transfers are available directly
-                from Jeddah to your hotel or accommodation in Makkah.
-            </p>
+                        <div class="transport-info">
 
-            <div class="transport-details">
+                            <h4>
+                                Haramain High-Speed Railway
+                            </h4>
 
-                <span>⏱️ About 1–1.5 hours</span>
+                            <p>
+                                A comfortable and convenient way to travel between
+                                Madinah and Makkah. The railway provides direct
+                                high-speed connections between the two cities.
+                            </p>
 
-                <span>💰 Fare varies</span>
+                            <div class="transport-details">
+
+                                <span>
+                                    ⏱️ About 2.5–3 hours
+                                </span>
+
+                                <span>
+                                    💰 Approximate fare
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TAXI -->
+
+                    <div class="saudi-transport-option">
+
+                        <div class="transport-icon">
+                            🚕
+                        </div>
+
+                        <div class="transport-info">
+
+                            <h4>
+                                Taxi / Private Transfer
+                            </h4>
+
+                            <p>
+                                Private taxis and transfers can take travelers directly
+                                from their accommodation in Madinah to their hotel
+                                or accommodation in Makkah.
+                            </p>
+
+                            <div class="transport-details">
+
+                                <span>
+                                    ⏱️ About 4–5 hours
+                                </span>
+
+                                <span>
+                                    💰 Fare varies
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUS -->
+
+                    <div class="saudi-transport-option">
+
+                        <div class="transport-icon">
+                            🚌
+                        </div>
+
+                        <div class="transport-info">
+
+                            <h4>
+                                Bus Services
+                            </h4>
+
+                            <p>
+                                Bus services can provide a more economical way to
+                                travel from Madinah to Makkah, depending on the
+                                service and travel schedule.
+                            </p>
+
+                            <div class="transport-details">
+
+                                <span>
+                                    ⏱️ About 5–7 hours
+                                </span>
+
+                                <span>
+                                    💰 Fare varies
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="saudi-transport-note">
+
+                    <strong>
+                        Note:
+                    </strong>
+
+                    Fares and travel times are approximate
+                    and may vary depending on travel date, booking class, traffic,
+                    season and service provider.
+
+                </p>
 
             </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- BUS -->
-
-    <div class="saudi-transport-option">
-
-        <div class="transport-icon">🚌</div>
-
-        <div class="transport-info">
-
-            <h4>Bus Services</h4>
-
-            <p>
-                Bus services are also available between Jeddah
-                and Makkah and can be a more economical option.
-            </p>
-
-            <div class="transport-details">
-
-                <span>⏱️ About 1.5–2 hours</span>
-
-                <span>💰 Fare varies</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-<p class="saudi-transport-note">
-
-    <strong>Note:</strong> Fares and travel times are approximate
-    and may vary depending on travel date, booking class, traffic,
-    season and service provider.
-
-</p>
-
-</div>
-
-<!-- =================================
-     MADINAH TO MAKKAH
-================================= -->
-
-<div class="saudi-guide-card saudi-transport-card">
-
-<h3>🚆 Madinah to Makkah</h3>
-
-<p>
-    Madinah is another major destination for pilgrims. Travelers can
-    reach Makkah from Madinah by high-speed train, taxi, private
-    transfer or bus.
-</p>
-
-
-<div class="saudi-transport-options">
-
-
-    <!-- TRAIN -->
-
-    <div class="saudi-transport-option">
-
-        <div class="transport-icon">🚆</div>
-
-        <div class="transport-info">
-
-            <h4>Haramain High-Speed Railway</h4>
-
-            <p>
-                A comfortable and convenient way to travel between
-                Madinah and Makkah. The railway provides direct
-                high-speed connections between the two cities.
-            </p>
-
-            <div class="transport-details">
-
-                <span>⏱️ About 2.5–3 hours</span>
-
-                <span>💰 Approximate fare</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- TAXI -->
-
-    <div class="saudi-transport-option">
-
-        <div class="transport-icon">🚕</div>
-
-        <div class="transport-info">
-
-            <h4>Taxi / Private Transfer</h4>
-
-            <p>
-                Private taxis and transfers can take travelers directly
-                from their accommodation in Madinah to their hotel
-                or accommodation in Makkah.
-            </p>
-
-            <div class="transport-details">
-
-                <span>⏱️ About 4–5 hours</span>
-
-                <span>💰 Fare varies</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- BUS -->
-
-    <div class="saudi-transport-option">
-
-        <div class="transport-icon">🚌</div>
-
-        <div class="transport-info">
-
-            <h4>Bus Services</h4>
-
-            <p>
-                Bus services can provide a more economical way to
-                travel from Madinah to Makkah, depending on the
-                service and travel schedule.
-            </p>
-
-            <div class="transport-details">
-
-                <span>⏱️ About 5–7 hours</span>
-
-                <span>💰 Fare varies</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-<p class="saudi-transport-note">
-
-    <strong>Note:</strong> Fares and travel times are approximate
-    and may vary depending on travel date, booking class, traffic,
-    season and service provider.
-
-</p>
-
-</div>
-
 
 
             <!-- =================================
@@ -1633,7 +1760,9 @@
 
             <div class="saudi-guide-card">
 
-                <h3>🚕 Getting Around Makkah</h3>
+                <h3>
+                    🚕 Getting Around Makkah
+                </h3>
 
                 <p>
                     Taxis, ride-hailing services, buses and hotel transportation
@@ -1642,13 +1771,21 @@
 
                 <ul>
 
-                    <li>Taxi and ride-hailing services</li>
+                    <li>
+                        Taxi and ride-hailing services
+                    </li>
 
-                    <li>Local buses</li>
+                    <li>
+                        Local buses
+                    </li>
 
-                    <li>Hotel shuttle services</li>
+                    <li>
+                        Hotel shuttle services
+                    </li>
 
-                    <li>Walking around areas close to Masjid al-Haram</li>
+                    <li>
+                        Walking around areas close to Masjid al-Haram
+                    </li>
 
                 </ul>
 
@@ -1656,245 +1793,229 @@
 
 
             <!-- =================================
-                 HOTELS
+                 POPULAR FOODS IN MAKKAH
             ================================= -->
 
-            <div class="saudi-guide-card">
+            <div class="saudi-guide-card saudi-makkah-food-card">
 
-                <h3>🏨 Where to Stay</h3>
+                <h3>
+                    🍽️ Popular Foods in Makkah
+                </h3>
 
-                <p>
-                    Makkah has a wide range of accommodation, from luxury hotels
-                    near Masjid al-Haram to more affordable options farther away.
+                <p class="saudi-makkah-food-intro">
+                    Visitors can enjoy traditional Saudi and Middle Eastern
+                    dishes throughout Makkah. Here are some popular foods
+                    worth trying during your visit.
                 </p>
 
-              <a
-    href="hotels.html"
-    class="saudi-guide-button"
-    onclick="
-        sessionStorage.setItem(
-            'ghorcastHotelDestination',
-            'makkah'
-        );
-    ">
 
-    View Makkah Hotels
+                <div class="saudi-makkah-food-list">
 
-</a>
+
+                    <!-- KABSA -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Kabsa.jpg?width=1200"
+                                alt="Traditional Kabsa dish"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Kabsa
+                            </h4>
+
+                            <p>
+                                A famous Arabian rice dish prepared with
+                                fragrant spices and commonly served with
+                                chicken or meat.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Traditional Saudi restaurants
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MANDI -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mandi.JPG?width=1200"
+                                alt="Traditional Mandi dish"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Mandi
+                            </h4>
+
+                            <p>
+                                A popular Arabian dish featuring fragrant rice
+                                with tender meat or chicken and traditional spices.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Arabic and Yemeni-style restaurants
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHAWARMA -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Shawarma%20food.jpg?width=1200"
+                                alt="Shawarma food"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Shawarma
+                            </h4>
+
+                            <p>
+                                Thinly sliced seasoned meat served in bread
+                                with sauces and vegetables. A popular quick
+                                meal for visitors.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Restaurants and local food areas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMBUSA -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Fried%20Samosa.jpg?width=1200"
+                                alt="Crispy sambusa"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Sambusa
+                            </h4>
+
+                            <p>
+                                A crispy filled pastry commonly prepared with
+                                meat, vegetables or cheese.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Bakeries, restaurants and local food shops
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAUDI DATES -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Types%20of%20dates.jpg?width=1200"
+                                alt="Saudi dates"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Saudi Dates
+                            </h4>
+
+                            <p>
+                                Dates are an important part of Saudi hospitality
+                                and culture, with many varieties available.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Date shops and traditional markets
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ARABIC COFFEE -->
+
+                    <div class="saudi-makkah-food-item">
+
+                        <div class="saudi-makkah-food-image">
+
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Arabian%20Coffee.jpg?width=1200"
+                                alt="Traditional Saudi Arabic coffee"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="saudi-makkah-food-content">
+
+                            <h4>
+                                Saudi Arabic Coffee
+                            </h4>
+
+                            <p>
+                                Traditional Arabic coffee is commonly served
+                                with dates and is an important part of Saudi
+                                hospitality.
+                            </p>
+
+                            <span class="saudi-makkah-food-location">
+                                📍 Cafés, restaurants and traditional markets
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
 
             </div>
-
-
-            <!-- =================================
-                 POPULAR FOODS IN MAKKAH
-                 ================================= -->
-
-<div class="saudi-guide-card saudi-makkah-food-card">
-
-    <h3>🍽️ Popular Foods in Makkah</h3>
-
-    <p class="saudi-makkah-food-intro">
-        Visitors can enjoy traditional Saudi and Middle Eastern
-        dishes throughout Makkah. Here are some popular foods
-        worth trying during your visit.
-    </p>
-
-
-    <div class="saudi-makkah-food-list">
-
-
-        <!-- KABSA -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Kabsa.jpg?width=1200"
-                    alt="Traditional Kabsa dish"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Kabsa</h4>
-
-                <p>
-                    A famous Arabian rice dish prepared with
-                    fragrant spices and commonly served with
-                    chicken or meat.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Traditional Saudi restaurants
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- MANDI -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Mandi.JPG?width=1200"
-                    alt="Traditional Mandi dish"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Mandi</h4>
-
-                <p>
-                    A popular Arabian dish featuring fragrant rice
-                    with tender meat or chicken and traditional spices.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Arabic and Yemeni-style restaurants
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- SHAWARMA -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Shawarma%20food.jpg?width=1200"
-                    alt="Shawarma food"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Shawarma</h4>
-
-                <p>
-                    Thinly sliced seasoned meat served in bread
-                    with sauces and vegetables. A popular quick
-                    meal for visitors.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Restaurants and local food areas
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- SAMBUSA -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Fried%20Samosa.jpg?width=1200"
-                    alt="Crispy sambusa"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Sambusa</h4>
-
-                <p>
-                    A crispy filled pastry commonly prepared with
-                    meat, vegetables or cheese.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Bakeries, restaurants and local food shops
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- SAUDI DATES -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Types%20of%20dates.jpg?width=1200"
-                    alt="Saudi dates"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Saudi Dates</h4>
-
-                <p>
-                    Dates are an important part of Saudi hospitality
-                    and culture, with many varieties available.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Date shops and traditional markets
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- ARABIC COFFEE -->
-
-        <div class="saudi-makkah-food-item">
-
-            <div class="saudi-makkah-food-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Arabian%20Coffee.jpg?width=1200"
-                    alt="Traditional Saudi Arabic coffee"
-                    loading="lazy">
-
-            </div>
-
-            <div class="saudi-makkah-food-content">
-
-                <h4>Saudi Arabic Coffee</h4>
-
-                <p>
-                    Traditional Arabic coffee is commonly served
-                    with dates and is an important part of Saudi
-                    hospitality.
-                </p>
-
-                <span class="saudi-makkah-food-location">
-                    📍 Cafés, restaurants and traditional markets
-                </span>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
 
 
             <!-- =================================
@@ -1903,7 +2024,9 @@
 
             <div class="saudi-guide-card">
 
-                <h3>💡 Travel Tips</h3>
+                <h3>
+                    💡 Travel Tips
+                </h3>
 
                 <ul>
 
@@ -1934,35 +2057,13 @@
             </div>
 
 
-            <!-- =================================
-                 MAP
-            ================================= -->
-
-            <div class="saudi-guide-card">
-
-                <h3>🗺️ Makkah Map</h3>
-
-                <p>
-                    Open the map to explore Makkah, Masjid al-Haram, hotels,
-                    restaurants and nearby attractions.
-                </p>
-
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Makkah%2C+Saudi+Arabia"
-                    target="_blank"
-                    rel="noopener"
-                    class="saudi-guide-button">
-
-                    Open Makkah Map
-
-                </a>
-
-            </div>
-
-
         </div>
         <!-- END saudi-guide-grid -->
 
+
+        <!-- =================================
+             CLOSE BUTTON
+        ================================= -->
 
         <button
             type="button"
