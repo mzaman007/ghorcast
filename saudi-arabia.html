@@ -1117,16 +1117,20 @@
 
 
 <!-- =================================
-     MAKKAH TRAVEL GUIDE
+     MAKKAH TRAVEL GUIDE MODAL
 ================================= -->
 
-<section class="saudi-section" id="makkah-guide">
+<div id="makkahGuideModal"
+     class="saudi-modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="makkahGuideTitle">
 
-    <div class="saudi-container">
+    <div class="saudi-modal-content">
 
         <div class="saudi-section-title">
 
-            <h2>Makkah Travel Guide</h2>
+            <h2 id="makkahGuideTitle">Makkah Travel Guide</h2>
 
             <p>
                 A practical guide to visiting Makkah, one of the most important
@@ -1256,13 +1260,20 @@
                     Open Makkah Map
                 </a>
 
-            </div>
+                    </div>
 
-        </div>
+        <button
+            type="button"
+            class="saudi-modal-close"
+            onclick="closeMakkahGuide()"
+            aria-label="Close Makkah Travel Guide">
+            ×
+        </button>
 
     </div>
+    </div>
 
-</section>
+  
 
 
 <!-- =================================
