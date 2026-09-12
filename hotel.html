@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Details | GhorCast</title>
+
+    <meta name="description"
+        content="Explore hotel details, rooms, facilities, location and booking information with GhorCast.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================================
+           GHORCAST HOTEL DETAIL PAGE
+        ========================================================= */
+
+        :root {
+            --gold: #c79a4b;
+            --gold-dark: #b1853e;
+            --dark: #17202a;
+            --text: #333;
+            --muted: #777;
+            --light: #f7f7f7;
+            --white: #fff;
+            --border: #e8e8e8;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: #fff;
+        }
+
+
+        /* =========================================================
+           HOTEL HERO
+        ========================================================= */
+
+        .hotel-detail-hero {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+
+        .hotel-detail-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, .78),
+                    rgba(0, 0, 0, .15)
+                );
+        }
+
+
+        .hotel-detail-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 80px 20px 55px;
+        }
+
+
+        .hotel-detail-hero-inner {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        .hotel-breadcrumb {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 14px;
+            opacity: .9;
+        }
+
+
+        .hotel-breadcrumb a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        .hotel-breadcrumb a:hover {
+            color: #e0b866;
+        }
+
+
+        .hotel-location {
+            margin: 0 0 12px;
+            font-size: 15px;
+            letter-spacing: .3px;
+        }
+
+
+        .hotel-detail-title {
+            margin: 0;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.05;
+            color: #fff;
+        }
+
+
+        .hotel-rating-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+
+        .hotel-stars {
+            color: #f5c451;
+            letter-spacing: 2px;
+            font-size: 18px;
+        }
+
+
+        .hotel-rating-number {
+            font-weight: 700;
+            color: #fff;
+        }
+
+
+        .hotel-price-hero {
+            margin-left: auto;
+            font-size: 25px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+
+        .hotel-price-hero span {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: .8;
+        }
+
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        .hotel-detail-section {
+            padding: 70px 20px;
+            background: #fff;
+        }
+
+
+        .hotel-detail-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        .hotel-main-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+            gap: 40px;
+            align-items: start;
+        }
+
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .hotel-section-title {
+            margin: 0 0 18px;
+            color: var(--dark);
+            font-size: 30px;
+        }
+
+
+        .hotel-description {
+            color: #666;
+            line-height: 1.9;
+            font-size: 16px;
+            margin: 0;
+        }
+
+
+        .hotel-intro-box {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .05);
+        }
+
+
+        /* =========================================================
+           FACILITIES
+        ========================================================= */
+
+        .hotel-facilities {
+            margin-top: 35px;
+        }
+
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 22px;
+        }
+
+
+        .facility-item {
+            padding: 20px 15px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #fafafa;
+            transition: .25s ease;
+        }
+
+
+        .facility-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .07);
+        }
+
+
+        .facility-icon {
+            display: block;
+            font-size: 27px;
+            margin-bottom: 9px;
+        }
+
+
+        .facility-item strong {
+            display: block;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+
+        /* =========================================================
+           ROOM CARD
+        ========================================================= */
+
+        .hotel-room-section {
+            margin-top: 55px;
+        }
+
+
+        .hotel-room-card {
+            display: grid;
+            grid-template-columns: 240px 1fr auto;
+            gap: 25px;
+            align-items: center;
+            padding: 20px;
+            margin-top: 22px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .04);
+        }
+
+
+        .hotel-room-image {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .hotel-room-info h3 {
+            margin: 0 0 10px;
+            color: var(--dark);
+            font-size: 22px;
+        }
+
+
+        .hotel-room-info p {
+            margin: 6px 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+
+        .hotel-room-price {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+
+        .hotel-room-price strong {
+            display: block;
+            color: var(--dark);
+            font-size: 22px;
+        }
+
+
+        .hotel-room-price span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           BOOKING CARD
+        ========================================================= */
+
+        .hotel-booking-card {
+            position: sticky;
+            top: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, .09);
+        }
+
+
+        .booking-label {
+            margin: 0 0 8px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+
+        .booking-price {
+            margin: 0;
+            color: var(--dark);
+            font-size: 35px;
+        }
+
+
+        .booking-price span {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+
+        .booking-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 25px 0;
+        }
+
+
+        .booking-info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+
+        .booking-info-row span:first-child {
+            color: var(--muted);
+        }
+
+
+        .booking-info-row strong {
+            color: var(--dark);
+            text-align: right;
+        }
+
+
+        .book-now-button {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 16px 20px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+
+        .book-now-button:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+
+        .booking-note {
+            margin: 15px 0 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+
+        .hotel-gallery-section {
+            padding: 0 20px 70px;
+        }
+
+
+        .hotel-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 210px 210px;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+
+        .gallery-image {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 150px;
+        }
+
+
+        .gallery-image:first-child {
+            grid-row: 1 / 3;
+        }
+
+
+        /* =========================================================
+           LOCATION
+        ========================================================= */
+
+        .hotel-location-section {
+            padding: 70px 20px;
+            background: var(--light);
+        }
+
+
+        .location-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+
+        .location-info {
+            padding: 30px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+
+        .location-info h2 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+
+        .location-info p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+
+        .location-map {
+            width: 100%;
+            min-height: 300px;
+            border: 0;
+            border-radius: 16px;
+            background: #ddd;
+        }
+
+
+        /* =========================================================
+           HOTEL FEATURES
+        ========================================================= */
+
+        .hotel-features-section {
+            padding: 70px 20px;
+        }
+
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 40px;
+            margin-top: 25px;
+        }
+
+
+        .feature-list div {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            color: #555;
+        }
+
+
+        /* =========================================================
+           BACK BUTTON
+        ========================================================= */
+
+        .back-hotels {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+
+        .back-hotels:hover {
+            color: var(--dark);
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .hotel-main-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hotel-booking-card {
+                position: static;
+            }
+
+
+            .hotel-price-hero {
+                margin-left: 0;
+                width: 100%;
+            }
+
+
+            .hotel-room-card {
+                grid-template-columns: 180px 1fr;
+            }
+
+
+            .hotel-room-price {
+                grid-column: 2;
+                text-align: left;
+            }
+
+
+            .location-box {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .hotel-detail-hero {
+                min-height: 500px;
+            }
+
+
+            .hotel-detail-hero-content {
+                padding: 60px 18px 35px;
+            }
+
+
+            .hotel-detail-section {
+                padding: 45px 18px;
+            }
+
+
+            .hotel-gallery-section {
+                padding: 0 18px 45px;
+            }
+
+
+            .hotel-location-section,
+            .hotel-features-section {
+                padding: 45px 18px;
+            }
+
+
+            .facility-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .hotel-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 220px 150px;
+            }
+
+
+            .gallery-image:first-child {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+
+
+            .gallery-image:nth-child(2),
+            .gallery-image:nth-child(3),
+            .gallery-image:nth-child(4),
+            .gallery-image:nth-child(5) {
+                grid-row: 2;
+            }
+
+
+            .hotel-room-card {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hotel-room-image {
+                height: 200px;
+            }
+
+
+            .hotel-room-price {
+                grid-column: auto;
+            }
+
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .facility-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .hotel-detail-title {
+                font-size: 38px;
+            }
+
+
+            .hotel-intro-box,
+            .hotel-booking-card,
+            .location-info {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <span>Ghor</span>
+            <strong>Cast</strong>
+
+        </a>
+
+
+        <nav class="navigation">
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HOTEL HERO
+========================================================= -->
+
+<section
+    class="hotel-detail-hero"
+    id="hotelHero">
+
+    <div class="hotel-detail-overlay"></div>
+
+
+    <div class="hotel-detail-hero-content">
+
+        <div class="hotel-detail-hero-inner">
+
+            <div class="hotel-breadcrumb">
+
+                <a href="hotels.html">
+                    Hotels
+                </a>
+
+                <span>›</span>
+
+                <span>
+                    Hotel Details
+                </span>
+
+            </div>
+
+
+            <p
+                class="hotel-location"
+                id="heroLocation">
+
+                📍 Loading location...
+
+            </p>
+
+
+            <h1
+                class="hotel-detail-title"
+                id="hotelName">
+
+                Hotel Details
+
+            </h1>
+
+
+            <div class="hotel-rating-row">
+
+                <div
+                    class="hotel-stars"
+                    id="hotelStars">
+
+                    ★★★★★
+
+                </div>
+
+
+                <span
+                    class="hotel-rating-number"
+                    id="hotelRating">
+
+                    4.7
+
+                </span>
+
+
+                <div
+                    class="hotel-price-hero"
+                    id="heroPrice">
+
+                    $95
+                    <span>/night</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOTEL MAIN INFORMATION
+========================================================= -->
+
+<section class="hotel-detail-section">
+
+    <div class="hotel-detail-container">
+
+
+        <a
+            href="hotels.html"
+            class="back-hotels">
+
+            ← Back to Hotels
+
+        </a>
+
+
+        <div class="hotel-main-grid">
+
+
+            <!-- =================================================
+                 LEFT CONTENT
+            ================================================== -->
+
+            <div>
+
+
+                <div class="hotel-intro-box">
+
+                    <p class="eyebrow">
+                        GHORCAST HOTEL GUIDE
+                    </p>
+
+
+                    <h2
+                        class="hotel-section-title">
+
+                        About This Hotel
+
+                    </h2>
+
+
+                    <p
+                        class="hotel-description"
+                        id="hotelDescription">
+
+                        Discover comfortable accommodation and
+                        convenient facilities for your journey.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACILITIES
+                ================================================== -->
+
+                <div class="hotel-facilities">
+
+                    <h2 class="hotel-section-title">
+                        Hotel Facilities
+                    </h2>
+
+
+                    <div class="facility-grid">
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                📶
+                            </span>
+
+                            <strong>
+                                Free Wi-Fi
+                            </strong>
+
+                        </div>
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                🅿️
+                            </span>
+
+                            <strong>
+                                Parking
+                            </strong>
+
+                        </div>
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                🍽️
+                            </span>
+
+                            <strong>
+                                Restaurant
+                            </strong>
+
+                        </div>
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                🛎️
+                            </span>
+
+                            <strong>
+                                Reception
+                            </strong>
+
+                        </div>
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                ❄️
+                            </span>
+
+                            <strong>
+                                Air Conditioning
+                            </strong>
+
+                        </div>
+
+
+                        <div class="facility-item">
+
+                            <span class="facility-icon">
+                                🧹
+                            </span>
+
+                            <strong>
+                                Housekeeping
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ROOM
+                ================================================== -->
+
+                <div class="hotel-room-section">
+
+                    <h2 class="hotel-section-title">
+                        Available Room
+                    </h2>
+
+
+                    <div class="hotel-room-card">
+
+
+                        <div
+                            class="hotel-room-image"
+                            id="roomImage">
+
+                        </div>
+
+
+                        <div class="hotel-room-info">
+
+                            <h3>
+                                Standard Comfort Room
+                            </h3>
+
+
+                            <p>
+                                🛏️ Comfortable bed
+                            </p>
+
+                            <p>
+                                👥 Suitable for 2 guests
+                            </p>
+
+                            <p>
+                                🚿 Private bathroom
+                            </p>
+
+                            <p>
+                                📺 Room amenities
+                            </p>
+
+                        </div>
+
+
+                        <div class="hotel-room-price">
+
+                            <strong id="roomPrice">
+                                $95
+                            </strong>
+
+                            <span>
+                                per night
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BOOKING CARD
+            ================================================== -->
+
+            <aside class="hotel-booking-card">
+
+
+                <p class="booking-label">
+                    START YOUR STAY
+                </p>
+
+
+                <h2
+                    class="booking-price"
+                    id="bookingPrice">
+
+                    $95
+                    <span>/night</span>
+
+                </h2>
+
+
+                <div class="booking-divider"></div>
+
+
+                <div class="booking-info-row">
+
+                    <span>
+                        Hotel
+                    </span>
+
+                    <strong id="bookingHotel">
+                        Hotel
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-info-row">
+
+                    <span>
+                        Location
+                    </span>
+
+                    <strong id="bookingLocation">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-info-row">
+
+                    <span>
+                        Rating
+                    </span>
+
+                    <strong id="bookingRating">
+                        4.7 / 5
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-divider"></div>
+
+
+                <button
+                    class="book-now-button"
+                    id="bookNowButton"
+                    type="button">
+
+                    Book Now
+
+                </button>
+
+
+                <p class="booking-note">
+
+                    Continue to the GhorCast booking process
+                    to enter your stay details.
+
+                </p>
+
+            </aside>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOTEL GALLERY
+========================================================= -->
+
+<section class="hotel-gallery-section">
+
+    <div class="hotel-detail-container">
+
+        <p class="eyebrow">
+            EXPLORE THE STAY
+        </p>
+
+
+        <h2 class="hotel-section-title">
+            Hotel Gallery
+        </h2>
+
+
+        <div class="hotel-gallery">
+
+            <div
+                class="gallery-image"
+                id="gallery1">
+            </div>
+
+            <div
+                class="gallery-image"
+                id="gallery2">
+            </div>
+
+            <div
+                class="gallery-image"
+                id="gallery3">
+            </div>
+
+            <div
+                class="gallery-image"
+                id="gallery4">
+            </div>
+
+            <div
+                class="gallery-image"
+                id="gallery5">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="hotel-location-section">
+
+    <div class="hotel-detail-container">
+
+        <div class="location-box">
+
+
+            <div class="location-info">
+
+                <p class="eyebrow">
+                    HOTEL LOCATION
+                </p>
+
+
+                <h2>
+                    Where You'll Stay
+                </h2>
+
+
+                <p id="locationDescription">
+
+                    Explore the surrounding destination
+                    and nearby attractions during your stay.
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        📍 Address:
+                    </strong>
+
+                    <span id="hotelAddress">
+                        Loading...
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        🌍 Destination:
+                    </strong>
+
+                    <span id="hotelDestination">
+                        Loading...
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <iframe
+                id="hotelMap"
+                class="location-map"
+                title="Hotel location map"
+                loading="lazy"
+                src="https://www.google.com/maps?q=Makkah,Saudi%20Arabia&output=embed">
+            </iframe>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOTEL INFORMATION
+========================================================= -->
+
+<section class="hotel-features-section">
+
+    <div class="hotel-detail-container">
+
+        <p class="eyebrow">
+            GHORCAST INFORMATION
+        </p>
+
+
+        <h2 class="hotel-section-title">
+            What to Expect
+        </h2>
+
+
+        <div class="feature-list">
+
+
+            <div>
+                ✓ Comfortable accommodation
+            </div>
+
+
+            <div>
+                ✓ Convenient location
+            </div>
+
+
+            <div>
+                ✓ Air-conditioned rooms
+            </div>
+
+
+            <div>
+                ✓ Reception assistance
+            </div>
+
+
+            <div>
+                ✓ Dining options
+            </div>
+
+
+            <div>
+                ✓ Housekeeping service
+            </div>
+
+
+            <div>
+                ✓ Suitable for leisure travel
+            </div>
+
+
+            <div>
+                ✓ Suitable for families and visitors
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo footer-logo">
+
+                <span>
+                    Ghor
+                </span>
+
+                <strong>
+                    Cast
+                </strong>
+
+            </a>
+
+
+            <p>
+                Hotels, travel, news, stories and experiences.
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+
+            <a href="deals.html">
+                Hotel Deals
+            </a>
+
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                Media
+            </h4>
+
+
+            <a href="news.html">
+                News
+            </a>
+
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                GhorCast
+            </h4>
+
+
+            <a href="about.html">
+                About Us
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+
+            <a href="terms.html">
+                Terms
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 GhorCast. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   HOTEL DATABASE
+========================================================= */
+
+const hotels = {
+
+    "makkah-grand-stay": {
+
+        name: "Makkah Grand Stay",
+
+        location: "Makkah, Saudi Arabia",
+
+        destination: "Makkah",
+
+        rating: "4.6",
+
+        price: "$105",
+
+        description:
+            "A comfortable stay option for pilgrims and visitors exploring the holy city of Makkah. Guests can enjoy convenient accommodation, essential facilities and easy access to the city's major areas.",
+
+        address:
+            "Makkah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "haram-view-residence": {
+
+        name: "Haram View Residence",
+
+        location: "Makkah, Saudi Arabia",
+
+        destination: "Makkah",
+
+        rating: "4.7",
+
+        price: "$115",
+
+        description:
+            "A modern accommodation concept designed for comfortable stays in Makkah. This GhorCast listing highlights convenient rooms and practical facilities for travelers and pilgrims.",
+
+        address:
+            "Makkah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "makkah-palace-hotel": {
+
+        name: "Makkah Palace Hotel",
+
+        location: "Makkah, Saudi Arabia",
+
+        destination: "Makkah",
+
+        rating: "4.6",
+
+        price: "$110",
+
+        description:
+            "A comfortable accommodation concept for travelers visiting Makkah. Guests can expect practical rooms, essential services and a convenient base for exploring the city.",
+
+        address:
+            "Makkah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "al-safwa-comfort-hotel": {
+
+        name: "Al Safwa Comfort Hotel",
+
+        location: "Makkah, Saudi Arabia",
+
+        destination: "Makkah",
+
+        rating: "4.5",
+
+        price: "$90",
+
+        description:
+            "A practical accommodation choice for pilgrims and families visiting Makkah, with a focus on comfortable rooms and essential travel conveniences.",
+
+        address:
+            "Makkah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "madinah-grand-residence": {
+
+        name: "Madinah Grand Residence",
+
+        location: "Madinah, Saudi Arabia",
+
+        destination: "Madinah",
+
+        rating: "4.7",
+
+        price: "$98",
+
+        description:
+            "A comfortable stay concept for pilgrims and families visiting the Prophet's City. The property profile focuses on convenient accommodation and practical facilities.",
+
+        address:
+            "Madinah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "green-dome-stay": {
+
+        name: "Green Dome Stay",
+
+        location: "Madinah, Saudi Arabia",
+
+        destination: "Madinah",
+
+        rating: "4.6",
+
+        price: "$92",
+
+        description:
+            "A welcoming accommodation concept for travelers exploring historic Madinah, with comfortable rooms and convenient facilities.",
+
+        address:
+            "Madinah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "madinah-palace-hotel": {
+
+        name: "Madinah Palace Hotel",
+
+        location: "Madinah, Saudi Arabia",
+
+        destination: "Madinah",
+
+        rating: "4.7",
+
+        price: "$105",
+
+        description:
+            "A refined accommodation option for visitors staying in Madinah, offering a comfortable base for exploring the historic city.",
+
+        address:
+            "Madinah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "riyadh-skyline-hotel": {
+
+        name: "Riyadh Skyline Hotel",
+
+        location: "Riyadh, Saudi Arabia",
+
+        destination: "Riyadh",
+
+        rating: "4.6",
+
+        price: "$100",
+
+        description:
+            "A modern city accommodation concept in the capital of Saudi Arabia, suitable for travelers exploring Riyadh's business and cultural districts.",
+
+        address:
+            "Riyadh, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "jeddah-corniche-hotel": {
+
+        name: "Jeddah Corniche Hotel",
+
+        location: "Jeddah, Saudi Arabia",
+
+        destination: "Jeddah",
+
+        rating: "4.5",
+
+        price: "$88",
+
+        description:
+            "A contemporary stay concept for travelers exploring Jeddah and the Red Sea coast, with comfortable accommodation and practical facilities.",
+
+        address:
+            "Jeddah, Saudi Arabia",
+
+        image:
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "dubai-marina-stay": {
+
+        name: "Dubai Marina Stay",
+
+        location: "Dubai, UAE",
+
+        destination: "Dubai",
+
+        rating: "4.7",
+
+        price: "$115",
+
+        description:
+            "A stylish accommodation concept for travelers visiting modern Dubai, with a convenient base for exploring the city's attractions.",
+
+        address:
+            "Dubai Marina, Dubai, UAE",
+
+        image:
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "abu-dhabi-palace-hotel": {
+
+        name: "Abu Dhabi Palace Hotel",
+
+        location: "Abu Dhabi, UAE",
+
+        destination: "Abu Dhabi",
+
+        rating: "4.8",
+
+        price: "$110",
+
+        description:
+            "A modern hospitality concept featuring premium-style rooms and convenient facilities for travelers visiting Abu Dhabi.",
+
+        address:
+            "Abu Dhabi, UAE",
+
+        image:
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "downtown-dubai-residence": {
+
+        name: "Downtown Dubai Residence",
+
+        location: "Dubai, UAE",
+
+        destination: "Dubai",
+
+        rating: "4.6",
+
+        price: "$125",
+
+        description:
+            "A convenient accommodation concept for visitors exploring Downtown Dubai and the city's major attractions.",
+
+        address:
+            "Downtown Dubai, Dubai, UAE",
+
+        image:
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "dhaka-grand-hotel": {
+
+        name: "Dhaka Grand Hotel",
+
+        location: "Dhaka, Bangladesh",
+
+        destination: "Dhaka",
+
+        rating: "4.5",
+
+        price: "$65",
+
+        description:
+            "A comfortable city accommodation concept for business and leisure travelers visiting Dhaka.",
+
+        address:
+            "Dhaka, Bangladesh",
+
+        image:
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "cox-bazar-beach-resort": {
+
+        name: "Cox's Bazar Beach Resort",
+
+        location: "Cox's Bazar, Bangladesh",
+
+        destination: "Cox's Bazar",
+
+        rating: "4.5",
+
+        price: "$60",
+
+        description:
+            "A relaxed coastal accommodation concept near one of Bangladesh's most popular beach destinations.",
+
+        address:
+            "Cox's Bazar, Bangladesh",
+
+        image:
+            "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    },
+
+
+    "bosphorus-view-hotel": {
+
+        name: "Bosphorus View Hotel",
+
+        location: "Istanbul, Turkey",
+
+        destination: "Istanbul",
+
+        rating: "4.6",
+
+        price: "$90",
+
+        description:
+            "A stylish accommodation concept for travelers discovering Istanbul, combining comfortable lodging with access to the city's historic and modern attractions.",
+
+        address:
+            "Istanbul, Turkey",
+
+        image:
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1800&q=85",
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1400&q=85",
+
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85",
+
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+
+        ]
+
+    }
+
+};
+
+
+
+/* =========================================================
+   CREATE HOTEL KEY
+========================================================= */
+
+function createHotelKey(name) {
+
+    return name
+        .toLowerCase()
+        .trim()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+}
+
+
+
+/* =========================================================
+   LOAD HOTEL
+========================================================= */
+
+function loadHotel() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const hotelKey =
+        params.get('hotel');
+
+
+    /*
+       If no hotel is supplied, show the first
+       generic hotel as a safe fallback.
+    */
+
+    const hotel =
+        hotels[hotelKey] ||
+        hotels["makkah-grand-stay"];
+
+
+    document.title =
+        hotel.name +
+        " | GhorCast";
+
+
+    /* Hero */
+
+    const hero =
+        document.getElementById(
+            "hotelHero"
+        );
+
+
+    if (hero) {
+
+        hero.style.backgroundImage =
+            "url('" +
+            hotel.image +
+            "')";
+
+    }
+
+
+    /* Name */
+
+    document.getElementById(
+        "hotelName"
+    ).textContent =
+        hotel.name;
+
+
+    /* Location */
+
+    document.getElementById(
+        "heroLocation"
+    ).textContent =
+        "📍 " +
+        hotel.location;
+
+
+    document.getElementById(
+        "bookingHotel"
+    ).textContent =
+        hotel.name;
+
+
+    document.getElementById(
+        "bookingLocation"
+    ).textContent =
+        hotel.location;
+
+
+    document.getElementById(
+        "hotelDestination"
+    ).textContent =
+        hotel.destination;
+
+
+    document.getElementById(
+        "hotelAddress"
+    ).textContent =
+        hotel.address;
+
+
+    /* Rating */
+
+    document.getElementById(
+        "hotelRating"
+    ).textContent =
+        hotel.rating;
+
+
+    document.getElementById(
+        "bookingRating"
+    ).textContent =
+        hotel.rating +
+        " / 5";
+
+
+    /* Price */
+
+    document.getElementById(
+        "heroPrice"
+    ).innerHTML =
+        hotel.price +
+        ' <span>/night</span>';
+
+
+    document.getElementById(
+        "bookingPrice"
+    ).innerHTML =
+        hotel.price +
+        ' <span>/night</span>';
+
+
+    document.getElementById(
+        "roomPrice"
+    ).textContent =
+        hotel.price;
+
+
+    /* Description */
+
+    document.getElementById(
+        "hotelDescription"
+    ).textContent =
+        hotel.description;
+
+
+    document.getElementById(
+        "locationDescription"
+    ).textContent =
+        "Explore " +
+        hotel.destination +
+        " and enjoy a comfortable base for your journey. " +
+        hotel.name +
+        " is presented on GhorCast as a hotel accommodation option for travelers.";
+
+
+    /* Room image */
+
+    document.getElementById(
+        "roomImage"
+    ).style.backgroundImage =
+        "url('" +
+        hotel.image +
+        "')";
+
+
+    /* Gallery */
+
+    const galleryIds = [
+
+        "gallery1",
+        "gallery2",
+        "gallery3",
+        "gallery4",
+        "gallery5"
+
+    ];
+
+
+    galleryIds.forEach(
+        (id, index) => {
+
+            const element =
+                document.getElementById(id);
+
+
+            if (
+                element &&
+                hotel.gallery[index]
+            ) {
+
+                element.style.backgroundImage =
+                    "url('" +
+                    hotel.gallery[index] +
+                    "')";
+
+            }
+
+        }
+    );
+
+
+    /* Google Maps */
+
+    const map =
+        document.getElementById(
+            "hotelMap"
+        );
+
+
+    if (map) {
+
+        const mapQuery =
+            encodeURIComponent(
+                hotel.address
+            );
+
+
+        map.src =
+            "https://www.google.com/maps?q=" +
+            mapQuery +
+            "&output=embed";
+
+    }
+
+
+    /* Booking button */
+
+    const bookButton =
+        document.getElementById(
+            "bookNowButton"
+        );
+
+
+    if (bookButton) {
+
+        bookButton.onclick =
+            function () {
+
+                const booking = {
+
+                    hotel: hotel.name,
+
+                    location: hotel.location,
+
+                    destination:
+                        hotel.destination,
+
+                    price:
+                        hotel.price,
+
+                    rating:
+                        hotel.rating,
+
+                    image:
+                        hotel.image,
+
+                    quantity: 1
+
+                };
+
+
+                /*
+                   Store the hotel booking information
+                   for the GhorCast booking flow.
+                */
+
+                localStorage.setItem(
+                    "ghorcastBooking",
+                    JSON.stringify(
+                        booking
+                    )
+                );
+
+
+                /*
+                   Also keep a second compatible
+                   booking object for future use.
+                */
+
+                localStorage.setItem(
+                    "ghorcastHotelBooking",
+                    JSON.stringify(
+                        booking
+                    )
+                );
+
+
+                /*
+                   Send the visitor to the existing
+                   GhorCast booking confirmation page.
+                */
+
+                window.location.href =
+                    "booking-confirmation.html";
+
+            };
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
+
+
+const navigation =
+    document.querySelector(
+        ".navigation"
+    );
+
+
+if (
+    menuButton &&
+    navigation
+) {
+
+    menuButton.addEventListener(
+        "click",
+        () => {
+
+            const open =
+                navigation.classList.toggle(
+                    "mobile-open"
+                );
+
+
+            navigation.style.display =
+                open
+                    ? "flex"
+                    : "";
+
+
+            navigation.style.flexDirection =
+                open
+                    ? "column"
+                    : "";
+
+
+            navigation.style.position =
+                open
+                    ? "absolute"
+                    : "";
+
+
+            navigation.style.top =
+                open
+                    ? "70px"
+                    : "";
+
+
+            navigation.style.right =
+                open
+                    ? "20px"
+                    : "";
+
+
+            navigation.style.background =
+                open
+                    ? "#fff"
+                    : "";
+
+
+            navigation.style.padding =
+                open
+                    ? "20px"
+                    : "";
+
+
+            navigation.style.gap =
+                open
+                    ? "15px"
+                    : "";
+
+
+            navigation.style.zIndex =
+                open
+                    ? "9999"
+                    : "";
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                open
+                    ? "true"
+                    : "false"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadHotel();
+
+
+</script>
+
+
+</body>
+
+</html>
